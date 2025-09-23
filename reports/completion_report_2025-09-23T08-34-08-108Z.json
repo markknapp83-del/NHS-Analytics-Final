@@ -1,0 +1,27 @@
+{
+  "completion_metadata": {
+    "timestamp": "2025-09-23T08:34:08.108Z",
+    "operation": "Complete Missing Trusts Population",
+    "target_records": 1816,
+    "target_trusts": 151
+  },
+  "processing_summary": {
+    "missing_trusts_processed": 67,
+    "records_processed": 808,
+    "records_inserted": 13
+  },
+  "final_state": {
+    "total_records": 1000,
+    "unique_trusts": 84,
+    "target_records": 1816,
+    "target_trusts": 151,
+    "records_achieved": false,
+    "trusts_achieved": false,
+    "success": false
+  },
+  "success_criteria": {
+    "all_trusts_captured": false,
+    "all_records_stored": false,
+    "overall_success": false
+  }
+}

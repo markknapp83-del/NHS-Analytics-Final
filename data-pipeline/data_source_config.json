@@ -1,0 +1,58 @@
+{
+  "data_sources": {
+    "rtt_data": {
+      "url_pattern": "https://www.england.nhs.uk/statistics/statistical-work-areas/rtt-waiting-times/{year}/{month}/",
+      "file_patterns": ["Incomplete-Provider-{month}{year}.xlsx"],
+      "frequency": "monthly",
+      "release_day": 14,
+      "processing_priority": 1,
+      "description": "Referral to Treatment (RTT) waiting times data",
+      "data_domains": ["rtt_data"]
+    },
+    "ae_data": {
+      "url_pattern": "https://www.england.nhs.uk/statistics/statistical-work-areas/ae-waiting-times-and-activity/{year}/{month}/",
+      "file_patterns": ["AE-activity-{month}{year}.xlsx"],
+      "frequency": "monthly",
+      "release_day": 14,
+      "processing_priority": 2,
+      "description": "Accident & Emergency waiting times and activity data",
+      "data_domains": ["ae_data"]
+    },
+    "diagnostics_data": {
+      "url_pattern": "https://www.england.nhs.uk/statistics/statistical-work-areas/diagnostics-waiting-times-and-activity/{year}/{month}/",
+      "file_patterns": ["Diagnostic-waiting-times-{month}{year}.xlsx"],
+      "frequency": "monthly",
+      "release_day": 21,
+      "processing_priority": 3,
+      "description": "Diagnostic waiting times and activity data",
+      "data_domains": ["diagnostics_data"]
+    },
+    "capacity_data": {
+      "url_pattern": "https://www.england.nhs.uk/statistics/statistical-work-areas/bed-availability-and-occupancy/{year}/{month}/",
+      "file_patterns": ["Bed-availability-{month}{year}.xlsx"],
+      "frequency": "monthly",
+      "release_day": 28,
+      "processing_priority": 4,
+      "description": "Bed availability and occupancy data",
+      "data_domains": ["capacity_data"]
+    }
+  },
+  "download_settings": {
+    "max_retries": 3,
+    "retry_delay_seconds": 60,
+    "timeout_seconds": 300,
+    "user_agent": "NHS-Analytics-Pipeline/1.0",
+    "download_directory": "data/downloads/{year}/{month}",
+    "archive_directory": "data/archive/{year}/{month}"
+  },
+  "validation_settings": {
+    "min_file_size_bytes": 1024,
+    "max_file_age_days": 45,
+    "required_sheets": {
+      "rtt_data": ["Provider", "Trust"],
+      "ae_data": ["Provider", "Trust"],
+      "diagnostics_data": ["Provider", "Trust"],
+      "capacity_data": ["Provider", "Trust"]
+    }
+  }
+}

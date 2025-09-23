@@ -1,0 +1,50 @@
+{
+  "pipeline_metadata": {
+    "timestamp": "2025-09-23T08:32:58.930Z",
+    "processing_duration_ms": 6841,
+    "processing_duration_human": "6s",
+    "batch_size": 100,
+    "batches_processed": 18
+  },
+  "transformation_summary": {
+    "successful_transforms": 1816,
+    "failed_transforms": 0,
+    "total_errors": 0,
+    "total_warnings": 0,
+    "success_rate": 100,
+    "errors": [],
+    "warnings": []
+  },
+  "validation_summary": {
+    "total_records": 1816,
+    "passed": 1816,
+    "failed": 0,
+    "success_rate": "100.00",
+    "total_warnings": 559,
+    "average_warnings_per_record": "0.31"
+  },
+  "data_quality_assessment": {
+    "database_verification": "success",
+    "total_records_in_db": 0,
+    "jsonb_structure_check": {
+      "sample_size": 5,
+      "rtt_data_populated": 5,
+      "ae_data_populated": 5,
+      "diagnostics_data_populated": 5,
+      "empty_jsonb_fields": 0
+    },
+    "data_completeness_analysis": {
+      "sample_size": 5,
+      "total_metrics_checked": 65,
+      "populated_metrics": 60,
+      "completeness_percentage": 92
+    }
+  },
+  "recommendations": [],
+  "error_analysis": {
+    "transformation_errors": [],
+    "validation_errors": [],
+    "common_error_patterns": [],
+    "suggested_fixes": []
+  }
+}

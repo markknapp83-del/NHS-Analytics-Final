@@ -1,0 +1,2306 @@
+{
+  "analysis_metadata": {
+    "timestamp": "2025-09-23T08:30:54.672Z",
+    "analysis_type": "Missing Trusts Analysis",
+    "csv_trusts": 151,
+    "database_trusts": 84,
+    "missing_trusts_count": 67
+  },
+  "coverage_summary": {
+    "expected_trusts": 151,
+    "actual_trusts": 84,
+    "missing_trusts": 67,
+    "coverage_percentage": 56
+  },
+  "missing_trusts_list": [
+    "RH5",
+    "RH8",
+    "RHM",
+    "RHQ",
+    "RHU",
+    "RHW",
+    "RJ1",
+    "RJ2",
+    "RPC",
+    "RPG",
+    "RPY",
+    "RQ3",
+    "RQM",
+    "RQW",
+    "RQX",
+    "RR7",
+    "RR8",
+    "RRE",
+    "RRF",
+    "RRJ",
+    "RRK",
+    "RRV",
+    "RT1",
+    "RTD",
+    "RTE",
+    "RTF",
+    "RTG",
+    "RTH",
+    "RTK",
+    "RTP",
+    "RTR",
+    "RTX",
+    "RVJ",
+    "RVR",
+    "RVV",
+    "RVW",
+    "RW1",
+    "RW4",
+    "RW5",
+    "RWA",
+    "RWD",
+    "RWE",
+    "RWF",
+    "RWG",
+    "RWH",
+    "RWJ",
+    "RWP",
+    "RWW",
+    "RWX",
+    "RWY",
+    "RX1",
+    "RX4",
+    "RXC",
+    "RXF",
+    "RXG",
+    "RXK",
+    "RXL",
+    "RXN",
+    "RXP",
+    "RXQ",
+    "RXR",
+    "RXW",
+    "RYJ",
+    "RYR",
+    "RYW",
+    "RYY",
+    "TAD"
+  ],
+  "data_quality_analysis": {
+    "RH5": {
+      "records": 12,
+      "trust_name": "SOMERSET NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3123,
+        "empty_fields": 129,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 96,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 96,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 96,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RH8": {
+      "records": 12,
+      "trust_name": "ROYAL DEVON UNIVERSITY HEALTHCARE NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3112,
+        "empty_fields": 140,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 96,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 96,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 96,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RHM": {
+      "records": 12,
+      "trust_name": "UNIVERSITY HOSPITAL SOUTHAMPTON NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3154,
+        "empty_fields": 98,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 98,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 98,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 98,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RHQ": {
+      "records": 12,
+      "trust_name": "SHEFFIELD TEACHING HOSPITALS NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3055,
+        "empty_fields": 197,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 94,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 94,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 94,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RHU": {
+      "records": 12,
+      "trust_name": "PORTSMOUTH HOSPITALS UNIVERSITY NATIONAL HEALTH SERVICE TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3094,
+        "empty_fields": 158,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 95,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 95,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 97,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RHW": {
+      "records": 12,
+      "trust_name": "ROYAL BERKSHIRE NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3016,
+        "empty_fields": 236,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 93,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 93,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 93,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RJ1": {
+      "records": 12,
+      "trust_name": "GUY'S AND ST THOMAS' NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3210,
+        "empty_fields": 42,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 99,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 99,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 99,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RJ2": {
+      "records": 12,
+      "trust_name": "LEWISHAM AND GREENWICH NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3005,
+        "empty_fields": 247,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 92,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 92,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 93,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RPC": {
+      "records": 12,
+      "trust_name": "QUEEN VICTORIA HOSPITAL NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2345,
+        "empty_fields": 907,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 72,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 72,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 72,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RPG": {
+      "records": 12,
+      "trust_name": "OXLEAS NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 1892,
+        "empty_fields": 1360,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 58,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 58,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 58,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RPY": {
+      "records": 12,
+      "trust_name": "THE ROYAL MARSDEN NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2606,
+        "empty_fields": 646,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 80,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 80,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 80,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RQ3": {
+      "records": 12,
+      "trust_name": "BIRMINGHAM WOMEN'S AND CHILDREN'S NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2910,
+        "empty_fields": 342,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 89,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 89,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 89,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RQM": {
+      "records": 12,
+      "trust_name": "CHELSEA AND WESTMINSTER HOSPITAL NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3111,
+        "empty_fields": 141,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 96,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 96,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 96,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RQW": {
+      "records": 12,
+      "trust_name": "THE PRINCESS ALEXANDRA HOSPITAL NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2932,
+        "empty_fields": 320,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 90,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 90,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 90,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RQX": {
+      "records": 12,
+      "trust_name": "HOMERTON HEALTHCARE NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2964,
+        "empty_fields": 288,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 91,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 91,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 91,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RR7": {
+      "records": 12,
+      "trust_name": "GATESHEAD HEALTH NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2908,
+        "empty_fields": 344,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 89,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 89,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 89,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RR8": {
+      "records": 12,
+      "trust_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3133,
+        "empty_fields": 119,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 96,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 96,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 96,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RRE": {
+      "records": 12,
+      "trust_name": "MIDLANDS PARTNERSHIP NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 1994,
+        "empty_fields": 1258,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 61,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 61,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 61,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RRF": {
+      "records": 12,
+      "trust_name": "WRIGHTINGTON, WIGAN AND LEIGH NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3112,
+        "empty_fields": 140,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 96,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 96,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 96,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RRJ": {
+      "records": 12,
+      "trust_name": "THE ROYAL ORTHOPAEDIC HOSPITAL NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2064,
+        "empty_fields": 1188,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 63,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 63,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 63,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RRK": {
+      "records": 12,
+      "trust_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3100,
+        "empty_fields": 152,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 94,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 94,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 94,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RRV": {
+      "records": 12,
+      "trust_name": "UNIVERSITY COLLEGE LONDON HOSPITALS NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3048,
+        "empty_fields": 204,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 94,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 94,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 94,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RT1": {
+      "records": 12,
+      "trust_name": "CAMBRIDGESHIRE AND PETERBOROUGH NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 1812,
+        "empty_fields": 1440,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 56,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 56,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 56,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RTD": {
+      "records": 12,
+      "trust_name": "THE NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3193,
+        "empty_fields": 59,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 99,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 99,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 97,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RTE": {
+      "records": 12,
+      "trust_name": "GLOUCESTERSHIRE HOSPITALS NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3097,
+        "empty_fields": 155,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 95,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 95,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 96,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RTF": {
+      "records": 12,
+      "trust_name": "NORTHUMBRIA HEALTHCARE NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2908,
+        "empty_fields": 344,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 89,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 89,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 89,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RTG": {
+      "records": 12,
+      "trust_name": "UNIVERSITY HOSPITALS OF DERBY AND BURTON NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3065,
+        "empty_fields": 187,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 94,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 94,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 94,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RTH": {
+      "records": 12,
+      "trust_name": "OXFORD UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3202,
+        "empty_fields": 50,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 99,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 99,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 99,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RTK": {
+      "records": 12,
+      "trust_name": "ASHFORD AND ST PETER'S HOSPITALS NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3032,
+        "empty_fields": 220,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 93,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 93,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 93,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RTP": {
+      "records": 12,
+      "trust_name": "SURREY AND SUSSEX HEALTHCARE NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2908,
+        "empty_fields": 344,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 91,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 91,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 91,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RTR": {
+      "records": 12,
+      "trust_name": "SOUTH TEES HOSPITALS NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3061,
+        "empty_fields": 191,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 94,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 94,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 94,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RTX": {
+      "records": 12,
+      "trust_name": "UNIVERSITY HOSPITALS OF MORECAMBE BAY NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3112,
+        "empty_fields": 140,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 96,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 96,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 96,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RVJ": {
+      "records": 12,
+      "trust_name": "NORTH BRISTOL NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3001,
+        "empty_fields": 251,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 92,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 92,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 92,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RVR": {
+      "records": 16,
+      "trust_name": "EPSOM AND ST HELIER UNIVERSITY HOSPITALS NHS TRUST",
+      "data_quality": {
+        "total_fields": 4336,
+        "populated_fields": 3966,
+        "empty_fields": 370,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 91,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 91,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 91,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RVV": {
+      "records": 12,
+      "trust_name": "EAST KENT HOSPITALS UNIVERSITY NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3165,
+        "empty_fields": 87,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 97,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 97,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 97,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RVW": {
+      "records": 12,
+      "trust_name": "NORTH TEES AND HARTLEPOOL NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2812,
+        "empty_fields": 440,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 86,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 86,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 86,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RW1": {
+      "records": 12,
+      "trust_name": "SOUTHERN HEALTH NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2635,
+        "empty_fields": 617,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 81,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 81,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 81,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RW4": {
+      "records": 12,
+      "trust_name": "MERSEY CARE NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 1879,
+        "empty_fields": 1373,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 58,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 58,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 58,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RW5": {
+      "records": 12,
+      "trust_name": "LANCASHIRE & SOUTH CUMBRIA NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2052,
+        "empty_fields": 1200,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 63,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 63,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 63,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RWA": {
+      "records": 12,
+      "trust_name": "HULL UNIVERSITY TEACHING HOSPITALS NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3210,
+        "empty_fields": 42,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 99,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 99,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 99,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RWD": {
+      "records": 12,
+      "trust_name": "UNITED LINCOLNSHIRE HOSPITALS NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2955,
+        "empty_fields": 297,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 91,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 91,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 91,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RWE": {
+      "records": 12,
+      "trust_name": "UNIVERSITY HOSPITALS OF LEICESTER NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3200,
+        "empty_fields": 52,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 99,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 99,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 99,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RWF": {
+      "records": 12,
+      "trust_name": "MAIDSTONE AND TUNBRIDGE WELLS NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3007,
+        "empty_fields": 245,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 93,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 93,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 93,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RWG": {
+      "records": 12,
+      "trust_name": "WEST HERTFORDSHIRE TEACHING HOSPITALS NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3101,
+        "empty_fields": 151,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 96,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 95,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 95,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RWH": {
+      "records": 12,
+      "trust_name": "EAST AND NORTH HERTFORDSHIRE NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3032,
+        "empty_fields": 220,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 93,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 93,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 93,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RWJ": {
+      "records": 12,
+      "trust_name": "STOCKPORT NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2942,
+        "empty_fields": 310,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 92,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 90,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 92,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RWP": {
+      "records": 12,
+      "trust_name": "WORCESTERSHIRE ACUTE HOSPITALS NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3034,
+        "empty_fields": 218,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 93,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 93,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 93,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RWW": {
+      "records": 12,
+      "trust_name": "WARRINGTON AND HALTON TEACHING HOSPITALS NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2924,
+        "empty_fields": 328,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 89,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 90,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 90,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RWX": {
+      "records": 12,
+      "trust_name": "BERKSHIRE HEALTHCARE NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 1947,
+        "empty_fields": 1305,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 60,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 60,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 60,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RWY": {
+      "records": 12,
+      "trust_name": "CALDERDALE AND HUDDERSFIELD NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2978,
+        "empty_fields": 274,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 93,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 93,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 91,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RX1": {
+      "records": 12,
+      "trust_name": "NOTTINGHAM UNIVERSITY HOSPITALS NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3052,
+        "empty_fields": 200,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 94,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 94,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 94,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RX4": {
+      "records": 12,
+      "trust_name": "CUMBRIA, NORTHUMBERLAND, TYNE AND WEAR NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 1812,
+        "empty_fields": 1440,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 56,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 56,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 56,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RXC": {
+      "records": 12,
+      "trust_name": "EAST SUSSEX HEALTHCARE NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2883,
+        "empty_fields": 369,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 89,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 89,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 88,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RXF": {
+      "records": 12,
+      "trust_name": "MID YORKSHIRE TEACHING NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3040,
+        "empty_fields": 212,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 93,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 93,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 93,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RXG": {
+      "records": 12,
+      "trust_name": "SOUTH WEST YORKSHIRE PARTNERSHIP NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 1936,
+        "empty_fields": 1316,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 59,
+          "issues": [
+            "Missing core A&E data: ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 59,
+          "issues": [
+            "Missing core A&E data: ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 59,
+          "issues": [
+            "Missing core A&E data: ae_4hr_performance_pct"
+          ]
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_4hr_performance_pct",
+        "Missing core A&E data: ae_4hr_performance_pct",
+        "Missing core A&E data: ae_4hr_performance_pct",
+        "Missing core A&E data: ae_4hr_performance_pct",
+        "Missing core A&E data: ae_4hr_performance_pct",
+        "Missing core A&E data: ae_4hr_performance_pct",
+        "Missing core A&E data: ae_4hr_performance_pct",
+        "Missing core A&E data: ae_4hr_performance_pct",
+        "Missing core A&E data: ae_4hr_performance_pct",
+        "Missing core A&E data: ae_4hr_performance_pct",
+        "Missing core A&E data: ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RXK": {
+      "records": 12,
+      "trust_name": "SANDWELL AND WEST BIRMINGHAM HOSPITALS NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3032,
+        "empty_fields": 220,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 93,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 93,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 93,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RXL": {
+      "records": 12,
+      "trust_name": "BLACKPOOL TEACHING HOSPITALS NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3089,
+        "empty_fields": 163,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 93,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 93,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 95,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RXN": {
+      "records": 12,
+      "trust_name": "LANCASHIRE TEACHING HOSPITALS NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3100,
+        "empty_fields": 152,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 95,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 95,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 95,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RXP": {
+      "records": 12,
+      "trust_name": "COUNTY DURHAM AND DARLINGTON NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2956,
+        "empty_fields": 296,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 91,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 91,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 91,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RXQ": {
+      "records": 12,
+      "trust_name": "BUCKINGHAMSHIRE HEALTHCARE NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2956,
+        "empty_fields": 296,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 93,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 91,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 91,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RXR": {
+      "records": 12,
+      "trust_name": "EAST LANCASHIRE HOSPITALS NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2932,
+        "empty_fields": 320,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 90,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 90,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 90,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RXW": {
+      "records": 12,
+      "trust_name": "THE SHREWSBURY AND TELFORD HOSPITAL NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2934,
+        "empty_fields": 318,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 90,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 90,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 90,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RYJ": {
+      "records": 12,
+      "trust_name": "IMPERIAL COLLEGE HEALTHCARE NHS TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 3208,
+        "empty_fields": 44,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 99,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 99,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 99,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RYR": {
+      "records": 12,
+      "trust_name": "UNIVERSITY HOSPITALS SUSSEX NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 2969,
+        "empty_fields": 283,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 92,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 91,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 91,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RYW": {
+      "records": 12,
+      "trust_name": "BIRMINGHAM COMMUNITY HEALTHCARE NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 1866,
+        "empty_fields": 1386,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 57,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 57,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 57,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "RYY": {
+      "records": 12,
+      "trust_name": "KENT COMMUNITY HEALTH NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 1971,
+        "empty_fields": 1281,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 61,
+          "issues": []
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 61,
+          "issues": []
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 61,
+          "issues": []
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    },
+    "TAD": {
+      "records": 12,
+      "trust_name": "BRADFORD DISTRICT CARE NHS FOUNDATION TRUST",
+      "data_quality": {
+        "total_fields": 3252,
+        "populated_fields": 1824,
+        "empty_fields": 1428,
+        "null_fields": 0
+      },
+      "sample_issues": [
+        {
+          "period": "2024-08-01",
+          "completeness": 56,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-09-01",
+          "completeness": 56,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        },
+        {
+          "period": "2024-10-01",
+          "completeness": 56,
+          "issues": [
+            "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+          ]
+        }
+      ],
+      "validation_issues": [
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct",
+        "Missing core A&E data: ae_attendances_total, ae_4hr_performance_pct"
+      ]
+    }
+  },
+  "recommendations": [
+    {
+      "priority": "HIGH",
+      "category": "General Strategy",
+      "issue": "23 trusts completely missing from database",
+      "solution": "Implement permissive validation: accept partial data rather than rejecting entire trusts"
+    }
+  ],
+  "permissive_validation_strategy": {
+    "core_principle": "Accept partial data rather than reject entire trusts",
+    "validation_changes": [
+      {
+        "rule": "Required Fields",
+        "current": "Reject if missing trust_code, period, core RTT/AE data",
+        "proposed": "Only require trust_code and period - allow missing data fields"
+      },
+      {
+        "rule": "Data Completeness",
+        "current": "Require 50% data completeness",
+        "proposed": "Accept any level of completeness - capture available data"
+      },
+      {
+        "rule": "Percentage Validation",
+        "current": "Reject invalid percentage values",
+        "proposed": "Convert invalid percentages to null, continue processing"
+      },
+      {
+        "rule": "JSONB Structure",
+        "current": "Require fully populated JSONB objects",
+        "proposed": "Create JSONB with available data, null for missing fields"
+      }
+    ],
+    "implementation_strategy": [
+      "Create permissive validation mode for missing trusts",
+      "Process missing trusts with relaxed rules",
+      "Ensure all 151 trusts have at least basic records",
+      "Mark partial records for data quality monitoring"
+    ]
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "database_state": {
+    "total_records": 150,
+    "expected_records": 1816,
+    "record_shortfall": 1666
+  },
+  "trust_analysis": {
+    "unique_trusts": 13,
+    "expected_trusts": 151,
+    "missing_trusts": 138,
+    "trust_list": [
+      "RBS",
+      "REN",
+      "REP",
+      "RP4",
+      "RP7",
+      "RPG",
+      "RQ3",
+      "RT1",
+      "RW4",
+      "RWX",
+      "RX4",
+      "RXG",
+      "TAD"
+    ],
+    "records_per_trust": {
+      "RBS": 12,
+      "REN": 12,
+      "REP": 12,
+      "RP4": 8,
+      "RP7": 12,
+      "RPG": 12,
+      "RT1": 12,
+      "RQ3": 10,
+      "RW4": 12,
+      "RWX": 12,
+      "RX4": 12,
+      "RXG": 12,
+      "TAD": 12
+    },
+    "trust_type_estimate": {
+      "foundation_trusts": 6,
+      "nhs_trusts": 6,
+      "teaching_hospitals": 0,
+      "specialist_trusts": 1
+    }
+  },
+  "period_analysis": {
+    "unique_periods": 12,
+    "expected_periods": 12,
+    "period_list": [
+      "2024-08-01",
+      "2024-09-01",
+      "2024-10-01",
+      "2024-11-01",
+      "2024-12-01",
+      "2025-01-01",
+      "2025-02-01",
+      "2025-03-01",
+      "2025-04-01",
+      "2025-05-01",
+      "2025-06-01",
+      "2025-07-01"
+    ],
+    "records_per_period": {
+      "2024-08-01": 12,
+      "2024-09-01": 12,
+      "2024-10-01": 12,
+      "2024-11-01": 12,
+      "2024-12-01": 13,
+      "2025-01-01": 13,
+      "2025-02-01": 13,
+      "2025-03-01": 13,
+      "2025-04-01": 13,
+      "2025-05-01": 13,
+      "2025-06-01": 12,
+      "2025-07-01": 12
+    }
+  },
+  "specific_trust_check": {
+    "target_trusts": [
+      "R0A",
+      "RGT",
+      "RWD",
+      "RJE",
+      "RAL"
+    ],
+    "found_trusts": {},
+    "missing_trusts": [
+      "R0A",
+      "RGT",
+      "RWD",
+      "RJE",
+      "RAL"
+    ],
+    "acute_trust_present": false
+  },
+  "completeness_analysis": {
+    "records_with_rtt_data": 150,
+    "records_with_ae_data": 150,
+    "records_with_diagnostics_data": 150,
+    "records_with_capacity_data": 150,
+    "records_with_empty_jsonb": 0
+  },
+  "assessment": {
+    "severity": "CRITICAL",
+    "issues": [
+      "Severely low record count - major data population failure",
+      "Most NHS trusts missing from database",
+      "Specific acute trusts missing: R0A, RGT, RWD, RJE, RAL",
+      "No acute trusts found in database"
+    ],
+    "recommendations": [
+      "Complete database repopulation required",
+      "Investigate CSV processing pipeline for filtering issues",
+      "Verify no acute hospital filtering in transformation logic",
+      "Check for trust type filtering in validation or transformation"
+    ],
+    "next_action": "Clear database and re-run complete transformation"
+  }
+}
