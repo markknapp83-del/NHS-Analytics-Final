@@ -11,6 +11,7 @@ import {
   Building2,
   MapPin,
   LineChart,
+  Users,
   Settings
 } from 'lucide-react';
 
@@ -20,6 +21,7 @@ export function DashboardSidebar() {
   const navigation = [
     { name: 'Overview', href: '/dashboard', icon: BarChart3 },
     { name: 'RTT Deep Dive', href: '/dashboard/rtt-deep-dive', icon: TrendingUp },
+    { name: 'Community Health', href: '/dashboard/community-health', icon: Users },
     { name: 'Diagnostics', href: '/dashboard/diagnostics', icon: Activity },
     { name: 'Capacity & Flow', href: '/dashboard/capacity', icon: Building2 },
     { name: 'ICB Analysis', href: '/dashboard/icb-analysis', icon: MapPin },

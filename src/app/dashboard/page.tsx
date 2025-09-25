@@ -6,7 +6,7 @@ import { useTrustMetrics } from '@/hooks/useNHSData';
 import { useTrustSelection } from '@/hooks/use-trust-selection';
 import { AlertTriangle } from 'lucide-react';
 import { RTTPerformanceChart } from '@/components/charts/rtt-performance-chart';
-import { AverageWaitChart } from '@/components/charts/average-wait-chart';
+import { CommunityTrendsChart } from '@/components/charts/community-trends-chart';
 import { OverviewKPICards } from '@/components/dashboard/overview-kpi-cards';
 import { CriticalIssuesPanel } from '@/components/dashboard/critical-issues-panel';
 import { DiagnosticBreachBreakdownChart } from '@/components/charts/diagnostic-breach-breakdown-chart';
@@ -83,14 +83,14 @@ export default function OverviewPage() {
         {/* Top Right: Critical Issues Alert Panel (NEW) */}
         <CriticalIssuesPanel trustData={trustData} />
 
-        {/* Bottom Left: Average Wait Time (UNCHANGED) */}
+        {/* Bottom Left: Community Services Waiting Lists */}
         <Card>
           <CardHeader>
-            <CardTitle>Average Wait Time</CardTitle>
-            <CardDescription>Median waiting time in weeks with trend analysis</CardDescription>
+            <CardTitle>Community Services Waiting Lists</CardTitle>
+            <CardDescription>Total patients waiting by major service over time</CardDescription>
           </CardHeader>
           <CardContent>
-            <AverageWaitChart data={trustData} />
+            <CommunityTrendsChart data={trustData} />
           </CardContent>
         </Card>
 

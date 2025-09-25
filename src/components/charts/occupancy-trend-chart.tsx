@@ -64,7 +64,7 @@ export function OccupancyTrendChart({ data }: OccupancyTrendChartProps) {
           y={85}
           stroke="#f59e0b"
           strokeDasharray="5 5"
-          label={{ value: "85% Optimal", position: "topLeft" }}
+          label={{ value: "85% Optimal", position: "top" }}
         />
         <Line
           type="monotone"

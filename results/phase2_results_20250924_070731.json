@@ -1,0 +1,1185 @@
+{
+  "test_timestamp": "2025-09-24T07:07:27.585671",
+  "test_phase": "Phase 2: Database Migration Integrity",
+  "data_directory": "/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/Data",
+  "results": {
+    "database_completeness": {
+      "csv_total_records": 1816,
+      "csv_unique_trusts": 151,
+      "csv_unique_periods": 12,
+      "csv_period_range": "2024-08-01 to 2025-07-01",
+      "db_total_records": 1766,
+      "db_unique_trusts": 84,
+      "db_unique_periods": 7,
+      "db_period_range": "2024-08-01 to 2025-02-01",
+      "missing_trusts": [
+        "RYW",
+        "RWW",
+        "RTF",
+        "RP5",
+        "RRE",
+        "RTE",
+        "RP6",
+        "RTP",
+        "RR7",
+        "RNZ",
+        "RTG",
+        "RXQ",
+        "RYY",
+        "RTD",
+        "RX4",
+        "RWX",
+        "RXG",
+        "RTX",
+        "RR8",
+        "RXK",
+        "RPG",
+        "RQX",
+        "RTR",
+        "RVW",
+        "RQ3",
+        "RQM",
+        "RPY",
+        "RXF",
+        "RRK",
+        "RVJ",
+        "RQW",
+        "RP4",
+        "RX1",
+        "RYR",
+        "RTH",
+        "RRJ",
+        "RXR",
+        "RVV",
+        "RWE",
+        "RWF",
+        "RWH",
+        "RWA",
+        "RPC",
+        "RWD",
+        "RXC",
+        "RP7",
+        "RW4",
+        "RRV",
+        "RW5",
+        "RPA",
+        "RW1",
+        "RYJ",
+        "RRF",
+        "RWY",
+        "RWP",
+        "RT1",
+        "RTK",
+        "RXL",
+        "RXN",
+        "TAD",
+        "RNQ",
+        "RXW",
+        "RNS",
+        "RVR",
+        "RXP",
+        "RWJ",
+        "RWG"
+      ],
+      "extra_trusts": [],
+      "missing_periods": [
+        "2025-06-01",
+        "2025-04-01",
+        "2025-07-01",
+        "2025-05-01",
+        "2025-03-01"
+      ],
+      "extra_periods": [],
+      "record_count_match": false,
+      "trust_count_match": false,
+      "period_count_match": false,
+      "status": "WARN",
+      "issues": [
+        "Minor record count difference: CSV 1816 vs DB 1766",
+        "Missing 67 trusts in database: ['RYW', 'RWW', 'RTF', 'RP5', 'RRE']",
+        "Missing 5 periods in database: ['2025-06-01', '2025-04-01', '2025-07-01', '2025-05-01', '2025-03-01']"
+      ]
+    },
+    "jsonb_structure": {
+      "sample_size": 50,
+      "fields_analyzed": [
+        "rtt_data",
+        "ae_data",
+        "diagnostics_data",
+        "capacity_data"
+      ],
+      "structure_analysis": {
+        "rtt_data": {
+          "total_records": 50,
+          "populated_count": 50,
+          "empty_count": 0,
+          "empty_string_count": 0,
+          "null_count": 0,
+          "valid_json_count": 50,
+          "invalid_json_count": 0,
+          "structure_examples": [
+            {
+              "trust_code": "R0A",
+              "keys": [
+                "specialties",
+                "trust_total"
+              ],
+              "key_count": 2
+            },
+            {
+              "trust_code": "R0A",
+              "keys": [
+                "specialties",
+                "trust_total"
+              ],
+              "key_count": 2
+            },
+            {
+              "trust_code": "R0A",
+              "keys": [
+                "specialties",
+                "trust_total"
+              ],
+              "key_count": 2
+            }
+          ],
+          "populated_percentage": 100.0,
+          "empty_string_percentage": 0.0
+        },
+        "ae_data": {
+          "total_records": 50,
+          "populated_count": 50,
+          "empty_count": 0,
+          "empty_string_count": 0,
+          "null_count": 0,
+          "valid_json_count": 50,
+          "invalid_json_count": 0,
+          "structure_examples": [
+            {
+              "trust_code": "R0A",
+              "keys": [
+                "total_attendances",
+                "over_four_hours_total",
+                "four_hour_performance_pct",
+                "emergency_admissions_total",
+                "twelve_hour_wait_admissions"
+              ],
+              "key_count": 5
+            },
+            {
+              "trust_code": "R0A",
+              "keys": [
+                "total_attendances",
+                "over_four_hours_total",
+                "four_hour_performance_pct",
+                "emergency_admissions_total",
+                "twelve_hour_wait_admissions"
+              ],
+              "key_count": 5
+            },
+            {
+              "trust_code": "R0A",
+              "keys": [
+                "total_attendances",
+                "over_four_hours_total",
+                "four_hour_performance_pct",
+                "emergency_admissions_total",
+                "twelve_hour_wait_admissions"
+              ],
+              "key_count": 5
+            }
+          ],
+          "populated_percentage": 100.0,
+          "empty_string_percentage": 0.0
+        },
+        "diagnostics_data": {
+          "total_records": 50,
+          "populated_count": 50,
+          "empty_count": 0,
+          "empty_string_count": 0,
+          "null_count": 0,
+          "valid_json_count": 50,
+          "invalid_json_count": 0,
+          "structure_examples": [
+            {
+              "trust_code": "R0A",
+              "keys": [
+                "ct",
+                "mri",
+                "dexa",
+                "audiology",
+                "cystoscopy",
+                "ultrasound",
+                "colonoscopy",
+                "gastroscopy",
+                "urodynamics",
+                "sigmoidoscopy",
+                "sleep_studies",
+                "neurophysiology",
+                "echocardiography",
+                "nuclear_medicine",
+                "electrophysiology"
+              ],
+              "key_count": 15
+            },
+            {
+              "trust_code": "R0A",
+              "keys": [
+                "ct",
+                "mri",
+                "dexa",
+                "audiology",
+                "cystoscopy",
+                "ultrasound",
+                "colonoscopy",
+                "gastroscopy",
+                "urodynamics",
+                "sigmoidoscopy",
+                "sleep_studies",
+                "neurophysiology",
+                "echocardiography",
+                "nuclear_medicine",
+                "electrophysiology"
+              ],
+              "key_count": 15
+            },
+            {
+              "trust_code": "R0A",
+              "keys": [
+                "ct",
+                "mri",
+                "dexa",
+                "audiology",
+                "cystoscopy",
+                "ultrasound",
+                "colonoscopy",
+                "gastroscopy",
+                "urodynamics",
+                "sigmoidoscopy",
+                "sleep_studies",
+                "neurophysiology",
+                "echocardiography",
+                "nuclear_medicine",
+                "electrophysiology"
+              ],
+              "key_count": 15
+            }
+          ],
+          "populated_percentage": 100.0,
+          "empty_string_percentage": 0.0
+        },
+        "capacity_data": {
+          "total_records": 50,
+          "populated_count": 50,
+          "empty_count": 0,
+          "empty_string_count": 0,
+          "null_count": 0,
+          "valid_json_count": 50,
+          "invalid_json_count": 0,
+          "structure_examples": [
+            {
+              "trust_code": "R0A",
+              "keys": [
+                "avg_daily_discharges",
+                "virtual_ward_capacity",
+                "virtual_ward_occupancy_rate"
+              ],
+              "key_count": 3
+            },
+            {
+              "trust_code": "R0A",
+              "keys": [
+                "avg_daily_discharges",
+                "virtual_ward_capacity",
+                "virtual_ward_occupancy_rate"
+              ],
+              "key_count": 3
+            },
+            {
+              "trust_code": "R0A",
+              "keys": [
+                "avg_daily_discharges",
+                "virtual_ward_capacity",
+                "virtual_ward_occupancy_rate"
+              ],
+              "key_count": 3
+            }
+          ],
+          "populated_percentage": 100.0,
+          "empty_string_percentage": 0.0
+        }
+      },
+      "empty_field_analysis": {},
+      "data_type_analysis": {},
+      "actual_sample_size": 50,
+      "overall_status": "PASS",
+      "average_populated_percentage": 100.0
+    },
+    "transformation_accuracy": {
+      "sample_size": 25,
+      "samples_tested": [
+        {
+          "trust_code": "RWA",
+          "period": "2024-10-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 14647.0,
+              "db_value": 14647,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 58.94,
+              "db_value": 58.94,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 57.2,
+              "db_value": 57.2,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "160974",
+              "db_value": 160974,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RKE",
+          "period": "2024-11-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 9302.0,
+              "db_value": 9302,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 70.81,
+              "db_value": 70.81,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 65.42,
+              "db_value": 65.42,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "50654",
+              "db_value": 50654,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RWX",
+          "period": "2025-01-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 1264.0,
+              "db_value": 1264,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 98.73,
+              "db_value": 98.73,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 100.0,
+              "db_value": 100,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "166",
+              "db_value": 166,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RWJ",
+          "period": "2024-09-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 8843.0,
+              "db_value": 8843,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 59.99,
+              "db_value": 59.99,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 52.52,
+              "db_value": 52.52,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "73730",
+              "db_value": 73730,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RHQ",
+          "period": "2025-05-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 17537.0,
+              "db_value": 17537,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 72.7,
+              "db_value": 72.7,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 65.27,
+              "db_value": 65.27,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "184074",
+              "db_value": 184074,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RNN",
+          "period": "2024-08-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 10394.0,
+              "db_value": 10394,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 68.19,
+              "db_value": 68.19,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 59.48,
+              "db_value": 59.48,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "76432",
+              "db_value": 76432,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "R1A",
+          "period": "2025-06-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": NaN,
+              "db_value": null,
+              "accurate": true,
+              "notes": [
+                "Both values are null/empty"
+              ]
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": NaN,
+              "db_value": null,
+              "accurate": true,
+              "notes": [
+                "Both values are null/empty"
+              ]
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 97.48,
+              "db_value": 97.48,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "238",
+              "db_value": 238,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RJ7",
+          "period": "2024-10-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 12650.0,
+              "db_value": 12650,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 78.06,
+              "db_value": 78.06,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 63.16,
+              "db_value": 63.16,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "134926",
+              "db_value": 134926,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RBT",
+          "period": "2025-06-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 10154.0,
+              "db_value": 10154,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 58.9,
+              "db_value": 58.9,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 55.71,
+              "db_value": 55.71,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "78426",
+              "db_value": 78426,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RNN",
+          "period": "2025-05-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 11369.0,
+              "db_value": 11369,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 66.49,
+              "db_value": 66.49,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 56.64,
+              "db_value": 56.64,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "76132",
+              "db_value": 76132,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RTK",
+          "period": "2024-09-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 9511.0,
+              "db_value": 9511,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 67.57,
+              "db_value": 67.57,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 60.45,
+              "db_value": 60.45,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "116204",
+              "db_value": 116204,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RXR",
+          "period": "2025-06-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 24311.0,
+              "db_value": 24311,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 80.03,
+              "db_value": 80.03,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 60.69,
+              "db_value": 60.69,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "116374",
+              "db_value": 116374,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RDR",
+          "period": "2025-01-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 11327.0,
+              "db_value": 11327,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 99.23,
+              "db_value": 99.23,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 73.74,
+              "db_value": 73.74,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "21040",
+              "db_value": 21040,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RA7",
+          "period": "2024-11-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 18761.0,
+              "db_value": 18761,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 64.83,
+              "db_value": 64.83,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 62.82,
+              "db_value": 62.82,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "109996",
+              "db_value": 109996,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RHM",
+          "period": "2025-02-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 11906.0,
+              "db_value": 11906,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 57.51,
+              "db_value": 57.51,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 61.5,
+              "db_value": 61.5,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "122656",
+              "db_value": 122656,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RLT",
+          "period": "2025-05-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 8193.0,
+              "db_value": 8193,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 68.22,
+              "db_value": 68.22,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 58.31,
+              "db_value": 58.31,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "41148",
+              "db_value": 41148,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RBT",
+          "period": "2025-01-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 9342.0,
+              "db_value": 9342,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 56.49,
+              "db_value": 56.49,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 52.9,
+              "db_value": 52.9,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "75392",
+              "db_value": 75392,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RAL",
+          "period": "2024-08-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 23693.0,
+              "db_value": 23693,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 76.61,
+              "db_value": 76.61,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 57.13,
+              "db_value": 57.13,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "218368",
+              "db_value": 218368,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RTP",
+          "period": "2024-12-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 11305.0,
+              "db_value": 11305,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 55.42,
+              "db_value": 55.42,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 59.29,
+              "db_value": 59.29,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "99696",
+              "db_value": 99696,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RJ6",
+          "period": "2025-04-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 17535.0,
+              "db_value": 17535,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 79.13,
+              "db_value": 79.13,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 68.36,
+              "db_value": 68.36,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "68860",
+              "db_value": 68860,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RXG",
+          "period": "2025-01-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 0.0,
+              "db_value": 0,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": NaN,
+              "db_value": null,
+              "accurate": true,
+              "notes": [
+                "Both values are null/empty"
+              ]
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 97.17,
+              "db_value": 97.17,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "8276",
+              "db_value": 8276,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RET",
+          "period": "2025-01-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 0.0,
+              "db_value": 0,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": NaN,
+              "db_value": null,
+              "accurate": true,
+              "notes": [
+                "Both values are null/empty"
+              ]
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 58.4,
+              "db_value": 58.4,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "31128",
+              "db_value": 31128,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "REF",
+          "period": "2025-02-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 15886.0,
+              "db_value": 15886,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 77.33,
+              "db_value": 77.33,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 69.05,
+              "db_value": 69.05,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "82108",
+              "db_value": 82108,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        },
+        {
+          "trust_code": "RMP",
+          "period": "2024-12-01",
+          "field_comparisons": {
+            "ae_attendances_total": {
+              "csv_value": 12329.0,
+              "db_value": 12329,
+              "accurate": true,
+              "notes": []
+            },
+            "ae_4hr_performance_pct": {
+              "csv_value": 61.06,
+              "db_value": 61.06,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_percent_within_18_weeks": {
+              "csv_value": 68.97,
+              "db_value": 68.97,
+              "accurate": true,
+              "notes": []
+            },
+            "trust_total_total_incomplete_pathways": {
+              "csv_value": "36306",
+              "db_value": 36306,
+              "accurate": true,
+              "notes": []
+            }
+          },
+          "accurate_fields": 4,
+          "total_fields": 4,
+          "overall_accuracy": 1.0
+        }
+      ],
+      "transformation_accuracy": {},
+      "value_comparisons": [],
+      "failed_transformations": [
+        {
+          "trust_code": "RVW",
+          "period": "2025-02-01",
+          "error": "Record not found in database"
+        }
+      ],
+      "actual_sample_size": 25,
+      "overall_accuracy": 100.0,
+      "status": "PASS"
+    },
+    "cross_validation": {
+      "trust_name_consistency": {
+        "total_trusts_checked": 151,
+        "inconsistent_names": 2,
+        "inconsistent_details": [
+          [
+            "RAX",
+            {
+              "csv_name": "KINGSTON AND RICHMOND NHS FOUNDATION TRUST",
+              "db_name": "KINGSTON HOSPITAL NHS FOUNDATION TRUST"
+            }
+          ],
+          [
+            "RHU",
+            {
+              "csv_name": "PORTSMOUTH HOSPITALS UNIVERSITY NHS TRUST",
+              "db_name": "PORTSMOUTH HOSPITALS UNIVERSITY NATIONAL HEALTH SERVICE TRUST"
+            }
+          ]
+        ]
+      },
+      "period_continuity": {},
+      "data_relationships": {},
+      "completeness_analysis": {},
+      "overall_status": "FAIL",
+      "error": "'>' not supported between instances of 'Timedelta' and 'DateOffset'"
+    }
+  },
+  "summary": {
+    "overall_status": "FAIL",
+    "total_issues": 5,
+    "critical_issues": 1,
+    "warning_issues": 4,
+    "tests_passed": 2,
+    "tests_total": 4,
+    "pass_rate": 50.0
+  },
+  "issues_found": [
+    "Minor record count difference: CSV 1816 vs DB 1766",
+    "Missing 67 trusts in database: ['RYW', 'RWW', 'RTF', 'RP5', 'RRE']",
+    "Missing 5 periods in database: ['2025-06-01', '2025-04-01', '2025-07-01', '2025-05-01', '2025-03-01']",
+    "Warning: 2 trusts have inconsistent names between CSV and database",
+    "Critical: Cross-validation failed - '>' not supported between instances of 'Timedelta' and 'DateOffset'"
+  ],
+  "recommendations": [
+    "\ud83d\udd34 Critical database migration issues found - requires immediate attention",
+    "Review data transformation pipeline for systematic errors",
+    "Verify all source data is being processed correctly"
+  ],
+  "sample_validations": []
+}

@@ -16,7 +16,7 @@ interface KPICardProps {
     change: number;
     direction: 'up' | 'down' | 'stable';
     isPositive: boolean;
-  };
+  } | null;
 }
 
 export function EnhancedKPICard({

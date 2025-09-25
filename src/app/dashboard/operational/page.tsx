@@ -20,20 +20,20 @@ export default function OperationalPage() {
   const aeData = useMemo(() => {
     // Find the latest record that has A&E data
     const latestDataWithAE = [...trustData].reverse().find(record =>
-      record.ae_4hr_performance_pct !== null &&
-      record.ae_4hr_performance_pct !== undefined &&
-      record.ae_attendances_total !== null &&
-      record.ae_attendances_total !== undefined
+      record.ae_data?.four_hour_performance_pct !== null &&
+      record.ae_data?.four_hour_performance_pct !== undefined &&
+      record.ae_data?.total_attendances !== null &&
+      record.ae_data?.total_attendances !== undefined
     );
 
     // Find previous record with A&E data for trend calculation
     const reversedData = [...trustData].reverse();
     const latestIndex = latestDataWithAE ? reversedData.findIndex(record => record.period === latestDataWithAE.period) : -1;
     const previousDataWithAE = latestIndex >= 0 ? reversedData.slice(latestIndex + 1).find(record =>
-      record.ae_4hr_performance_pct !== null &&
-      record.ae_4hr_performance_pct !== undefined &&
-      record.ae_attendances_total !== null &&
-      record.ae_attendances_total !== undefined
+      record.ae_data?.four_hour_performance_pct !== null &&
+      record.ae_data?.four_hour_performance_pct !== undefined &&
+      record.ae_data?.total_attendances !== null &&
+      record.ae_data?.total_attendances !== undefined
     ) : null;
 
     return { latest: latestDataWithAE, previous: previousDataWithAE };
@@ -111,57 +111,57 @@ export default function OperationalPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <EnhancedKPICard
             title="A&E 4-hour Performance"
-            value={latestData.ae_4hr_performance_pct || 0}
-            previousValue={previousMonthData?.ae_4hr_performance_pct}
+            value={latestData.ae_data?.four_hour_performance_pct || 0}
+            previousValue={previousMonthData?.ae_data?.four_hour_performance_pct}
             symbol={Clock}
             format="percentage"
             target={95}
             description="Target: 95%"
             trend={previousMonthData ? calculateTrend(
-              latestData.ae_4hr_performance_pct || 0,
-              previousMonthData.ae_4hr_performance_pct || 0,
+              latestData.ae_data?.four_hour_performance_pct || 0,
+              previousMonthData.ae_data?.four_hour_performance_pct || 0,
               true
             ) : undefined}
           />
 
           <EnhancedKPICard
             title="Total Attendances"
-            value={latestData.ae_attendances_total || 0}
-            previousValue={previousMonthData?.ae_attendances_total}
+            value={latestData.ae_data?.total_attendances || 0}
+            previousValue={previousMonthData?.ae_data?.total_attendances}
             symbol={Users}
             format="number"
             description="Monthly attendances"
             trend={previousMonthData ? calculateTrend(
-              latestData.ae_attendances_total || 0,
-              previousMonthData.ae_attendances_total || 0,
+              latestData.ae_data?.total_attendances || 0,
+              previousMonthData.ae_data?.total_attendances || 0,
               false
             ) : undefined}
           />
 
           <EnhancedKPICard
             title="Over 4 Hours"
-            value={latestData.ae_over_4hrs_total || 0}
-            previousValue={previousMonthData?.ae_over_4hrs_total}
+            value={latestData.ae_data?.over_four_hours_total || 0}
+            previousValue={previousMonthData?.ae_data?.over_four_hours_total}
             symbol={AlertTriangle}
             format="number"
             description="Breached 4-hour target"
             trend={previousMonthData ? calculateTrend(
-              latestData.ae_over_4hrs_total || 0,
-              previousMonthData.ae_over_4hrs_total || 0,
+              latestData.ae_data?.over_four_hours_total || 0,
+              previousMonthData.ae_data?.over_four_hours_total || 0,
               false
             ) : undefined}
           />
 
           <EnhancedKPICard
             title="Emergency Admissions"
-            value={latestData.ae_emergency_admissions_total || 0}
-            previousValue={previousMonthData?.ae_emergency_admissions_total}
+            value={latestData.ae_data?.emergency_admissions_total || 0}
+            previousValue={previousMonthData?.ae_data?.emergency_admissions_total}
             symbol={Activity}
             format="number"
             description="Admitted via A&E"
             trend={previousMonthData ? calculateTrend(
-              latestData.ae_emergency_admissions_total || 0,
-              previousMonthData.ae_emergency_admissions_total || 0,
+              latestData.ae_data?.emergency_admissions_total || 0,
+              previousMonthData.ae_data?.emergency_admissions_total || 0,
               false
             ) : undefined}
           />
@@ -181,11 +181,11 @@ export default function OperationalPage() {
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm font-medium">4-hour Performance</span>
                   <span className="text-sm text-slate-600">
-                    {latestData.ae_4hr_performance_pct?.toFixed(1)}% / 95% target
+                    {latestData.ae_data?.four_hour_performance_pct?.toFixed(1)}% / 95% target
                   </span>
                 </div>
                 <Progress
-                  value={Math.min(latestData.ae_4hr_performance_pct || 0, 100)}
+                  value={Math.min(latestData.ae_data?.four_hour_performance_pct || 0, 100)}
                   className="h-2"
                 />
               </div>
@@ -193,13 +193,13 @@ export default function OperationalPage() {
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm font-medium">12-hour Wait Admissions</span>
                   <span className="text-sm text-slate-600">
-                    {latestData.ae_12hr_wait_admissions?.toLocaleString() || '0'}
+                    {latestData.ae_data?.twelve_hour_wait_admissions?.toLocaleString() || '0'}
                   </span>
                 </div>
                 <Badge variant={
-                  (latestData.ae_12hr_wait_admissions || 0) === 0 ? 'default' : 'destructive'
+                  (latestData.ae_data?.twelve_hour_wait_admissions || 0) === 0 ? 'default' : 'destructive'
                 }>
-                  {(latestData.ae_12hr_wait_admissions || 0) === 0 ? 'Target Met' : 'Action Required'}
+                  {(latestData.ae_data?.twelve_hour_wait_admissions || 0) === 0 ? 'Target Met' : 'Action Required'}
                 </Badge>
               </div>
             </div>

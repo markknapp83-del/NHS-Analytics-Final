@@ -105,6 +105,29 @@ export default function DiagnosticsPage() {
         </div>
       </div>
 
+      {/* Analysis Charts */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Card>
+          <CardHeader>
+            <CardTitle>Breach Rate Comparison</CardTitle>
+            <CardDescription>6+ week breach rates across all diagnostic services</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <DiagnosticBreachChart data={diagnosticServices} />
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Volume vs. Performance</CardTitle>
+            <CardDescription>Waiting list size vs. breach rate analysis</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <DiagnosticScatterChart data={diagnosticServices} />
+          </CardContent>
+        </Card>
+      </div>
+
       {/* Dynamic KPI Cards */}
       <div className="space-y-4">
         <div className="flex items-center gap-2">
@@ -239,29 +262,6 @@ export default function DiagnosticsPage() {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Additional Analysis Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card>
-          <CardHeader>
-            <CardTitle>Breach Rate Comparison</CardTitle>
-            <CardDescription>6+ week breach rates across all diagnostic services</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <DiagnosticBreachChart data={diagnosticServices} />
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Volume vs. Performance</CardTitle>
-            <CardDescription>Waiting list size vs. breach rate analysis</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <DiagnosticScatterChart data={diagnosticServices} />
-          </CardContent>
-        </Card>
       </div>
     </div>
   );

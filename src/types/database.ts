@@ -51,6 +51,30 @@ export interface CapacityData {
   avg_daily_discharges: number;
 }
 
+export interface CommunityServiceData {
+  total_waiting: number;
+  wait_0_1_weeks: number;
+  wait_1_2_weeks: number;
+  wait_2_4_weeks: number;
+  wait_4_12_weeks: number;
+  wait_12_18_weeks: number;
+  wait_18_52_weeks: number;
+  wait_52_plus_weeks: number;
+}
+
+export interface CommunityHealthMetadata {
+  last_updated: string;
+  services_reported: number;
+  total_waiting_all_services: number;
+  services_with_52plus_breaches: number;
+}
+
+export interface CommunityHealthData {
+  adult_services: Record<string, CommunityServiceData>;
+  cyp_services: Record<string, CommunityServiceData>;
+  metadata: CommunityHealthMetadata;
+}
+
 export interface TrustMetrics {
   id: string;
   trust_code: string;
@@ -63,6 +87,7 @@ export interface TrustMetrics {
   ae_data: AEData;
   diagnostics_data: DiagnosticsData;
   capacity_data: CapacityData;
+  community_health_data: CommunityHealthData | null;
   created_at: string;
   updated_at: string;
 }

@@ -28,7 +28,12 @@ export function RTTTrendsTab({ selectedSpecialty = 'trust_total', filteredData }
     if (selectedSpecialty === 'trust_total') {
       return record?.rtt_data?.trust_total?.[field];
     } else {
-      return record?.rtt_data?.specialties?.[selectedSpecialty]?.[field];
+      const rawValue = record?.rtt_data?.specialties?.[selectedSpecialty]?.[field];
+      // Convert decimal to percentage for specialty-specific percent_within_18_weeks
+      if (field === 'percent_within_18_weeks' && rawValue !== null && rawValue !== undefined) {
+        return rawValue * 100;
+      }
+      return rawValue;
     }
   };
 

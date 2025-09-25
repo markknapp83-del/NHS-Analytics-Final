@@ -60,7 +60,7 @@ export function AEPerformanceTrendChart({ data }: AEPerformanceTrendChartProps) 
           y={95}
           stroke="#dc2626"
           strokeDasharray="5 5"
-          label={{ value: "95% NHS Standard", position: "topLeft" }}
+          label={{ value: "95% NHS Standard", position: "top" }}
         />
         <Line
           type="monotone"

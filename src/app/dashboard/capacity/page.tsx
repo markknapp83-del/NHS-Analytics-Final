@@ -110,7 +110,7 @@ export default function CapacityFlowPage() {
               latestVWData.capacity_data?.virtual_ward_capacity || 0,
               previousMonthVWData?.capacity_data?.virtual_ward_capacity || 0,
               true
-            ) : undefined}
+            ) ?? undefined : undefined}
           />
 
           <EnhancedKPICard
@@ -125,21 +125,21 @@ export default function CapacityFlowPage() {
               (latestVWData.capacity_data?.virtual_ward_occupancy_rate || 0) * 100,
               (previousMonthVWData?.capacity_data?.virtual_ward_occupancy_rate || 0) * 100,
               true
-            ) : undefined}
+            ) ?? undefined : undefined}
           />
 
           <EnhancedKPICard
             title="Occupied Beds"
-            value={Math.round((latestVWData.capacity_data?.virtual_ward_occupancy_rate || 0) * (latestVWData.virtual_ward_capacity || 0))}
+            value={Math.round((latestVWData.capacity_data?.virtual_ward_occupancy_rate || 0) * (latestVWData.capacity_data?.virtual_ward_capacity || 0))}
             previousValue={previousMonthVWData ? Math.round((previousMonthVWData?.capacity_data?.virtual_ward_occupancy_rate || 0) * (previousMonthVWData?.capacity_data?.virtual_ward_capacity || 0)) : undefined}
             symbol={Activity}
             format="number"
             description="Currently occupied virtual ward beds"
             trend={previousMonthVWData ? calculateTrend(
-              Math.round((latestVWData.capacity_data?.virtual_ward_occupancy_rate || 0) * (latestVWData.virtual_ward_capacity || 0)),
+              Math.round((latestVWData.capacity_data?.virtual_ward_occupancy_rate || 0) * (latestVWData.capacity_data?.virtual_ward_capacity || 0)),
               Math.round((previousMonthVWData?.capacity_data?.virtual_ward_occupancy_rate || 0) * (previousMonthVWData?.capacity_data?.virtual_ward_capacity || 0)),
               false
-            ) : undefined}
+            ) ?? undefined : undefined}
           />
         </div>
       </div>
@@ -173,11 +173,11 @@ export default function CapacityFlowPage() {
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm font-medium">Bed Utilization</span>
                   <span className="text-sm text-slate-600">
-                    {Math.round((latestVWData.capacity_data?.virtual_ward_occupancy_rate || 0) * (latestVWData.virtual_ward_capacity || 0))} occupied
+                    {Math.round((latestVWData.capacity_data?.virtual_ward_occupancy_rate || 0) * (latestVWData.capacity_data?.virtual_ward_capacity || 0))} occupied
                   </span>
                 </div>
                 <div className="text-2xl font-bold text-[#005eb8]">
-                  {latestVWData.virtual_ward_capacity || 0} total beds
+                  {latestVWData.capacity_data?.virtual_ward_capacity || 0} total beds
                 </div>
               </div>
             </div>
@@ -186,7 +186,7 @@ export default function CapacityFlowPage() {
               <div className="p-4 bg-slate-50 rounded-lg">
                 <h4 className="font-medium text-slate-700 mb-1">Available Beds</h4>
                 {(() => {
-                  const availableBeds = Math.round((latestVWData.virtual_ward_capacity || 0) * (1 - (latestVWData.capacity_data?.virtual_ward_occupancy_rate || 0)));
+                  const availableBeds = Math.round((latestVWData.capacity_data?.virtual_ward_capacity || 0) * (1 - (latestVWData.capacity_data?.virtual_ward_occupancy_rate || 0)));
                   const isOverCapacity = availableBeds < 0;
 
                   return (
@@ -206,7 +206,7 @@ export default function CapacityFlowPage() {
               <div className="p-4 bg-slate-50 rounded-lg">
                 <h4 className="font-medium text-slate-700 mb-1">Occupied Beds</h4>
                 <p className="text-xl font-bold text-blue-600">
-                  {Math.round((latestVWData.capacity_data?.virtual_ward_occupancy_rate || 0) * (latestVWData.virtual_ward_capacity || 0))}
+                  {Math.round((latestVWData.capacity_data?.virtual_ward_occupancy_rate || 0) * (latestVWData.capacity_data?.virtual_ward_capacity || 0))}
                 </p>
               </div>
               <div className="p-4 bg-slate-50 rounded-lg">
@@ -267,9 +267,9 @@ export default function CapacityFlowPage() {
             description="4-hour A&E standard"
             trend={previousMonthAEData ? calculateTrend(
               latestAEData.ae_data?.four_hour_performance_pct || 0,
-              previousMonthAEData.ae_4hr_performance_pct || 0,
+              previousMonthAEData.ae_data?.four_hour_performance_pct || 0,
               true
-            ) : undefined}
+            ) ?? undefined : undefined}
           />
 
           <EnhancedKPICard
@@ -281,9 +281,9 @@ export default function CapacityFlowPage() {
             description="Monthly A&E attendances"
             trend={previousMonthAEData ? calculateTrend(
               latestAEData.ae_data?.total_attendances || 0,
-              previousMonthAEData.ae_attendances_total || 0,
+              previousMonthAEData.ae_data?.total_attendances || 0,
               false
-            ) : undefined}
+            ) ?? undefined : undefined}
           />
 
           <EnhancedKPICard
@@ -295,9 +295,9 @@ export default function CapacityFlowPage() {
             description="Patients breaching 4-hour target"
             trend={previousMonthAEData ? calculateTrend(
               latestAEData.ae_data?.over_four_hours_total || 0,
-              previousMonthAEData.ae_over_4hrs_total || 0,
+              previousMonthAEData.ae_data?.over_four_hours_total || 0,
               false
-            ) : undefined}
+            ) ?? undefined : undefined}
           />
 
           <EnhancedKPICard
@@ -310,9 +310,9 @@ export default function CapacityFlowPage() {
             description="12-hour wait admissions"
             trend={previousMonthAEData ? calculateTrend(
               latestAEData.ae_data?.twelve_hour_wait_admissions || 0,
-              previousMonthAEData.ae_12hr_wait_admissions || 0,
+              previousMonthAEData.ae_data?.twelve_hour_wait_admissions || 0,
               false
-            ) : undefined}
+            ) ?? undefined : undefined}
           />
         </div>
       </div>

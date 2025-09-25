@@ -12,10 +12,27 @@ import type {
   DiagnosticsData
 } from '@/types/database';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+// Environment variables validation
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey);
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error('Missing Supabase environment variables')
+}
+
+// Create Supabase client using ONLY the anon key
+// This ensures read-only access as configured by RLS policies
+export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    persistSession: false, // No user sessions needed for public app
+    autoRefreshToken: false,
+    detectSessionInUrl: false
+  }
+})
+
+// SECURITY NOTE: Never use service role key in frontend code
+// Service role key bypasses RLS and should only be used server-side
+// const supabaseAdmin = createClient(url, serviceRoleKey) // DON'T DO THIS IN FRONTEND
 
 // Performance monitoring interface
 interface PerformanceMetrics {
@@ -151,7 +168,7 @@ export class NHSDatabaseClient {
 
       // Remove duplicates and create Trust objects
       const trustMap = new Map<string, Trust>();
-      data?.forEach(row => {
+      (data as any)?.forEach((row: any) => {
         if (!trustMap.has(row.trust_code)) {
           trustMap.set(row.trust_code, {
             code: row.trust_code,
@@ -181,7 +198,7 @@ export class NHSDatabaseClient {
 
     // Remove duplicates
     const trustMap = new Map<string, Trust>();
-    data?.forEach(row => {
+    (data as any)?.forEach((row: any) => {
       if (!trustMap.has(row.trust_code)) {
         trustMap.set(row.trust_code, {
           code: row.trust_code,
@@ -236,7 +253,7 @@ export class NHSDatabaseClient {
       }
 
       return rttData;
-    });
+    }) as RTTData[];
   }
 
   async getAEPerformance(trustCode: string): Promise<AEData[]> {
@@ -333,12 +350,12 @@ export class NHSDatabaseClient {
       throw new Error(`No data found for ICB: ${icbCode}`);
     }
 
-    const icbName = data[0].icb_name || 'Unknown ICB';
-    const trustCount = new Set(data.map(d => d.trust_code)).size;
+    const icbName = (data as any)[0].icb_name || 'Unknown ICB';
+    const trustCount = new Set((data as any).map((d: any) => d.trust_code)).size;
 
     // Get latest data for each trust
     const latestDataByTrust = new Map<string, TrustMetrics>();
-    data.forEach(record => {
+    (data as any).forEach((record: any) => {
       const existing = latestDataByTrust.get(record.trust_code);
       if (!existing || record.period > existing.period) {
         latestDataByTrust.set(record.trust_code, record);

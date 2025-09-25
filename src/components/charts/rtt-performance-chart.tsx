@@ -27,7 +27,9 @@ export function RTTPerformanceChart({ data, selectedSpecialty = 'trust_total' }:
       if (selectedSpecialty === 'trust_total') {
         compliance = record.rtt_data?.trust_total?.percent_within_18_weeks || null;
       } else if (record.rtt_data?.specialties?.[selectedSpecialty]) {
-        compliance = record.rtt_data.specialties[selectedSpecialty].percent_within_18_weeks || null;
+        const rawValue = record.rtt_data.specialties[selectedSpecialty].percent_within_18_weeks || null;
+        // Convert decimal to percentage for specialty data (0.43 -> 43.0)
+        compliance = rawValue !== null ? rawValue * 100 : null;
       }
 
       return {
@@ -69,7 +71,7 @@ export function RTTPerformanceChart({ data, selectedSpecialty = 'trust_total' }:
           y={92}
           stroke="#dc2626"
           strokeDasharray="5 5"
-          label={{ value: "92% Target", position: "topLeft" }}
+          label={{ value: "92% Target", position: "top" }}
         />
         <Line
           type="monotone"

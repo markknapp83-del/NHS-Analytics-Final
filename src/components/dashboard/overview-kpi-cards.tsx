@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { TrustMetrics } from '@/types/database';
-import { Clock, AlertTriangle, Activity, Building2, TrendingUp, TrendingDown, Minus } from 'lucide-react';
+import { Clock, AlertTriangle, Activity, Users, TrendingUp, TrendingDown, Minus } from 'lucide-react';
 
 interface KPICard {
   title: string;
@@ -113,14 +113,14 @@ export function OverviewKPICards({ trustData }: { trustData: TrustMetrics[] }) {
       getStatus: (value: number) => !value ? 'no-data' : value >= 95 ? 'excellent' : value >= 85 ? 'good' : value >= 70 ? 'concern' : 'critical'
     },
     {
-      title: "Capacity Utilization",
-      value: latestData?.capacity_data?.virtual_ward_occupancy_rate,
-      previousValue: previousData?.capacity_data?.virtual_ward_occupancy_rate,
-      target: 85,
-      format: "percentage",
-      description: "Virtual Ward occupancy - Target: 85%",
-      icon: Building2,
-      getStatus: (value: number) => !value ? 'no-data' : value <= 90 && value >= 80 ? 'excellent' : value <= 95 ? 'good' : 'critical'
+      title: "Community Services Total Waiting",
+      value: latestData?.community_health_data?.metadata?.total_waiting_all_services,
+      previousValue: previousData?.community_health_data?.metadata?.total_waiting_all_services,
+      target: undefined,
+      format: "number",
+      description: latestData?.community_health_data ? "Patients across all community services" : "No community health data available",
+      icon: Users,
+      getStatus: () => 'no-data'
     }
   ];
 
