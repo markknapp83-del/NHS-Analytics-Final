@@ -173,7 +173,7 @@ export default function CommunityHealthPage() {
           {/* KPI Cards */}
           <CommunityKPICards
             data={latestData.community_health_data}
-            previousData={previousData?.community_health_data}
+            previousData={previousData?.community_health_data || undefined}
             selectedService={dataServiceKey}
             selectedCategory={dataCategoryKey}
           />
@@ -208,7 +208,7 @@ export default function CommunityHealthPage() {
           {/* Service Performance Table */}
           <ServicePerformanceTable
             data={latestData.community_health_data}
-            previousData={previousData?.community_health_data}
+            previousData={previousData?.community_health_data || undefined}
           />
         </TabsContent>
       </Tabs>

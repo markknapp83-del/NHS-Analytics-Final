@@ -227,7 +227,7 @@ export function CommunityBreachesTrendChart({ data, selectedService = 'all', sel
                 y={0}
                 stroke="hsl(142, 76%, 36%)"
                 strokeDasharray="5 5"
-                label={{ value: "No Breaches", position: "topLeft", fontSize: 12, fill: "#059669" }}
+                label={{ value: "No Breaches", position: "top", fontSize: 12, fill: "#059669" }}
               />
               <Line
                 type="monotone"
