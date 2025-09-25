@@ -197,8 +197,12 @@ export function useICBData() {
           });
         });
 
-        // Calculate monthly aggregations
+        // Calculate monthly aggregations - only include periods with sufficient data
         const monthlyData = Array.from(periodMap.entries())
+          .filter(([period, values]) => {
+            // Only include periods where we have meaningful data from at least some trusts
+            return values.rttValues.length > 0 || values.waitingListValues.length > 0 || values.breaches52WeekValues.length > 0;
+          })
           .map(([period, values]) => ({
             period,
             rttCompliance: values.rttValues.length > 0

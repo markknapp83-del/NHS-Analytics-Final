@@ -1,0 +1,143 @@
+{
+  "test_timestamp": "2025-09-25T15:56:23.957270",
+  "test_phase": "Phase 6: End-to-End Pipeline Validation",
+  "project_directory": "/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master",
+  "data_directory": "/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/Data",
+  "validation_results": {
+    "pipeline_traceability": {
+      "traces_performed": 2,
+      "successful_traces": 0,
+      "trace_failures": [
+        {
+          "trust": "RJ1",
+          "file": "CWT-CRS-Apr-2024-to-Sep-2024-Data-Extract-Provider-Final.xlsx",
+          "failed_stage": "exception",
+          "error": "'SyncSelectRequestBuilder' object is not callable"
+        },
+        {
+          "trust": "RGT",
+          "file": "CWT-CRS-Apr-2024-to-Sep-2024-Data-Extract-Provider-Final.xlsx",
+          "failed_stage": "exception",
+          "error": "'SyncSelectRequestBuilder' object is not callable"
+        }
+      ],
+      "pipeline_stages_tested": [
+        "excel",
+        "processing",
+        "database",
+        "frontend"
+      ],
+      "stage_pass_rates": {}
+    },
+    "cross_stage_consistency": {
+      "consistency_tests": 0,
+      "consistent_data_flows": 0,
+      "inconsistencies": [],
+      "tolerance_exceeded": []
+    },
+    "performance_metrics_e2e": {
+      "metrics_tested": 0,
+      "accurate_metrics": 0,
+      "metric_discrepancies": [],
+      "critical_metrics_verified": {}
+    },
+    "trust_specific_validation": {
+      "trusts_validated": 4,
+      "trusts_passed_validation": 0,
+      "trust_validation_results": {},
+      "data_quality_issues": []
+    },
+    "regression_validation": {
+      "regression_tests": 0,
+      "regression_passed": 0,
+      "value_changes": [],
+      "unexpected_changes": []
+    },
+    "edge_case_handling": {
+      "edge_cases_tested": 0,
+      "edge_cases_handled": 0,
+      "edge_case_failures": []
+    },
+    "system_reliability": {
+      "reliability_tests": 3,
+      "reliable_components": 1,
+      "reliability_issues": [
+        "Data processing reliability error: 'SyncSelectRequestBuilder' object is not callable",
+        "Data completeness reliability error: 'SyncSelectRequestBuilder' object is not callable"
+      ],
+      "system_health_score": 3.3333333333333286
+    }
+  },
+  "summary": {
+    "total_tests_run": 7,
+    "tests_passed": 5,
+    "critical_issues": 0,
+    "high_issues": 3,
+    "medium_issues": 3,
+    "low_issues": 1,
+    "pipeline_integrity_score": 1.3333333333333315,
+    "confidence_metrics": {
+      "traceability": 0.0,
+      "system_reliability": 3.3333333333333286
+    }
+  },
+  "issues_found": [
+    {
+      "severity": "HIGH",
+      "category": "PIPELINE_TRACEABILITY",
+      "description": "Pipeline traceability below threshold: 0.0%",
+      "impact": "Cannot guarantee data accuracy across complete pipeline",
+      "recommendation": "Investigate and fix pipeline stage failures"
+    },
+    {
+      "severity": "HIGH",
+      "category": "CROSS_STAGE_INCONSISTENCY",
+      "description": "Cross-stage consistency below threshold: 0.0%",
+      "impact": "Data may be corrupted or transformed incorrectly between stages",
+      "recommendation": "Review data transformation logic at each pipeline stage"
+    },
+    {
+      "severity": "HIGH",
+      "category": "METRICS_ACCURACY",
+      "description": "Performance metrics accuracy below threshold: 0.0%",
+      "impact": "Critical performance metrics may be incorrect",
+      "recommendation": "Review metric calculation logic in processing and frontend"
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "TRUST_VALIDATION_FAILURES",
+      "description": "Trust validation rate below threshold: 0.0%",
+      "impact": "Some trusts may have data quality issues",
+      "recommendation": "Investigate trust-specific data quality issues"
+    },
+    {
+      "severity": "LOW",
+      "category": "REGRESSION_VALIDATION",
+      "description": "Many values outside typical NHS performance ranges: 100.0%",
+      "impact": "Data may reflect unusual performance periods or processing issues",
+      "recommendation": "Review values outside typical NHS performance ranges"
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "EDGE_CASE_HANDLING",
+      "description": "Edge case handling below threshold: 0.0%",
+      "impact": "System may not handle unusual data conditions properly",
+      "recommendation": "Improve edge case handling in data processing"
+    },
+    {
+      "severity": "MEDIUM",
+      "category": "SYSTEM_RELIABILITY",
+      "description": "System reliability below threshold: 3.3/100",
+      "impact": "System may not be reliable for production use",
+      "recommendation": "Address reliability issues before deploying to production"
+    }
+  ],
+  "recommendations": [
+    "\ud83d\udea8 CRITICAL: Very low confidence - major issues must be resolved",
+    "\ud83d\udd27 Address all high-priority issues to improve data reliability",
+    "\ud83d\udd04 Improve pipeline integrity before full deployment",
+    "\ud83d\udcca Run all phase tests regularly to maintain data accuracy confidence"
+  ],
+  "overall_status": "LOW_CONFIDENCE",
+  "confidence_level": 0
+}

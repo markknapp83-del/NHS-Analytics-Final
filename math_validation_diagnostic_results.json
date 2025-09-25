@@ -1,0 +1,25 @@
+{
+  "file_path": "/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/Data/CWT-CRS-Apr-2024-to-Sep-2024-Data-Extract-Provider-Final.xlsx",
+  "total_rows": 61780,
+  "validations_passed": 62237,
+  "validations_failed": 0,
+  "issues": {
+    "basic_arithmetic": [],
+    "percentage_calculations": [],
+    "weighted_calculations": [],
+    "data_quality": {
+      "null_counts": {
+        "TOTAL TREATED": "0",
+        "WITHIN STANDARD": "0",
+        "BREACHES": "0"
+      },
+      "data_types": {
+        "TOTAL TREATED": "float64",
+        "WITHIN STANDARD": "float64",
+        "BREACHES": "float64"
+      },
+      "invalid_values": []
+    }
+  },
+  "success_rate": 100.0
+}
