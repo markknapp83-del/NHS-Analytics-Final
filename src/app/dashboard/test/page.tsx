@@ -1,3 +1,6 @@
+// Force dynamic rendering to prevent SSG issues with Supabase env vars
+export const dynamic = 'force-dynamic';
+
 export default function TestPage() {
   return (
     <div className="p-6">

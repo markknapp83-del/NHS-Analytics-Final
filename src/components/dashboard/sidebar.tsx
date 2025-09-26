@@ -30,11 +30,11 @@ export function DashboardSidebar() {
   ];
 
   return (
-    <div className="w-64 bg-slate-50 border-r border-slate-200 flex flex-col">
+    <div className="w-64 bg-gradient-to-b from-[#005eb8] to-[#003d7a] border-r border-white/8 flex flex-col">
       {/* NHS Analytics branding */}
-      <div className="p-6 border-b">
-        <h1 className="text-xl font-bold text-[#005eb8]">NHS Analytics</h1>
-        <p className="text-sm text-slate-600">Trust Dashboard</p>
+      <div className="p-6 border-b border-white/10">
+        <h1 className="text-xl font-bold text-white">NHS Analytics</h1>
+        <p className="text-sm text-white/80">Trust Dashboard</p>
       </div>
 
       {/* Navigation */}
@@ -44,21 +44,26 @@ export function DashboardSidebar() {
             key={item.name}
             href={item.href}
             className={cn(
-              "flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors",
+              "flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 relative group",
               pathname === item.href
-                ? "bg-[#005eb8] text-white"
-                : "text-slate-600 hover:bg-slate-100"
+                ? "bg-white/12 text-white border-l-3 border-l-[#00a650] shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]"
+                : "text-white/90 hover:bg-white/8 hover:text-white"
             )}
           >
-            <item.icon className="h-5 w-5" />
-            {item.name}
+            <item.icon className={cn(
+              "h-5 w-5 transition-transform duration-200",
+              pathname !== item.href && "group-hover:translate-x-1"
+            )} />
+            <span className="font-medium tracking-wide">
+              {item.name}
+            </span>
           </Link>
         ))}
       </nav>
 
       {/* Settings at bottom */}
-      <div className="p-4 border-t">
-        <Button variant="ghost" className="w-full justify-start gap-3">
+      <div className="p-4 border-t border-white/10">
+        <Button variant="ghost" className="w-full justify-start gap-3 text-white/90 hover:bg-white/8 hover:text-white transition-all duration-200">
           <Settings className="h-5 w-5" />
           Settings
         </Button>
