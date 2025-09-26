@@ -31,7 +31,7 @@ export function useCancerData(trustCode: string | null) {
 
         if (fetchError) throw fetchError;
 
-        const parsed = cancerData.map(row => ({
+        const parsed = (cancerData || []).map((row: any) => ({
           period: row.period,
           ...row.cancer_data
         }));

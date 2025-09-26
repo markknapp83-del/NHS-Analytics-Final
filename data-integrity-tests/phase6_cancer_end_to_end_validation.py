@@ -215,23 +215,51 @@ class CancerEndToEndValidator:
             # Stage 2: Data processing (simulate cancer_data_processor logic)
             print(f"    ⚙️ Stage 2: Data processing simulation...")
 
-            # Calculate expected processed values
-            total_for_standard = trust_df[trust_df['STANDARD'] == sample_row['STANDARD']]['TOTAL TREATED'].sum()
-            within_for_standard = trust_df[trust_df['STANDARD'] == sample_row['STANDARD']]['WITHIN STANDARD'].sum()
-            expected_performance = (within_for_standard / total_for_standard * 100) if total_for_standard > 0 else 0
+            # Filter data for this trust using exact processor logic
+            # Note: The processor filters by month based on filename period
+            # For Apr-Sep 2024 file, it processes months: ['APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP']
+            expected_months = ['APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP']
+
+            # Apply same filtering as processor
+            filtered_df = trust_df[
+                (trust_df['STANDARD'] == sample_row['STANDARD']) &
+                (trust_df['MONTH'].isin(expected_months))
+            ]
+
+            # Calculate expected processed values using processor logic
+            total_for_standard = int(filtered_df['TOTAL TREATED'].sum())
+            within_for_standard = int(filtered_df['WITHIN STANDARD'].sum())
+
+            # Use same performance calculation as processor
+            if total_for_standard > 0:
+                expected_performance = round((within_for_standard / total_for_standard) * 100, 1)
+            else:
+                expected_performance = 0.0
 
             trace_result["stages"]["processing"] = True
             trace_result["data_points"]["processing"] = {
-                "expected_total": int(total_for_standard),
-                "expected_within": int(within_for_standard),
-                "expected_performance": round(expected_performance, 1)
+                "expected_total": total_for_standard,
+                "expected_within": within_for_standard,
+                "expected_performance": expected_performance
             }
 
             # Stage 3: Database verification
             print(f"    🗄️ Stage 3: Database verification...")
+
+            # Map file name to correct period
+            file_name = str(file_path.name)
+            if "Apr-2024-to-Sep-2024" in file_name:
+                expected_period = "2024-04-01"
+            elif "Oct-2024-to-Mar-2025" in file_name:
+                expected_period = "2025-10-01"
+            elif "Apr-2025-to-Jul-2025" in file_name:
+                expected_period = "2025-04-01"
+            else:
+                expected_period = "2024-04-01"  # Default fallback
+
             db_data = self.supabase.table('trust_metrics').select(
                 'trust_code, period, cancer_data'
-            ).eq('trust_code', trust_code).neq('cancer_data', 'null').limit(1).execute()
+            ).eq('trust_code', trust_code).eq('period', expected_period).neq('cancer_data', 'null').limit(1).execute()
 
             if not db_data.data:
                 trace_result["failed_stage"] = "database"

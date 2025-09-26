@@ -1,0 +1,114 @@
+NHS Cancer Performance Data - Phase 6: End-to-End Pipeline Validation
+==========================================================================================
+
+🧪 Starting Phase 6: End-to-End Cancer Data Pipeline Validation
+📂 Project directory: /Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master
+📂 Data directory: /Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/Data
+
+🔍 Test 1: Complete Pipeline Traceability
+  🔍 Tracing RJ1 data through CWT-CRS-Apr-2024-to-Sep-2024-Data-Extract-Provider-Final.xlsx
+    📊 Stage 1: Reading Excel data...
+    ⚙️ Stage 2: Data processing simulation...
+    🗄️ Stage 3: Database verification...
+    🖥️ Stage 4: Frontend data simulation...
+    ❌ Trace failed at stage: consistency
+  🔍 Tracing RGT data through CWT-CRS-Apr-2024-to-Sep-2024-Data-Extract-Provider-Final.xlsx
+    📊 Stage 1: Reading Excel data...
+    ⚙️ Stage 2: Data processing simulation...
+    🗄️ Stage 3: Database verification...
+    🖥️ Stage 4: Frontend data simulation...
+    ❌ Trace failed at stage: consistency
+  🔍 Traceability success rate: 0.0% (0/2)
+
+🔄 Test 2: Cross-Stage Data Consistency
+    ✅ RJ1 28_day_fds: consistent
+    ✅ RJ1 31_day_combined: consistent
+    ✅ RJ1 62_day_combined: consistent
+    ✅ RGT 28_day_fds: consistent
+    ✅ RGT 31_day_combined: consistent
+    ✅ RGT 62_day_combined: consistent
+    ✅ RBL 28_day_fds: consistent
+    ✅ RBL 31_day_combined: consistent
+    ✅ RBL 62_day_combined: consistent
+  🔄 Cross-stage consistency: 100.0% (9/9)
+
+📊 Test 3: Performance Metrics End-to-End Accuracy
+    ✅ RJ1 overall_performance_weighted: 68.8% (calculated: 68.8%)
+    ✅ RJ1 total_patients_treated_all_standards: 30841
+    ✅ RJ1 total_breaches_all_standards: 6070
+    ✅ RGT overall_performance_weighted: 77.4% (calculated: 77.4%)
+    ✅ RGT total_patients_treated_all_standards: 28466
+    ✅ RGT total_breaches_all_standards: 5282
+  📊 Metrics accuracy: 100.0% (6/6)
+
+🏥 Test 4: Trust-Specific Data Validation
+  🏥 Validating trust: RJ1
+    ✅ RJ1: validation passed
+  🏥 Validating trust: RGT
+    ✅ RGT: validation passed
+  🏥 Validating trust: RBL
+    ✅ RBL: validation passed
+  🏥 Validating trust: RTH
+    ✅ RTH: validation passed
+  🏥 Trust validation rate: 100.0% (4/4)
+
+🔄 Test 5: Regression Validation
+    ✅ RJ1 28_day_fds: 79.3% (within expected range)
+    ✅ RJ1 31_day_combined: 89.2% (within expected range)
+    ⚠️ RJ1 62_day_combined: 52.4% (outside expected 70-90%)
+    ✅ RGT 28_day_fds: 85.0% (within expected range)
+    ⚠️ RGT 31_day_combined: 78.3% (outside expected 85-98%)
+    ✅ RGT 62_day_combined: 73.8% (within expected range)
+  🔄 Regression validation: 66.7% within expected ranges
+
+🎯 Test 6: Edge Case Handling
+    ✅ zero_totals: handled correctly
+    ✅ perfect_performance: handled correctly
+    ✅ zero_performance: handled correctly
+    ✅ high_volume: handled correctly
+  🎯 Edge case handling: 100.0% (4/4)
+
+🛡️ Test 7: Overall System Reliability
+    ✅ Database connectivity: reliable (437 records)
+    ✅ Data processing: reliable (performance calculation consistent)
+    ✅ Data completeness: reliable (100.0% coverage)
+  🛡️ System reliability: 100.0%
+  📊 Overall system health: 90.0/100
+
+📋 Generating End-to-End Validation Summary...
+
+======================================================================
+📋 PHASE 6 END-TO-END VALIDATION SUMMARY
+======================================================================
+Pipeline integrity score: 68.0/100
+Final confidence level: 57.0%
+
+Confidence breakdown:
+  Traceability: 0.0%
+  Consistency: 100.0%
+  Metrics Accuracy: 100.0%
+  System Reliability: 90.0%
+
+Tests: 6/7 passed
+
+Issues found:
+  🚨 Critical: 0
+  ⚠️ High: 1
+  ❓ Medium: 0
+  ℹ️ Low: 1
+
+Overall Status: LOW_CONFIDENCE
+Confidence Level: 57.0%
+
+📋 Final Recommendations:
+  🚨 CRITICAL: Very low confidence - major issues must be resolved
+  🔧 Address all high-priority issues to improve data reliability
+  🔄 Improve pipeline integrity before full deployment
+  📊 Run all phase tests regularly to maintain data accuracy confidence
+
+🎯 CONFIDENCE INTERPRETATION:
+  CRITICAL (<60%): Cancer data accuracy is unacceptable for production use
+
+📄 Report saved: /Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/phase6_cancer_end_to_end_validation_20250926_081256.json
+
+⚠️ Phase 6 end-to-end validation: LOW CONFIDENCE - Significant improvements needed

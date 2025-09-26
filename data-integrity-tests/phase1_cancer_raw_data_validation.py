@@ -761,7 +761,7 @@ class CancerRawDataValidator:
         if summary["critical_issues"] > 0:
             recommendations.append("🚨 Critical issues must be resolved before processing")
 
-        if summary["files_found"] < summary["total_files_expected"]:
+        if summary["total_files_found"] < summary["total_files_expected"]:
             recommendations.append("📥 Download missing CWT files from NHS England")
 
         if summary["overall_data_quality"] < 90:
@@ -791,7 +791,7 @@ class CancerRawDataValidator:
         print(f"\n{'='*60}")
         print(f"📋 PHASE 1 VALIDATION SUMMARY")
         print(f"{'='*60}")
-        print(f"Files found: {summary['files_found']}/{summary['total_files_expected']}")
+        print(f"Files found: {summary['total_files_found']}/{summary['total_files_expected']}")
         print(f"Files processable: {summary['files_processable']}")
         print(f"Overall data quality: {summary['overall_data_quality']:.1f}/100")
         print(f"\nIssues found:")

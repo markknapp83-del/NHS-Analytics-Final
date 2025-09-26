@@ -180,7 +180,7 @@ export function CancerKPICards({ currentData, previousData, selectedCancerType =
                   </p>
                   {trend && kpi.format === 'percentage' && (
                     <div className="flex items-center gap-1">
-                      <TrendIcon direction={trend.direction} />
+                      <TrendIcon direction={trend.direction as 'up' | 'down' | 'neutral'} />
                       <span className="text-sm text-slate-600">
                         {trend.change.toFixed(1)}pp
                       </span>
@@ -188,7 +188,7 @@ export function CancerKPICards({ currentData, previousData, selectedCancerType =
                   )}
                   {trend && kpi.format === 'number' && (
                     <div className="flex items-center gap-1">
-                      <TrendIcon direction={trend.direction} />
+                      <TrendIcon direction={trend.direction as 'up' | 'down' | 'neutral'} />
                       <span className="text-sm text-slate-600">
                         {trend.change.toLocaleString()}
                       </span>
