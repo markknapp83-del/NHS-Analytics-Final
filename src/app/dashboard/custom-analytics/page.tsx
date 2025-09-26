@@ -1,3 +1,6 @@
+// Force dynamic rendering to prevent SSG issues with Supabase env vars
+export const dynamic = 'force-dynamic';
+
 export default function CustomAnalyticsPage() {
   return (
     <div className="h-full flex items-center justify-center">
