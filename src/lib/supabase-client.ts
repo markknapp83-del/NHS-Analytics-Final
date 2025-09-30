@@ -152,43 +152,30 @@ export class NHSDatabaseClient {
     console.log('[getAllTrusts] No cache found, fetching from database');
 
     return this.withPerformanceTracking(async () => {
-      // Query with a reasonable limit and deduplicate client-side
-      console.log('[getAllTrusts] Querying trust_metrics table directly');
-      const { data, error } = await this.client
-        .from('trust_metrics')
-        .select('trust_code, trust_name, icb_code, icb_name')
-        .not('trust_name', 'like', 'Unknown%')
-        .order('trust_name')
-        .limit(5000); // Reasonable limit to get all distinct trusts
+      // Use RPC function to get distinct trusts efficiently
+      console.log('[getAllTrusts] Calling get_distinct_trusts RPC function');
+      const { data: rpcData, error: rpcError } = await this.client.rpc('get_distinct_trusts') as { data: any[] | null, error: any };
 
-      console.log('[getAllTrusts] Query response:', { hasData: !!data, dataLength: data?.length, hasError: !!error, error: error });
+      console.log('[getAllTrusts] RPC response:', { hasData: !!rpcData, dataLength: rpcData?.length, hasError: !!rpcError, error: rpcError });
 
-      if (error) {
-        console.error('[getAllTrusts] Database error:', error);
-        throw new Error(`Failed to fetch trusts: ${error.message}`);
+      if (rpcError) {
+        console.error('[getAllTrusts] RPC error:', rpcError);
+        throw new Error(`Failed to fetch trusts: ${rpcError.message}`);
       }
 
-      if (!data || data.length === 0) {
-        console.warn('[getAllTrusts] No data returned from database');
+      if (!rpcData || rpcData.length === 0) {
+        console.warn('[getAllTrusts] No data returned from RPC function');
         return [];
       }
 
-      console.log('[getAllTrusts] Fetched', data.length, 'raw records from database');
+      console.log('[getAllTrusts] Fetched', rpcData.length, 'distinct trusts from RPC function');
 
-      // Deduplicate by trust_code on client side
-      const trustMap = new Map<string, Trust>();
-      data.forEach((row: any) => {
-        if (!trustMap.has(row.trust_code) && row.trust_name) {
-          trustMap.set(row.trust_code, {
-            code: row.trust_code,
-            name: row.trust_name,
-            icb_code: row.icb_code,
-            icb_name: row.icb_name
-          });
-        }
-      });
-
-      const result = Array.from(trustMap.values());
+      const result: Trust[] = rpcData.map((row: any) => ({
+        code: row.trust_code,
+        name: row.trust_name,
+        icb_code: row.icb_code,
+        icb_name: row.icb_name
+      }));
 
       // Sort by name to ensure consistent ordering
       result.sort((a, b) => a.name.localeCompare(b.name));
