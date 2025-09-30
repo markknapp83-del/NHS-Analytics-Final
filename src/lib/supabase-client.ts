@@ -152,35 +152,82 @@ export class NHSDatabaseClient {
     console.log('[getAllTrusts] No cache found, fetching from database');
 
     return this.withPerformanceTracking(async () => {
-      // Use RPC function to get distinct trusts efficiently
-      console.log('[getAllTrusts] Calling get_distinct_trusts RPC function');
-      const { data: rpcData, error: rpcError } = await this.client.rpc('get_distinct_trusts') as { data: any[] | null, error: any };
+      // Try RPC function first with timeout
+      try {
+        console.log('[getAllTrusts] Calling get_distinct_trusts RPC function');
 
-      console.log('[getAllTrusts] RPC response:', { hasData: !!rpcData, dataLength: rpcData?.length, hasError: !!rpcError, error: rpcError });
+        // Create timeout promise (10 seconds)
+        const timeoutPromise = new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('RPC timeout after 10s')), 10000)
+        );
 
-      if (rpcError) {
-        console.error('[getAllTrusts] RPC error:', rpcError);
-        throw new Error(`Failed to fetch trusts: ${rpcError.message}`);
+        const rpcPromise = this.client.rpc('get_distinct_trusts');
+
+        const { data: rpcData, error: rpcError } = await Promise.race([
+          rpcPromise,
+          timeoutPromise
+        ]) as { data: any[] | null, error: any };
+
+        console.log('[getAllTrusts] RPC response:', { hasData: !!rpcData, dataLength: rpcData?.length, hasError: !!rpcError, error: rpcError });
+
+        if (!rpcError && rpcData && rpcData.length > 0) {
+          console.log('[getAllTrusts] Fetched', rpcData.length, 'distinct trusts from RPC function');
+
+          const result: Trust[] = rpcData.map((row: any) => ({
+            code: row.trust_code,
+            name: row.trust_name,
+            icb_code: row.icb_code,
+            icb_name: row.icb_name
+          }));
+
+          result.sort((a, b) => a.name.localeCompare(b.name));
+          console.log('[getAllTrusts] Returning', result.length, 'unique trusts from RPC');
+
+          this.setCache(cacheKey, result, this.cacheTTL.trusts);
+          return result;
+        }
+
+        console.warn('[getAllTrusts] RPC failed or returned no data, falling back to direct query:', rpcError);
+      } catch (rpcErr) {
+        console.error('[getAllTrusts] RPC error/timeout, falling back to direct query:', rpcErr);
       }
 
-      if (!rpcData || rpcData.length === 0) {
-        console.warn('[getAllTrusts] No data returned from RPC function');
+      // Fallback: Direct query with DISTINCT (server-side)
+      console.log('[getAllTrusts] Using fallback: direct DISTINCT query');
+      const { data, error } = await this.client
+        .from('trust_metrics')
+        .select('trust_code, trust_name, icb_code, icb_name')
+        .not('trust_name', 'like', 'Unknown%');
+
+      if (error) {
+        console.error('[getAllTrusts] Fallback query error:', error);
+        throw new Error(`Failed to fetch trusts: ${error.message}`);
+      }
+
+      if (!data || data.length === 0) {
+        console.warn('[getAllTrusts] No data returned from fallback query');
         return [];
       }
 
-      console.log('[getAllTrusts] Fetched', rpcData.length, 'distinct trusts from RPC function');
+      console.log('[getAllTrusts] Fallback query returned', data.length, 'records');
 
-      const result: Trust[] = rpcData.map((row: any) => ({
-        code: row.trust_code,
-        name: row.trust_name,
-        icb_code: row.icb_code,
-        icb_name: row.icb_name
-      }));
+      // Client-side deduplication
+      const trustMap = new Map<string, Trust>();
+      data.forEach((row: any) => {
+        if (!trustMap.has(row.trust_code) && row.trust_name) {
+          trustMap.set(row.trust_code, {
+            code: row.trust_code,
+            name: row.trust_name,
+            icb_code: row.icb_code,
+            icb_name: row.icb_name
+          });
+        }
+      });
 
-      // Sort by name to ensure consistent ordering
+      const result = Array.from(trustMap.values());
       result.sort((a, b) => a.name.localeCompare(b.name));
 
-      console.log('[getAllTrusts] Returning', result.length, 'unique trusts');
+      console.log('[getAllTrusts] Returning', result.length, 'unique trusts from fallback');
 
       this.setCache(cacheKey, result, this.cacheTTL.trusts);
       return result;
