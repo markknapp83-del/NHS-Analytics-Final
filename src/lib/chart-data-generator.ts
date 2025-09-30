@@ -221,7 +221,12 @@ function getFieldValue(record: NHSTrustData, fieldName: string): number | string
   }
 
   // Convert percentage fields from decimal to percentage for display
-  if (typeof value === 'number' && (fieldName.includes('percent_within_18_weeks') || fieldName.includes('4hr_performance_pct'))) {
+  // Only convert specialty-specific RTT percentages, not trust_total
+  if (typeof value === 'number' && fieldName.includes('percent_within_18_weeks') && !fieldName.includes('trust_total')) {
+    return value * 100;
+  }
+  // Convert A&E performance percentages
+  if (typeof value === 'number' && fieldName.includes('4hr_performance_pct')) {
     return value * 100;
   }
 

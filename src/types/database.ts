@@ -51,6 +51,30 @@ export interface CapacityData {
   avg_daily_discharges: number;
 }
 
+export interface CommunityServiceData {
+  total_waiting: number;
+  wait_0_1_weeks: number;
+  wait_1_2_weeks: number;
+  wait_2_4_weeks: number;
+  wait_4_12_weeks: number;
+  wait_12_18_weeks: number;
+  wait_18_52_weeks: number;
+  wait_52_plus_weeks: number;
+}
+
+export interface CommunityHealthMetadata {
+  last_updated: string;
+  services_reported: number;
+  total_waiting_all_services: number;
+  services_with_52plus_breaches: number;
+}
+
+export interface CommunityHealthData {
+  adult_services: Record<string, CommunityServiceData>;
+  cyp_services: Record<string, CommunityServiceData>;
+  metadata: CommunityHealthMetadata;
+}
+
 export interface TrustMetrics {
   id: string;
   trust_code: string;
@@ -63,6 +87,7 @@ export interface TrustMetrics {
   ae_data: AEData;
   diagnostics_data: DiagnosticsData;
   capacity_data: CapacityData;
+  community_health_data: CommunityHealthData | null;
   created_at: string;
   updated_at: string;
 }
@@ -131,6 +156,14 @@ export interface TrendData {
   };
 }
 
+export interface UserProfile {
+  id: string;
+  role: 'user' | 'administrator';
+  full_name: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
 export interface Database {
   public: {
     Tables: {
@@ -138,6 +171,21 @@ export interface Database {
         Row: TrustMetrics;
         Insert: Omit<TrustMetrics, 'id' | 'created_at' | 'updated_at'>;
         Update: Partial<Omit<TrustMetrics, 'id' | 'created_at' | 'updated_at'>>;
+      };
+      user_profiles: {
+        Row: UserProfile;
+        Insert: Omit<UserProfile, 'created_at' | 'updated_at'>;
+        Update: Partial<Omit<UserProfile, 'id' | 'created_at' | 'updated_at'>>;
+      };
+    };
+    Functions: {
+      is_administrator: {
+        Args: { user_id: string };
+        Returns: boolean;
+      };
+      update_user_role: {
+        Args: { target_user_id: string; new_role: 'user' | 'administrator' };
+        Returns: void;
       };
     };
   };

@@ -21,9 +21,9 @@ export function BreachBreakdownChart({ data, selectedSpecialty = 'trust_total' }
   // Helper function to get value from nested structure
   const getValue = (record: TrustMetrics, field: string) => {
     if (selectedSpecialty === 'trust_total') {
-      return record?.rtt_data?.trust_total?.[field];
+      return (record?.rtt_data?.trust_total as any)?.[field];
     } else {
-      return record?.rtt_data?.specialties?.[selectedSpecialty]?.[field];
+      return (record?.rtt_data?.specialties?.[selectedSpecialty] as any)?.[field];
     }
   };
 

@@ -1,0 +1,49 @@
+{
+  "validation_results": [
+    {
+      "check_name": "Database Connectivity",
+      "passed": true,
+      "message": "Successfully connected - 1812 total records",
+      "details": {
+        "total_records": 1812
+      }
+    },
+    {
+      "check_name": "Community Data Completeness",
+      "passed": false,
+      "message": "Validation failed: {'message': 'invalid input syntax for type json', 'code': '22P02', 'hint': None, 'details': 'Token \"None\" is invalid.'}",
+      "details": null
+    },
+    {
+      "check_name": "JSONB Structure",
+      "passed": false,
+      "message": "Structure validation failed: {'message': 'invalid input syntax for type json', 'code': '22P02', 'hint': None, 'details': 'Token \"None\" is invalid.'}",
+      "details": null
+    },
+    {
+      "check_name": "Trust Coverage",
+      "passed": false,
+      "message": "Coverage validation failed: {'message': 'invalid input syntax for type json', 'code': '22P02', 'hint': None, 'details': 'Token \"None\" is invalid.'}",
+      "details": null
+    },
+    {
+      "check_name": "Temporal Coverage",
+      "passed": false,
+      "message": "Temporal validation failed: {'message': 'invalid input syntax for type json', 'code': '22P02', 'hint': None, 'details': 'Token \"None\" is invalid.'}",
+      "details": null
+    },
+    {
+      "check_name": "Data Quality Metrics",
+      "passed": false,
+      "message": "Metrics validation failed: {'message': 'invalid input syntax for type json', 'code': '22P02', 'hint': None, 'details': 'Token \"None\" is invalid.'}",
+      "details": null
+    }
+  ],
+  "trust_validations": [],
+  "summary": {
+    "total_checks": 6,
+    "passed_checks": 1,
+    "success_rate": 16.666666666666664,
+    "timestamp": "2025-09-25T08:00:31.992463"
+  }
+}

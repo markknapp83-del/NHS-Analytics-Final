@@ -1,0 +1,52 @@
+{
+  "summary": {
+    "total_success": 0,
+    "total_failed": 23,
+    "total_errors": 23,
+    "duration_seconds": 27.820011,
+    "start_time": "2025-09-26T08:56:42.634145",
+    "end_time": "2025-09-26T08:57:10.454156"
+  },
+  "detailed_results": {
+    "rtt": {
+      "success": 0,
+      "failed": 0,
+      "errors": []
+    },
+    "ae": {
+      "success": 0,
+      "failed": 11,
+      "errors": [
+        "Error processing A&E file Monthly-AE-October-2024-revised.csv: Excel file format cannot be determined, you must specify an engine manually.",
+        "Error processing A&E file Monthly-AE-May-2025.csv: Excel file format cannot be determined, you must specify an engine manually.",
+        "Error processing A&E file Monthly-AE-June-2025-1-1.csv: Excel file format cannot be determined, you must specify an engine manually.",
+        "Error processing A&E file Monthly-AE-August-2024.csv: Excel file format cannot be determined, you must specify an engine manually.",
+        "Error processing A&E file Monthly-AE-February-2025-revised.csv: Excel file format cannot be determined, you must specify an engine manually.",
+        "Error processing A&E file Monthly-AE-December-2024.csv: Excel file format cannot be determined, you must specify an engine manually.",
+        "Error processing A&E file Monthly-AE-September-2024.csv: Excel file format cannot be determined, you must specify an engine manually.",
+        "Error processing A&E file Monthly-AE-March-2025.csv: Excel file format cannot be determined, you must specify an engine manually.",
+        "Error processing A&E file Monthly-AE-April-2025.csv: Excel file format cannot be determined, you must specify an engine manually.",
+        "Error processing A&E file Monthly-AE-January-2025.csv: Excel file format cannot be determined, you must specify an engine manually.",
+        "Error processing A&E file Monthly-AE-November-2024-revised.csv: Excel file format cannot be determined, you must specify an engine manually."
+      ]
+    },
+    "diagnostics": {
+      "success": 0,
+      "failed": 12,
+      "errors": [
+        "Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-November-2024.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.",
+        "Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-May-2025.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.",
+        "Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-February-2025_FT49R.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.",
+        "Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-September-2024.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.",
+        "Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-August-2024.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.",
+        "Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-December-2024.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.",
+        "Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-March-2025_SW40K.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.",
+        "Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-April-2025_3EY67.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.",
+        "Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-October-2024.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.",
+        "Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-January-2025.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.",
+        "Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-June-2025_45KNG.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.",
+        "Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-July-2025_L8FLO.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd."
+      ]
+    }
+  }
+}

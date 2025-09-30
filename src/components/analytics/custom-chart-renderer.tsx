@@ -155,7 +155,10 @@ export function CustomChartRenderer({ config }: CustomChartRendererProps) {
 
     // Performance-based coloring for RTT metrics
     if (dataKey.includes('percent_within_18_weeks')) {
-      const value = entry[dataKey] * 100; // Convert decimal to percentage for comparison
+      // Only convert specialty-specific RTT percentages, not trust_total
+      const value = dataKey.includes('trust_total')
+        ? entry[dataKey]
+        : entry[dataKey] * 100; // Convert decimal to percentage for comparison
       if (value >= 92) return '#22c55e'; // green-500
       if (value >= 75) return '#84cc16'; // lime-500
       if (value >= 50) return '#eab308'; // yellow-500

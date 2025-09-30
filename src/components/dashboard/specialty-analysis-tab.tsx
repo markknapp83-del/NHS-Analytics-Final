@@ -1,20 +1,18 @@
 import { useMemo } from 'react';
-import { useTrustMetrics } from '@/hooks/useNHSData';
-import { useTrustSelection } from '@/hooks/use-trust-selection';
+import { TrustMetrics } from '@/types/database';
 import { DynamicBreachCards } from './dynamic-breach-cards';
 import { InteractiveSpecialtyCard } from './interactive-specialty-card';
 import { getSpecialtiesData, getSpecialtyBreachData, getSpecialtyDisplayName } from '@/lib/specialty-data-processor';
 
 export function SpecialtyAnalysisTab({
   selectedSpecialty,
-  onSpecialtySelect
+  onSpecialtySelect,
+  latestData
 }: {
   selectedSpecialty: string;
   onSpecialtySelect: (specialty: string) => void;
+  latestData: TrustMetrics | null;
 }) {
-  const [selectedTrust] = useTrustSelection();
-  const { metrics: trustData, isLoading } = useTrustMetrics(selectedTrust);
-  const latestData = trustData[trustData.length - 1];
 
   // Get and rank specialties by performance (worst first)
   const rankedSpecialties = useMemo(() => {
@@ -29,12 +27,8 @@ export function SpecialtyAnalysisTab({
     return getSpecialtyBreachData(latestData, selectedSpecialty);
   }, [latestData, selectedSpecialty]);
 
-  if (isLoading) {
-    return <div>Loading trust data...</div>;
-  }
-
-  if (!trustData.length || !latestData) {
-    return <div>No trust data available...</div>;
+  if (!latestData) {
+    return <div>No RTT data available for specialty analysis</div>;
   }
 
   return (

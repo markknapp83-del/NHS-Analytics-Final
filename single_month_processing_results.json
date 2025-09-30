@@ -1,0 +1,487 @@
+{
+  "period": "2025-07-01",
+  "processed_trusts": [
+    {
+      "trust_code": "RCF",
+      "services_count": 18,
+      "total_waiting": 5432
+    },
+    {
+      "trust_code": "RBS",
+      "services_count": 6,
+      "total_waiting": 5565
+    },
+    {
+      "trust_code": "RFF",
+      "services_count": 1,
+      "total_waiting": 3
+    },
+    {
+      "trust_code": "R1H",
+      "services_count": 13,
+      "total_waiting": 8721
+    },
+    {
+      "trust_code": "RWX",
+      "services_count": 14,
+      "total_waiting": 14951
+    },
+    {
+      "trust_code": "RYW",
+      "services_count": 16,
+      "total_waiting": 41399
+    },
+    {
+      "trust_code": "RXL",
+      "services_count": 18,
+      "total_waiting": 6490
+    },
+    {
+      "trust_code": "RMC",
+      "services_count": 24,
+      "total_waiting": 4170
+    },
+    {
+      "trust_code": "RAE",
+      "services_count": 9,
+      "total_waiting": 2223
+    },
+    {
+      "trust_code": "RXQ",
+      "services_count": 23,
+      "total_waiting": 7418
+    },
+    {
+      "trust_code": "RWY",
+      "services_count": 10,
+      "total_waiting": 5141
+    },
+    {
+      "trust_code": "RT1",
+      "services_count": 14,
+      "total_waiting": 10103
+    },
+    {
+      "trust_code": "RFS",
+      "services_count": 1,
+      "total_waiting": 1001
+    },
+    {
+      "trust_code": "RJ8",
+      "services_count": 19,
+      "total_waiting": 20408
+    },
+    {
+      "trust_code": "RJR",
+      "services_count": 1,
+      "total_waiting": 1498
+    },
+    {
+      "trust_code": "RXP",
+      "services_count": 18,
+      "total_waiting": 21566
+    },
+    {
+      "trust_code": "RJ6",
+      "services_count": 14,
+      "total_waiting": 3973
+    },
+    {
+      "trust_code": "RP5",
+      "services_count": 1,
+      "total_waiting": 28
+    },
+    {
+      "trust_code": "RBD",
+      "services_count": 2,
+      "total_waiting": 3730
+    },
+    {
+      "trust_code": "RWH",
+      "services_count": 1,
+      "total_waiting": 6903
+    },
+    {
+      "trust_code": "RJN",
+      "services_count": 21,
+      "total_waiting": 4736
+    },
+    {
+      "trust_code": "RVV",
+      "services_count": 1,
+      "total_waiting": 971
+    },
+    {
+      "trust_code": "RXR",
+      "services_count": 7,
+      "total_waiting": 1907
+    },
+    {
+      "trust_code": "RDE",
+      "services_count": 25,
+      "total_waiting": 13869
+    },
+    {
+      "trust_code": "RXC",
+      "services_count": 18,
+      "total_waiting": 18283
+    },
+    {
+      "trust_code": "RVR",
+      "services_count": 17,
+      "total_waiting": 10092
+    },
+    {
+      "trust_code": "RDU",
+      "services_count": 4,
+      "total_waiting": 134
+    },
+    {
+      "trust_code": "RR7",
+      "services_count": 11,
+      "total_waiting": 2339
+    },
+    {
+      "trust_code": "RTE",
+      "services_count": 1,
+      "total_waiting": 92
+    },
+    {
+      "trust_code": "RJ1",
+      "services_count": 4,
+      "total_waiting": 6459
+    },
+    {
+      "trust_code": "RW1",
+      "services_count": 26,
+      "total_waiting": 27595
+    },
+    {
+      "trust_code": "RCD",
+      "services_count": 15,
+      "total_waiting": 5170
+    },
+    {
+      "trust_code": "R1A",
+      "services_count": 16,
+      "total_waiting": 12301
+    },
+    {
+      "trust_code": "RQX",
+      "services_count": 20,
+      "total_waiting": 6852
+    },
+    {
+      "trust_code": "RYJ",
+      "services_count": 2,
+      "total_waiting": 586
+    },
+    {
+      "trust_code": "RGP",
+      "services_count": 1,
+      "total_waiting": 2676
+    },
+    {
+      "trust_code": "RYY",
+      "services_count": 18,
+      "total_waiting": 20598
+    },
+    {
+      "trust_code": "RAX",
+      "services_count": 19,
+      "total_waiting": 7199
+    },
+    {
+      "trust_code": "RW5",
+      "services_count": 12,
+      "total_waiting": 4601
+    },
+    {
+      "trust_code": "RJ2",
+      "services_count": 21,
+      "total_waiting": 4786
+    },
+    {
+      "trust_code": "RBQ",
+      "services_count": 4,
+      "total_waiting": 175
+    },
+    {
+      "trust_code": "R1K",
+      "services_count": 4,
+      "total_waiting": 840
+    },
+    {
+      "trust_code": "R0A",
+      "services_count": 26,
+      "total_waiting": 19984
+    },
+    {
+      "trust_code": "RPA",
+      "services_count": 1,
+      "total_waiting": 850
+    },
+    {
+      "trust_code": "RBN",
+      "services_count": 6,
+      "total_waiting": 1037
+    },
+    {
+      "trust_code": "RW4",
+      "services_count": 24,
+      "total_waiting": 20963
+    },
+    {
+      "trust_code": "RAJ",
+      "services_count": 3,
+      "total_waiting": 657
+    },
+    {
+      "trust_code": "RBT",
+      "services_count": 18,
+      "total_waiting": 9311
+    },
+    {
+      "trust_code": "RXF",
+      "services_count": 8,
+      "total_waiting": 5825
+    },
+    {
+      "trust_code": "RRE",
+      "services_count": 22,
+      "total_waiting": 17794
+    },
+    {
+      "trust_code": "RNN",
+      "services_count": 18,
+      "total_waiting": 11365
+    },
+    {
+      "trust_code": "RVW",
+      "services_count": 13,
+      "total_waiting": 9292
+    },
+    {
+      "trust_code": "RM3",
+      "services_count": 28,
+      "total_waiting": 18203
+    },
+    {
+      "trust_code": "RJL",
+      "services_count": 14,
+      "total_waiting": 3197
+    },
+    {
+      "trust_code": "RTF",
+      "services_count": 19,
+      "total_waiting": 9277
+    },
+    {
+      "trust_code": "RX1",
+      "services_count": 3,
+      "total_waiting": 4018
+    },
+    {
+      "trust_code": "RTH",
+      "services_count": 1,
+      "total_waiting": 1022
+    },
+    {
+      "trust_code": "RPG",
+      "services_count": 21,
+      "total_waiting": 10616
+    },
+    {
+      "trust_code": "REF",
+      "services_count": 14,
+      "total_waiting": 4126
+    },
+    {
+      "trust_code": "RH8",
+      "services_count": 14,
+      "total_waiting": 16219
+    },
+    {
+      "trust_code": "RAL",
+      "services_count": 24,
+      "total_waiting": 7898
+    },
+    {
+      "trust_code": "RA2",
+      "services_count": 12,
+      "total_waiting": 2472
+    },
+    {
+      "trust_code": "RXK",
+      "services_count": 15,
+      "total_waiting": 5041
+    },
+    {
+      "trust_code": "RCU",
+      "services_count": 4,
+      "total_waiting": 15104
+    },
+    {
+      "trust_code": "RHQ",
+      "services_count": 8,
+      "total_waiting": 1950
+    },
+    {
+      "trust_code": "RK5",
+      "services_count": 1,
+      "total_waiting": 213
+    },
+    {
+      "trust_code": "R1D",
+      "services_count": 22,
+      "total_waiting": 7988
+    },
+    {
+      "trust_code": "RH5",
+      "services_count": 18,
+      "total_waiting": 11185
+    },
+    {
+      "trust_code": "RTR",
+      "services_count": 13,
+      "total_waiting": 3220
+    },
+    {
+      "trust_code": "R0B",
+      "services_count": 14,
+      "total_waiting": 6382
+    },
+    {
+      "trust_code": "RJC",
+      "services_count": 23,
+      "total_waiting": 7745
+    },
+    {
+      "trust_code": "RXG",
+      "services_count": 16,
+      "total_waiting": 6989
+    },
+    {
+      "trust_code": "RJ7",
+      "services_count": 2,
+      "total_waiting": 70
+    },
+    {
+      "trust_code": "RWJ",
+      "services_count": 18,
+      "total_waiting": 5208
+    },
+    {
+      "trust_code": "RDR",
+      "services_count": 24,
+      "total_waiting": 46311
+    },
+    {
+      "trust_code": "RMP",
+      "services_count": 14,
+      "total_waiting": 4421
+    },
+    {
+      "trust_code": "RNA",
+      "services_count": 10,
+      "total_waiting": 5166
+    },
+    {
+      "trust_code": "RTD",
+      "services_count": 11,
+      "total_waiting": 11135
+    },
+    {
+      "trust_code": "RFR",
+      "services_count": 25,
+      "total_waiting": 8799
+    },
+    {
+      "trust_code": "RL4",
+      "services_count": 7,
+      "total_waiting": 2459
+    },
+    {
+      "trust_code": "RA9",
+      "services_count": 25,
+      "total_waiting": 11819
+    },
+    {
+      "trust_code": "RWD",
+      "services_count": 1,
+      "total_waiting": 3002
+    },
+    {
+      "trust_code": "RRK",
+      "services_count": 11,
+      "total_waiting": 28272
+    },
+    {
+      "trust_code": "RKB",
+      "services_count": 9,
+      "total_waiting": 1229
+    },
+    {
+      "trust_code": "R0D",
+      "services_count": 1,
+      "total_waiting": 3978
+    },
+    {
+      "trust_code": "RTX",
+      "services_count": 16,
+      "total_waiting": 4012
+    },
+    {
+      "trust_code": "RJE",
+      "services_count": 1,
+      "total_waiting": 181
+    },
+    {
+      "trust_code": "RK9",
+      "services_count": 8,
+      "total_waiting": 2898
+    },
+    {
+      "trust_code": "RYR",
+      "services_count": 2,
+      "total_waiting": 3846
+    },
+    {
+      "trust_code": "RBK",
+      "services_count": 18,
+      "total_waiting": 5516
+    },
+    {
+      "trust_code": "RGR",
+      "services_count": 14,
+      "total_waiting": 3628
+    },
+    {
+      "trust_code": "RKE",
+      "services_count": 25,
+      "total_waiting": 16689
+    },
+    {
+      "trust_code": "RBL",
+      "services_count": 8,
+      "total_waiting": 5995
+    },
+    {
+      "trust_code": "RRF",
+      "services_count": 24,
+      "total_waiting": 4077
+    },
+    {
+      "trust_code": "RLQ",
+      "services_count": 21,
+      "total_waiting": 3733
+    },
+    {
+      "trust_code": "RCB",
+      "services_count": 8,
+      "total_waiting": 2488
+    }
+  ],
+  "failed_trusts": [],
+  "total_services_processed": 1216
+}

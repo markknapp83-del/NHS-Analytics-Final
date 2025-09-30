@@ -80,6 +80,34 @@ export function getTrustDataForPeriod(trustCode: string, period: string): NHSTru
   ) || null;
 }
 
+export function getAllAvailablePeriods(): string[] {
+  if (!cachedData) return [];
+
+  const periodsSet = new Set<string>();
+  cachedData.forEach(row => {
+    if (row.period) {
+      periodsSet.add(row.period);
+    }
+  });
+
+  return Array.from(periodsSet).sort();
+}
+
+export function getTrustDataForAllPeriods(trustCode: string): { [period: string]: NHSTrustData | null } {
+  if (!cachedData) return {};
+
+  const trustDataByPeriod: { [period: string]: NHSTrustData | null } = {};
+  const allPeriods = getAllAvailablePeriods();
+
+  allPeriods.forEach(period => {
+    trustDataByPeriod[period] = cachedData!.find(row =>
+      row.trust_code === trustCode && row.period === period
+    ) || null;
+  });
+
+  return trustDataByPeriod;
+}
+
 export function getPerformanceLevel(percentage: number | null | undefined): {
   level: 'excellent' | 'good' | 'concern' | 'critical';
   color: string;

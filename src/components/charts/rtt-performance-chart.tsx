@@ -27,7 +27,9 @@ export function RTTPerformanceChart({ data, selectedSpecialty = 'trust_total' }:
       if (selectedSpecialty === 'trust_total') {
         compliance = record.rtt_data?.trust_total?.percent_within_18_weeks || null;
       } else if (record.rtt_data?.specialties?.[selectedSpecialty]) {
-        compliance = record.rtt_data.specialties[selectedSpecialty].percent_within_18_weeks || null;
+        const rawValue = record.rtt_data.specialties[selectedSpecialty].percent_within_18_weeks || null;
+        // Convert decimal to percentage for specialty data (0.43 -> 43.0)
+        compliance = rawValue !== null ? rawValue * 100 : null;
       }
 
       return {
@@ -62,14 +64,16 @@ export function RTTPerformanceChart({ data, selectedSpecialty = 'trust_total' }:
           contentStyle={{
             backgroundColor: 'white',
             border: '1px solid #e2e8f0',
-            borderRadius: '8px'
+            borderRadius: '8px',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
           }}
+          cursor={{ stroke: '#005eb8', strokeWidth: 1, strokeDasharray: '5 5' }}
         />
         <ReferenceLine
           y={92}
           stroke="#dc2626"
           strokeDasharray="5 5"
-          label={{ value: "92% Target", position: "topLeft" }}
+          label={{ value: "92% Target", position: "top" }}
         />
         <Line
           type="monotone"
@@ -77,7 +81,9 @@ export function RTTPerformanceChart({ data, selectedSpecialty = 'trust_total' }:
           stroke="#005eb8"
           strokeWidth={3}
           dot={{ fill: '#005eb8', strokeWidth: 2, r: 4 }}
-          activeDot={{ r: 6, stroke: '#005eb8', strokeWidth: 2 }}
+          activeDot={{ r: 6, stroke: '#003087', strokeWidth: 2, fill: '#005eb8' }}
+          animationDuration={800}
+          animationBegin={0}
         />
       </LineChart>
     </ResponsiveContainer>

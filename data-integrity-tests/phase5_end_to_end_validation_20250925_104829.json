@@ -1,0 +1,130 @@
+{
+  "phase": "Phase 5: End-to-End Cross-Validation",
+  "timestamp": "2025-09-25T10:48:29.482974",
+  "sample_data_points": 5,
+  "raw_data_extraction": {
+    "files_processed": 0,
+    "data_points_found": 0,
+    "extraction_errors": [
+      "No Community Health Excel files found"
+    ],
+    "extracted_values": {}
+  },
+  "database_verification": {
+    "records_checked": 0,
+    "transformation_errors": [
+      "Database verification failed: {'message': \"Could not find the table 'public.nhs_trust_data' in the schema cache\", 'code': 'PGRST205', 'hint': \"Perhaps you meant the table 'public.latest_trust_metrics'\", 'details': None}"
+    ],
+    "verified_values": {},
+    "mapping_consistency": {},
+    "jsonb_structure_validation": {}
+  },
+  "frontend_validation": {
+    "kpi_calculations": {},
+    "chart_calculations": {},
+    "filter_logic": {},
+    "calculation_errors": [
+      "Frontend calculation validation failed: {'message': \"Could not find the table 'public.nhs_trust_data' in the schema cache\", 'code': 'PGRST205', 'hint': \"Perhaps you meant the table 'public.latest_trust_metrics'\", 'details': None}"
+    ]
+  },
+  "pipeline_integrity": {
+    "data_flow_stages": {
+      "raw_excel_extraction": {
+        "status": "unknown",
+        "issues": []
+      },
+      "database_transformation": {
+        "status": "unknown",
+        "issues": []
+      },
+      "frontend_calculation": {
+        "status": "unknown",
+        "issues": []
+      }
+    },
+    "pipeline_metrics": {
+      "total_stages_tested": 3,
+      "stages_with_issues": 0,
+      "total_issues_found": 0,
+      "data_points_traced": 5
+    },
+    "critical_issues": [
+      "Pipeline integrity score below acceptable threshold"
+    ],
+    "pipeline_score": 0.0
+  },
+  "cross_layer_consistency": {
+    "layer_comparisons": {
+      "High Volume Adult Service": {
+        "raw_value": null,
+        "database_value": null,
+        "frontend_value": null,
+        "consistency": "unknown"
+      },
+      "Low Volume CYP Service": {
+        "raw_value": null,
+        "database_value": null,
+        "frontend_value": null,
+        "consistency": "unknown"
+      },
+      "High Wait Time Service": {
+        "raw_value": null,
+        "database_value": null,
+        "frontend_value": null,
+        "consistency": "unknown"
+      },
+      "Consistent Performance Service": {
+        "raw_value": null,
+        "database_value": null,
+        "frontend_value": null,
+        "consistency": "unknown"
+      },
+      "Edge Case - Zero Waiting": {
+        "raw_value": null,
+        "database_value": null,
+        "frontend_value": null,
+        "consistency": "unknown"
+      }
+    },
+    "consistency_checks": {
+      "service_mapping_consistency": {
+        "status": "checked",
+        "adult_services_consistent": true,
+        "cyp_services_consistent": true,
+        "mapping_issues": []
+      },
+      "mathematical_formula_consistency": {
+        "status": "checked",
+        "kpi_formulas_consistent": true,
+        "wait_band_math_consistent": true,
+        "formula_issues": []
+      },
+      "data_structure_consistency": {
+        "status": "checked",
+        "jsonb_structure_consistent": true,
+        "field_naming_consistent": true,
+        "structure_issues": []
+      }
+    },
+    "inconsistencies_found": [],
+    "consistency_score": 0.0
+  },
+  "overall_summary": {
+    "validation_status": "needs_attention",
+    "key_metrics": {
+      "sample_data_points_traced": 5,
+      "raw_data_extractions": 0,
+      "database_records_verified": 0,
+      "frontend_calculations_tested": 0,
+      "pipeline_integrity_score": 0,
+      "cross_layer_consistency_score": 0
+    },
+    "critical_findings": [],
+    "recommendations": [
+      "Implement additional data validation checks in processing pipeline",
+      "Address pipeline integrity issues before production deployment",
+      "Investigate cross-layer data consistency issues"
+    ],
+    "overall_score": 0.0
+  }
+}

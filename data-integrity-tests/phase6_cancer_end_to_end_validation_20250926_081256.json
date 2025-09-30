@@ -1,0 +1,194 @@
+{
+  "test_timestamp": "2025-09-26T08:12:50.864738",
+  "test_phase": "Phase 6: End-to-End Pipeline Validation",
+  "project_directory": "/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master",
+  "data_directory": "/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/Data",
+  "validation_results": {
+    "pipeline_traceability": {
+      "traces_performed": 2,
+      "successful_traces": 0,
+      "trace_failures": [
+        {
+          "trust": "RJ1",
+          "file": "CWT-CRS-Apr-2024-to-Sep-2024-Data-Extract-Provider-Final.xlsx",
+          "failed_stage": "consistency",
+          "error": "Data inconsistency detected across stages"
+        },
+        {
+          "trust": "RGT",
+          "file": "CWT-CRS-Apr-2024-to-Sep-2024-Data-Extract-Provider-Final.xlsx",
+          "failed_stage": "consistency",
+          "error": "Data inconsistency detected across stages"
+        }
+      ],
+      "pipeline_stages_tested": [
+        "excel",
+        "processing",
+        "database",
+        "frontend"
+      ],
+      "stage_pass_rates": {}
+    },
+    "cross_stage_consistency": {
+      "consistency_tests": 9,
+      "consistent_data_flows": 9,
+      "inconsistencies": [],
+      "tolerance_exceeded": []
+    },
+    "performance_metrics_e2e": {
+      "metrics_tested": 6,
+      "accurate_metrics": 6,
+      "metric_discrepancies": [],
+      "critical_metrics_verified": {
+        "RJ1": {
+          "overall_performance": 68.8,
+          "total_patients": 30841,
+          "total_breaches": 6070
+        },
+        "RGT": {
+          "overall_performance": 77.4,
+          "total_patients": 28466,
+          "total_breaches": 5282
+        }
+      }
+    },
+    "trust_specific_validation": {
+      "trusts_validated": 4,
+      "trusts_passed_validation": 4,
+      "trust_validation_results": {
+        "RJ1": {
+          "has_data": true,
+          "periods_available": 3,
+          "data_quality_checks": {
+            "2025-10-01": {
+              "passes_all_checks": true,
+              "issues": []
+            },
+            "2025-04-01": {
+              "passes_all_checks": true,
+              "issues": []
+            }
+          },
+          "issues": []
+        },
+        "RGT": {
+          "has_data": true,
+          "periods_available": 3,
+          "data_quality_checks": {
+            "2025-10-01": {
+              "passes_all_checks": true,
+              "issues": []
+            },
+            "2025-04-01": {
+              "passes_all_checks": true,
+              "issues": []
+            }
+          },
+          "issues": []
+        },
+        "RBL": {
+          "has_data": true,
+          "periods_available": 3,
+          "data_quality_checks": {
+            "2025-10-01": {
+              "passes_all_checks": true,
+              "issues": []
+            },
+            "2025-04-01": {
+              "passes_all_checks": true,
+              "issues": []
+            }
+          },
+          "issues": []
+        },
+        "RTH": {
+          "has_data": true,
+          "periods_available": 3,
+          "data_quality_checks": {
+            "2025-10-01": {
+              "passes_all_checks": true,
+              "issues": []
+            },
+            "2025-04-01": {
+              "passes_all_checks": true,
+              "issues": []
+            }
+          },
+          "issues": []
+        }
+      },
+      "data_quality_issues": []
+    },
+    "regression_validation": {
+      "regression_tests": 6,
+      "regression_passed": 4,
+      "value_changes": [],
+      "unexpected_changes": [
+        {
+          "trust": "RJ1",
+          "standard": "62_day_combined",
+          "performance": 52.4,
+          "expected_range": "70-90%",
+          "deviation": "below_range"
+        },
+        {
+          "trust": "RGT",
+          "standard": "31_day_combined",
+          "performance": 78.3,
+          "expected_range": "85-98%",
+          "deviation": "below_range"
+        }
+      ]
+    },
+    "edge_case_handling": {
+      "edge_cases_tested": 4,
+      "edge_cases_handled": 4,
+      "edge_case_failures": []
+    },
+    "system_reliability": {
+      "reliability_tests": 3,
+      "reliable_components": 3,
+      "reliability_issues": [],
+      "system_health_score": 90.0
+    }
+  },
+  "summary": {
+    "total_tests_run": 7,
+    "tests_passed": 6,
+    "critical_issues": 0,
+    "high_issues": 1,
+    "medium_issues": 0,
+    "low_issues": 1,
+    "pipeline_integrity_score": 68.0,
+    "confidence_metrics": {
+      "traceability": 0.0,
+      "consistency": 100.0,
+      "metrics_accuracy": 100.0,
+      "system_reliability": 90.0
+    }
+  },
+  "issues_found": [
+    {
+      "severity": "HIGH",
+      "category": "PIPELINE_TRACEABILITY",
+      "description": "Pipeline traceability below threshold: 0.0%",
+      "impact": "Cannot guarantee data accuracy across complete pipeline",
+      "recommendation": "Investigate and fix pipeline stage failures"
+    },
+    {
+      "severity": "LOW",
+      "category": "REGRESSION_VALIDATION",
+      "description": "Many values outside typical NHS performance ranges: 33.3%",
+      "impact": "Data may reflect unusual performance periods or processing issues",
+      "recommendation": "Review values outside typical NHS performance ranges"
+    }
+  ],
+  "recommendations": [
+    "\ud83d\udea8 CRITICAL: Very low confidence - major issues must be resolved",
+    "\ud83d\udd27 Address all high-priority issues to improve data reliability",
+    "\ud83d\udd04 Improve pipeline integrity before full deployment",
+    "\ud83d\udcca Run all phase tests regularly to maintain data accuracy confidence"
+  ],
+  "overall_status": "LOW_CONFIDENCE",
+  "confidence_level": 57.0
+}

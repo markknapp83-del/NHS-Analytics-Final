@@ -68,7 +68,7 @@ export function VirtualWardChart({ data }: VirtualWardChartProps) {
           y={85}
           stroke="#2563eb"
           strokeDasharray="5 5"
-          label={{ value: "85% Target", position: "topLeft" }}
+          label={{ value: "85% Target", position: "top" }}
         />
         <Line
           type="monotone"

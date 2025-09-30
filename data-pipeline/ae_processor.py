@@ -168,8 +168,14 @@ class AEProcessor:
 
         return None
 
-    def _clean_numeric_value(self, value: Any) -> Optional[float]:
-        """Clean and convert a value to numeric"""
+    def _clean_numeric_value(self, value: Any, is_percentage_field: bool = False) -> Optional[float]:
+        """
+        Clean and convert a value to numeric with proper percentage handling
+
+        Args:
+            value: The value to clean
+            is_percentage_field: If True, handle percentage conversion properly
+        """
         if pd.isna(value):
             return None
 
@@ -177,15 +183,33 @@ class AEProcessor:
             return float(value)
 
         if isinstance(value, str):
+            # Handle suppressed data markers first
+            if value.strip().lower() in ['*', '-', 'n/a', 'na', 'suppressed', '']:
+                return None
+
+            # Check if value has percentage symbol
+            has_percent_symbol = '%' in value
+
             # Remove common non-numeric characters
             cleaned = value.replace(',', '').replace('%', '').replace('*', '').strip()
 
-            # Handle suppressed data markers
-            if cleaned.lower() in ['*', '-', 'n/a', 'na', 'suppressed', '']:
-                return None
-
             try:
-                return float(cleaned)
+                numeric_value = float(cleaned)
+
+                # Apply percentage conversion logic based on context
+                if is_percentage_field and has_percent_symbol:
+                    # Value like "85.2%" -> should be stored as decimal format for consistency
+                    return numeric_value / 100.0  # Convert to decimal format
+                elif is_percentage_field and not has_percent_symbol and numeric_value <= 1.0:
+                    # Value like "0.852" -> already in decimal format
+                    return numeric_value
+                elif is_percentage_field and not has_percent_symbol and numeric_value > 1.0:
+                    # Value like "85.2" -> assume it's percentage, convert to decimal
+                    return numeric_value / 100.0
+                else:
+                    # Non-percentage field or unclear format, return as-is
+                    return numeric_value
+
             except ValueError:
                 return None
 
@@ -199,7 +223,9 @@ class AEProcessor:
         for metric_key in self.column_mappings.keys():
             col_name = self._find_column_name(pd.DataFrame([row]), metric_key)
             if col_name and col_name in row.index:
-                value = self._clean_numeric_value(row[col_name])
+                # Identify if this is a percentage field
+                is_percentage = metric_key == 'four_hour_performance_pct' or 'performance_pct' in metric_key
+                value = self._clean_numeric_value(row[col_name], is_percentage_field=is_percentage)
                 metrics[metric_key] = value
 
         return metrics

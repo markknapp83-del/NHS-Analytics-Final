@@ -1,7 +1,8 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { CheckCircle } from 'lucide-react';
-import { DiagnosticService, getBreachLevel, calculateOpportunityScore } from '@/lib/diagnostic-intelligence';
+import { DiagnosticService } from '@/types/nhs-data';
+import { getBreachLevel, calculateOpportunityScore } from '@/lib/diagnostic-intelligence';
 import { cn } from '@/lib/utils';
 
 export function EnhancedDiagnosticCard({

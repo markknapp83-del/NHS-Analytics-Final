@@ -19,16 +19,30 @@ export default function DiagnosticsPage() {
   const { metrics: trustData, isLoading } = useTrustMetrics(selectedTrust);
   const [selectedService, setSelectedService] = useState<string | null>(null);
 
-  const diagnosticServices = useMemo(() => {
-    if (!trustData.length) return [];
-    const latestData = trustData[trustData.length - 1];
-    const services = extractDiagnosticData(latestData);
-    return rankDiagnosticsByOpportunity(services);
+  // Filter data to only include entries with diagnostics data
+  const filteredData = useMemo(() => {
+    return trustData.filter(data => data.diagnostics_data);
   }, [trustData]);
 
+  // Find the latest data entry that actually has diagnostics data
+  const latestDataWithDiagnostics = useMemo(() => {
+    for (let i = filteredData.length - 1; i >= 0; i--) {
+      if (filteredData[i]?.diagnostics_data) {
+        return filteredData[i];
+      }
+    }
+    return null;
+  }, [filteredData]);
+
+  const diagnosticServices = useMemo(() => {
+    if (!latestDataWithDiagnostics) return [];
+    const services = extractDiagnosticData(latestDataWithDiagnostics);
+    return rankDiagnosticsByOpportunity(services);
+  }, [latestDataWithDiagnostics]);
+
   const previousMonthData = useMemo(() => {
-    return findPreviousMonthData(trustData);
-  }, [trustData]);
+    return findPreviousMonthData(filteredData);
+  }, [filteredData]);
 
   if (isLoading) {
     return (
@@ -45,7 +59,7 @@ export default function DiagnosticsPage() {
     );
   }
 
-  if (!trustData.length) {
+  if (!filteredData.length) {
     return (
       <div className="p-6 space-y-6">
         <div className="text-center py-12">
@@ -58,7 +72,7 @@ export default function DiagnosticsPage() {
     );
   }
 
-  const latestData = trustData[trustData.length - 1];
+  const latestData = latestDataWithDiagnostics;
 
   // Get selected service data or aggregate data
   const selectedServiceData = selectedService
@@ -93,16 +107,41 @@ export default function DiagnosticsPage() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <Badge variant="outline" className="text-sm">
-            Latest Data: {new Date(latestData.period).toLocaleDateString('en-GB', {
-              month: 'long',
-              year: 'numeric'
-            })}
-          </Badge>
+          {latestData && (
+            <Badge variant="outline" className="text-sm">
+              Latest Data: {new Date(latestData.period).toLocaleDateString('en-GB', {
+                month: 'long',
+                year: 'numeric'
+              })}
+            </Badge>
+          )}
           <Badge variant="secondary" className="text-sm">
             {diagnosticServices.length} services monitored
           </Badge>
         </div>
+      </div>
+
+      {/* Analysis Charts */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Card>
+          <CardHeader>
+            <CardTitle>Breach Rate Comparison</CardTitle>
+            <CardDescription>6+ week breach rates across all diagnostic services</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <DiagnosticBreachChart data={diagnosticServices} />
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Volume vs. Performance</CardTitle>
+            <CardDescription>Waiting list size vs. breach rate analysis</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <DiagnosticScatterChart data={diagnosticServices} />
+          </CardContent>
+        </Card>
       </div>
 
       {/* Dynamic KPI Cards */}
@@ -239,29 +278,6 @@ export default function DiagnosticsPage() {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Additional Analysis Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card>
-          <CardHeader>
-            <CardTitle>Breach Rate Comparison</CardTitle>
-            <CardDescription>6+ week breach rates across all diagnostic services</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <DiagnosticBreachChart data={diagnosticServices} />
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Volume vs. Performance</CardTitle>
-            <CardDescription>Waiting list size vs. breach rate analysis</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <DiagnosticScatterChart data={diagnosticServices} />
-          </CardContent>
-        </Card>
       </div>
     </div>
   );

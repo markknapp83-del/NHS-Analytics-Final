@@ -9,27 +9,25 @@ import {
   Tooltip,
   ResponsiveContainer
 } from 'recharts';
-import { NHSTrustData } from '@/types/nhs-data';
+import { TrustMetrics } from '@/types/database';
 
 interface DiagnosticsSummaryChartProps {
-  data: NHSTrustData[];
+  data: TrustMetrics[];
 }
 
 export function DiagnosticsSummaryChart({ data }: DiagnosticsSummaryChartProps) {
   const latestData = data[data.length - 1];
 
   const diagnosticTypes = [
-    { key: 'mri', name: 'MRI' },
-    { key: 'ct', name: 'CT Scan' },
-    { key: 'ultrasound', name: 'Ultrasound' },
-    { key: 'echocardiography', name: 'Echo' },
-    { key: 'gastroscopy', name: 'Gastroscopy' },
-    { key: 'colonoscopy', name: 'Colonoscopy' }
+    { key: 'mri_scans', name: 'MRI' },
+    { key: 'ct_scans', name: 'CT Scan' },
+    { key: 'ultrasound', name: 'Ultrasound' }
   ];
 
   const chartData = diagnosticTypes.map(type => {
-    const totalWaiting = (latestData as any)[`diag_${type.key}_total_waiting`] || 0;
-    const sixWeekBreaches = (latestData as any)[`diag_${type.key}_6week_breaches`] || 0;
+    const diagnosticData = latestData?.diagnostics_data?.[type.key];
+    const totalWaiting = diagnosticData?.total_waiting || 0;
+    const sixWeekBreaches = diagnosticData?.six_week_breaches || 0;
     const breachRate = totalWaiting > 0 ? (sixWeekBreaches / totalWaiting) * 100 : 0;
 
     return {

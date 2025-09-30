@@ -1,7 +1,7 @@
 'use client';
 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { DiagnosticService } from '@/lib/diagnostic-intelligence';
+import { DiagnosticService } from "@/types/nhs-data";
 
 interface DiagnosticBreachChartProps {
   data: DiagnosticService[];

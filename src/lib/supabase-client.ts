@@ -1,4 +1,4 @@
-import { createClient } from '@supabase/supabase-js';
+import { supabaseAuth } from '@/lib/supabase-auth';
 import type {
   Database,
   TrustMetrics,
@@ -12,10 +12,9 @@ import type {
   DiagnosticsData
 } from '@/types/database';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-
-export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey);
+// Use the authenticated client from supabase-auth
+// This ensures proper session handling and RLS policy compliance
+export const supabase = supabaseAuth;
 
 // Performance monitoring interface
 interface PerformanceMetrics {
@@ -107,7 +106,12 @@ export class NHSDatabaseClient {
   async getTrustMetrics(trustCode: string, dateRange?: DateRange): Promise<TrustMetrics[]> {
     const cacheKey = this.getCacheKey('metrics', trustCode, dateRange?.start || 'all', dateRange?.end || 'all');
     const cached = this.getCache<TrustMetrics[]>(cacheKey);
-    if (cached) return cached;
+    if (cached) {
+      console.log('[getTrustMetrics] Returning cached data for', trustCode, ':', cached.length, 'records');
+      return cached;
+    }
+
+    console.log('[getTrustMetrics] Fetching from database for', trustCode);
 
     return this.withPerformanceTracking(async () => {
       let query = this.client
@@ -125,34 +129,56 @@ export class NHSDatabaseClient {
       const { data, error } = await query;
 
       if (error) {
+        console.error('[getTrustMetrics] Database error:', error);
         throw new Error(`Failed to fetch trust metrics: ${error.message}`);
       }
 
       const result = data || [];
+      console.log('[getTrustMetrics] Database returned', result.length, 'records for', trustCode);
       this.setCache(cacheKey, result, this.cacheTTL.metrics);
       return result;
     }, `getTrustMetrics(${trustCode})`);
   }
 
   async getAllTrusts(): Promise<Trust[]> {
+    console.log('[getAllTrusts] Starting - checking cache');
     const cacheKey = this.getCacheKey('trusts', 'all');
     const cached = this.getCache<Trust[]>(cacheKey);
-    if (cached) return cached;
+    if (cached) {
+      console.log('[getAllTrusts] Returning cached data:', cached.length, 'trusts');
+      return cached;
+    }
+
+    console.log('[getAllTrusts] No cache found, fetching from database');
 
     return this.withPerformanceTracking(async () => {
+      // Query with a reasonable limit and deduplicate client-side
+      console.log('[getAllTrusts] Querying trust_metrics table directly');
       const { data, error } = await this.client
         .from('trust_metrics')
         .select('trust_code, trust_name, icb_code, icb_name')
-        .order('trust_name');
+        .not('trust_name', 'like', 'Unknown%')
+        .order('trust_name')
+        .limit(5000); // Reasonable limit to get all distinct trusts
+
+      console.log('[getAllTrusts] Query response:', { hasData: !!data, dataLength: data?.length, hasError: !!error, error: error });
 
       if (error) {
+        console.error('[getAllTrusts] Database error:', error);
         throw new Error(`Failed to fetch trusts: ${error.message}`);
       }
 
-      // Remove duplicates and create Trust objects
+      if (!data || data.length === 0) {
+        console.warn('[getAllTrusts] No data returned from database');
+        return [];
+      }
+
+      console.log('[getAllTrusts] Fetched', data.length, 'raw records from database');
+
+      // Deduplicate by trust_code on client side
       const trustMap = new Map<string, Trust>();
-      data?.forEach(row => {
-        if (!trustMap.has(row.trust_code)) {
+      data.forEach((row: any) => {
+        if (!trustMap.has(row.trust_code) && row.trust_name) {
           trustMap.set(row.trust_code, {
             code: row.trust_code,
             name: row.trust_name,
@@ -163,6 +189,12 @@ export class NHSDatabaseClient {
       });
 
       const result = Array.from(trustMap.values());
+
+      // Sort by name to ensure consistent ordering
+      result.sort((a, b) => a.name.localeCompare(b.name));
+
+      console.log('[getAllTrusts] Returning', result.length, 'unique trusts');
+
       this.setCache(cacheKey, result, this.cacheTTL.trusts);
       return result;
     }, 'getAllTrusts');
@@ -181,7 +213,7 @@ export class NHSDatabaseClient {
 
     // Remove duplicates
     const trustMap = new Map<string, Trust>();
-    data?.forEach(row => {
+    (data as any)?.forEach((row: any) => {
       if (!trustMap.has(row.trust_code)) {
         trustMap.set(row.trust_code, {
           code: row.trust_code,
@@ -236,7 +268,7 @@ export class NHSDatabaseClient {
       }
 
       return rttData;
-    });
+    }) as RTTData[];
   }
 
   async getAEPerformance(trustCode: string): Promise<AEData[]> {
@@ -333,12 +365,12 @@ export class NHSDatabaseClient {
       throw new Error(`No data found for ICB: ${icbCode}`);
     }
 
-    const icbName = data[0].icb_name || 'Unknown ICB';
-    const trustCount = new Set(data.map(d => d.trust_code)).size;
+    const icbName = (data as any)[0].icb_name || 'Unknown ICB';
+    const trustCount = new Set((data as any).map((d: any) => d.trust_code)).size;
 
     // Get latest data for each trust
     const latestDataByTrust = new Map<string, TrustMetrics>();
-    data.forEach(record => {
+    (data as any).forEach((record: any) => {
       const existing = latestDataByTrust.get(record.trust_code);
       if (!existing || record.period > existing.period) {
         latestDataByTrust.set(record.trust_code, record);

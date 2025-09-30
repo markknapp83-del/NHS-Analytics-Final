@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 
 // Module-level state to share trust selection across components
-let globalTrustState = 'RGT'; // Default to Cambridge
+let globalTrustState = 'R0A'; // Default to Manchester University NHS Foundation Trust (has community health data)
 const listeners = new Set<(trust: string) => void>();
 
 const setGlobalTrust = (trust: string) => {
+  console.log('[useTrustSelection] Setting global trust to:', trust);
   globalTrustState = trust;
   listeners.forEach(listener => listener(trust));
 };

@@ -1,0 +1,70 @@
+2025-09-26 08:56:42,634 - phase3_priority_refresh - INFO - ✅ Supabase client initialized successfully
+2025-09-26 08:56:42,634 - phase3_priority_refresh - INFO - 🚀 Starting Phase 3 Priority Data Refresh
+2025-09-26 08:56:42,634 - phase3_priority_refresh - INFO - Start time: 2025-09-26 08:56:42.634145
+2025-09-26 08:56:42,634 - phase3_priority_refresh - INFO - 🔄 Starting RTT data processing...
+2025-09-26 08:56:42,634 - phase3_priority_refresh - INFO - Found 12 RTT files
+2025-09-26 08:56:42,634 - phase3_priority_refresh - INFO - Processing RTT file: Incomplete-Provider-Dec24-XLSX-9M-revised.xlsx
+2025-09-26 08:56:45,005 - phase3_priority_refresh - INFO - Processing RTT file: Incomplete-Provider-Sep24-XLSX-9M-revised.xlsx
+2025-09-26 08:56:47,287 - phase3_priority_refresh - INFO - Processing RTT file: Incomplete-Provider-Apr25-XLSX-9M-77252.xlsx
+2025-09-26 08:56:49,585 - phase3_priority_refresh - INFO - Processing RTT file: Incomplete-Provider-May25-XLSX-9M-32711.xlsx
+2025-09-26 08:56:51,877 - phase3_priority_refresh - INFO - Processing RTT file: Incomplete-Provider-Nov24-XLSX-9M-revised.xlsx
+2025-09-26 08:56:54,175 - phase3_priority_refresh - INFO - Processing RTT file: Incomplete-Provider-Jun25-XLSX-9M-94367.xlsx
+2025-09-26 08:56:56,602 - phase3_priority_refresh - INFO - Processing RTT file: Incomplete-Provider-Jan25-XLSX-9M-revised.xlsx
+2025-09-26 08:56:58,888 - phase3_priority_refresh - INFO - Processing RTT file: Incomplete-Provider-Oct24-XLSX-9M-revised.xlsx
+2025-09-26 08:57:01,188 - phase3_priority_refresh - INFO - Processing RTT file: Incomplete-Provider-Jul25-XLSX-9M-92707 (1).xlsx
+2025-09-26 08:57:03,490 - phase3_priority_refresh - INFO - Processing RTT file: Incomplete-Provider-Feb25-XLSX-9M-revised.xlsx
+2025-09-26 08:57:05,768 - phase3_priority_refresh - INFO - Processing RTT file: Incomplete-Provider-Aug24-XLSX-9M-revised.xlsx
+2025-09-26 08:57:08,158 - phase3_priority_refresh - INFO - Processing RTT file: Incomplete-Provider-Mar25-XLSX-9M-revised.xlsx
+2025-09-26 08:57:10,449 - phase3_priority_refresh - INFO - RTT processing complete: 0 success, 0 failed
+2025-09-26 08:57:10,449 - phase3_priority_refresh - INFO - 🔄 Starting A&E data processing...
+2025-09-26 08:57:10,450 - phase3_priority_refresh - INFO - Found 11 A&E files
+2025-09-26 08:57:10,450 - phase3_priority_refresh - INFO - Processing A&E file: Monthly-AE-October-2024-revised.csv
+2025-09-26 08:57:10,450 - phase3_priority_refresh - ERROR - Error processing A&E file Monthly-AE-October-2024-revised.csv: Excel file format cannot be determined, you must specify an engine manually.
+2025-09-26 08:57:10,450 - phase3_priority_refresh - INFO - Processing A&E file: Monthly-AE-May-2025.csv
+2025-09-26 08:57:10,450 - phase3_priority_refresh - ERROR - Error processing A&E file Monthly-AE-May-2025.csv: Excel file format cannot be determined, you must specify an engine manually.
+2025-09-26 08:57:10,450 - phase3_priority_refresh - INFO - Processing A&E file: Monthly-AE-June-2025-1-1.csv
+2025-09-26 08:57:10,450 - phase3_priority_refresh - ERROR - Error processing A&E file Monthly-AE-June-2025-1-1.csv: Excel file format cannot be determined, you must specify an engine manually.
+2025-09-26 08:57:10,450 - phase3_priority_refresh - INFO - Processing A&E file: Monthly-AE-August-2024.csv
+2025-09-26 08:57:10,451 - phase3_priority_refresh - ERROR - Error processing A&E file Monthly-AE-August-2024.csv: Excel file format cannot be determined, you must specify an engine manually.
+2025-09-26 08:57:10,451 - phase3_priority_refresh - INFO - Processing A&E file: Monthly-AE-February-2025-revised.csv
+2025-09-26 08:57:10,451 - phase3_priority_refresh - ERROR - Error processing A&E file Monthly-AE-February-2025-revised.csv: Excel file format cannot be determined, you must specify an engine manually.
+2025-09-26 08:57:10,451 - phase3_priority_refresh - INFO - Processing A&E file: Monthly-AE-December-2024.csv
+2025-09-26 08:57:10,451 - phase3_priority_refresh - ERROR - Error processing A&E file Monthly-AE-December-2024.csv: Excel file format cannot be determined, you must specify an engine manually.
+2025-09-26 08:57:10,451 - phase3_priority_refresh - INFO - Processing A&E file: Monthly-AE-September-2024.csv
+2025-09-26 08:57:10,451 - phase3_priority_refresh - ERROR - Error processing A&E file Monthly-AE-September-2024.csv: Excel file format cannot be determined, you must specify an engine manually.
+2025-09-26 08:57:10,451 - phase3_priority_refresh - INFO - Processing A&E file: Monthly-AE-March-2025.csv
+2025-09-26 08:57:10,451 - phase3_priority_refresh - ERROR - Error processing A&E file Monthly-AE-March-2025.csv: Excel file format cannot be determined, you must specify an engine manually.
+2025-09-26 08:57:10,451 - phase3_priority_refresh - INFO - Processing A&E file: Monthly-AE-April-2025.csv
+2025-09-26 08:57:10,451 - phase3_priority_refresh - ERROR - Error processing A&E file Monthly-AE-April-2025.csv: Excel file format cannot be determined, you must specify an engine manually.
+2025-09-26 08:57:10,451 - phase3_priority_refresh - INFO - Processing A&E file: Monthly-AE-January-2025.csv
+2025-09-26 08:57:10,451 - phase3_priority_refresh - ERROR - Error processing A&E file Monthly-AE-January-2025.csv: Excel file format cannot be determined, you must specify an engine manually.
+2025-09-26 08:57:10,451 - phase3_priority_refresh - INFO - Processing A&E file: Monthly-AE-November-2024-revised.csv
+2025-09-26 08:57:10,452 - phase3_priority_refresh - ERROR - Error processing A&E file Monthly-AE-November-2024-revised.csv: Excel file format cannot be determined, you must specify an engine manually.
+2025-09-26 08:57:10,452 - phase3_priority_refresh - INFO - A&E processing complete: 0 success, 11 failed
+2025-09-26 08:57:10,452 - phase3_priority_refresh - INFO - 🔄 Starting Diagnostics data processing...
+2025-09-26 08:57:10,452 - phase3_priority_refresh - INFO - Found 12 Diagnostics files
+2025-09-26 08:57:10,452 - phase3_priority_refresh - INFO - Processing Diagnostics file: Monthly-Diagnostics-Web-File-Provider-November-2024.xls
+2025-09-26 08:57:10,452 - phase3_priority_refresh - ERROR - Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-November-2024.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.
+2025-09-26 08:57:10,452 - phase3_priority_refresh - INFO - Processing Diagnostics file: Monthly-Diagnostics-Web-File-Provider-May-2025.xls
+2025-09-26 08:57:10,452 - phase3_priority_refresh - ERROR - Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-May-2025.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.
+2025-09-26 08:57:10,452 - phase3_priority_refresh - INFO - Processing Diagnostics file: Monthly-Diagnostics-Web-File-Provider-February-2025_FT49R.xls
+2025-09-26 08:57:10,452 - phase3_priority_refresh - ERROR - Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-February-2025_FT49R.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.
+2025-09-26 08:57:10,452 - phase3_priority_refresh - INFO - Processing Diagnostics file: Monthly-Diagnostics-Web-File-Provider-September-2024.xls
+2025-09-26 08:57:10,452 - phase3_priority_refresh - ERROR - Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-September-2024.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.
+2025-09-26 08:57:10,452 - phase3_priority_refresh - INFO - Processing Diagnostics file: Monthly-Diagnostics-Web-File-Provider-August-2024.xls
+2025-09-26 08:57:10,453 - phase3_priority_refresh - ERROR - Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-August-2024.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.
+2025-09-26 08:57:10,453 - phase3_priority_refresh - INFO - Processing Diagnostics file: Monthly-Diagnostics-Web-File-Provider-December-2024.xls
+2025-09-26 08:57:10,453 - phase3_priority_refresh - ERROR - Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-December-2024.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.
+2025-09-26 08:57:10,453 - phase3_priority_refresh - INFO - Processing Diagnostics file: Monthly-Diagnostics-Web-File-Provider-March-2025_SW40K.xls
+2025-09-26 08:57:10,453 - phase3_priority_refresh - ERROR - Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-March-2025_SW40K.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.
+2025-09-26 08:57:10,453 - phase3_priority_refresh - INFO - Processing Diagnostics file: Monthly-Diagnostics-Web-File-Provider-April-2025_3EY67.xls
+2025-09-26 08:57:10,453 - phase3_priority_refresh - ERROR - Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-April-2025_3EY67.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.
+2025-09-26 08:57:10,453 - phase3_priority_refresh - INFO - Processing Diagnostics file: Monthly-Diagnostics-Web-File-Provider-October-2024.xls
+2025-09-26 08:57:10,453 - phase3_priority_refresh - ERROR - Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-October-2024.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.
+2025-09-26 08:57:10,453 - phase3_priority_refresh - INFO - Processing Diagnostics file: Monthly-Diagnostics-Web-File-Provider-January-2025.xls
+2025-09-26 08:57:10,453 - phase3_priority_refresh - ERROR - Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-January-2025.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.
+2025-09-26 08:57:10,453 - phase3_priority_refresh - INFO - Processing Diagnostics file: Monthly-Diagnostics-Web-File-Provider-June-2025_45KNG.xls
+2025-09-26 08:57:10,453 - phase3_priority_refresh - ERROR - Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-June-2025_45KNG.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.
+2025-09-26 08:57:10,453 - phase3_priority_refresh - INFO - Processing Diagnostics file: Monthly-Diagnostics-Web-File-Provider-July-2025_L8FLO.xls
+2025-09-26 08:57:10,454 - phase3_priority_refresh - ERROR - Error processing Diagnostics file Monthly-Diagnostics-Web-File-Provider-July-2025_L8FLO.xls: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.
+2025-09-26 08:57:10,454 - phase3_priority_refresh - INFO - Diagnostics processing complete: 0 success, 12 failed

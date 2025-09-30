@@ -1,4 +1,4 @@
-import { NHSTrustData } from '@/../types/nhs-data';
+import { TrustMetrics } from '@/types/database';
 
 export interface CriticalDiagnosticService {
   name: string;
@@ -9,7 +9,7 @@ export interface CriticalDiagnosticService {
   thirteenWeekBreaches: number;
 }
 
-export function calculateCriticalDiagnosticServices(trustData: NHSTrustData): {
+export function calculateCriticalDiagnosticServices(trustData: TrustMetrics): {
   count: number;
   services: CriticalDiagnosticService[];
 } {
@@ -34,9 +34,13 @@ export function calculateCriticalDiagnosticServices(trustData: NHSTrustData): {
   const criticalServices: CriticalDiagnosticService[] = [];
 
   diagnosticTypes.forEach(type => {
-    const totalWaiting = trustData[`diag_${type.key}_total_waiting` as keyof NHSTrustData] as number;
-    const sixWeekBreaches = trustData[`diag_${type.key}_6week_breaches` as keyof NHSTrustData] as number;
-    const thirteenWeekBreaches = trustData[`diag_${type.key}_13week_breaches` as keyof NHSTrustData] as number;
+    const diagnosticData = trustData.diagnostics_data?.[type.key];
+
+    if (!diagnosticData) return;
+
+    const totalWaiting = diagnosticData.total_waiting;
+    const sixWeekBreaches = diagnosticData.six_week_breaches;
+    const thirteenWeekBreaches = diagnosticData.thirteen_week_breaches;
 
     if (totalWaiting && totalWaiting > 0) {
       const breachRate = (sixWeekBreaches / totalWaiting) * 100;

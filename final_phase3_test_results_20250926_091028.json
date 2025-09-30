@@ -1,0 +1,27 @@
+{
+  "summary": {
+    "total_success": 533,
+    "total_failed": 0,
+    "total_errors": 0,
+    "duration_seconds": 57.118491,
+    "start_time": "2025-09-26T09:09:31.398638",
+    "end_time": "2025-09-26T09:10:28.517129"
+  },
+  "detailed_results": {
+    "rtt": {
+      "success": 310,
+      "failed": 0,
+      "errors": []
+    },
+    "ae": {
+      "success": 223,
+      "failed": 0,
+      "errors": []
+    },
+    "diagnostics": {
+      "success": 0,
+      "failed": 0,
+      "errors": []
+    }
+  }
+}

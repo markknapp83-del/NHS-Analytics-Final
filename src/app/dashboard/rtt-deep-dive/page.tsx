@@ -30,9 +30,12 @@ export default function RTTDeepDivePage() {
     return ranges;
   }, [trustData]);
 
-  // Filter data based on selected date range
+  // Filter data based on selected date range and only include entries with RTT data
   const filteredData = useMemo(() => {
-    if (!trustData.length || selectedDateRange === 'all') return trustData;
+    // First filter to only data with RTT data
+    const dataWithRTT = trustData.filter(data => data.rtt_data);
+
+    if (!dataWithRTT.length || selectedDateRange === 'all') return dataWithRTT;
 
     const months = {
       last12: 12,
@@ -41,8 +44,20 @@ export default function RTTDeepDivePage() {
     };
 
     const monthsToShow = months[selectedDateRange as keyof typeof months] || 12;
-    return trustData.slice(-monthsToShow);
+    return dataWithRTT.slice(-monthsToShow);
   }, [trustData, selectedDateRange]);
+
+  // Find the latest data entry that actually has RTT data
+  const latestDataWithRTT = useMemo(() => {
+    const dataToSearch = filteredData.length > 0 ? filteredData : trustData;
+    // Search from most recent to oldest for data with RTT
+    for (let i = dataToSearch.length - 1; i >= 0; i--) {
+      if (dataToSearch[i]?.rtt_data) {
+        return dataToSearch[i];
+      }
+    }
+    return null;
+  }, [filteredData, trustData]);
 
   if (isLoading) {
     return (
@@ -59,7 +74,7 @@ export default function RTTDeepDivePage() {
     );
   }
 
-  if (!trustData.length) {
+  if (!filteredData.length) {
     return (
       <div className="p-6 space-y-6">
         <div className="text-center py-12">
@@ -73,7 +88,7 @@ export default function RTTDeepDivePage() {
     );
   }
 
-  const latestData = filteredData[filteredData.length - 1] || trustData[trustData.length - 1];
+  const latestData = latestDataWithRTT;
 
   return (
     <div className="p-6 space-y-4">
@@ -83,12 +98,14 @@ export default function RTTDeepDivePage() {
           <h1 className="text-2xl font-bold">RTT Deep Dive Analysis</h1>
           <p className="text-slate-600">Comprehensive Referral to Treatment performance analysis</p>
         </div>
-        <Badge variant="outline" className="text-sm">
-          Latest Data: {new Date(latestData.period).toLocaleDateString('en-GB', {
-            month: 'long',
-            year: 'numeric'
-          })}
-        </Badge>
+        {latestData && (
+          <Badge variant="outline" className="text-sm">
+            Latest Data: {new Date(latestData.period).toLocaleDateString('en-GB', {
+              month: 'long',
+              year: 'numeric'
+            })}
+          </Badge>
+        )}
       </div>
 
       {/* Tabbed Interface */}
@@ -118,6 +135,7 @@ export default function RTTDeepDivePage() {
           <SpecialtyAnalysisTab
             selectedSpecialty={selectedSpecialty}
             onSpecialtySelect={setSelectedSpecialty}
+            latestData={latestData}
           />
         </TabsContent>
       </Tabs>

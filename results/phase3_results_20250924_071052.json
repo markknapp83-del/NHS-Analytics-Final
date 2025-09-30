@@ -1,0 +1,394 @@
+{
+  "test_timestamp": "2025-09-24T07:10:51.751560",
+  "test_phase": "Phase 3: Business Logic Validation",
+  "results": {
+    "nhs_performance_standards": {
+      "rtt_18_week_standard": {
+        "target": 92.0,
+        "violations": [
+          {
+            "trust_code": "R0A",
+            "trust_name": "MANCHESTER UNIVERSITY NHS FOUN...",
+            "period": "2024-08-01",
+            "performance": 48.04,
+            "shortfall": 43.96
+          },
+          {
+            "trust_code": "R0A",
+            "trust_name": "MANCHESTER UNIVERSITY NHS FOUN...",
+            "period": "2024-09-01",
+            "performance": 48.29,
+            "shortfall": 43.71
+          },
+          {
+            "trust_code": "R0A",
+            "trust_name": "MANCHESTER UNIVERSITY NHS FOUN...",
+            "period": "2024-10-01",
+            "performance": 48.31,
+            "shortfall": 43.69
+          },
+          {
+            "trust_code": "R0A",
+            "trust_name": "MANCHESTER UNIVERSITY NHS FOUN...",
+            "period": "2024-11-01",
+            "performance": 48.16,
+            "shortfall": 43.84
+          },
+          {
+            "trust_code": "R0A",
+            "trust_name": "MANCHESTER UNIVERSITY NHS FOUN...",
+            "period": "2024-12-01",
+            "performance": 48.25,
+            "shortfall": 43.75
+          },
+          {
+            "trust_code": "R0A",
+            "trust_name": "MANCHESTER UNIVERSITY NHS FOUN...",
+            "period": "2025-01-01",
+            "performance": 49.64,
+            "shortfall": 42.36
+          },
+          {
+            "trust_code": "RGR",
+            "trust_name": "WEST SUFFOLK NHS FOUNDATION TR...",
+            "period": "2024-10-01",
+            "performance": 59.89,
+            "shortfall": 32.11
+          },
+          {
+            "trust_code": "R0A",
+            "trust_name": "MANCHESTER UNIVERSITY NHS FOUN...",
+            "period": "2025-02-01",
+            "performance": 50.42,
+            "shortfall": 41.58
+          },
+          {
+            "trust_code": "R0A",
+            "trust_name": "MANCHESTER UNIVERSITY NHS FOUN...",
+            "period": "2025-03-01",
+            "performance": 51.44,
+            "shortfall": 40.56
+          },
+          {
+            "trust_code": "R0A",
+            "trust_name": "MANCHESTER UNIVERSITY NHS FOUN...",
+            "period": "2025-04-01",
+            "performance": 51.04,
+            "shortfall": 40.96
+          }
+        ],
+        "violation_count": 952
+      },
+      "ae_4_hour_standard": {
+        "target": 95.0,
+        "violations": [
+          {
+            "trust_code": "R0A",
+            "trust_name": "MANCHESTER UNIVERSITY NHS FOUN...",
+            "period": "2024-08-01",
+            "performance": 73.6,
+            "shortfall": 21.4
+          },
+          {
+            "trust_code": "R0A",
+            "trust_name": "MANCHESTER UNIVERSITY NHS FOUN...",
+            "period": "2024-09-01",
+            "performance": 69.96,
+            "shortfall": 25.04
+          },
+          {
+            "trust_code": "R0A",
+            "trust_name": "MANCHESTER UNIVERSITY NHS FOUN...",
+            "period": "2024-10-01",
+            "performance": 68.55,
+            "shortfall": 26.45
+          },
+          {
+            "trust_code": "R0A",
+            "trust_name": "MANCHESTER UNIVERSITY NHS FOUN...",
+            "period": "2024-11-01",
+            "performance": 64.24,
+            "shortfall": 30.76
+          },
+          {
+            "trust_code": "R0A",
+            "trust_name": "MANCHESTER UNIVERSITY NHS FOUN...",
+            "period": "2024-12-01",
+            "performance": 64.77,
+            "shortfall": 30.23
+          },
+          {
+            "trust_code": "R0A",
+            "trust_name": "MANCHESTER UNIVERSITY NHS FOUN...",
+            "period": "2025-01-01",
+            "performance": 67.3,
+            "shortfall": 27.7
+          },
+          {
+            "trust_code": "RGR",
+            "trust_name": "WEST SUFFOLK NHS FOUNDATION TR...",
+            "period": "2024-10-01",
+            "performance": 64.63,
+            "shortfall": 30.37
+          },
+          {
+            "trust_code": "R0A",
+            "trust_name": "MANCHESTER UNIVERSITY NHS FOUN...",
+            "period": "2025-02-01",
+            "performance": 69.45,
+            "shortfall": 25.55
+          },
+          {
+            "trust_code": "R0A",
+            "trust_name": "MANCHESTER UNIVERSITY NHS FOUN...",
+            "period": "2025-03-01",
+            "performance": 73.75,
+            "shortfall": 21.25
+          },
+          {
+            "trust_code": "R0A",
+            "trust_name": "MANCHESTER UNIVERSITY NHS FOUN...",
+            "period": "2025-04-01",
+            "performance": 70.62,
+            "shortfall": 24.38
+          }
+        ],
+        "violation_count": 791
+      },
+      "diagnostic_6_week_standard": {
+        "target": 99.0,
+        "violations": [],
+        "violation_count": 0
+      },
+      "ambulance_response_standards": {
+        "violations": []
+      },
+      "compliance_summary": {
+        "total_trust_periods": 1000,
+        "rtt_compliant": 48,
+        "ae_compliant": 209,
+        "diagnostic_compliant": 1000,
+        "rtt_compliance_rate": 4.8,
+        "ae_compliance_rate": 20.9,
+        "diagnostic_compliance_rate": 100.0
+      },
+      "status": "PASS"
+    },
+    "mathematical_consistency": {
+      "rtt_specialty_totals": {
+        "tests": 1000,
+        "violations": [
+          {
+            "trust_code": "R0A",
+            "period": "2024-08-01",
+            "trust_total": 385384,
+            "specialty_sum": 151371,
+            "difference": 234013,
+            "difference_pct": 60.72
+          },
+          {
+            "trust_code": "R0A",
+            "period": "2024-09-01",
+            "trust_total": 388962,
+            "specialty_sum": 152352,
+            "difference": 236610,
+            "difference_pct": 60.83
+          },
+          {
+            "trust_code": "R0A",
+            "period": "2024-10-01",
+            "trust_total": 393972,
+            "specialty_sum": 154338,
+            "difference": 239634,
+            "difference_pct": 60.83
+          },
+          {
+            "trust_code": "R0A",
+            "period": "2024-11-01",
+            "trust_total": 399156,
+            "specialty_sum": 154930,
+            "difference": 244226,
+            "difference_pct": 61.19
+          },
+          {
+            "trust_code": "R0A",
+            "period": "2024-12-01",
+            "trust_total": 398850,
+            "specialty_sum": 159376,
+            "difference": 239474,
+            "difference_pct": 60.04
+          }
+        ],
+        "violation_count": 987
+      },
+      "ae_attendance_totals": {
+        "tests": 0,
+        "violations": []
+      },
+      "percentage_calculations": {
+        "tests": 1000,
+        "violations": [],
+        "violation_count": 0
+      },
+      "waiting_list_mathematics": {
+        "tests": 1000,
+        "violations": [],
+        "violation_count": 0
+      },
+      "overall_accuracy_rate": 67.1,
+      "status": "FAIL"
+    },
+    "outlier_detection": {
+      "performance_percentages": {
+        "tests": 1000,
+        "outliers": [],
+        "outlier_count": 0
+      },
+      "waiting_times": {
+        "tests": 1000,
+        "outliers": [],
+        "outlier_count": 0
+      },
+      "attendance_volumes": {
+        "tests": 815,
+        "outliers": [],
+        "outlier_count": 0
+      },
+      "statistical_outliers": {
+        "tests": 0,
+        "outliers": []
+      },
+      "overall_outlier_rate": 0.0,
+      "status": "PASS"
+    },
+    "temporal_consistency": {
+      "period_coverage": {
+        "total_trusts": 92,
+        "expected_periods": 12,
+        "period_range": "2024-08-01 to 2025-07-01",
+        "trusts_with_gaps": 12,
+        "coverage_issues": [
+          {
+            "trust_code": "RP7",
+            "missing_periods": 10,
+            "total_expected": 12,
+            "coverage_rate": 16.7
+          },
+          {
+            "trust_code": "RNN",
+            "missing_periods": 10,
+            "total_expected": 12,
+            "coverage_rate": 16.7
+          },
+          {
+            "trust_code": "RW4",
+            "missing_periods": 11,
+            "total_expected": 12,
+            "coverage_rate": 8.3
+          },
+          {
+            "trust_code": "RPA",
+            "missing_periods": 8,
+            "total_expected": 12,
+            "coverage_rate": 33.3
+          },
+          {
+            "trust_code": "RPC",
+            "missing_periods": 11,
+            "total_expected": 12,
+            "coverage_rate": 8.3
+          },
+          {
+            "trust_code": "RQ3",
+            "missing_periods": 10,
+            "total_expected": 12,
+            "coverage_rate": 16.7
+          },
+          {
+            "trust_code": "RR8",
+            "missing_periods": 7,
+            "total_expected": 12,
+            "coverage_rate": 41.7
+          },
+          {
+            "trust_code": "RRK",
+            "missing_periods": 9,
+            "total_expected": 12,
+            "coverage_rate": 25.0
+          },
+          {
+            "trust_code": "RT1",
+            "missing_periods": 11,
+            "total_expected": 12,
+            "coverage_rate": 8.3
+          },
+          {
+            "trust_code": "RTE",
+            "missing_periods": 6,
+            "total_expected": 12,
+            "coverage_rate": 50.0
+          }
+        ]
+      },
+      "trend_analysis": {
+        "trusts_analyzed": 86,
+        "trend_violations": 0,
+        "violation_details": []
+      },
+      "seasonal_patterns": {},
+      "data_continuity": {},
+      "status": "FAIL"
+    },
+    "business_rule_compliance": {
+      "rules_tested": [
+        {
+          "rule_name": "Long wait hierarchies (52+ weeks \u2264 18+ weeks)",
+          "tests_performed": 1000,
+          "violations": 0,
+          "compliance_rate": 100.0
+        },
+        {
+          "rule_name": "A&E attendance logic (breaches \u2264 total attendances)",
+          "tests_performed": 815,
+          "violations": 0,
+          "compliance_rate": 100.0
+        },
+        {
+          "rule_name": "Diagnostic wait hierarchy (13wk \u2264 6wk \u2264 total)",
+          "tests_performed": 1000,
+          "violations": 0,
+          "compliance_rate": 100.0
+        }
+      ],
+      "violations": [],
+      "compliance_summary": {
+        "total_tests": 2815,
+        "total_violations": 0,
+        "overall_compliance_rate": 100.0
+      },
+      "status": "PASS"
+    }
+  },
+  "summary": {
+    "overall_status": "FAIL",
+    "total_issues": 4,
+    "critical_issues": 2,
+    "warning_issues": 2,
+    "tests_passed": 3,
+    "tests_total": 5,
+    "pass_rate": 60.0
+  },
+  "issues_found": [
+    "Warning: Low RTT compliance rate (4.8%)",
+    "Warning: Very low A&E compliance rate (20.9%)",
+    "Critical: Low mathematical consistency (67.1%)",
+    "Critical: 12 temporal consistency issues found"
+  ],
+  "recommendations": [
+    "\ud83d\udd34 Critical business logic violations found - requires data quality review",
+    "Review data transformation and validation processes",
+    "Implement additional business rule checks in data pipeline",
+    "Review mathematical calculations in data transformation"
+  ],
+  "business_rules_tested": []
+}

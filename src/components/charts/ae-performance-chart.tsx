@@ -56,7 +56,7 @@ export function AEPerformanceChart({ data }: AEPerformanceChartProps) {
           y={95}
           stroke="#dc2626"
           strokeDasharray="5 5"
-          label={{ value: "95% Target", position: "topLeft" }}
+          label={{ value: "95% Target", position: "top" }}
         />
         <Line
           type="monotone"

@@ -1,7 +1,7 @@
 'use client';
 
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
-import { DiagnosticService } from '@/lib/diagnostic-intelligence';
+import { DiagnosticService } from "@/types/nhs-data";
 
 interface DiagnosticScatterChartProps {
   data: DiagnosticService[];

@@ -3,11 +3,11 @@
 import { useMemo } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { NHSTrustData } from '@/../types/nhs-data';
+import { TrustMetrics } from '@/types/database';
 import { identifyAllCriticalIssues, CriticalIssue } from '@/lib/critical-issues-identifier';
 import { AlertTriangle, CheckCircle } from 'lucide-react';
 
-export function CriticalIssuesPanel({ trustData }: { trustData: NHSTrustData[] }) {
+export function CriticalIssuesPanel({ trustData }: { trustData: TrustMetrics[] }) {
   const latestData = trustData[trustData.length - 1];
 
   const criticalIssues = useMemo(() => {

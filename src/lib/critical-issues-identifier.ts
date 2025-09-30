@@ -1,9 +1,9 @@
-import { NHSTrustData } from '@/../types/nhs-data';
+import { TrustMetrics } from '@/types/database';
 import { calculateCriticalDiagnosticServices } from './critical-diagnostics-calculator';
-import { Clock, AlertTriangle, Activity, Building2 } from 'lucide-react';
+import { Clock, AlertTriangle, Activity, Building2, Users } from 'lucide-react';
 
 export interface CriticalIssue {
-  category: 'RTT' | 'Diagnostic' | 'A&E' | 'Capacity';
+  category: 'RTT' | 'Diagnostic' | 'A&E' | 'Capacity' | 'Community Health';
   severity: 'Critical' | 'High' | 'Moderate';
   title: string;
   description: string;
@@ -13,7 +13,7 @@ export interface CriticalIssue {
   icon: React.ComponentType<{ className?: string }>;
 }
 
-export function identifyAllCriticalIssues(trustData: NHSTrustData): CriticalIssue[] {
+export function identifyAllCriticalIssues(trustData: TrustMetrics): CriticalIssue[] {
   const issues: CriticalIssue[] = [];
 
   // Specialty RTT Performance Rankings (Critical Issues)
@@ -41,19 +41,19 @@ export function identifyAllCriticalIssues(trustData: NHSTrustData): CriticalIssu
   ];
 
   specialties.forEach(specialty => {
-    const complianceKey = `rtt_${specialty.key}_percent_within_18_weeks` as keyof NHSTrustData;
-    const longWaitersKey = `rtt_${specialty.key}_total_52_plus_weeks` as keyof NHSTrustData;
-    const totalPathwaysKey = `rtt_${specialty.key}_total_incomplete_pathways` as keyof NHSTrustData;
+    const specialtyData = trustData.rtt_data?.specialties?.[specialty.key];
 
-    const compliance = trustData[complianceKey] as number;
-    const longWaiters = trustData[longWaitersKey] as number;
-    const totalPathways = trustData[totalPathwaysKey] as number;
+    if (!specialtyData) return;
+
+    const compliance = specialtyData.percent_within_18_weeks;
+    const longWaiters = specialtyData.total_52_plus_weeks;
+    const totalPathways = specialtyData.total_incomplete_pathways;
 
     // Convert decimal compliance to percentage (0.43 -> 43%)
     const compliancePercent = compliance !== undefined ? compliance * 100 : undefined;
 
-    // Critical specialty performance issues
-    if (compliancePercent !== undefined && compliancePercent < 40 && totalPathways > 50) {
+    // Critical specialty performance issues - aligned with specialty analysis thresholds
+    if (compliancePercent !== undefined && compliancePercent < 50 && totalPathways > 50) {
       issues.push({
         category: 'RTT',
         severity: 'Critical',
@@ -64,7 +64,7 @@ export function identifyAllCriticalIssues(trustData: NHSTrustData): CriticalIssu
         target: 92,
         icon: AlertTriangle
       });
-    } else if (compliancePercent !== undefined && compliancePercent < 60 && totalPathways > 100) {
+    } else if (compliancePercent !== undefined && compliancePercent < 75 && totalPathways > 100) {
       issues.push({
         category: 'RTT',
         severity: 'High',
@@ -78,10 +78,10 @@ export function identifyAllCriticalIssues(trustData: NHSTrustData): CriticalIssu
     }
 
     // Critical long waiters by specialty
-    if (longWaiters !== undefined && longWaiters > 20 && totalPathways > 50) {
+    if (longWaiters !== undefined && longWaiters > 10 && totalPathways > 50) {
       issues.push({
         category: 'RTT',
-        severity: longWaiters > 100 ? 'Critical' : 'High',
+        severity: longWaiters > 50 ? 'Critical' : 'High',
         title: `${specialty.name} Long Waiters`,
         description: `${longWaiters} patients waiting over 52 weeks`,
         metric: '52+ week waiters',
@@ -93,10 +93,11 @@ export function identifyAllCriticalIssues(trustData: NHSTrustData): CriticalIssu
   });
 
   // Trust-wide RTT Critical Issues (only if very severe)
-  const rttCompliance = trustData.trust_total_percent_within_18_weeks;
+  const trustTotalData = trustData.rtt_data?.trust_total;
+  const rttCompliance = trustTotalData?.percent_within_18_weeks;
   const rttCompliancePercent = rttCompliance !== undefined ? rttCompliance * 100 : undefined;
 
-  if (rttCompliancePercent && rttCompliancePercent < 40) {
+  if (rttCompliancePercent && rttCompliancePercent < 50) {
     issues.push({
       category: 'RTT',
       severity: 'Critical',
@@ -110,8 +111,8 @@ export function identifyAllCriticalIssues(trustData: NHSTrustData): CriticalIssu
   }
 
   // Trust-wide 52+ week waiters (only if very severe)
-  const longWaiters = trustData.trust_total_total_52_plus_weeks;
-  if (longWaiters && longWaiters > 500) {
+  const longWaiters = trustTotalData?.total_52_plus_weeks;
+  if (longWaiters && longWaiters > 200) {
     issues.push({
       category: 'RTT',
       severity: 'Critical',
@@ -140,7 +141,8 @@ export function identifyAllCriticalIssues(trustData: NHSTrustData): CriticalIssu
   });
 
   // A&E Critical Issues
-  const aePerformance = trustData.ae_4hr_performance_pct;
+  const aeData = trustData.ae_data;
+  const aePerformance = aeData?.four_hour_performance_pct;
   if (aePerformance && aePerformance < 70) {
     issues.push({
       category: 'A&E',
@@ -155,7 +157,7 @@ export function identifyAllCriticalIssues(trustData: NHSTrustData): CriticalIssu
   }
 
   // 12-hour wait issues
-  const twelveHourWaits = trustData.ae_12hr_wait_admissions;
+  const twelveHourWaits = aeData?.twelve_hour_wait_admissions;
   if (twelveHourWaits && twelveHourWaits > 50) {
     issues.push({
       category: 'A&E',
@@ -169,17 +171,88 @@ export function identifyAllCriticalIssues(trustData: NHSTrustData): CriticalIssu
   }
 
   // Capacity Critical Issues
-  const virtualWardOccupancy = trustData.virtual_ward_occupancy_rate;
-  if (virtualWardOccupancy && virtualWardOccupancy > 95) {
+  const capacityData = trustData.capacity_data;
+  const virtualWardOccupancy = capacityData?.virtual_ward_occupancy_rate;
+  if (virtualWardOccupancy && virtualWardOccupancy > 0.95) { // Convert to decimal comparison
     issues.push({
       category: 'Capacity',
       severity: 'High',
       title: 'Virtual Ward Over-Capacity',
       description: 'Virtual ward utilization exceeding safe operational limits',
       metric: 'Occupancy',
-      value: virtualWardOccupancy,
+      value: virtualWardOccupancy * 100, // Convert to percentage for display
       target: 85,
       icon: Building2
+    });
+  }
+
+  // Community Health Critical Issues
+  const communityData = trustData.community_health_data;
+  if (communityData && communityData.adult_services && communityData.cyp_services) {
+    // Check for 52+ week breaches across all services
+    const servicesWithBreaches: string[] = [];
+    let totalBreaches = 0;
+
+    // Check adult services
+    Object.entries(communityData.adult_services).forEach(([serviceName, data]) => {
+      if (data.wait_52_plus_weeks > 0) {
+        servicesWithBreaches.push(serviceName);
+        totalBreaches += data.wait_52_plus_weeks;
+      }
+    });
+
+    // Check CYP services
+    Object.entries(communityData.cyp_services).forEach(([serviceName, data]) => {
+      if (data.wait_52_plus_weeks > 0) {
+        servicesWithBreaches.push(`${serviceName} (CYP)`);
+        totalBreaches += data.wait_52_plus_weeks;
+      }
+    });
+
+    // Add critical issues for 52+ week breaches
+    if (totalBreaches > 0) {
+      issues.push({
+        category: 'Community Health',
+        severity: totalBreaches > 100 ? 'Critical' : 'High',
+        title: '52+ Week Community Service Waiters',
+        description: `${totalBreaches} patients waiting over 52 weeks across ${servicesWithBreaches.length} services`,
+        metric: '52+ week waiters',
+        value: totalBreaches,
+        target: 0,
+        icon: AlertTriangle
+      });
+    }
+
+    // Check for high volume long waiters (>200 patients waiting 18+ weeks)
+    Object.entries(communityData.adult_services).forEach(([serviceName, data]) => {
+      const longWaiters = data.wait_18_52_weeks + data.wait_52_plus_weeks;
+      if (longWaiters > 200 && data.total_waiting > 500) {
+        issues.push({
+          category: 'Community Health',
+          severity: longWaiters > 500 ? 'Critical' : 'High',
+          title: `${serviceName.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())} Long Waits`,
+          description: `${longWaiters} patients waiting over 18 weeks`,
+          metric: '18+ week waiters',
+          value: longWaiters,
+          icon: Clock
+        });
+      }
+    });
+
+    // Check CYP services for high long waiters (lower threshold due to smaller volumes)
+    Object.entries(communityData.cyp_services).forEach(([serviceName, data]) => {
+      const longWaiters = data.wait_18_52_weeks + data.wait_52_plus_weeks;
+      if (longWaiters > 50 && data.total_waiting > 100) {
+        issues.push({
+          category: 'Community Health',
+          severity: longWaiters > 100 ? 'Critical' : 'High',
+          title: `${serviceName.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())} (CYP) Long Waits`,
+          description: `${longWaiters} children waiting over 18 weeks`,
+          metric: '18+ week waiters',
+          value: longWaiters,
+          icon: Users
+        });
+      }
     });
   }
 

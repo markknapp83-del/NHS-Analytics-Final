@@ -34,8 +34,8 @@ export function extractDiagnosticData(trustData: TrustMetrics): DiagnosticServic
     const totalWaiting = diagnosticData.total_waiting || 0;
     const sixWeekBreaches = diagnosticData.six_week_breaches || 0;
     const thirteenWeekBreaches = diagnosticData.thirteen_week_breaches || 0;
-    const plannedTests = diagnosticData.planned_tests || 0;
-    const unscheduledTests = diagnosticData.unscheduled_tests || 0;
+    const plannedTests = diagnosticData.planned_procedures || 0;
+    const unscheduledTests = diagnosticData.procedures_performed || 0;
 
     return {
       type: type.key,
