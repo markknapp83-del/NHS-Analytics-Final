@@ -33,15 +33,15 @@ export function CancerPerformanceTable({ data }: CancerPerformanceTableProps) {
 
     // Get all cancer types across all standards
     const cancerTypes = new Set([
-      ...Object.keys(data.standards['28_day_fds'].by_cancer_type || {}),
-      ...Object.keys(data.standards['31_day_combined'].by_cancer_type || {}),
-      ...Object.keys(data.standards['62_day_combined'].by_cancer_type || {})
+      ...Object.keys(data.standards['28_day_fds']?.by_cancer_type || {}),
+      ...Object.keys(data.standards['31_day_combined']?.by_cancer_type || {}),
+      ...Object.keys(data.standards['62_day_combined']?.by_cancer_type || {})
     ]);
 
     cancerTypes.forEach(type => {
-      const fds28 = data.standards['28_day_fds'].by_cancer_type[type];
-      const day31 = data.standards['31_day_combined'].by_cancer_type[type];
-      const day62 = data.standards['62_day_combined'].by_cancer_type[type];
+      const fds28 = data.standards['28_day_fds']?.by_cancer_type?.[type];
+      const day31 = data.standards['31_day_combined']?.by_cancer_type?.[type];
+      const day62 = data.standards['62_day_combined']?.by_cancer_type?.[type];
 
       const totalTreated = (fds28?.total_treated || 0) + (day31?.total_treated || 0) + (day62?.total_treated || 0);
       const totalBreaches = (fds28?.breaches || 0) + (day31?.breaches || 0) + (day62?.breaches || 0);

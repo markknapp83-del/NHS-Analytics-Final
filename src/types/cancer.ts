@@ -51,8 +51,9 @@ export interface CancerData {
   period: string;
   period_start: string;
   period_end: string;
-  data_type: 'quarterly';
-  months_covered: string[];
+  data_type: 'monthly' | 'quarterly';
+  month?: string;
+  months_covered?: string[];
   standards: {
     '28_day_fds': CancerStandardData;
     '31_day_combined': CancerStandardData;

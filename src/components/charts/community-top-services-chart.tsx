@@ -174,11 +174,14 @@ export function CommunityTopServicesChart({ data, selectedService = 'all', selec
             const maxValue = Math.max(...chartData.map(d => d.value));
             const widthPercentage = (item.value / maxValue) * 100;
 
-            // Determine bar color based on selection state
+            // Determine bar color based on selection state and category
             const getBarColor = () => {
-              if (item.isSelected) return 'from-blue-500 to-blue-600';
+              if (item.isSelected) {
+                return item.category === 'CYP' ? 'from-purple-500 to-purple-600' : 'from-blue-500 to-blue-600';
+              }
               if (item.isFiltered) return 'from-slate-300 to-slate-400';
-              return 'from-blue-500 to-blue-600';
+              // Default colors based on category
+              return item.category === 'CYP' ? 'from-purple-500 to-purple-600' : 'from-blue-500 to-blue-600';
             };
 
             const getTextColor = () => {

@@ -25,7 +25,7 @@ export function useCancerData(trustCode: string | null) {
           .from('trust_metrics')
           .select('period, cancer_data, data_type')
           .eq('trust_code', trustCode)
-          .eq('data_type', 'quarterly')
+          .eq('data_type', 'monthly')
           .not('cancer_data', 'is', null)
           .order('period', { ascending: true });
 

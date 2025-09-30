@@ -11,6 +11,7 @@ import { CommunityTrendsChart } from '@/components/charts/community-trends-chart
 import { OverviewKPICards } from '@/components/dashboard/overview-kpi-cards';
 import { CriticalIssuesPanel } from '@/components/dashboard/critical-issues-panel';
 import { DiagnosticBreachBreakdownChart } from '@/components/charts/diagnostic-breach-breakdown-chart';
+import { PageTitle, PageDescription } from '@/components/ui/typography';
 
 export default function OverviewPage() {
   const [selectedTrust] = useTrustSelection();
@@ -66,14 +67,14 @@ export default function OverviewPage() {
   const latestData = latestDataWithSomeData;
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 animate-in fade-in-0 slide-in-from-bottom-2 duration-300">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold">Performance Overview</h1>
-          <p className="text-slate-600">
+          <PageTitle>Performance Overview</PageTitle>
+          <PageDescription>
             Comprehensive trust health dashboard with meaningful metrics across RTT, diagnostics, A&E, and capacity data
-          </p>
+          </PageDescription>
         </div>
         {latestData && (
           <Badge variant="outline" className="text-sm">

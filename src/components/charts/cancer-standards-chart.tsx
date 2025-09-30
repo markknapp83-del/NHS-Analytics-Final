@@ -22,9 +22,9 @@ export function CancerStandardsChart({ data, selectedCancerType = 'all' }: Cance
   // Get data based on selected cancer type
   const getStandardData = (standardKey: '28_day_fds' | '31_day_combined' | '62_day_combined') => {
     if (selectedCancerType === 'all') {
-      return data.standards[standardKey].summary;
+      return data.standards[standardKey]?.summary || { performance_pct: 0, total_treated: 0, breaches: 0, within_standard: 0 };
     } else {
-      const cancerTypeData = data.standards[standardKey].by_cancer_type[selectedCancerType];
+      const cancerTypeData = data.standards[standardKey]?.by_cancer_type?.[selectedCancerType];
       return cancerTypeData || { performance_pct: 0, total_treated: 0, breaches: 0, within_standard: 0 };
     }
   };
@@ -129,6 +129,8 @@ export function CancerStandardsChart({ data, selectedCancerType = 'all' }: Cance
                 dataKey="performance"
                 fill="#8884d8"
                 radius={[4, 4, 0, 0]}
+                animationDuration={800}
+                animationBegin={0}
               />
             </BarChart>
           </ResponsiveContainer>

@@ -53,16 +53,16 @@ export function CancerKPICards({ currentData, previousData, selectedCancerType =
   const getCancerTypeData = (data: CancerData, cancerType: string) => {
     if (cancerType === 'all') {
       return {
-        overall_performance: data.metadata.overall_performance_weighted,
-        day_62_performance: data.standards['62_day_combined'].summary.performance_pct,
-        day_28_performance: data.standards['28_day_fds'].summary.performance_pct,
-        total_treated: data.metadata.total_patients_treated_all_standards
+        overall_performance: data.metadata?.overall_performance_weighted || 0,
+        day_62_performance: data.standards['62_day_combined']?.summary?.performance_pct || 0,
+        day_28_performance: data.standards['28_day_fds']?.summary?.performance_pct || 0,
+        total_treated: data.metadata?.total_patients_treated_all_standards || 0
       };
     } else {
       // Get specific cancer type data
-      const type62 = data.standards['62_day_combined'].by_cancer_type[cancerType];
-      const type28 = data.standards['28_day_fds'].by_cancer_type[cancerType];
-      const type31 = data.standards['31_day_combined'].by_cancer_type[cancerType];
+      const type62 = data.standards['62_day_combined']?.by_cancer_type?.[cancerType];
+      const type28 = data.standards['28_day_fds']?.by_cancer_type?.[cancerType];
+      const type31 = data.standards['31_day_combined']?.by_cancer_type?.[cancerType];
 
       // Calculate weighted performance for this cancer type
       const totalTreated = (type28?.total_treated || 0) + (type31?.total_treated || 0) + (type62?.total_treated || 0);
@@ -161,10 +161,10 @@ export function CancerKPICards({ currentData, previousData, selectedCancerType =
         const colorClass = getStatusColor(status);
 
         return (
-          <Card key={kpi.title} className="relative">
+          <Card key={kpi.title} className="relative group cursor-pointer transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
             <CardContent className="p-6">
               <div className="flex items-start justify-between mb-4">
-                <kpi.icon className={`h-6 w-6 ${colorClass}`} />
+                <kpi.icon className={`h-6 w-6 ${colorClass} transition-transform group-hover:scale-110`} />
                 {getStatusBadge(status)}
               </div>
               <div className="space-y-2">

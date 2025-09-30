@@ -104,33 +104,26 @@ class CancerDataProcessor:
             print(f"Error loading trust mapping: {e}")
             return {}
 
-    def determine_quarter(self, months: List[str], file_year: int) -> Tuple[str, str, str]:
-        """
-        Determine quarter from list of months in file.
-        NHS Financial Year: Apr-Mar
-        Q1 = Apr-Jun, Q2 = Jul-Sep, Q3 = Oct-Dec, Q4 = Jan-Mar
-        """
-        month_to_quarter = {
-            'APR': ('Q1', '04-01'), 'MAY': ('Q1', '04-01'), 'JUN': ('Q1', '04-01'),
-            'JUL': ('Q2', '07-01'), 'AUG': ('Q2', '07-01'), 'SEP': ('Q2', '07-01'),
-            'OCT': ('Q3', '10-01'), 'NOV': ('Q3', '10-01'), 'DEC': ('Q3', '10-01'),
-            'JAN': ('Q4', '01-01'), 'FEB': ('Q4', '01-01'), 'MAR': ('Q4', '01-01')
+    def get_month_to_date_mapping(self) -> Dict[str, str]:
+        """Map month abbreviations to MM-DD format"""
+        return {
+            'JAN': '01-01', 'FEB': '02-01', 'MAR': '03-01',
+            'APR': '04-01', 'MAY': '05-01', 'JUN': '06-01',
+            'JUL': '07-01', 'AUG': '08-01', 'SEP': '09-01',
+            'OCT': '10-01', 'NOV': '11-01', 'DEC': '12-01'
         }
 
-        # Get quarter from first month
-        first_month = sorted(months)[0]
-        quarter, month_day = month_to_quarter[first_month]
-
-        # Determine year (handle Q4 which spans calendar years)
-        if first_month in ['JAN', 'FEB', 'MAR']:
-            year = file_year + 1
-        else:
-            year = file_year
-
-        period_start = f"{year}-{month_day}"
-        period_label = f"{year}-{quarter}"
-
-        return period_label, period_start, quarter
+    def get_month_last_day(self, month: str, year: int) -> str:
+        """Get the last day of a month"""
+        last_days = {
+            'JAN': '31', 'FEB': '28', 'MAR': '31', 'APR': '30',
+            'MAY': '31', 'JUN': '30', 'JUL': '31', 'AUG': '31',
+            'SEP': '30', 'OCT': '31', 'NOV': '30', 'DEC': '31'
+        }
+        # Handle leap years for February
+        if month == 'FEB' and (year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)):
+            return '29'
+        return last_days[month]
 
     def calculate_performance(self, df: pd.DataFrame) -> float:
         """Calculate performance percentage from dataframe"""
@@ -141,32 +134,28 @@ class CancerDataProcessor:
         return round((within_standard / total_treated) * 100, 1)
 
     def calculate_period_end(self, period_start: str) -> str:
-        """Calculate period end date based on start date"""
+        """Calculate period end date (last day of month)"""
         start_date = datetime.strptime(period_start, '%Y-%m-%d')
 
-        # Add 3 months minus 1 day for quarter end
-        if start_date.month == 1:  # Q4 Jan start
-            end_date = start_date.replace(month=3, day=31)
-        elif start_date.month == 4:  # Q1 Apr start
-            end_date = start_date.replace(month=6, day=30)
-        elif start_date.month == 7:  # Q2 Jul start
-            end_date = start_date.replace(month=9, day=30)
-        elif start_date.month == 10:  # Q3 Oct start
-            end_date = start_date.replace(month=12, day=31)
+        # Calculate last day of the same month
+        if start_date.month == 12:
+            end_date = start_date.replace(day=31)
+        else:
+            # Get first day of next month, then subtract 1 day
+            next_month = start_date.replace(month=start_date.month + 1, day=1)
+            end_date = next_month - timedelta(days=1)
 
         return end_date.strftime('%Y-%m-%d')
 
-    def build_cancer_jsonb(self, df: pd.DataFrame, quarter: str, period_start: str, months: List[str]) -> Dict:
-        """Build detailed nested JSONB structure from trust data"""
-
-        period_end = self.calculate_period_end(period_start)
+    def build_cancer_jsonb(self, df: pd.DataFrame, period_start: str, period_end: str, month: str) -> Dict:
+        """Build detailed nested JSONB structure from trust data for a single month"""
 
         jsonb = {
-            'period': quarter,
+            'period': period_start[:7],  # YYYY-MM format
             'period_start': period_start,
             'period_end': period_end,
-            'data_type': 'quarterly',
-            'months_covered': sorted(months),
+            'data_type': 'monthly',
+            'month': month,
             'standards': {},
             'metadata': {}
         }
@@ -181,9 +170,9 @@ class CancerDataProcessor:
 
             # Calculate summary for this standard
             summary = {
-                'total_treated': int(standard_df['TOTAL TREATED'].sum()),
-                'within_standard': int(standard_df['WITHIN STANDARD'].sum()),
-                'breaches': int(standard_df['BREACHES'].sum()),
+                'total_treated': float(standard_df['TOTAL TREATED'].sum()),
+                'within_standard': float(standard_df['WITHIN STANDARD'].sum()),
+                'breaches': float(standard_df['BREACHES'].sum()),
                 'performance_pct': self.calculate_performance(standard_df)
             }
 
@@ -201,9 +190,9 @@ class CancerDataProcessor:
                 cancer_df = standard_df[standard_df['CANCER TYPE'] == cancer_type]
 
                 cancer_data = {
-                    'total_treated': int(cancer_df['TOTAL TREATED'].sum()),
-                    'within_standard': int(cancer_df['WITHIN STANDARD'].sum()),
-                    'breaches': int(cancer_df['BREACHES'].sum()),
+                    'total_treated': float(cancer_df['TOTAL TREATED'].sum()),
+                    'within_standard': float(cancer_df['WITHIN STANDARD'].sum()),
+                    'breaches': float(cancer_df['BREACHES'].sum()),
                     'performance_pct': self.calculate_performance(cancer_df),
                     'by_route': {}
                 }
@@ -217,9 +206,9 @@ class CancerDataProcessor:
                     route_df = cancer_df[cancer_df['STAGE/ROUTE'] == route]
 
                     route_data = {
-                        'total_treated': int(route_df['TOTAL TREATED'].sum()),
-                        'within_standard': int(route_df['WITHIN STANDARD'].sum()),
-                        'breaches': int(route_df['BREACHES'].sum()),
+                        'total_treated': float(route_df['TOTAL TREATED'].sum()),
+                        'within_standard': float(route_df['WITHIN STANDARD'].sum()),
+                        'breaches': float(route_df['BREACHES'].sum()),
                         'performance_pct': self.calculate_performance(route_df)
                     }
 
@@ -235,9 +224,9 @@ class CancerDataProcessor:
                             modality_df = route_df[route_df['TREATMENT MODALITY'] == modality]
 
                             route_data['by_treatment_modality'][modality_key] = {
-                                'total_treated': int(modality_df['TOTAL TREATED'].sum()),
-                                'within_standard': int(modality_df['WITHIN STANDARD'].sum()),
-                                'breaches': int(modality_df['BREACHES'].sum()),
+                                'total_treated': float(modality_df['TOTAL TREATED'].sum()),
+                                'within_standard': float(modality_df['WITHIN STANDARD'].sum()),
+                                'breaches': float(modality_df['BREACHES'].sum()),
                                 'performance_pct': self.calculate_performance(modality_df)
                             }
 
@@ -254,8 +243,8 @@ class CancerDataProcessor:
         """Calculate metadata for the cancer data"""
 
         # Overall totals
-        total_treated = int(df['TOTAL TREATED'].sum())
-        total_breaches = int(df['BREACHES'].sum())
+        total_treated = float(df['TOTAL TREATED'].sum())
+        total_breaches = float(df['BREACHES'].sum())
 
         # Calculate weighted overall performance
         weights = {'28_day_fds': 0.2, '31_day_combined': 0.3, '62_day_combined': 0.5}
@@ -338,10 +327,10 @@ class CancerDataProcessor:
 
         return metadata
 
-    def process_cancer_file(self, file_path: str) -> Dict[str, Dict]:
+    def process_cancer_file(self, file_path: str) -> Dict[str, List[Dict]]:
         """
         Process single cancer CWT Provider Extract file.
-        Returns: dict of {trust_code: {quarter: cancer_data_jsonb}}
+        Returns: dict of {trust_code: [list of monthly cancer_data_jsonb]}
         """
         print(f"\nProcessing file: {os.path.basename(file_path)}")
 
@@ -369,60 +358,62 @@ class CancerDataProcessor:
                 print("Read first sheet (default)")
 
             print(f"Loaded {len(df)} rows, {len(df.columns)} columns")
-            print(f"Columns: {list(df.columns)}")
 
-            # Determine file year from filename
-            file_year = 2024  # Default
-            if '2025' in file_path:
-                file_year = 2025
-            elif '2024' in file_path:
-                file_year = 2024
+            # Get unique periods (already in YYYY-MM-DD format from Excel)
+            unique_periods = df['PERIOD'].unique()
+            print(f"Found {len(unique_periods)} unique periods in file")
 
-            # Get unique months in file
-            months_in_file = df['MONTH'].unique().tolist()
-            months_in_file = [m for m in months_in_file if pd.notna(m)]
-            print(f"Months in file: {months_in_file}")
-
-            # Determine quarter
-            quarter_label, period_start, quarter = self.determine_quarter(months_in_file, file_year)
-            print(f"Determined period: {quarter_label} ({period_start})")
-
-            # Process by trust
+            # Process by period, then by trust
             trust_data = {}
-            trust_codes = df['ORG CODE'].unique()
-            r_trust_codes = [code for code in trust_codes if str(code).startswith('R')]
 
-            print(f"Found {len(r_trust_codes)} R-code trusts out of {len(trust_codes)} total")
-
-            for trust_code in r_trust_codes:
-                if pd.isna(trust_code):
+            for period_timestamp in unique_periods:
+                if pd.isna(period_timestamp):
                     continue
 
-                trust_df = df[df['ORG CODE'] == trust_code]
+                # Convert timestamp to string date
+                period_date = pd.to_datetime(period_timestamp).strftime('%Y-%m-%d')
+                period_month = pd.to_datetime(period_timestamp).strftime('%b').upper()
+                period_end = self.calculate_period_end(period_date)
 
-                if trust_df.empty:
-                    continue
+                print(f"\nProcessing period: {period_date} ({period_month})")
 
-                print(f"Processing {trust_code}: {len(trust_df)} records")
+                # Filter data for this period
+                period_df = df[df['PERIOD'] == period_timestamp]
 
-                # Build nested JSONB structure
-                cancer_jsonb = self.build_cancer_jsonb(
-                    trust_df,
-                    quarter_label,
-                    period_start,
-                    months_in_file
-                )
+                # Get trust codes for this period
+                trust_codes = period_df['ORG CODE'].unique()
+                r_trust_codes = [code for code in trust_codes if str(code).startswith('R')]
 
-                # Add filename to metadata
-                cancer_jsonb['metadata']['file_processed'] = os.path.basename(file_path)
+                for trust_code in r_trust_codes:
+                    if pd.isna(trust_code):
+                        continue
 
-                trust_data[trust_code] = {
-                    'quarter': quarter_label,
-                    'period': period_start,
-                    'data': cancer_jsonb
-                }
+                    trust_df = period_df[period_df['ORG CODE'] == trust_code]
 
-            print(f"Successfully processed {len(trust_data)} trusts")
+                    if trust_df.empty:
+                        continue
+
+                    # Build nested JSONB structure for this month
+                    cancer_jsonb = self.build_cancer_jsonb(
+                        trust_df,
+                        period_date,
+                        period_end,
+                        period_month
+                    )
+
+                    # Add filename to metadata
+                    cancer_jsonb['metadata']['file_processed'] = os.path.basename(file_path)
+
+                    # Store by trust
+                    if trust_code not in trust_data:
+                        trust_data[trust_code] = []
+
+                    trust_data[trust_code].append({
+                        'period': period_date,
+                        'data': cancer_jsonb
+                    })
+
+            print(f"\nSuccessfully processed {len(trust_data)} trusts across {len(unique_periods)} periods")
             return trust_data
 
         except Exception as e:
@@ -435,17 +426,17 @@ class CancerDataProcessor:
         return self.trust_mapping.get(org_code, f"Unknown Trust ({org_code})")
 
     def load_to_database(self, trust_cancer_data: Dict[str, List[Dict]]) -> None:
-        """Load cancer data for all trusts and quarters into database"""
+        """Load cancer data for all trusts and months into database"""
 
         success_count = 0
         error_count = 0
 
-        for trust_code, quarters in trust_cancer_data.items():
+        for trust_code, monthly_data in trust_cancer_data.items():
             trust_name = self.get_trust_name(trust_code)
 
-            for quarter_data in quarters:
-                period = quarter_data['period']
-                cancer_jsonb = quarter_data['data']
+            for month_data in monthly_data:
+                period = month_data['period']
+                cancer_jsonb = month_data['data']
 
                 try:
                     # Upsert to database
@@ -453,7 +444,7 @@ class CancerDataProcessor:
                         'trust_code': trust_code,
                         'trust_name': trust_name,
                         'period': period,
-                        'data_type': 'quarterly',
+                        'data_type': 'monthly',
                         'cancer_data': cancer_jsonb,
                         'updated_at': datetime.now().isoformat()
                     }, on_conflict='trust_code,period,data_type').execute()
@@ -480,15 +471,15 @@ class CancerDataProcessor:
                 'trust_code',
                 'period',
                 'cancer_data'
-            ).neq('cancer_data', 'null').execute()
+            ).eq('data_type', 'monthly').neq('cancer_data', 'null').execute()
 
             trust_count = len(set(record['trust_code'] for record in coverage.data))
-            quarter_count = len(set(record['period'] for record in coverage.data))
+            month_count = len(set(record['period'] for record in coverage.data))
             total_records = len(coverage.data)
 
             print(f"Cancer Data Coverage:")
             print(f"- Trusts with cancer data: {trust_count}")
-            print(f"- Quarters covered: {quarter_count}")
+            print(f"- Months covered: {month_count}")
             print(f"- Total records: {total_records}")
 
             # Sample cancer data
@@ -568,18 +559,19 @@ def main():
         trust_data = processor.process_cancer_file(file_path)
 
         # Merge into combined dataset
-        for trust_code, quarter_data in trust_data.items():
+        for trust_code, monthly_data_list in trust_data.items():
             if trust_code not in all_trust_data:
                 all_trust_data[trust_code] = []
-            all_trust_data[trust_code].append(quarter_data)
+            # monthly_data_list is already a list, so extend instead of append
+            all_trust_data[trust_code].extend(monthly_data_list)
 
     # Report processing results
     print(f"\n" + "="*50)
     print(f"PROCESSING SUMMARY")
     print(f"="*50)
     print(f"Total trusts processed: {len(all_trust_data)}")
-    total_quarters = sum(len(quarters) for quarters in all_trust_data.values())
-    print(f"Total trust-quarter records: {total_quarters}")
+    total_months = sum(len(monthly_records) for monthly_records in all_trust_data.values())
+    print(f"Total trust-month records: {total_months}")
 
     # Load to database
     print(f"\nLoading data to Supabase...")
