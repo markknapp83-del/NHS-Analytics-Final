@@ -125,7 +125,7 @@ function TrustSelector({ trusts, currentTrust, onSelect }: TrustSelectorProps) {
           </div>
 
           {/* Trust List */}
-          <div className="overflow-y-auto min-h-0 flex-1">
+          <div className="overflow-y-auto overflow-x-hidden max-h-[calc(80vh-80px)]">
             <div className="p-2">
               {filteredTrusts.map((trust) => (
                 <button
