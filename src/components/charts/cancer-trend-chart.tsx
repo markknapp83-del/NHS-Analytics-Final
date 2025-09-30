@@ -29,14 +29,14 @@ export function CancerTrendChart({ data, selectedCancerType = 'all' }: CancerTre
   const getQuarterData = (quarter: CancerData) => {
     if (selectedCancerType === 'all') {
       return {
-        '28_day_fds': quarter.standards['28_day_fds'].summary.performance_pct,
-        '31_day_combined': quarter.standards['31_day_combined'].summary.performance_pct,
-        '62_day_combined': quarter.standards['62_day_combined'].summary.performance_pct
+        '28_day_fds': quarter.standards['28_day_fds']?.summary?.performance_pct || 0,
+        '31_day_combined': quarter.standards['31_day_combined']?.summary?.performance_pct || 0,
+        '62_day_combined': quarter.standards['62_day_combined']?.summary?.performance_pct || 0
       };
     } else {
-      const type28 = quarter.standards['28_day_fds'].by_cancer_type[selectedCancerType];
-      const type31 = quarter.standards['31_day_combined'].by_cancer_type[selectedCancerType];
-      const type62 = quarter.standards['62_day_combined'].by_cancer_type[selectedCancerType];
+      const type28 = quarter.standards['28_day_fds']?.by_cancer_type?.[selectedCancerType];
+      const type31 = quarter.standards['31_day_combined']?.by_cancer_type?.[selectedCancerType];
+      const type62 = quarter.standards['62_day_combined']?.by_cancer_type?.[selectedCancerType];
 
       return {
         '28_day_fds': type28?.performance_pct || 0,
@@ -111,12 +111,6 @@ export function CancerTrendChart({ data, selectedCancerType = 'all' }: CancerTre
               width={60}
             />
             <Tooltip content={<CustomTooltip />} />
-            <Legend
-              verticalAlign="bottom"
-              align="center"
-              iconType="line"
-              wrapperStyle={{ paddingTop: '10px' }}
-            />
 
             {/* Target reference lines */}
             <ReferenceLine y={75} stroke="#8b5cf6" strokeDasharray="5 5" opacity={0.6} />

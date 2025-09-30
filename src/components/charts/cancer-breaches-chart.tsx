@@ -21,10 +21,10 @@ interface CancerBreachesChartProps {
 
 export function CancerBreachesChart({ data, selectedCancerType = 'all' }: CancerBreachesChartProps) {
   // Get cancer types by total breaches across all standards
-  const allCancerTypeBreaches = Object.entries(data.standards['62_day_combined'].by_cancer_type)
+  const allCancerTypeBreaches = Object.entries(data.standards['62_day_combined']?.by_cancer_type || {})
     .map(([type, typeData62]) => {
-      const type28 = data.standards['28_day_fds'].by_cancer_type[type];
-      const type31 = data.standards['31_day_combined'].by_cancer_type[type];
+      const type28 = data.standards['28_day_fds']?.by_cancer_type?.[type];
+      const type31 = data.standards['31_day_combined']?.by_cancer_type?.[type];
 
       const breaches62 = typeData62.breaches;
       const breaches31 = type31?.breaches || 0;
@@ -134,12 +134,6 @@ export function CancerBreachesChart({ data, selectedCancerType = 'all' }: Cancer
               width={60}
             />
             <Tooltip content={<CustomTooltip />} />
-            <Legend
-              verticalAlign="bottom"
-              align="center"
-              iconType="rect"
-              wrapperStyle={{ paddingTop: '10px' }}
-            />
 
             <Bar
               dataKey="62_day_breaches"
