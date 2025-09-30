@@ -148,7 +148,7 @@ export class NHSDatabaseClient {
     return this.withPerformanceTracking(async () => {
       // Try to use the RPC function first for efficient distinct query
       try {
-        const { data: rpcData, error: rpcError } = await this.client.rpc('get_distinct_trusts');
+        const { data: rpcData, error: rpcError } = await this.client.rpc('get_distinct_trusts') as { data: any[] | null, error: any };
 
         if (!rpcError && rpcData) {
           console.log('[getAllTrusts] Fetched', rpcData.length, 'trusts using RPC function');
