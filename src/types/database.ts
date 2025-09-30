@@ -156,6 +156,14 @@ export interface TrendData {
   };
 }
 
+export interface UserProfile {
+  id: string;
+  role: 'user' | 'administrator';
+  full_name: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
 export interface Database {
   public: {
     Tables: {
@@ -163,6 +171,21 @@ export interface Database {
         Row: TrustMetrics;
         Insert: Omit<TrustMetrics, 'id' | 'created_at' | 'updated_at'>;
         Update: Partial<Omit<TrustMetrics, 'id' | 'created_at' | 'updated_at'>>;
+      };
+      user_profiles: {
+        Row: UserProfile;
+        Insert: Omit<UserProfile, 'created_at' | 'updated_at'>;
+        Update: Partial<Omit<UserProfile, 'id' | 'created_at' | 'updated_at'>>;
+      };
+    };
+    Functions: {
+      is_administrator: {
+        Args: { user_id: string };
+        Returns: boolean;
+      };
+      update_user_role: {
+        Args: { target_user_id: string; new_role: 'user' | 'administrator' };
+        Returns: void;
       };
     };
   };

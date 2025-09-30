@@ -1,9 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import { useAuth } from '@/contexts/auth-context';
 import {
   BarChart3,
   TrendingUp,
@@ -12,11 +13,23 @@ import {
   MapPin,
   LineChart,
   Users,
-  Settings
+  Settings,
+  LogOut
 } from 'lucide-react';
 
 export function DashboardSidebar() {
   const pathname = usePathname();
+  const router = useRouter();
+  const { signOut, isAdministrator } = useAuth();
+
+  const handleLogout = async () => {
+    try {
+      await signOut();
+      router.push('/login');
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
 
   const navigation = [
     { name: 'Overview', href: '/dashboard', icon: BarChart3 },
@@ -61,11 +74,29 @@ export function DashboardSidebar() {
         ))}
       </nav>
 
-      {/* Settings at bottom */}
-      <div className="p-4 border-t border-white/10">
-        <Button variant="ghost" className="w-full justify-start gap-3 text-white/90 hover:bg-white/8 hover:text-white transition-all duration-200">
-          <Settings className="h-5 w-5" />
-          Settings
+      {/* Settings and Logout at bottom */}
+      <div className="p-4 border-t border-white/10 space-y-2">
+        {isAdministrator && (
+          <Link
+            href="/dashboard/settings"
+            className={cn(
+              "flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 w-full",
+              pathname === '/dashboard/settings'
+                ? "bg-white/12 text-white"
+                : "text-white/90 hover:bg-white/8 hover:text-white"
+            )}
+          >
+            <Settings className="h-5 w-5" />
+            Settings
+          </Link>
+        )}
+        <Button
+          variant="ghost"
+          onClick={handleLogout}
+          className="w-full justify-start gap-3 text-white/90 hover:bg-white/8 hover:text-white transition-all duration-200"
+        >
+          <LogOut className="h-5 w-5" />
+          Log Out
         </Button>
       </div>
     </div>

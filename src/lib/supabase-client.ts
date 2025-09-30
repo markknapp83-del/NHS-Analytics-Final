@@ -157,29 +157,24 @@ export class NHSDatabaseClient {
     if (cached) return cached;
 
     return this.withPerformanceTracking(async () => {
-      const { data, error } = await this.client
-        .from('trust_metrics')
-        .select('trust_code, trust_name, icb_code, icb_name')
-        .order('trust_name');
+      // Use the database function to get distinct trusts efficiently
+      const { data, error } = await this.client.rpc('get_distinct_trusts');
 
       if (error) {
         throw new Error(`Failed to fetch trusts: ${error.message}`);
       }
 
-      // Remove duplicates and create Trust objects
-      const trustMap = new Map<string, Trust>();
-      (data as any)?.forEach((row: any) => {
-        if (!trustMap.has(row.trust_code)) {
-          trustMap.set(row.trust_code, {
-            code: row.trust_code,
-            name: row.trust_name,
-            icb_code: row.icb_code,
-            icb_name: row.icb_name
-          });
-        }
-      });
+      // Data is already deduplicated by the database function
+      const result: Trust[] = (data as any)?.map((row: any) => ({
+        code: row.trust_code,
+        name: row.trust_name,
+        icb_code: row.icb_code,
+        icb_name: row.icb_name
+      })) || [];
 
-      const result = Array.from(trustMap.values());
+      // Sort by name to ensure consistent ordering
+      result.sort((a, b) => a.name.localeCompare(b.name));
+
       this.setCache(cacheKey, result, this.cacheTTL.trusts);
       return result;
     }, 'getAllTrusts');
