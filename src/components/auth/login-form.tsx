@@ -24,6 +24,7 @@ export function LoginForm({ onSwitchToSignUp }: LoginFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [mfaRequired, setMfaRequired] = useState(false);
   const [mfaChallengeId, setMfaChallengeId] = useState<string | null>(null);
+  const [mfaFactorId, setMfaFactorId] = useState<string | null>(null);
 
   const { signIn } = useAuth();
   const router = useRouter();
@@ -50,6 +51,7 @@ export function LoginForm({ onSwitchToSignUp }: LoginFormProps) {
           // Create MFA challenge
           const challenge = await createMFAChallenge(totpFactor.id);
           setMfaChallengeId(challenge.id);
+          setMfaFactorId(totpFactor.id);
           setMfaRequired(true);
           setIsLoading(false);
           return;
@@ -79,14 +81,16 @@ export function LoginForm({ onSwitchToSignUp }: LoginFormProps) {
     window.location.href = '/dashboard';
   };
 
-  if (mfaRequired && mfaChallengeId) {
+  if (mfaRequired && mfaChallengeId && mfaFactorId) {
     return (
       <MFAVerify
+        factorId={mfaFactorId}
         challengeId={mfaChallengeId}
         onSuccess={handleMFASuccess}
         onCancel={() => {
           setMfaRequired(false);
           setMfaChallengeId(null);
+          setMfaFactorId(null);
         }}
       />
     );

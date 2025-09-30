@@ -8,12 +8,13 @@ import { verifyMFAChallenge } from '@/lib/supabase-auth';
 import { AlertCircle, Loader2, ShieldCheck } from 'lucide-react';
 
 interface MFAVerifyProps {
+  factorId: string;
   challengeId: string;
   onSuccess: () => void;
   onCancel: () => void;
 }
 
-export function MFAVerify({ challengeId, onSuccess, onCancel }: MFAVerifyProps) {
+export function MFAVerify({ factorId, challengeId, onSuccess, onCancel }: MFAVerifyProps) {
   const [code, setCode] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -24,7 +25,7 @@ export function MFAVerify({ challengeId, onSuccess, onCancel }: MFAVerifyProps) 
     setIsLoading(true);
 
     try {
-      await verifyMFAChallenge(challengeId, code);
+      await verifyMFAChallenge(factorId, challengeId, code);
       onSuccess();
     } catch (err: any) {
       setError(err.message || 'Invalid verification code. Please try again.');

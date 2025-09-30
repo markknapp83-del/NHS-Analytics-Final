@@ -113,8 +113,9 @@ export async function createMFAChallenge(factorId: string) {
 /**
  * Verify MFA challenge with code
  */
-export async function verifyMFAChallenge(challengeId: string, code: string) {
+export async function verifyMFAChallenge(factorId: string, challengeId: string, code: string) {
   const { data, error } = await supabaseAuth.auth.mfa.verify({
+    factorId,
     challengeId,
     code,
   });
@@ -166,18 +167,22 @@ export async function getUserProfile(userId: string) {
 
 /**
  * Update user profile
+ * Note: Currently unused. Use updateUserRole RPC for role updates.
  */
-export async function updateUserProfile(userId: string, updates: { full_name?: string }) {
-  const { data, error } = await supabaseAuth
-    .from('user_profiles')
-    .update(updates)
-    .eq('id', userId)
-    .select()
-    .single();
+// export async function updateUserProfile(
+//   userId: string,
+//   updates: { full_name?: string; role?: 'user' | 'administrator' }
+// ) {
+//   const { data, error } = await supabaseAuth
+//     .from('user_profiles')
+//     .update(updates)
+//     .eq('id', userId)
+//     .select()
+//     .single();
 
-  if (error) throw error;
-  return data;
-}
+//   if (error) throw error;
+//   return data;
+// }
 
 /**
  * Check if user is administrator
@@ -185,7 +190,7 @@ export async function updateUserProfile(userId: string, updates: { full_name?: s
 export async function isAdministrator(userId: string): Promise<boolean> {
   try {
     console.log('Checking admin status for user:', userId);
-    const { data, error } = await supabaseAuth.rpc('is_administrator', {
+    const { data, error } = await (supabaseAuth.rpc as any)('is_administrator', {
       user_id: userId,
     });
 
@@ -219,7 +224,7 @@ export async function getAllUserProfiles() {
  * Update user role (admin only)
  */
 export async function updateUserRole(userId: string, role: 'user' | 'administrator') {
-  const { error } = await supabaseAuth.rpc('update_user_role', {
+  const { error } = await (supabaseAuth.rpc as any)('update_user_role', {
     target_user_id: userId,
     new_role: role,
   });
