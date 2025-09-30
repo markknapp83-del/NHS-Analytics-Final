@@ -192,45 +192,63 @@ export class NHSDatabaseClient {
         console.error('[getAllTrusts] RPC error/timeout, falling back to direct query:', rpcErr);
       }
 
-      // Fallback: Direct query with DISTINCT (server-side)
-      console.log('[getAllTrusts] Using fallback: direct DISTINCT query');
-      const { data, error } = await this.client
-        .from('trust_metrics')
-        .select('trust_code, trust_name, icb_code, icb_name')
-        .not('trust_name', 'like', 'Unknown%');
+      // Fallback: Direct query with limit and timeout
+      try {
+        console.log('[getAllTrusts] Using fallback: direct query with limit');
 
-      if (error) {
-        console.error('[getAllTrusts] Fallback query error:', error);
-        throw new Error(`Failed to fetch trusts: ${error.message}`);
-      }
+        const fallbackTimeoutPromise = new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('Fallback query timeout after 10s')), 10000)
+        );
 
-      if (!data || data.length === 0) {
-        console.warn('[getAllTrusts] No data returned from fallback query');
+        const fallbackQueryPromise = this.client
+          .from('trust_metrics')
+          .select('trust_code, trust_name, icb_code, icb_name')
+          .not('trust_name', 'like', 'Unknown%')
+          .limit(2000) // Reasonable limit to ensure we get all unique trusts
+          .order('trust_name');
+
+        const { data, error } = await Promise.race([
+          fallbackQueryPromise,
+          fallbackTimeoutPromise
+        ]) as { data: any[] | null, error: any };
+
+        if (error) {
+          console.error('[getAllTrusts] Fallback query error:', error);
+          throw new Error(`Failed to fetch trusts: ${error.message}`);
+        }
+
+        if (!data || data.length === 0) {
+          console.warn('[getAllTrusts] No data returned from fallback query');
+          return [];
+        }
+
+        console.log('[getAllTrusts] Fallback query returned', data.length, 'records');
+
+        // Client-side deduplication
+        const trustMap = new Map<string, Trust>();
+        data.forEach((row: any) => {
+          if (!trustMap.has(row.trust_code) && row.trust_name) {
+            trustMap.set(row.trust_code, {
+              code: row.trust_code,
+              name: row.trust_name,
+              icb_code: row.icb_code,
+              icb_name: row.icb_name
+            });
+          }
+        });
+
+        const result = Array.from(trustMap.values());
+        result.sort((a, b) => a.name.localeCompare(b.name));
+
+        console.log('[getAllTrusts] Returning', result.length, 'unique trusts from fallback');
+
+        this.setCache(cacheKey, result, this.cacheTTL.trusts);
+        return result;
+      } catch (fallbackErr) {
+        console.error('[getAllTrusts] Fallback query failed:', fallbackErr);
+        // Return empty array rather than throwing - let UI show error state
         return [];
       }
-
-      console.log('[getAllTrusts] Fallback query returned', data.length, 'records');
-
-      // Client-side deduplication
-      const trustMap = new Map<string, Trust>();
-      data.forEach((row: any) => {
-        if (!trustMap.has(row.trust_code) && row.trust_name) {
-          trustMap.set(row.trust_code, {
-            code: row.trust_code,
-            name: row.trust_name,
-            icb_code: row.icb_code,
-            icb_name: row.icb_name
-          });
-        }
-      });
-
-      const result = Array.from(trustMap.values());
-      result.sort((a, b) => a.name.localeCompare(b.name));
-
-      console.log('[getAllTrusts] Returning', result.length, 'unique trusts from fallback');
-
-      this.setCache(cacheKey, result, this.cacheTTL.trusts);
-      return result;
     }, 'getAllTrusts');
   }
 
