@@ -45,7 +45,7 @@ export class NHSDatabaseClient {
 
   // Cache TTL configurations (in milliseconds)
   private readonly cacheTTL = {
-    trusts: 5 * 60 * 1000,        // 5 minutes - trust list changes rarely
+    trusts: 30 * 60 * 1000,       // 30 minutes - trust list changes very rarely
     metrics: 2 * 60 * 1000,       // 2 minutes - metrics data
     benchmarks: 10 * 60 * 1000,   // 10 minutes - benchmark data
     trends: 5 * 60 * 1000         // 5 minutes - trend analysis
