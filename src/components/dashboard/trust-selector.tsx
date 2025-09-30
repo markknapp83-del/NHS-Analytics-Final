@@ -109,9 +109,9 @@ function TrustSelector({ trusts, currentTrust, onSelect }: TrustSelectorProps) {
       </Button>
 
       {isOpen && (
-        <div className="absolute left-0 top-14 w-[500px] bg-white border border-border rounded-md shadow-dropdown z-[100] max-h-[80vh] flex flex-col">
+        <div className="absolute left-0 top-14 w-[500px] bg-white border border-border rounded-md shadow-dropdown z-[100]">
           {/* Search Bar */}
-          <div className="p-3 border-b flex-shrink-0">
+          <div className="p-3 border-b">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-text-tertiary" />
               <input
@@ -125,7 +125,7 @@ function TrustSelector({ trusts, currentTrust, onSelect }: TrustSelectorProps) {
           </div>
 
           {/* Trust List */}
-          <div className="overflow-y-auto overflow-x-hidden max-h-[calc(80vh-80px)]">
+          <div className="overflow-y-auto overflow-x-hidden max-h-[60vh]">
             <div className="p-2">
               {filteredTrusts.map((trust) => (
                 <button
