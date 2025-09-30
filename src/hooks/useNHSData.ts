@@ -15,13 +15,19 @@ export function useNHSData() {
 
   const loadTrusts = async () => {
     try {
+      console.log('[useNHSData] Starting to load trusts');
       setIsLoading(true);
       setError(null);
+      console.log('[useNHSData] Calling nhsDatabase.getAllTrusts()');
       const trustsData = await nhsDatabase.getAllTrusts();
+      console.log('[useNHSData] Received', trustsData?.length, 'trusts');
       setTrusts(trustsData);
+      console.log('[useNHSData] Trusts state updated');
     } catch (err) {
+      console.error('[useNHSData] Error loading trusts:', err);
       setError(err instanceof Error ? err.message : 'Failed to load trusts');
     } finally {
+      console.log('[useNHSData] Setting isLoading to false');
       setIsLoading(false);
     }
   };

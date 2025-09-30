@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
 export function TrustSelectorHeader() {
-  const { trusts, isLoading } = useNHSData();
+  const { trusts, isLoading, error } = useNHSData();
   const [selectedTrust, setSelectedTrust] = useTrustSelection();
   const currentTrust = trusts.find(t => t.code === selectedTrust);
 
@@ -17,6 +17,16 @@ export function TrustSelectorHeader() {
       <div className="h-18 bg-[#005eb8] border-b border-white/10 shadow-sm">
         <div className="h-full px-6 flex items-center">
           <div className="text-sm text-white/80">Loading trust data...</div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="h-18 bg-red-600 border-b border-white/10 shadow-sm">
+        <div className="h-full px-6 flex items-center">
+          <div className="text-sm text-white">Error loading trusts: {error}</div>
         </div>
       </div>
     );

@@ -141,55 +141,44 @@ export class NHSDatabaseClient {
   }
 
   async getAllTrusts(): Promise<Trust[]> {
+    console.log('[getAllTrusts] Starting - checking cache');
     const cacheKey = this.getCacheKey('trusts', 'all');
     const cached = this.getCache<Trust[]>(cacheKey);
-    if (cached) return cached;
+    if (cached) {
+      console.log('[getAllTrusts] Returning cached data:', cached.length, 'trusts');
+      return cached;
+    }
+
+    console.log('[getAllTrusts] No cache found, fetching from database');
 
     return this.withPerformanceTracking(async () => {
-      // Try to use the RPC function first for efficient distinct query
-      try {
-        const { data: rpcData, error: rpcError } = await this.client.rpc('get_distinct_trusts') as { data: any[] | null, error: any };
-
-        if (!rpcError && rpcData) {
-          console.log('[getAllTrusts] Fetched', rpcData.length, 'trusts using RPC function');
-
-          const result: Trust[] = (rpcData as any)?.map((row: any) => ({
-            code: row.trust_code,
-            name: row.trust_name,
-            icb_code: row.icb_code,
-            icb_name: row.icb_name
-          })) || [];
-
-          result.sort((a, b) => a.name.localeCompare(b.name));
-
-          console.log('[getAllTrusts] Returning', result.length, 'unique trusts');
-
-          this.setCache(cacheKey, result, this.cacheTTL.trusts);
-          return result;
-        }
-
-        console.warn('[getAllTrusts] RPC function failed, falling back to client-side dedup:', rpcError);
-      } catch (rpcErr) {
-        console.warn('[getAllTrusts] RPC function error, falling back:', rpcErr);
-      }
-
-      // Fallback: Query with a much higher limit and deduplicate client-side
+      // Query with a reasonable limit and deduplicate client-side
+      console.log('[getAllTrusts] Querying trust_metrics table directly');
       const { data, error } = await this.client
         .from('trust_metrics')
         .select('trust_code, trust_name, icb_code, icb_name')
+        .not('trust_name', 'like', 'Unknown%')
         .order('trust_name')
-        .limit(10000); // Very high limit to ensure we get all records
+        .limit(5000); // Reasonable limit to get all distinct trusts
+
+      console.log('[getAllTrusts] Query response:', { hasData: !!data, dataLength: data?.length, hasError: !!error, error: error });
 
       if (error) {
+        console.error('[getAllTrusts] Database error:', error);
         throw new Error(`Failed to fetch trusts: ${error.message}`);
       }
 
-      console.log('[getAllTrusts] Fetched', data?.length, 'raw records from database');
+      if (!data || data.length === 0) {
+        console.warn('[getAllTrusts] No data returned from database');
+        return [];
+      }
+
+      console.log('[getAllTrusts] Fetched', data.length, 'raw records from database');
 
       // Deduplicate by trust_code on client side
       const trustMap = new Map<string, Trust>();
-      (data as any)?.forEach((row: any) => {
-        if (!trustMap.has(row.trust_code) && row.trust_name && !row.trust_name.includes('Unknown')) {
+      data.forEach((row: any) => {
+        if (!trustMap.has(row.trust_code) && row.trust_name) {
           trustMap.set(row.trust_code, {
             code: row.trust_code,
             name: row.trust_name,
