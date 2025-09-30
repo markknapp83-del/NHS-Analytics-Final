@@ -122,17 +122,23 @@ export function useTrustMetrics(trustCode: string | null, dateRange?: DateRange)
 
   useEffect(() => {
     if (!trustCode) {
+      console.log('[useTrustMetrics] No trust code provided');
       setMetrics([]);
       return;
     }
+
+    console.log('[useTrustMetrics] Loading metrics for trust:', trustCode);
 
     const loadMetrics = async () => {
       try {
         setIsLoading(true);
         setError(null);
+        console.log('[useTrustMetrics] Fetching data...');
         const data = await nhsDatabase.getTrustMetrics(trustCode, dateRange);
+        console.log('[useTrustMetrics] Data received:', data?.length, 'records');
         setMetrics(data);
       } catch (err) {
+        console.error('[useTrustMetrics] Error loading metrics:', err);
         setError(err instanceof Error ? err.message : 'Failed to load trust metrics');
       } finally {
         setIsLoading(false);

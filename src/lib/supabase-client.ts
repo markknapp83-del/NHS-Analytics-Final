@@ -1,4 +1,4 @@
-import { createClient } from '@supabase/supabase-js';
+import { supabaseAuth } from '@/lib/supabase-auth';
 import type {
   Database,
   TrustMetrics,
@@ -12,27 +12,9 @@ import type {
   DiagnosticsData
 } from '@/types/database';
 
-// Environment variables validation
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variables')
-}
-
-// Create Supabase client using ONLY the anon key
-// This ensures read-only access as configured by RLS policies
-export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
-  auth: {
-    persistSession: false, // No user sessions needed for public app
-    autoRefreshToken: false,
-    detectSessionInUrl: false
-  }
-})
-
-// SECURITY NOTE: Never use service role key in frontend code
-// Service role key bypasses RLS and should only be used server-side
-// const supabaseAdmin = createClient(url, serviceRoleKey) // DON'T DO THIS IN FRONTEND
+// Use the authenticated client from supabase-auth
+// This ensures proper session handling and RLS policy compliance
+export const supabase = supabaseAuth;
 
 // Performance monitoring interface
 interface PerformanceMetrics {
@@ -124,7 +106,12 @@ export class NHSDatabaseClient {
   async getTrustMetrics(trustCode: string, dateRange?: DateRange): Promise<TrustMetrics[]> {
     const cacheKey = this.getCacheKey('metrics', trustCode, dateRange?.start || 'all', dateRange?.end || 'all');
     const cached = this.getCache<TrustMetrics[]>(cacheKey);
-    if (cached) return cached;
+    if (cached) {
+      console.log('[getTrustMetrics] Returning cached data for', trustCode, ':', cached.length, 'records');
+      return cached;
+    }
+
+    console.log('[getTrustMetrics] Fetching from database for', trustCode);
 
     return this.withPerformanceTracking(async () => {
       let query = this.client
@@ -142,10 +129,12 @@ export class NHSDatabaseClient {
       const { data, error } = await query;
 
       if (error) {
+        console.error('[getTrustMetrics] Database error:', error);
         throw new Error(`Failed to fetch trust metrics: ${error.message}`);
       }
 
       const result = data || [];
+      console.log('[getTrustMetrics] Database returned', result.length, 'records for', trustCode);
       this.setCache(cacheKey, result, this.cacheTTL.metrics);
       return result;
     }, `getTrustMetrics(${trustCode})`);
@@ -157,23 +146,65 @@ export class NHSDatabaseClient {
     if (cached) return cached;
 
     return this.withPerformanceTracking(async () => {
-      // Use the database function to get distinct trusts efficiently
-      const { data, error } = await this.client.rpc('get_distinct_trusts');
+      // Try to use the RPC function first for efficient distinct query
+      try {
+        const { data: rpcData, error: rpcError } = await this.client.rpc('get_distinct_trusts');
+
+        if (!rpcError && rpcData) {
+          console.log('[getAllTrusts] Fetched', rpcData.length, 'trusts using RPC function');
+
+          const result: Trust[] = (rpcData as any)?.map((row: any) => ({
+            code: row.trust_code,
+            name: row.trust_name,
+            icb_code: row.icb_code,
+            icb_name: row.icb_name
+          })) || [];
+
+          result.sort((a, b) => a.name.localeCompare(b.name));
+
+          console.log('[getAllTrusts] Returning', result.length, 'unique trusts');
+
+          this.setCache(cacheKey, result, this.cacheTTL.trusts);
+          return result;
+        }
+
+        console.warn('[getAllTrusts] RPC function failed, falling back to client-side dedup:', rpcError);
+      } catch (rpcErr) {
+        console.warn('[getAllTrusts] RPC function error, falling back:', rpcErr);
+      }
+
+      // Fallback: Query with a much higher limit and deduplicate client-side
+      const { data, error } = await this.client
+        .from('trust_metrics')
+        .select('trust_code, trust_name, icb_code, icb_name')
+        .order('trust_name')
+        .limit(10000); // Very high limit to ensure we get all records
 
       if (error) {
         throw new Error(`Failed to fetch trusts: ${error.message}`);
       }
 
-      // Data is already deduplicated by the database function
-      const result: Trust[] = (data as any)?.map((row: any) => ({
-        code: row.trust_code,
-        name: row.trust_name,
-        icb_code: row.icb_code,
-        icb_name: row.icb_name
-      })) || [];
+      console.log('[getAllTrusts] Fetched', data?.length, 'raw records from database');
+
+      // Deduplicate by trust_code on client side
+      const trustMap = new Map<string, Trust>();
+      (data as any)?.forEach((row: any) => {
+        if (!trustMap.has(row.trust_code) && row.trust_name && !row.trust_name.includes('Unknown')) {
+          trustMap.set(row.trust_code, {
+            code: row.trust_code,
+            name: row.trust_name,
+            icb_code: row.icb_code,
+            icb_name: row.icb_name
+          });
+        }
+      });
+
+      const result = Array.from(trustMap.values());
 
       // Sort by name to ensure consistent ordering
       result.sort((a, b) => a.name.localeCompare(b.name));
+
+      console.log('[getAllTrusts] Returning', result.length, 'unique trusts');
 
       this.setCache(cacheKey, result, this.cacheTTL.trusts);
       return result;

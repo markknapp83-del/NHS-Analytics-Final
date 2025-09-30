@@ -5,6 +5,7 @@ let globalTrustState = 'R0A'; // Default to Manchester University NHS Foundation
 const listeners = new Set<(trust: string) => void>();
 
 const setGlobalTrust = (trust: string) => {
+  console.log('[useTrustSelection] Setting global trust to:', trust);
   globalTrustState = trust;
   listeners.forEach(listener => listener(trust));
 };

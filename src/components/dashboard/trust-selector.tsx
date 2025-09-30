@@ -26,7 +26,7 @@ export function TrustSelectorHeader() {
     <div className="h-18 bg-[#005eb8] border-b border-white/10 shadow-sm">
       <div className="h-full px-6 flex items-center justify-between">
         {/* Left: Trust Selector (Hero Element) */}
-        <div className="flex-1 max-w-md">
+        <div className="flex-1 max-w-2xl">
           <TrustSelector
             trusts={trusts}
             currentTrust={currentTrust}
@@ -94,11 +94,6 @@ function TrustSelector({ trusts, currentTrust, onSelect }: TrustSelectorProps) {
           <span className="font-semibold text-base text-white">
             {currentTrust ? currentTrust.name : 'Select NHS Trust'}
           </span>
-          {currentTrust && (
-            <span className="text-xs text-white/70">
-              {currentTrust.code}
-            </span>
-          )}
         </div>
         <ChevronDown className="ml-2 h-4 w-4 shrink-0 text-white/70" />
       </Button>
@@ -132,9 +127,6 @@ function TrustSelector({ trusts, currentTrust, onSelect }: TrustSelectorProps) {
                     <div className="flex-1 min-w-0">
                       <p className="font-medium text-sm text-text-primary truncate">
                         {trust.name}
-                      </p>
-                      <p className="text-xs text-text-secondary">
-                        {trust.code}
                       </p>
                     </div>
                   </div>
