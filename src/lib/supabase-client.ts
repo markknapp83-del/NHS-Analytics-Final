@@ -1,4 +1,4 @@
-import { supabaseAuth } from '@/lib/supabase-auth';
+import { createClient } from '@supabase/supabase-js';
 import type {
   Database,
   TrustMetrics,
@@ -12,9 +12,27 @@ import type {
   DiagnosticsData
 } from '@/types/database';
 
-// Use the authenticated client from supabase-auth
-// This ensures proper session handling and RLS policy compliance
-export const supabase = supabaseAuth;
+// Environment variables validation
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error('Missing Supabase environment variables');
+}
+
+// Create a dedicated DATA-ONLY Supabase client
+// This is separate from the auth client to avoid session/timing conflicts
+// Uses anon key with no session persistence for fast, reliable data access
+export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    persistSession: false,     // No user sessions - data queries only
+    autoRefreshToken: false,
+    detectSessionInUrl: false
+  }
+});
+
+// NOTE: Authentication is handled separately in supabase-auth.ts
+// This separation ensures data loading is never blocked by auth state initialization
 
 // Performance monitoring interface
 interface PerformanceMetrics {
@@ -152,103 +170,39 @@ export class NHSDatabaseClient {
     console.log('[getAllTrusts] No cache found, fetching from database');
 
     return this.withPerformanceTracking(async () => {
-      // Try RPC function first with timeout
-      try {
-        console.log('[getAllTrusts] Calling get_distinct_trusts RPC function');
+      // Use the RPC function get_distinct_trusts for efficient server-side DISTINCT query
+      // This returns all 151 trusts without pagination limits
+      console.log('[getAllTrusts] Calling get_distinct_trusts RPC function');
 
-        // Create timeout promise (10 seconds)
-        const timeoutPromise = new Promise((_, reject) =>
-          setTimeout(() => reject(new Error('RPC timeout after 10s')), 10000)
-        );
+      const { data: rpcData, error: rpcError } = await this.client.rpc('get_distinct_trusts') as { data: any[] | null, error: any };
 
-        const rpcPromise = this.client.rpc('get_distinct_trusts');
-
-        const { data: rpcData, error: rpcError } = await Promise.race([
-          rpcPromise,
-          timeoutPromise
-        ]) as { data: any[] | null, error: any };
-
-        console.log('[getAllTrusts] RPC response:', { hasData: !!rpcData, dataLength: rpcData?.length, hasError: !!rpcError, error: rpcError });
-
-        if (!rpcError && rpcData && rpcData.length > 0) {
-          console.log('[getAllTrusts] Fetched', rpcData.length, 'distinct trusts from RPC function');
-
-          const result: Trust[] = rpcData.map((row: any) => ({
-            code: row.trust_code,
-            name: row.trust_name,
-            icb_code: row.icb_code,
-            icb_name: row.icb_name
-          }));
-
-          result.sort((a, b) => a.name.localeCompare(b.name));
-          console.log('[getAllTrusts] Returning', result.length, 'unique trusts from RPC');
-
-          this.setCache(cacheKey, result, this.cacheTTL.trusts);
-          return result;
-        }
-
-        console.warn('[getAllTrusts] RPC failed or returned no data, falling back to direct query:', rpcError);
-      } catch (rpcErr) {
-        console.error('[getAllTrusts] RPC error/timeout, falling back to direct query:', rpcErr);
+      if (rpcError) {
+        console.error('[getAllTrusts] RPC error:', rpcError);
+        throw new Error(`Failed to fetch trusts via RPC: ${rpcError.message}`);
       }
 
-      // Fallback: Direct query with limit and timeout
-      try {
-        console.log('[getAllTrusts] Using fallback: direct query with limit');
-
-        const fallbackTimeoutPromise = new Promise((_, reject) =>
-          setTimeout(() => reject(new Error('Fallback query timeout after 10s')), 10000)
-        );
-
-        const fallbackQueryPromise = this.client
-          .from('trust_metrics')
-          .select('trust_code, trust_name, icb_code, icb_name')
-          .not('trust_name', 'like', 'Unknown%')
-          .limit(2000) // Reasonable limit to ensure we get all unique trusts
-          .order('trust_name');
-
-        const { data, error } = await Promise.race([
-          fallbackQueryPromise,
-          fallbackTimeoutPromise
-        ]) as { data: any[] | null, error: any };
-
-        if (error) {
-          console.error('[getAllTrusts] Fallback query error:', error);
-          throw new Error(`Failed to fetch trusts: ${error.message}`);
-        }
-
-        if (!data || data.length === 0) {
-          console.warn('[getAllTrusts] No data returned from fallback query');
-          return [];
-        }
-
-        console.log('[getAllTrusts] Fallback query returned', data.length, 'records');
-
-        // Client-side deduplication
-        const trustMap = new Map<string, Trust>();
-        data.forEach((row: any) => {
-          if (!trustMap.has(row.trust_code) && row.trust_name) {
-            trustMap.set(row.trust_code, {
-              code: row.trust_code,
-              name: row.trust_name,
-              icb_code: row.icb_code,
-              icb_name: row.icb_name
-            });
-          }
-        });
-
-        const result = Array.from(trustMap.values());
-        result.sort((a, b) => a.name.localeCompare(b.name));
-
-        console.log('[getAllTrusts] Returning', result.length, 'unique trusts from fallback');
-
-        this.setCache(cacheKey, result, this.cacheTTL.trusts);
-        return result;
-      } catch (fallbackErr) {
-        console.error('[getAllTrusts] Fallback query failed:', fallbackErr);
-        // Return empty array rather than throwing - let UI show error state
+      if (!rpcData || rpcData.length === 0) {
+        console.warn('[getAllTrusts] RPC returned no data');
         return [];
       }
+
+      console.log('[getAllTrusts] RPC returned', rpcData.length, 'distinct trusts');
+
+      // Map RPC results to Trust type
+      const result: Trust[] = rpcData.map((row: any) => ({
+        code: row.trust_code,
+        name: row.trust_name,
+        icb_code: row.icb_code,
+        icb_name: row.icb_name
+      }));
+
+      // Sort by name for consistent display
+      result.sort((a, b) => a.name.localeCompare(b.name));
+
+      console.log('[getAllTrusts] Returning', result.length, 'unique trusts');
+
+      this.setCache(cacheKey, result, this.cacheTTL.trusts);
+      return result;
     }, 'getAllTrusts');
   }
 

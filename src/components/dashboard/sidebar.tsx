@@ -33,11 +33,15 @@ export function DashboardSidebar() {
   const { signOut, isAdministrator } = useAuth();
 
   const handleLogout = async () => {
+    console.log('[Sidebar] Logout button clicked');
     try {
+      console.log('[Sidebar] Calling signOut()');
       await signOut();
+      console.log('[Sidebar] SignOut successful, redirecting to login');
       router.push('/login');
     } catch (error) {
-      console.error('Logout failed:', error);
+      console.error('[Sidebar] Logout failed:', error);
+      alert(`Logout failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   };
 

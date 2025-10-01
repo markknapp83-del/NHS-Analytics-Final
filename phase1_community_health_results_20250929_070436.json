@@ -1,0 +1,1295 @@
+{
+  "test_timestamp": "2025-09-29T07:04:25.034503",
+  "test_phase": "Phase 1: Community Health Validation",
+  "data_directory": "/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/Data",
+  "supabase_connected": true,
+  "results": {
+    "community_health_excel_files": {
+      "expected_files": 12,
+      "found_files": 12,
+      "file_details": [
+        {
+          "filename": "Community-health-services-waiting-lists-2024-25-August.xlsx",
+          "status": "PASS",
+          "size_mb": 1.26,
+          "sheets": [
+            "Cover page",
+            "Contents",
+            "Table 1",
+            "Table 2",
+            "Table 3",
+            "Table 4",
+            "Table 4a",
+            "Table 4b",
+            "Table 4c",
+            "Table 4d",
+            "Table 4e",
+            "Table 4f",
+            "Table 4g"
+          ],
+          "table_validation": {
+            "Table 4": {
+              "sheet_name": "Table 4",
+              "rows": 203,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 203
+            },
+            "Table 4a": {
+              "sheet_name": "Table 4a",
+              "rows": 203,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 203
+            },
+            "Table 4b": {
+              "sheet_name": "Table 4b",
+              "rows": 203,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 203
+            },
+            "Table 4c": {
+              "sheet_name": "Table 4c",
+              "rows": 203,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 203
+            },
+            "Table 4d": {
+              "sheet_name": "Table 4d",
+              "rows": 203,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 203
+            },
+            "Table 4e": {
+              "sheet_name": "Table 4e",
+              "rows": 203,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 203
+            },
+            "Table 4f": {
+              "sheet_name": "Table 4f",
+              "rows": 203,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 203
+            },
+            "Table 4g": {
+              "sheet_name": "Table 4g",
+              "rows": 203,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 203
+            }
+          },
+          "data_quality": {
+            "tables_found": 8,
+            "expected_tables": 8,
+            "table_coverage": 100.0
+          },
+          "issues": []
+        },
+        {
+          "filename": "Community-health-services-waiting-lists-2024-25-March.xlsx",
+          "status": "PASS",
+          "size_mb": 1.37,
+          "sheets": [
+            "Cover page",
+            "Contents",
+            "Table 1",
+            "Table 2",
+            "Table 3",
+            "Table 4",
+            "Table 4a",
+            "Table 4b",
+            "Table 4c",
+            "Table 4d",
+            "Table 4e",
+            "Table 4f",
+            "Table 4g",
+            "Table 4h"
+          ],
+          "table_validation": {
+            "Table 4": {
+              "sheet_name": "Table 4",
+              "rows": 196,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 196
+            },
+            "Table 4a": {
+              "sheet_name": "Table 4a",
+              "rows": 196,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 196
+            },
+            "Table 4b": {
+              "sheet_name": "Table 4b",
+              "rows": 196,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 196
+            },
+            "Table 4c": {
+              "sheet_name": "Table 4c",
+              "rows": 196,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 196
+            },
+            "Table 4d": {
+              "sheet_name": "Table 4d",
+              "rows": 196,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 196
+            },
+            "Table 4e": {
+              "sheet_name": "Table 4e",
+              "rows": 196,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 196
+            },
+            "Table 4f": {
+              "sheet_name": "Table 4f",
+              "rows": 196,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 196
+            },
+            "Table 4g": {
+              "sheet_name": "Table 4g",
+              "rows": 196,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 196
+            }
+          },
+          "data_quality": {
+            "tables_found": 8,
+            "expected_tables": 8,
+            "table_coverage": 100.0
+          },
+          "issues": []
+        },
+        {
+          "filename": "Community-health-services-waiting-lists-2024-25-September.xlsx",
+          "status": "PASS",
+          "size_mb": 1.07,
+          "sheets": [
+            "Cover page",
+            "Contents",
+            "Table 1",
+            "Table 2",
+            "Table 3",
+            "Table 4",
+            "Table 4a",
+            "Table 4b",
+            "Table 4c",
+            "Table 4d",
+            "Table 4e",
+            "Table 4f",
+            "Table 4g"
+          ],
+          "table_validation": {
+            "Table 4": {
+              "sheet_name": "Table 4",
+              "rows": 203,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 203
+            },
+            "Table 4a": {
+              "sheet_name": "Table 4a",
+              "rows": 203,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 203
+            },
+            "Table 4b": {
+              "sheet_name": "Table 4b",
+              "rows": 203,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 203
+            },
+            "Table 4c": {
+              "sheet_name": "Table 4c",
+              "rows": 203,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 203
+            },
+            "Table 4d": {
+              "sheet_name": "Table 4d",
+              "rows": 203,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 203
+            },
+            "Table 4e": {
+              "sheet_name": "Table 4e",
+              "rows": 203,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 203
+            },
+            "Table 4f": {
+              "sheet_name": "Table 4f",
+              "rows": 203,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 203
+            },
+            "Table 4g": {
+              "sheet_name": "Table 4g",
+              "rows": 203,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 203
+            }
+          },
+          "data_quality": {
+            "tables_found": 8,
+            "expected_tables": 8,
+            "table_coverage": 100.0
+          },
+          "issues": []
+        },
+        {
+          "filename": "Community-health-services-waiting-lists-2024-25-January.xlsx",
+          "status": "PASS",
+          "size_mb": 1.38,
+          "sheets": [
+            "Cover page",
+            "Contents",
+            "Table 1",
+            "Table 2",
+            "Table 3",
+            "Table 4",
+            "Table 4a",
+            "Table 4b",
+            "Table 4c",
+            "Table 4d",
+            "Table 4e",
+            "Table 4f",
+            "Table 4g",
+            "Table 4h"
+          ],
+          "table_validation": {
+            "Table 4": {
+              "sheet_name": "Table 4",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4a": {
+              "sheet_name": "Table 4a",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4b": {
+              "sheet_name": "Table 4b",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4c": {
+              "sheet_name": "Table 4c",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4d": {
+              "sheet_name": "Table 4d",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4e": {
+              "sheet_name": "Table 4e",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4f": {
+              "sheet_name": "Table 4f",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4g": {
+              "sheet_name": "Table 4g",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            }
+          },
+          "data_quality": {
+            "tables_found": 8,
+            "expected_tables": 8,
+            "table_coverage": 100.0
+          },
+          "issues": []
+        },
+        {
+          "filename": "Community-health-services-waiting-lists-2025-26-June.xlsx",
+          "status": "PASS",
+          "size_mb": 1.36,
+          "sheets": [
+            "Cover page",
+            "Contents",
+            "Table 1",
+            "Table 2",
+            "Table 3",
+            "Table 4",
+            "Table 4a",
+            "Table 4b",
+            "Table 4c",
+            "Table 4d",
+            "Table 4e",
+            "Table 4f",
+            "Table 4g",
+            "Table 4h"
+          ],
+          "table_validation": {
+            "Table 4": {
+              "sheet_name": "Table 4",
+              "rows": 197,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 197
+            },
+            "Table 4a": {
+              "sheet_name": "Table 4a",
+              "rows": 197,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 197
+            },
+            "Table 4b": {
+              "sheet_name": "Table 4b",
+              "rows": 197,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 197
+            },
+            "Table 4c": {
+              "sheet_name": "Table 4c",
+              "rows": 197,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 197
+            },
+            "Table 4d": {
+              "sheet_name": "Table 4d",
+              "rows": 197,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 197
+            },
+            "Table 4e": {
+              "sheet_name": "Table 4e",
+              "rows": 197,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 197
+            },
+            "Table 4f": {
+              "sheet_name": "Table 4f",
+              "rows": 197,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 197
+            },
+            "Table 4g": {
+              "sheet_name": "Table 4g",
+              "rows": 197,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 197
+            }
+          },
+          "data_quality": {
+            "tables_found": 8,
+            "expected_tables": 8,
+            "table_coverage": 100.0
+          },
+          "issues": []
+        },
+        {
+          "filename": "Community-health-services-waiting-lists-2024-25-February.xlsx",
+          "status": "PASS",
+          "size_mb": 1.15,
+          "sheets": [
+            "Cover page",
+            "Contents",
+            "Table 1",
+            "Table 2",
+            "Table 3",
+            "Table 4",
+            "Table 4a",
+            "Table 4b",
+            "Table 4c",
+            "Table 4d",
+            "Table 4e",
+            "Table 4f",
+            "Table 4g",
+            "Table 4h"
+          ],
+          "table_validation": {
+            "Table 4": {
+              "sheet_name": "Table 4",
+              "rows": 197,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 197
+            },
+            "Table 4a": {
+              "sheet_name": "Table 4a",
+              "rows": 197,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 197
+            },
+            "Table 4b": {
+              "sheet_name": "Table 4b",
+              "rows": 197,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 197
+            },
+            "Table 4c": {
+              "sheet_name": "Table 4c",
+              "rows": 197,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 197
+            },
+            "Table 4d": {
+              "sheet_name": "Table 4d",
+              "rows": 197,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 197
+            },
+            "Table 4e": {
+              "sheet_name": "Table 4e",
+              "rows": 197,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 197
+            },
+            "Table 4f": {
+              "sheet_name": "Table 4f",
+              "rows": 197,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 197
+            },
+            "Table 4g": {
+              "sheet_name": "Table 4g",
+              "rows": 197,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 197
+            }
+          },
+          "data_quality": {
+            "tables_found": 8,
+            "expected_tables": 8,
+            "table_coverage": 100.0
+          },
+          "issues": []
+        },
+        {
+          "filename": "Community-health-services-waiting-lists-2024-25-December.xlsx",
+          "status": "PASS",
+          "size_mb": 1.37,
+          "sheets": [
+            "Cover page",
+            "Contents",
+            "Table 1",
+            "Table 2",
+            "Table 3",
+            "Table 4",
+            "Table 4a",
+            "Table 4b",
+            "Table 4c",
+            "Table 4d",
+            "Table 4e",
+            "Table 4f",
+            "Table 4g",
+            "Table 4h"
+          ],
+          "table_validation": {
+            "Table 4": {
+              "sheet_name": "Table 4",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4a": {
+              "sheet_name": "Table 4a",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4b": {
+              "sheet_name": "Table 4b",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4c": {
+              "sheet_name": "Table 4c",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4d": {
+              "sheet_name": "Table 4d",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4e": {
+              "sheet_name": "Table 4e",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4f": {
+              "sheet_name": "Table 4f",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4g": {
+              "sheet_name": "Table 4g",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            }
+          },
+          "data_quality": {
+            "tables_found": 8,
+            "expected_tables": 8,
+            "table_coverage": 100.0
+          },
+          "issues": []
+        },
+        {
+          "filename": "Community-health-services-waiting-lists-2024-25-October.xlsx",
+          "status": "PASS",
+          "size_mb": 1.06,
+          "sheets": [
+            "Cover page",
+            "Contents",
+            "Table 1",
+            "Table 2",
+            "Table 3",
+            "Table 4",
+            "Table 4a",
+            "Table 4b",
+            "Table 4c",
+            "Table 4d",
+            "Table 4e",
+            "Table 4f",
+            "Table 4g"
+          ],
+          "table_validation": {
+            "Table 4": {
+              "sheet_name": "Table 4",
+              "rows": 200,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 200
+            },
+            "Table 4a": {
+              "sheet_name": "Table 4a",
+              "rows": 200,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 200
+            },
+            "Table 4b": {
+              "sheet_name": "Table 4b",
+              "rows": 200,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 200
+            },
+            "Table 4c": {
+              "sheet_name": "Table 4c",
+              "rows": 200,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 200
+            },
+            "Table 4d": {
+              "sheet_name": "Table 4d",
+              "rows": 200,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 200
+            },
+            "Table 4e": {
+              "sheet_name": "Table 4e",
+              "rows": 200,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 200
+            },
+            "Table 4f": {
+              "sheet_name": "Table 4f",
+              "rows": 200,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 200
+            },
+            "Table 4g": {
+              "sheet_name": "Table 4g",
+              "rows": 200,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 200
+            }
+          },
+          "data_quality": {
+            "tables_found": 8,
+            "expected_tables": 8,
+            "table_coverage": 100.0
+          },
+          "issues": []
+        },
+        {
+          "filename": "Community-health-services-waiting-lists-2024-25-November.xlsx",
+          "status": "PASS",
+          "size_mb": 1.06,
+          "sheets": [
+            "Cover page",
+            "Contents",
+            "Table 1",
+            "Table 2",
+            "Table 3",
+            "Table 4",
+            "Table 4a",
+            "Table 4b",
+            "Table 4c",
+            "Table 4d",
+            "Table 4e",
+            "Table 4f",
+            "Table 4g"
+          ],
+          "table_validation": {
+            "Table 4": {
+              "sheet_name": "Table 4",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4a": {
+              "sheet_name": "Table 4a",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4b": {
+              "sheet_name": "Table 4b",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4c": {
+              "sheet_name": "Table 4c",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4d": {
+              "sheet_name": "Table 4d",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4e": {
+              "sheet_name": "Table 4e",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4f": {
+              "sheet_name": "Table 4f",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            },
+            "Table 4g": {
+              "sheet_name": "Table 4g",
+              "rows": 199,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 199
+            }
+          },
+          "data_quality": {
+            "tables_found": 8,
+            "expected_tables": 8,
+            "table_coverage": 100.0
+          },
+          "issues": []
+        },
+        {
+          "filename": "Community-health-services-waiting-lists-2025-26-May.xlsx",
+          "status": "PASS",
+          "size_mb": 1.15,
+          "sheets": [
+            "Cover page",
+            "Contents",
+            "Table 1",
+            "Table 2",
+            "Table 3",
+            "Table 4",
+            "Table 4a",
+            "Table 4b",
+            "Table 4c",
+            "Table 4d",
+            "Table 4e",
+            "Table 4f",
+            "Table 4g",
+            "Table 4h"
+          ],
+          "table_validation": {
+            "Table 4": {
+              "sheet_name": "Table 4",
+              "rows": 194,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 194
+            },
+            "Table 4a": {
+              "sheet_name": "Table 4a",
+              "rows": 194,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 194
+            },
+            "Table 4b": {
+              "sheet_name": "Table 4b",
+              "rows": 194,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 194
+            },
+            "Table 4c": {
+              "sheet_name": "Table 4c",
+              "rows": 194,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 194
+            },
+            "Table 4d": {
+              "sheet_name": "Table 4d",
+              "rows": 194,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 194
+            },
+            "Table 4e": {
+              "sheet_name": "Table 4e",
+              "rows": 194,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 194
+            },
+            "Table 4f": {
+              "sheet_name": "Table 4f",
+              "rows": 194,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 194
+            },
+            "Table 4g": {
+              "sheet_name": "Table 4g",
+              "rows": 194,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 194
+            }
+          },
+          "data_quality": {
+            "tables_found": 8,
+            "expected_tables": 8,
+            "table_coverage": 100.0
+          },
+          "issues": []
+        },
+        {
+          "filename": "Community-health-services-waiting-lists-2025-26-July.xlsx",
+          "status": "PASS",
+          "size_mb": 1.15,
+          "sheets": [
+            "Cover page",
+            "Contents",
+            "Table 1",
+            "Table 2",
+            "Table 3",
+            "Table 4",
+            "Table 4a",
+            "Table 4b",
+            "Table 4c",
+            "Table 4d",
+            "Table 4e",
+            "Table 4f",
+            "Table 4g",
+            "Table 4h"
+          ],
+          "table_validation": {
+            "Table 4": {
+              "sheet_name": "Table 4",
+              "rows": 198,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 198
+            },
+            "Table 4a": {
+              "sheet_name": "Table 4a",
+              "rows": 198,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 198
+            },
+            "Table 4b": {
+              "sheet_name": "Table 4b",
+              "rows": 198,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 198
+            },
+            "Table 4c": {
+              "sheet_name": "Table 4c",
+              "rows": 198,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 198
+            },
+            "Table 4d": {
+              "sheet_name": "Table 4d",
+              "rows": 198,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 198
+            },
+            "Table 4e": {
+              "sheet_name": "Table 4e",
+              "rows": 198,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 198
+            },
+            "Table 4f": {
+              "sheet_name": "Table 4f",
+              "rows": 198,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 198
+            },
+            "Table 4g": {
+              "sheet_name": "Table 4g",
+              "rows": 198,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 198
+            }
+          },
+          "data_quality": {
+            "tables_found": 8,
+            "expected_tables": 8,
+            "table_coverage": 100.0
+          },
+          "issues": []
+        },
+        {
+          "filename": "Community-health-services-waiting-lists-2025-26-April.xlsx",
+          "status": "PASS",
+          "size_mb": 1.15,
+          "sheets": [
+            "Cover page",
+            "Contents",
+            "Table 1",
+            "Table 2",
+            "Table 3",
+            "Table 4",
+            "Table 4a",
+            "Table 4b",
+            "Table 4c",
+            "Table 4d",
+            "Table 4e",
+            "Table 4f",
+            "Table 4g",
+            "Table 4h"
+          ],
+          "table_validation": {
+            "Table 4": {
+              "sheet_name": "Table 4",
+              "rows": 195,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 195
+            },
+            "Table 4a": {
+              "sheet_name": "Table 4a",
+              "rows": 195,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 195
+            },
+            "Table 4b": {
+              "sheet_name": "Table 4b",
+              "rows": 195,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 195
+            },
+            "Table 4c": {
+              "sheet_name": "Table 4c",
+              "rows": 195,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 195
+            },
+            "Table 4d": {
+              "sheet_name": "Table 4d",
+              "rows": 195,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 195
+            },
+            "Table 4e": {
+              "sheet_name": "Table 4e",
+              "rows": 195,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 195
+            },
+            "Table 4f": {
+              "sheet_name": "Table 4f",
+              "rows": 195,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 195
+            },
+            "Table 4g": {
+              "sheet_name": "Table 4g",
+              "rows": 195,
+              "columns": 50,
+              "has_trust_column": false,
+              "has_waiting_data": true,
+              "non_empty_rows": 195
+            }
+          },
+          "data_quality": {
+            "tables_found": 8,
+            "expected_tables": 8,
+            "table_coverage": 100.0
+          },
+          "issues": []
+        }
+      ],
+      "structure_validation": {},
+      "data_validation": {},
+      "missing_files": [],
+      "corrupted_files": [],
+      "status": "PASS"
+    },
+    "service_mapping_validation": {
+      "adult_services": {
+        "expected_services": [
+          "Audiology",
+          "Community nursing services",
+          "Musculoskeletal service",
+          "Podiatry",
+          "Physiotherapy",
+          "Occupational therapy",
+          "Dietetics",
+          "Speech and language",
+          "Intermediate care"
+        ],
+        "found_services": [
+          "Adult safeguarding",
+          "Audiology",
+          "Clinical support to social care, care homes and domiciliary care",
+          "Community nursing services",
+          "Home oxygen assessment services",
+          "Intermediate care and reablement",
+          "Musculoskeletal service",
+          "Neurorehabilitation (multi-disciplinary)",
+          "Nursing and Therapy support for LTCs: Continence/ colostomy",
+          "Nursing and Therapy support for LTCs: Diabetes",
+          "Nursing and Therapy support for LTCs: Falls",
+          "Nursing and Therapy support for LTCs: Heart failure",
+          "Nursing and Therapy support for LTCs: Lymphoedema",
+          "Nursing and Therapy support for LTCs: MND",
+          "Nursing and Therapy support for LTCs: MS",
+          "Nursing and Therapy support for LTCs: Respiratory/COPD",
+          "Nursing and Therapy support for LTCs: Stroke",
+          "Nursing and Therapy support for LTCs: TB",
+          "Nursing and Therapy support for LTCs: Tissue viability",
+          "Podiatry and podiatric surgery",
+          "Rehabilitation bed-based care",
+          "Rehabilitation services (integrated)",
+          "Therapy interventions: Dietetics",
+          "Therapy interventions: Occupational therapy",
+          "Therapy interventions: Orthotics",
+          "Therapy interventions: Physiotherapy",
+          "Therapy interventions: Speech and language",
+          "Urgent Community Response/Rapid Response team",
+          "Weight management and obesity services",
+          "Wheelchair, orthotics, prosthetics and equipment"
+        ],
+        "validated_mappings": 9,
+        "missing_mappings": []
+      },
+      "cyp_services": {
+        "expected_services": [
+          "Audiology",
+          "Community paediatric service",
+          "Physiotherapy",
+          "Occupational therapy",
+          "Dietetics",
+          "Speech and language",
+          "Vision screening",
+          "New-born hearing screening"
+        ],
+        "found_services": [
+          "Antenatal, new-born and children screening and immunisation services",
+          "Audiology",
+          "Child health information service",
+          "Community nursing services (planned care and rapid response teams)",
+          "Community paediatric service",
+          "Looked after children teams",
+          "New-born hearing screening",
+          "Nursing and Therapy teams support for long term conditions",
+          "Rapid Response Services",
+          "Safeguarding",
+          "Therapy interventions: Dietetics",
+          "Therapy interventions: Occupational therapy",
+          "Therapy interventions: Orthotics",
+          "Therapy interventions: Physiotherapy",
+          "Therapy interventions: Speech and language",
+          "Vision screening",
+          "Wheelchair, orthotics, prosthetics and equipment"
+        ],
+        "validated_mappings": 8,
+        "missing_mappings": []
+      },
+      "trust_mapping": {
+        "total_mappings": 0,
+        "validated_trusts": 0,
+        "missing_trusts": [
+          "RX1",
+          "QRV",
+          "RW5",
+          "RYV",
+          "RK9",
+          "Y60",
+          "RKL",
+          "RP5",
+          "RTR",
+          "NEC",
+          "NMG",
+          "QJG",
+          "RJR",
+          "RV9",
+          "RCD",
+          "RY5",
+          "R0B",
+          "RMP",
+          "NAY",
+          "QWE"
+        ]
+      },
+      "overall_status": "PASS"
+    },
+    "data_quality_consistency": {
+      "wait_band_validation": {
+        "tests": 0,
+        "violations": []
+      },
+      "data_range_validation": {
+        "tests": 0,
+        "outliers": []
+      },
+      "missing_data_analysis": {
+        "Community-health-services-waiting-lists-2024-25-August.xlsx": {
+          "total_rows": 203,
+          "completely_empty_rows": 0,
+          "missing_data_percentage": 57.71
+        },
+        "Community-health-services-waiting-lists-2024-25-March.xlsx": {
+          "total_rows": 196,
+          "completely_empty_rows": 0,
+          "missing_data_percentage": 57.16
+        },
+        "Community-health-services-waiting-lists-2024-25-September.xlsx": {
+          "total_rows": 203,
+          "completely_empty_rows": 0,
+          "missing_data_percentage": 57.74
+        }
+      },
+      "duplicate_detection": {},
+      "overall_status": "PASS"
+    },
+    "temporal_consistency": {
+      "file_coverage": {},
+      "trust_consistency": {},
+      "trend_analysis": {},
+      "overall_status": "PASS"
+    },
+    "database_comparison": {
+      "database_records": 1000,
+      "matching_trusts": 0,
+      "data_alignment": {},
+      "sample_validations": [],
+      "overall_status": "PASS"
+    }
+  },
+  "summary": {
+    "overall_status": "PASS",
+    "total_issues": 0,
+    "critical_issues": 0,
+    "warning_issues": 0,
+    "tests_passed": 5,
+    "tests_total": 5,
+    "pass_rate": 100.0
+  },
+  "issues_found": [],
+  "recommendations": [
+    "\u2705 Community Health raw data validation passed - ready for Phase 2"
+  ]
+}

@@ -1,0 +1,1060 @@
+{
+  "test_timestamp": "2025-09-24T07:28:22.420672",
+  "test_phase": "Phase 1: Source Data Verification",
+  "data_directory": "/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/Data",
+  "supabase_connected": true,
+  "results": {
+    "raw_data_completeness": {
+      "ae_data": {
+        "expected_count": 12,
+        "found_count": 11,
+        "found_files": [
+          "Monthly-AE-October-2024-revised.csv",
+          "Monthly-AE-May-2025.csv",
+          "Monthly-AE-June-2025-1-1.csv",
+          "Monthly-AE-August-2024.csv",
+          "Monthly-AE-February-2025-revised.csv",
+          "Monthly-AE-December-2024.csv",
+          "Monthly-AE-September-2024.csv",
+          "Monthly-AE-March-2025.csv",
+          "Monthly-AE-April-2025.csv",
+          "Monthly-AE-January-2025.csv",
+          "Monthly-AE-November-2024-revised.csv"
+        ],
+        "months_found": [
+          "October-2024",
+          "May-2025",
+          "June-2025",
+          "August-2024",
+          "February-2025",
+          "December-2024",
+          "September-2024",
+          "March-2025",
+          "April-2025",
+          "January-2025",
+          "November-2024"
+        ],
+        "status": "WARN"
+      },
+      "rtt_data": {
+        "expected_count": 12,
+        "found_count": 12,
+        "found_files": [
+          "Incomplete-Provider-Dec24-XLSX-9M-revised.xlsx",
+          "Incomplete-Provider-Sep24-XLSX-9M-revised.xlsx",
+          "Incomplete-Provider-Apr25-XLSX-9M-77252.xlsx",
+          "Incomplete-Provider-May25-XLSX-9M-32711.xlsx",
+          "Incomplete-Provider-Nov24-XLSX-9M-revised.xlsx",
+          "Incomplete-Provider-Jun25-XLSX-9M-94367.xlsx",
+          "Incomplete-Provider-Jan25-XLSX-9M-revised.xlsx",
+          "Incomplete-Provider-Oct24-XLSX-9M-revised.xlsx",
+          "Incomplete-Provider-Jul25-XLSX-9M-92707 (1).xlsx",
+          "Incomplete-Provider-Feb25-XLSX-9M-revised.xlsx",
+          "Incomplete-Provider-Aug24-XLSX-9M-revised.xlsx",
+          "Incomplete-Provider-Mar25-XLSX-9M-revised.xlsx"
+        ],
+        "months_found": [
+          "Dec24",
+          "Sep24",
+          "Apr25",
+          "May25",
+          "Nov24",
+          "Jun25",
+          "Jan25",
+          "Oct24",
+          "Jul25",
+          "Feb25",
+          "Aug24",
+          "Mar25"
+        ],
+        "status": "PASS"
+      },
+      "discharge_data": {
+        "expected_count": 12,
+        "found_count": 12,
+        "found_files": [
+          "Daily-discharge-sitrep-monthly-data-CSV-webfile-March2025-revised.csv",
+          "Daily-discharge-sitrep-monthly-data-webfile-October2024-csv-1.csv",
+          "Daily-discharge-sitrep-monthly-data-CSV-webfile-April2025-1.csv",
+          "Daily-discharge-sitrep-monthly-data-CSV-webfile-January2025-1.csv",
+          "Daily-discharge-sitrep-monthly-data-CSV-webfile-December2024.csv",
+          "Daily-discharge-sitrep-monthly-data-CSV-webfile-June2025.csv",
+          "Daily-discharge-sitrep-monthly-data-CSV-webfile-May2025.csv",
+          "Daily-discharge-sitrep-monthly-data-webfile-August2024-revised.csv",
+          "Daily-discharge-sitrep-monthly-data-CSV-webfile-November2024.csv",
+          "Daily-discharge-sitrep-monthly-data-CSV-webfile-February2025-revised.csv",
+          "Daily-discharge-sitrep-monthly-data-CSV-webfile-July2025v2.csv",
+          "Daily-discharge-sitrep-monthly-data-webfile-September-2024.csv"
+        ],
+        "status": "PASS"
+      },
+      "other_data": {
+        "Workforce": {
+          "count": 30,
+          "files": [
+            "NHS Workforce Statistics, November 2024 England and Organisation.xlsx",
+            "NHS Workforce Statistics, April 2025 Staff Group, Care Setting and Level.xlsx",
+            "NHS Workforce Statistics, September 2024 Doctors by Grade and Specialty.xlsx",
+            "NHS Workforce Statistics, December 2024 Staff Group, Care Setting and Level.xlsx",
+            "NHS Workforce Statistics, January 2025 Doctors by Grade and Specialty.xlsx"
+          ]
+        },
+        "Community Health": {
+          "count": 12,
+          "files": [
+            "Community-health-services-waiting-lists-2024-25-August.xlsx",
+            "Community-health-services-waiting-lists-2024-25-March.xlsx",
+            "Community-health-services-waiting-lists-2024-25-September.xlsx",
+            "Community-health-services-waiting-lists-2024-25-January.xlsx",
+            "Community-health-services-waiting-lists-2025-26-June.xlsx"
+          ]
+        },
+        "Diagnostics": {
+          "count": 12,
+          "files": [
+            "Monthly-Diagnostics-Web-File-Provider-November-2024.xls",
+            "Monthly-Diagnostics-Web-File-Provider-May-2025.xls",
+            "Monthly-Diagnostics-Web-File-Provider-February-2025_FT49R.xls",
+            "Monthly-Diagnostics-Web-File-Provider-September-2024.xls",
+            "Monthly-Diagnostics-Web-File-Provider-August-2024.xls"
+          ]
+        },
+        "Virtual Ward": {
+          "count": 12,
+          "files": [
+            "Monthly-Virtual-Ward-June2025.xlsx",
+            "Monthly-Virtual-Ward-July2025.xlsx",
+            "Monthly-Virtual-Ward-Oct2024.xlsx",
+            "Monthly-Virtual-Ward-Feb2025.xlsx",
+            "Monthly-Virtual-Ward-Jan2025.xlsx"
+          ]
+        }
+      }
+    },
+    "unified_csv": {
+      "status": "WARN",
+      "file_size_mb": 1.86,
+      "total_records": 1816,
+      "total_columns": 271,
+      "unique_trusts": 151,
+      "sample_trust_codes": [
+        "R0A",
+        "R0B",
+        "R0D",
+        "R1A",
+        "R1D",
+        "R1F",
+        "R1H",
+        "R1K",
+        "RA2",
+        "RA7"
+      ],
+      "unique_periods": 12,
+      "period_range": "2024-08-01 to 2025-07-01",
+      "duplicate_records": "4",
+      "missing_columns": [],
+      "present_expected_columns": [
+        "trust_code",
+        "trust_name",
+        "period",
+        "rtt_general_surgery_total_incomplete_pathways",
+        "ae_attendances_total",
+        "ae_4hr_performance_pct",
+        "trust_total_total_incomplete_pathways",
+        "trust_total_percent_within_18_weeks"
+      ],
+      "invalid_trust_codes": [],
+      "date_format_valid": true,
+      "date_format_error": null,
+      "sample_data_analysis": {
+        "ae_performance": {
+          "count": 1433,
+          "mean": 72.12,
+          "min": 46.7,
+          "max": 100.0,
+          "out_of_range": 0
+        },
+        "rtt_performance": {
+          "count": 1816,
+          "mean": 63.39,
+          "min": 29.94,
+          "max": 100.0,
+          "out_of_range": 1816
+        }
+      },
+      "data_quality_checks": {
+        "high_null_columns": {
+          "rtt_restorative_dentistry_median_wait_weeks": 81.28,
+          "rtt_medical_oncology_median_wait_weeks": 90.25,
+          "avg_daily_discharges": 93.45,
+          "diag_electrophysiology_13week_breaches": 85.9,
+          "diag_electrophysiology_6week_breaches": 85.9,
+          "diag_electrophysiology_planned_tests": 85.9,
+          "diag_electrophysiology_total_waiting": 85.9,
+          "diag_electrophysiology_unscheduled_tests": 85.9,
+          "diag_electrophysiology_waiting_list_total": 85.9
+        },
+        "moderate_null_columns": {
+          "rtt_pediatric_surgery_median_wait_weeks": 48.57,
+          "rtt_cardiothoracic_surgery_median_wait_weeks": 77.37,
+          "rtt_general_medicine_median_wait_weeks": 43.06,
+          "rtt_dermatology_median_wait_weeks": 30.95,
+          "rtt_neurology_median_wait_weeks": 39.76,
+          "diag_nuclear_medicine_13week_breaches": 65.53,
+          "diag_nuclear_medicine_6week_breaches": 65.53,
+          "diag_nuclear_medicine_planned_tests": 65.53,
+          "diag_nuclear_medicine_total_waiting": 65.53,
+          "diag_nuclear_medicine_unscheduled_tests": 65.53,
+          "diag_nuclear_medicine_waiting_list_total": 65.53,
+          "diag_neurophysiology_13week_breaches": 36.18,
+          "diag_neurophysiology_6week_breaches": 36.18,
+          "diag_neurophysiology_planned_tests": 36.18,
+          "diag_neurophysiology_total_waiting": 36.18,
+          "diag_neurophysiology_unscheduled_tests": 36.18,
+          "diag_neurophysiology_waiting_list_total": 36.18,
+          "virtual_ward_capacity": 74.61,
+          "virtual_ward_occupancy_rate": 74.61
+        },
+        "null_percentage_summary": {
+          "columns_with_high_nulls": 9,
+          "columns_with_moderate_nulls": 19,
+          "average_null_rate": 12.65
+        }
+      },
+      "validation_issues": [
+        "Found 4 duplicate trust-period records"
+      ]
+    },
+    "file_integrity": {
+      "csv_files": {
+        "readable": 10,
+        "corrupted": 0,
+        "files_tested": [
+          {
+            "file": "Daily-discharge-sitrep-monthly-data-CSV-webfile-March2025-revised.csv",
+            "status": "OK",
+            "rows_sample": 5,
+            "columns": 11,
+            "size_mb": 5.94
+          },
+          {
+            "file": "Daily-discharge-sitrep-monthly-data-webfile-October2024-csv-1.csv",
+            "status": "OK",
+            "rows_sample": 5,
+            "columns": 10,
+            "size_mb": 5.73
+          },
+          {
+            "file": "Daily-discharge-sitrep-monthly-data-CSV-webfile-April2025-1.csv",
+            "status": "OK",
+            "rows_sample": 5,
+            "columns": 10,
+            "size_mb": 5.64
+          },
+          {
+            "file": "Daily-discharge-sitrep-monthly-data-CSV-webfile-January2025-1.csv",
+            "status": "OK",
+            "rows_sample": 5,
+            "columns": 10,
+            "size_mb": 5.7
+          },
+          {
+            "file": "Daily-discharge-sitrep-monthly-data-CSV-webfile-December2024.csv",
+            "status": "OK",
+            "rows_sample": 5,
+            "columns": 10,
+            "size_mb": 5.73
+          },
+          {
+            "file": "Monthly-AE-October-2024-revised.csv",
+            "status": "OK",
+            "rows_sample": 5,
+            "columns": 22,
+            "size_mb": 0.03
+          },
+          {
+            "file": "Daily-discharge-sitrep-monthly-data-CSV-webfile-June2025.csv",
+            "status": "OK",
+            "rows_sample": 5,
+            "columns": 10,
+            "size_mb": 5.47
+          },
+          {
+            "file": "Daily-discharge-sitrep-monthly-data-CSV-webfile-May2025.csv",
+            "status": "OK",
+            "rows_sample": 5,
+            "columns": 10,
+            "size_mb": 5.61
+          },
+          {
+            "file": "unified_monthly_data_enhanced.csv",
+            "status": "OK",
+            "rows_sample": 5,
+            "columns": 271,
+            "size_mb": 1.86
+          },
+          {
+            "file": "Daily-discharge-sitrep-monthly-data-webfile-August2024-revised.csv",
+            "status": "OK",
+            "rows_sample": 5,
+            "columns": 10,
+            "size_mb": 5.73
+          }
+        ]
+      },
+      "excel_files": {
+        "readable": 5,
+        "corrupted": 0,
+        "files_tested": [
+          {
+            "file": "NHS Workforce Statistics, November 2024 England and Organisation.xlsx",
+            "status": "OK",
+            "rows_sample": 0,
+            "columns": 0,
+            "size_mb": 1.98
+          },
+          {
+            "file": "NHS Workforce Statistics, April 2025 Staff Group, Care Setting and Level.xlsx",
+            "status": "OK",
+            "rows_sample": 5,
+            "columns": 3,
+            "size_mb": 6.11
+          },
+          {
+            "file": "Community-health-services-waiting-lists-2024-25-August.xlsx",
+            "status": "OK",
+            "rows_sample": 5,
+            "columns": 2,
+            "size_mb": 1.26
+          },
+          {
+            "file": "CWT-CRS-Apr-2025-to-Jul-2025-Data-Extract-Provider.xlsx",
+            "status": "OK",
+            "rows_sample": 5,
+            "columns": 11,
+            "size_mb": 1.47
+          },
+          {
+            "file": "Community-health-services-waiting-lists-2024-25-March.xlsx",
+            "status": "OK",
+            "rows_sample": 5,
+            "columns": 2,
+            "size_mb": 1.37
+          }
+        ]
+      },
+      "total_files_tested": 15
+    },
+    "database_connectivity": {
+      "connection_status": "PASS",
+      "connection_error": null,
+      "table_exists": true,
+      "record_count": 1812,
+      "sample_records": [
+        {
+          "trust_code": "R0A",
+          "trust_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+          "period": "2024-08-01",
+          "rtt_data": {
+            "specialties": {
+              "ent": {
+                "median_wait_weeks": 22.26,
+                "total_52_plus_weeks": 608,
+                "total_65_plus_weeks": 31,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 6818,
+                "total_within_18_weeks": 5016,
+                "percent_within_18_weeks": 0.42,
+                "total_incomplete_pathways": 11834
+              },
+              "urology": {
+                "median_wait_weeks": 21.45,
+                "total_52_plus_weeks": 565,
+                "total_65_plus_weeks": 23,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 4022,
+                "total_within_18_weeks": 3157,
+                "percent_within_18_weeks": 0.44,
+                "total_incomplete_pathways": 7179
+              },
+              "neurology": {
+                "median_wait_weeks": 14.79,
+                "total_52_plus_weeks": 7,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 88,
+                "total_within_18_weeks": 127,
+                "percent_within_18_weeks": 0.59,
+                "total_incomplete_pathways": 215
+              },
+              "cardiology": {
+                "median_wait_weeks": 18.91,
+                "total_52_plus_weeks": 470,
+                "total_65_plus_weeks": 50,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 5413,
+                "total_within_18_weeks": 4923,
+                "percent_within_18_weeks": 0.48,
+                "total_incomplete_pathways": 10336
+              },
+              "gynecology": {
+                "median_wait_weeks": 24.61,
+                "total_52_plus_weeks": 2017,
+                "total_65_plus_weeks": 250,
+                "total_78_plus_weeks": 1,
+                "total_over_18_weeks": 11596,
+                "total_within_18_weeks": 7415,
+                "percent_within_18_weeks": 0.39,
+                "total_incomplete_pathways": 19011
+              },
+              "dermatology": {
+                "median_wait_weeks": 22.82,
+                "total_52_plus_weeks": 152,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 1639,
+                "total_within_18_weeks": 1168,
+                "percent_within_18_weeks": 0.42,
+                "total_incomplete_pathways": 2807
+              },
+              "oral_surgery": {
+                "median_wait_weeks": 24.42,
+                "total_52_plus_weeks": 1171,
+                "total_65_plus_weeks": 75,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 11898,
+                "total_within_18_weeks": 6781,
+                "percent_within_18_weeks": 0.36,
+                "total_incomplete_pathways": 18679
+              },
+              "rheumatology": {
+                "median_wait_weeks": 9.31,
+                "total_52_plus_weeks": 2,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 382,
+                "total_within_18_weeks": 1146,
+                "percent_within_18_weeks": 0.75,
+                "total_incomplete_pathways": 1528
+              },
+              "ophthalmology": {
+                "median_wait_weeks": 15.28,
+                "total_52_plus_weeks": 580,
+                "total_65_plus_weeks": 16,
+                "total_78_plus_weeks": 6,
+                "total_over_18_weeks": 5360,
+                "total_within_18_weeks": 6826,
+                "percent_within_18_weeks": 0.56,
+                "total_incomplete_pathways": 12186
+              },
+              "other_surgery": {
+                "median_wait_weeks": 16.04,
+                "total_52_plus_weeks": 885,
+                "total_65_plus_weeks": 99,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 11298,
+                "total_within_18_weeks": 13457,
+                "percent_within_18_weeks": 0.54,
+                "total_incomplete_pathways": 24755
+              },
+              "general_surgery": {
+                "median_wait_weeks": 22.02,
+                "total_52_plus_weeks": 669,
+                "total_65_plus_weeks": 54,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 4063,
+                "total_within_18_weeks": 3008,
+                "percent_within_18_weeks": 0.43,
+                "total_incomplete_pathways": 7071
+              },
+              "gastroenterology": {
+                "median_wait_weeks": 16.37,
+                "total_52_plus_weeks": 222,
+                "total_65_plus_weeks": 11,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 4874,
+                "total_within_18_weeks": 5478,
+                "percent_within_18_weeks": 0.53,
+                "total_incomplete_pathways": 10352
+              },
+              "general_medicine": {
+                "median_wait_weeks": 11.42,
+                "total_52_plus_weeks": 20,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 113,
+                "total_within_18_weeks": 260,
+                "percent_within_18_weeks": 0.7,
+                "total_incomplete_pathways": 373
+              },
+              "medical_oncology": {
+                "median_wait_weeks": null,
+                "total_52_plus_weeks": 0,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 4,
+                "total_within_18_weeks": 6,
+                "percent_within_18_weeks": 0.6,
+                "total_incomplete_pathways": 10
+              },
+              "pediatric_surgery": {
+                "median_wait_weeks": 24.91,
+                "total_52_plus_weeks": 369,
+                "total_65_plus_weeks": 30,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 2652,
+                "total_within_18_weeks": 1532,
+                "percent_within_18_weeks": 0.37,
+                "total_incomplete_pathways": 4184
+              },
+              "geriatric_medicine": {
+                "median_wait_weeks": 15.37,
+                "total_52_plus_weeks": 11,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 487,
+                "total_within_18_weeks": 598,
+                "percent_within_18_weeks": 0.55,
+                "total_incomplete_pathways": 1085
+              },
+              "trauma_orthopaedics": {
+                "median_wait_weeks": 18.93,
+                "total_52_plus_weeks": 873,
+                "total_65_plus_weeks": 159,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 5006,
+                "total_within_18_weeks": 4715,
+                "percent_within_18_weeks": 0.49,
+                "total_incomplete_pathways": 9721
+              },
+              "respiratory_medicine": {
+                "median_wait_weeks": 15.22,
+                "total_52_plus_weeks": 164,
+                "total_65_plus_weeks": 1,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 4291,
+                "total_within_18_weeks": 5754,
+                "percent_within_18_weeks": 0.57,
+                "total_incomplete_pathways": 10045
+              },
+              "restorative_dentistry": {
+                "median_wait_weeks": null,
+                "total_52_plus_weeks": 0,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 0,
+                "total_within_18_weeks": 0,
+                "percent_within_18_weeks": 0,
+                "total_incomplete_pathways": 0
+              },
+              "cardiothoracic_surgery": {
+                "median_wait_weeks": null,
+                "total_52_plus_weeks": 0,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 0,
+                "total_within_18_weeks": 0,
+                "percent_within_18_weeks": 0,
+                "total_incomplete_pathways": 0
+              }
+            },
+            "trust_total": {
+              "median_wait_weeks": 18.27,
+              "total_52_plus_weeks": 21098,
+              "total_65_plus_weeks": 1934,
+              "total_78_plus_weeks": 26,
+              "total_over_18_weeks": 200236,
+              "total_within_18_weeks": 185148,
+              "percent_within_18_weeks": 48.04,
+              "total_incomplete_pathways": 385384
+            }
+          },
+          "ae_data": {
+            "total_attendances": 35270,
+            "over_four_hours_total": 9313,
+            "four_hour_performance_pct": 73.6,
+            "emergency_admissions_total": 5858,
+            "twelve_hour_wait_admissions": 171
+          }
+        },
+        {
+          "trust_code": "R0A",
+          "trust_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+          "period": "2024-09-01",
+          "rtt_data": {
+            "specialties": {
+              "ent": {
+                "median_wait_weeks": 21.55,
+                "total_52_plus_weeks": 645,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 6598,
+                "total_within_18_weeks": 5041,
+                "percent_within_18_weeks": 0.43,
+                "total_incomplete_pathways": 11639
+              },
+              "urology": {
+                "median_wait_weeks": 21.56,
+                "total_52_plus_weeks": 568,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 4074,
+                "total_within_18_weeks": 3170,
+                "percent_within_18_weeks": 0.44,
+                "total_incomplete_pathways": 7244
+              },
+              "neurology": {
+                "median_wait_weeks": 16.6,
+                "total_52_plus_weeks": 7,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 104,
+                "total_within_18_weeks": 114,
+                "percent_within_18_weeks": 0.52,
+                "total_incomplete_pathways": 218
+              },
+              "cardiology": {
+                "median_wait_weeks": 18.67,
+                "total_52_plus_weeks": 356,
+                "total_65_plus_weeks": 7,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 5270,
+                "total_within_18_weeks": 4953,
+                "percent_within_18_weeks": 0.48,
+                "total_incomplete_pathways": 10223
+              },
+              "gynecology": {
+                "median_wait_weeks": 24,
+                "total_52_plus_weeks": 1853,
+                "total_65_plus_weeks": 106,
+                "total_78_plus_weeks": 4,
+                "total_over_18_weeks": 11573,
+                "total_within_18_weeks": 7566,
+                "percent_within_18_weeks": 0.4,
+                "total_incomplete_pathways": 19139
+              },
+              "dermatology": {
+                "median_wait_weeks": 23.12,
+                "total_52_plus_weeks": 146,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 1668,
+                "total_within_18_weeks": 1007,
+                "percent_within_18_weeks": 0.38,
+                "total_incomplete_pathways": 2675
+              },
+              "oral_surgery": {
+                "median_wait_weeks": 22.2,
+                "total_52_plus_weeks": 1207,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 11983,
+                "total_within_18_weeks": 8363,
+                "percent_within_18_weeks": 0.41,
+                "total_incomplete_pathways": 20346
+              },
+              "rheumatology": {
+                "median_wait_weeks": 11.24,
+                "total_52_plus_weeks": 2,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 450,
+                "total_within_18_weeks": 998,
+                "percent_within_18_weeks": 0.69,
+                "total_incomplete_pathways": 1448
+              },
+              "ophthalmology": {
+                "median_wait_weeks": 15.42,
+                "total_52_plus_weeks": 601,
+                "total_65_plus_weeks": 13,
+                "total_78_plus_weeks": 4,
+                "total_over_18_weeks": 5336,
+                "total_within_18_weeks": 6649,
+                "percent_within_18_weeks": 0.55,
+                "total_incomplete_pathways": 11985
+              },
+              "other_surgery": {
+                "median_wait_weeks": 16.08,
+                "total_52_plus_weeks": 656,
+                "total_65_plus_weeks": 16,
+                "total_78_plus_weeks": 2,
+                "total_over_18_weeks": 11231,
+                "total_within_18_weeks": 13297,
+                "percent_within_18_weeks": 0.54,
+                "total_incomplete_pathways": 24528
+              },
+              "general_surgery": {
+                "median_wait_weeks": 21.93,
+                "total_52_plus_weeks": 577,
+                "total_65_plus_weeks": 4,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 3958,
+                "total_within_18_weeks": 2985,
+                "percent_within_18_weeks": 0.43,
+                "total_incomplete_pathways": 6943
+              },
+              "gastroenterology": {
+                "median_wait_weeks": 16.78,
+                "total_52_plus_weeks": 191,
+                "total_65_plus_weeks": 2,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 4988,
+                "total_within_18_weeks": 5480,
+                "percent_within_18_weeks": 0.52,
+                "total_incomplete_pathways": 10468
+              },
+              "general_medicine": {
+                "median_wait_weeks": 11.3,
+                "total_52_plus_weeks": 10,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 99,
+                "total_within_18_weeks": 266,
+                "percent_within_18_weeks": 0.73,
+                "total_incomplete_pathways": 365
+              },
+              "medical_oncology": {
+                "median_wait_weeks": null,
+                "total_52_plus_weeks": 1,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 5,
+                "total_within_18_weeks": 9,
+                "percent_within_18_weeks": 0.64,
+                "total_incomplete_pathways": 14
+              },
+              "pediatric_surgery": {
+                "median_wait_weeks": 24.63,
+                "total_52_plus_weeks": 402,
+                "total_65_plus_weeks": 1,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 2602,
+                "total_within_18_weeks": 1608,
+                "percent_within_18_weeks": 0.38,
+                "total_incomplete_pathways": 4210
+              },
+              "geriatric_medicine": {
+                "median_wait_weeks": 15.65,
+                "total_52_plus_weeks": 5,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 444,
+                "total_within_18_weeks": 603,
+                "percent_within_18_weeks": 0.58,
+                "total_incomplete_pathways": 1047
+              },
+              "trauma_orthopaedics": {
+                "median_wait_weeks": 17.82,
+                "total_52_plus_weeks": 747,
+                "total_65_plus_weeks": 62,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 4909,
+                "total_within_18_weeks": 4959,
+                "percent_within_18_weeks": 0.5,
+                "total_incomplete_pathways": 9868
+              },
+              "respiratory_medicine": {
+                "median_wait_weeks": 15.72,
+                "total_52_plus_weeks": 191,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 4502,
+                "total_within_18_weeks": 5490,
+                "percent_within_18_weeks": 0.55,
+                "total_incomplete_pathways": 9992
+              },
+              "restorative_dentistry": {
+                "median_wait_weeks": null,
+                "total_52_plus_weeks": 0,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 0,
+                "total_within_18_weeks": 0,
+                "percent_within_18_weeks": 0,
+                "total_incomplete_pathways": 0
+              },
+              "cardiothoracic_surgery": {
+                "median_wait_weeks": null,
+                "total_52_plus_weeks": 0,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 0,
+                "total_within_18_weeks": 0,
+                "percent_within_18_weeks": 0,
+                "total_incomplete_pathways": 0
+              }
+            },
+            "trust_total": {
+              "median_wait_weeks": 18.3,
+              "total_52_plus_weeks": 19530,
+              "total_65_plus_weeks": 498,
+              "total_78_plus_weeks": 26,
+              "total_over_18_weeks": 201132,
+              "total_within_18_weeks": 187830,
+              "percent_within_18_weeks": 48.29,
+              "total_incomplete_pathways": 388962
+            }
+          },
+          "ae_data": {
+            "total_attendances": 37841,
+            "over_four_hours_total": 11366,
+            "four_hour_performance_pct": 69.96,
+            "emergency_admissions_total": 5757,
+            "twelve_hour_wait_admissions": 179
+          }
+        },
+        {
+          "trust_code": "R0A",
+          "trust_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+          "period": "2024-10-01",
+          "rtt_data": {
+            "specialties": {
+              "ent": {
+                "median_wait_weeks": 21.3,
+                "total_52_plus_weeks": 583,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 6616,
+                "total_within_18_weeks": 5118,
+                "percent_within_18_weeks": 0.44,
+                "total_incomplete_pathways": 11734
+              },
+              "urology": {
+                "median_wait_weeks": 20.65,
+                "total_52_plus_weeks": 465,
+                "total_65_plus_weeks": 2,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 4068,
+                "total_within_18_weeks": 3316,
+                "percent_within_18_weeks": 0.45,
+                "total_incomplete_pathways": 7384
+              },
+              "neurology": {
+                "median_wait_weeks": 18.43,
+                "total_52_plus_weeks": 11,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 119,
+                "total_within_18_weeks": 113,
+                "percent_within_18_weeks": 0.49,
+                "total_incomplete_pathways": 232
+              },
+              "cardiology": {
+                "median_wait_weeks": 18.28,
+                "total_52_plus_weeks": 271,
+                "total_65_plus_weeks": 3,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 5087,
+                "total_within_18_weeks": 4956,
+                "percent_within_18_weeks": 0.49,
+                "total_incomplete_pathways": 10043
+              },
+              "gynecology": {
+                "median_wait_weeks": 23.38,
+                "total_52_plus_weeks": 1792,
+                "total_65_plus_weeks": 142,
+                "total_78_plus_weeks": 3,
+                "total_over_18_weeks": 11667,
+                "total_within_18_weeks": 7864,
+                "percent_within_18_weeks": 0.4,
+                "total_incomplete_pathways": 19531
+              },
+              "dermatology": {
+                "median_wait_weeks": 22.84,
+                "total_52_plus_weeks": 143,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 1577,
+                "total_within_18_weeks": 1056,
+                "percent_within_18_weeks": 0.4,
+                "total_incomplete_pathways": 2633
+              },
+              "oral_surgery": {
+                "median_wait_weeks": 21.59,
+                "total_52_plus_weeks": 1094,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 11987,
+                "total_within_18_weeks": 8442,
+                "percent_within_18_weeks": 0.41,
+                "total_incomplete_pathways": 20429
+              },
+              "rheumatology": {
+                "median_wait_weeks": 12.14,
+                "total_52_plus_weeks": 0,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 509,
+                "total_within_18_weeks": 976,
+                "percent_within_18_weeks": 0.66,
+                "total_incomplete_pathways": 1485
+              },
+              "ophthalmology": {
+                "median_wait_weeks": 15.24,
+                "total_52_plus_weeks": 549,
+                "total_65_plus_weeks": 18,
+                "total_78_plus_weeks": 3,
+                "total_over_18_weeks": 5232,
+                "total_within_18_weeks": 6570,
+                "percent_within_18_weeks": 0.56,
+                "total_incomplete_pathways": 11802
+              },
+              "other_surgery": {
+                "median_wait_weeks": 16.36,
+                "total_52_plus_weeks": 768,
+                "total_65_plus_weeks": 16,
+                "total_78_plus_weeks": 1,
+                "total_over_18_weeks": 11461,
+                "total_within_18_weeks": 13405,
+                "percent_within_18_weeks": 0.54,
+                "total_incomplete_pathways": 24866
+              },
+              "general_surgery": {
+                "median_wait_weeks": 21.74,
+                "total_52_plus_weeks": 554,
+                "total_65_plus_weeks": 4,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 4147,
+                "total_within_18_weeks": 3064,
+                "percent_within_18_weeks": 0.42,
+                "total_incomplete_pathways": 7211
+              },
+              "gastroenterology": {
+                "median_wait_weeks": 17.06,
+                "total_52_plus_weeks": 317,
+                "total_65_plus_weeks": 1,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 5368,
+                "total_within_18_weeks": 5776,
+                "percent_within_18_weeks": 0.52,
+                "total_incomplete_pathways": 11144
+              },
+              "general_medicine": {
+                "median_wait_weeks": 10.82,
+                "total_52_plus_weeks": 10,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 86,
+                "total_within_18_weeks": 242,
+                "percent_within_18_weeks": 0.74,
+                "total_incomplete_pathways": 328
+              },
+              "medical_oncology": {
+                "median_wait_weeks": 11.5,
+                "total_52_plus_weeks": 1,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 6,
+                "total_within_18_weeks": 15,
+                "percent_within_18_weeks": 0.71,
+                "total_incomplete_pathways": 21
+              },
+              "pediatric_surgery": {
+                "median_wait_weeks": 24.04,
+                "total_52_plus_weeks": 381,
+                "total_65_plus_weeks": 3,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 2590,
+                "total_within_18_weeks": 1705,
+                "percent_within_18_weeks": 0.4,
+                "total_incomplete_pathways": 4295
+              },
+              "geriatric_medicine": {
+                "median_wait_weeks": 14.94,
+                "total_52_plus_weeks": 1,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 430,
+                "total_within_18_weeks": 590,
+                "percent_within_18_weeks": 0.58,
+                "total_incomplete_pathways": 1020
+              },
+              "trauma_orthopaedics": {
+                "median_wait_weeks": 17.16,
+                "total_52_plus_weeks": 673,
+                "total_65_plus_weeks": 74,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 4944,
+                "total_within_18_weeks": 5302,
+                "percent_within_18_weeks": 0.52,
+                "total_incomplete_pathways": 10246
+              },
+              "respiratory_medicine": {
+                "median_wait_weeks": 17.11,
+                "total_52_plus_weeks": 252,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 4749,
+                "total_within_18_weeks": 5184,
+                "percent_within_18_weeks": 0.52,
+                "total_incomplete_pathways": 9933
+              },
+              "restorative_dentistry": {
+                "median_wait_weeks": null,
+                "total_52_plus_weeks": 0,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 0,
+                "total_within_18_weeks": 0,
+                "percent_within_18_weeks": 0,
+                "total_incomplete_pathways": 0
+              },
+              "cardiothoracic_surgery": {
+                "median_wait_weeks": null,
+                "total_52_plus_weeks": 0,
+                "total_65_plus_weeks": 0,
+                "total_78_plus_weeks": 0,
+                "total_over_18_weeks": 0,
+                "total_within_18_weeks": 1,
+                "percent_within_18_weeks": 1,
+                "total_incomplete_pathways": 1
+              }
+            },
+            "trust_total": {
+              "median_wait_weeks": 17.99,
+              "total_52_plus_weeks": 19012,
+              "total_65_plus_weeks": 560,
+              "total_78_plus_weeks": 14,
+              "total_over_18_weeks": 203646,
+              "total_within_18_weeks": 190326,
+              "percent_within_18_weeks": 48.31,
+              "total_incomplete_pathways": 393972
+            }
+          },
+          "ae_data": {
+            "total_attendances": 40781,
+            "over_four_hours_total": 12827,
+            "four_hour_performance_pct": 68.55,
+            "emergency_admissions_total": 6248,
+            "twelve_hour_wait_admissions": 278
+          }
+        }
+      ],
+      "table_structure": {}
+    }
+  },
+  "summary": {
+    "overall_status": "WARN",
+    "total_issues": 2,
+    "critical_issues": 0,
+    "warning_issues": 2,
+    "tests_completed": [
+      "raw_data_completeness",
+      "unified_csv_validation",
+      "file_integrity",
+      "database_connectivity"
+    ],
+    "tests_passed": 2,
+    "tests_total": 4,
+    "pass_rate": 50.0,
+    "files_validated": 15
+  },
+  "issues_found": [
+    "Warning: Incomplete ae_data files - expected 12, found 11",
+    "Found 4 duplicate trust-period records"
+  ],
+  "recommendations": [
+    "\ud83d\udfe1 Warning issues found - review before proceeding to Phase 2",
+    "Consider data quality improvements for better accuracy"
+  ]
+}

@@ -1,0 +1,374 @@
+{
+  "test_timestamp": "2025-09-29T07:04:36.849168",
+  "test_phase": "Phase 2: Community Health Database Migration Integrity",
+  "data_directory": "/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/Data",
+  "results": {
+    "jsonb_structure_integrity": {
+      "sample_size": 100,
+      "structure_analysis": {
+        "adult_services": {
+          "populated": 81,
+          "empty": 19,
+          "invalid": 0
+        },
+        "cyp_services": {
+          "populated": 86,
+          "empty": 14,
+          "invalid": 0
+        },
+        "metadata": {
+          "populated": 100,
+          "empty": 0,
+          "invalid": 100
+        }
+      },
+      "service_analysis": {
+        "adult_services_found": [
+          "audiology",
+          "rehab_integrated",
+          "ltc_tissue_viability",
+          "wheelchair_equipment",
+          "ltc_lymphoedema",
+          "therapy_ot",
+          "therapy_orthotics",
+          "community_nursing",
+          "therapy_physiotherapy",
+          "home_oxygen",
+          "msk_service",
+          "ltc_continence",
+          "ltc_respiratory",
+          "urgent_community_response",
+          "ltc_falls",
+          "intermediate_care_reablement",
+          "ltc_ms",
+          "neurorehabilitation",
+          "therapy_speech_language",
+          "ltc_stroke",
+          "weight_management",
+          "ltc_tb",
+          "ltc_mnd",
+          "podiatry",
+          "ltc_heart_failure",
+          "rehab_bed_based",
+          "ltc_diabetes",
+          "therapy_dietetics",
+          "clinical_support_social_care"
+        ],
+        "cyp_services_found": [
+          "audiology",
+          "newborn_hearing",
+          "community_nursing",
+          "therapy_physiotherapy",
+          "rapid_response",
+          "community_paediatrics",
+          "antenatal_screening",
+          "therapy_speech_language",
+          "wheelchair_equipment",
+          "vision_screening",
+          "ltc_support",
+          "therapy_ot",
+          "therapy_orthotics",
+          "therapy_dietetics"
+        ],
+        "total_services_count": 43,
+        "total_adult_services": 29,
+        "total_cyp_services": 14
+      },
+      "data_quality": {
+        "valid_structures": 100,
+        "corrupted_structures": 0,
+        "empty_services": 0
+      },
+      "overall_status": "WARN"
+    },
+    "service_categorization": {
+      "categorization_validation": {
+        "correct_adult_categorization": 414,
+        "incorrect_adult_categorization": 0,
+        "correct_cyp_categorization": 38,
+        "incorrect_cyp_categorization": 130
+      },
+      "service_overlap_analysis": {
+        "overlapping_services": [
+          "audiology",
+          "community_nursing",
+          "therapy_physiotherapy",
+          "therapy_speech_language",
+          "wheelchair_equipment",
+          "therapy_ot",
+          "therapy_orthotics",
+          "therapy_dietetics"
+        ],
+        "unique_adult_services": 21,
+        "unique_cyp_services": 6
+      },
+      "expected_services": {
+        "adult_key_services": [
+          "audiology",
+          "community_nursing_services",
+          "musculoskeletal_service",
+          "podiatry",
+          "physiotherapy",
+          "occupational_therapy",
+          "dietetics",
+          "speech_language_therapy",
+          "intermediate_care"
+        ],
+        "cyp_key_services": [
+          "audiology",
+          "community_paediatric_service",
+          "physiotherapy",
+          "occupational_therapy",
+          "dietetics",
+          "speech_language_therapy",
+          "vision_screening",
+          "newborn_hearing_screening"
+        ]
+      },
+      "validation_results": {
+        "missing_adult_services": [
+          "intermediate_care",
+          "community_nursing_services",
+          "musculoskeletal_service",
+          "physiotherapy",
+          "dietetics",
+          "occupational_therapy",
+          "speech_language_therapy"
+        ],
+        "missing_cyp_services": [
+          "community_paediatric_service",
+          "physiotherapy",
+          "newborn_hearing_screening",
+          "dietetics",
+          "occupational_therapy",
+          "speech_language_therapy"
+        ],
+        "unexpected_adult_services": [],
+        "unexpected_cyp_services": []
+      },
+      "overall_status": "FAIL"
+    },
+    "wait_band_mathematics": {
+      "wait_band_validation": {
+        "tests": 582,
+        "violations": [
+          {
+            "trust_code": "RBD",
+            "service_type": "cyp_services",
+            "service_key": "community_paediatrics",
+            "total_waiting": 2702.0,
+            "band_sum": 2364.0,
+            "difference": 338.0,
+            "difference_pct": 12.51
+          },
+          {
+            "trust_code": "R0D",
+            "service_type": "cyp_services",
+            "service_key": "community_paediatrics",
+            "total_waiting": 3024.0,
+            "band_sum": 2264.0,
+            "difference": 760.0,
+            "difference_pct": 25.13
+          },
+          {
+            "trust_code": "RBD",
+            "service_type": "cyp_services",
+            "service_key": "community_paediatrics",
+            "total_waiting": 3084.0,
+            "band_sum": 2294.0,
+            "difference": 790.0,
+            "difference_pct": 25.62
+          },
+          {
+            "trust_code": "RBD",
+            "service_type": "cyp_services",
+            "service_key": "community_paediatrics",
+            "total_waiting": 2918.0,
+            "band_sum": 2318.0,
+            "difference": 600.0,
+            "difference_pct": 20.56
+          },
+          {
+            "trust_code": "RAL",
+            "service_type": "adult_services",
+            "service_key": "community_nursing",
+            "total_waiting": 42.0,
+            "band_sum": 40.0,
+            "difference": 2.0,
+            "difference_pct": 4.76
+          },
+          {
+            "trust_code": "RAL",
+            "service_type": "cyp_services",
+            "service_key": "community_nursing",
+            "total_waiting": 47.0,
+            "band_sum": 44.0,
+            "difference": 3.0,
+            "difference_pct": 6.38
+          },
+          {
+            "trust_code": "RAL",
+            "service_type": "cyp_services",
+            "service_key": "community_paediatrics",
+            "total_waiting": 1570.0,
+            "band_sum": 1466.0,
+            "difference": 104.0,
+            "difference_pct": 6.62
+          },
+          {
+            "trust_code": "RAL",
+            "service_type": "cyp_services",
+            "service_key": "therapy_speech_language",
+            "total_waiting": 452.0,
+            "band_sum": 443.0,
+            "difference": 9.0,
+            "difference_pct": 1.99
+          }
+        ]
+      },
+      "total_calculation_validation": {
+        "tests": 0,
+        "violations": []
+      },
+      "percentage_validation": {
+        "tests": 0,
+        "violations": []
+      },
+      "statistical_analysis": {
+        "mean_total_waiting": 578.11,
+        "median_total_waiting": 178.0,
+        "services_with_breaches": 86,
+        "average_breach_rate": 12.33
+      },
+      "overall_status": "PASS"
+    },
+    "metadata_accuracy": {
+      "metadata_validation": {
+        "tests": 50,
+        "violations": []
+      },
+      "service_count_validation": {
+        "tests": 0,
+        "violations": []
+      },
+      "total_waiting_validation": {
+        "tests": 0,
+        "violations": []
+      },
+      "consistency_checks": {
+        "services_reported_matches_actual": 50,
+        "total_waiting_matches_sum": 49,
+        "service_counts_match": 1
+      },
+      "overall_status": "FAIL"
+    },
+    "data_transformation_accuracy": {
+      "sample_validations": [
+        {
+          "file_key": "2024-25-August",
+          "trust_code": "RXL",
+          "comparisons": [
+            {
+              "service": "podiatry",
+              "excel_value": 709.0,
+              "db_value": 630.0,
+              "match": false
+            }
+          ],
+          "accuracy_score": 0.0,
+          "issues": []
+        },
+        {
+          "file_key": "2024-25-August",
+          "trust_code": "RTH",
+          "comparisons": [],
+          "accuracy_score": 0,
+          "issues": []
+        },
+        {
+          "file_key": "2024-25-August",
+          "trust_code": "RFR",
+          "comparisons": [
+            {
+              "service": "podiatry",
+              "excel_value": 1465.0,
+              "db_value": 1465.0,
+              "match": true
+            },
+            {
+              "service": "audiology",
+              "excel_value": 631.0,
+              "db_value": 631.0,
+              "match": true
+            }
+          ],
+          "accuracy_score": 0.6666666666666666,
+          "issues": []
+        },
+        {
+          "file_key": "2024-25-August",
+          "trust_code": "RXP",
+          "comparisons": [
+            {
+              "service": "podiatry",
+              "excel_value": 5014.0,
+              "db_value": 4538.0,
+              "match": false
+            },
+            {
+              "service": "audiology",
+              "excel_value": 154.0,
+              "db_value": 143.0,
+              "match": false
+            }
+          ],
+          "accuracy_score": 0.0,
+          "issues": []
+        },
+        {
+          "file_key": "2024-25-August",
+          "trust_code": "RCF",
+          "comparisons": [
+            {
+              "service": "audiology",
+              "excel_value": 288.0,
+              "db_value": 193.0,
+              "match": false
+            }
+          ],
+          "accuracy_score": 0.0,
+          "issues": []
+        }
+      ],
+      "accuracy_metrics": {
+        "exact_matches": 0,
+        "close_matches": 0,
+        "significant_differences": 5,
+        "total_comparisons": 5
+      },
+      "overall_accuracy": 0.0,
+      "overall_status": "FAIL"
+    }
+  },
+  "summary": {
+    "overall_status": "FAIL",
+    "total_issues": 4,
+    "critical_issues": 3,
+    "warning_issues": 1,
+    "tests_passed": 1,
+    "tests_total": 5,
+    "pass_rate": 20.0
+  },
+  "issues_found": [
+    "Warning: Some JSONB structure issues (89.0% success rate)",
+    "Critical: Service categorization issues - 61.3% accuracy",
+    "Critical: Low metadata accuracy (66.7%)",
+    "Critical: Low transformation accuracy (0.0%)"
+  ],
+  "recommendations": [
+    "\ud83d\udd34 Critical Community Health database migration issues found",
+    "Review JSONB structure and data transformation pipeline",
+    "Verify service categorization and wait band mathematics"
+  ],
+  "sample_validations": []
+}

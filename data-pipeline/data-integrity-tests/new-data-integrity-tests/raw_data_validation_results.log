@@ -1,0 +1,97 @@
+2025-09-29 08:24:12,604 - INFO - Starting comprehensive raw data validation...
+2025-09-29 08:24:12,604 - INFO - Discovering data files...
+2025-09-29 08:24:13,202 - INFO - Validating file accessibility...
+2025-09-29 08:24:14,950 - INFO - Validating data structures...
+2025-09-29 08:24:35,481 - INFO - Validating data quality...
+2025-09-29 08:24:56,587 - INFO - Validating NHS standards compliance...
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:416: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  parsed_dates = pd.to_datetime(df[col], errors='coerce')
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:416: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  parsed_dates = pd.to_datetime(df[col], errors='coerce')
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:416: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  parsed_dates = pd.to_datetime(df[col], errors='coerce')
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:416: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  parsed_dates = pd.to_datetime(df[col], errors='coerce')
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:416: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  parsed_dates = pd.to_datetime(df[col], errors='coerce')
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:416: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  parsed_dates = pd.to_datetime(df[col], errors='coerce')
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:416: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  parsed_dates = pd.to_datetime(df[col], errors='coerce')
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:416: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  parsed_dates = pd.to_datetime(df[col], errors='coerce')
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:416: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  parsed_dates = pd.to_datetime(df[col], errors='coerce')
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:416: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  parsed_dates = pd.to_datetime(df[col], errors='coerce')
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:416: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  parsed_dates = pd.to_datetime(df[col], errors='coerce')
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:416: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  parsed_dates = pd.to_datetime(df[col], errors='coerce')
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:416: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  parsed_dates = pd.to_datetime(df[col], errors='coerce')
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:416: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  parsed_dates = pd.to_datetime(df[col], errors='coerce')
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:416: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  parsed_dates = pd.to_datetime(df[col], errors='coerce')
+2025-09-29 08:25:17,171 - INFO - Validating cross-file consistency...
+2025-09-29 08:25:37,078 - INFO - Validating temporal coverage...
+2025-09-29 08:25:37,134 - WARNING - Error analyzing temporal coverage for Daily-discharge-sitrep-monthly-data-CSV-webfile-March2025-revised.csv: 'utf-8' codec can't decode byte 0x92 in position 67461: invalid start byte
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:551: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  dates = pd.to_datetime(df[col], errors='coerce').dropna()
+2025-09-29 08:25:38,557 - WARNING - Error analyzing temporal coverage for Daily-discharge-sitrep-monthly-data-webfile-October2024-csv-1.csv: 'utf-8' codec can't decode byte 0x92 in position 149097: invalid start byte
+2025-09-29 08:25:38,565 - WARNING - Error analyzing temporal coverage for Daily-discharge-sitrep-monthly-data-CSV-webfile-April2025-1.csv: 'utf-8' codec can't decode byte 0x92 in position 75733: invalid start byte
+2025-09-29 08:25:39,757 - WARNING - Error analyzing temporal coverage for Daily-discharge-sitrep-monthly-data-CSV-webfile-January2025-1.csv: 'utf-8' codec can't decode byte 0x92 in position 125667: invalid start byte
+2025-09-29 08:25:39,772 - WARNING - Error analyzing temporal coverage for Daily-discharge-sitrep-monthly-data-CSV-webfile-December2024.csv: 'utf-8' codec can't decode byte 0x92 in position 147374: invalid start byte
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:551: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  dates = pd.to_datetime(df[col], errors='coerce').dropna()
+2025-09-29 08:25:40,999 - WARNING - Error analyzing temporal coverage for Daily-discharge-sitrep-monthly-data-CSV-webfile-June2025.csv: 'utf-8' codec can't decode byte 0x92 in position 188088: invalid start byte
+2025-09-29 08:25:41,140 - WARNING - Error analyzing temporal coverage for Daily-discharge-sitrep-monthly-data-CSV-webfile-May2025.csv: 'utf-8' codec can't decode byte 0x92 in position 52416: invalid start byte
+2025-09-29 08:25:42,573 - WARNING - Error analyzing temporal coverage for Daily-discharge-sitrep-monthly-data-webfile-August2024-revised.csv: 'utf-8' codec can't decode byte 0x92 in position 148050: invalid start byte
+2025-09-29 08:25:43,797 - WARNING - Error analyzing temporal coverage for Daily-discharge-sitrep-monthly-data-CSV-webfile-November2024.csv: 'utf-8' codec can't decode byte 0x92 in position 170994: invalid start byte
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:551: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  dates = pd.to_datetime(df[col], errors='coerce').dropna()
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:551: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  dates = pd.to_datetime(df[col], errors='coerce').dropna()
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:551: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  dates = pd.to_datetime(df[col], errors='coerce').dropna()
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:551: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  dates = pd.to_datetime(df[col], errors='coerce').dropna()
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:551: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  dates = pd.to_datetime(df[col], errors='coerce').dropna()
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:551: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  dates = pd.to_datetime(df[col], errors='coerce').dropna()
+2025-09-29 08:25:48,315 - WARNING - Error analyzing temporal coverage for Daily-discharge-sitrep-monthly-data-CSV-webfile-February2025-revised.csv: 'utf-8' codec can't decode byte 0x92 in position 199766: invalid start byte
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:551: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  dates = pd.to_datetime(df[col], errors='coerce').dropna()
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:551: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  dates = pd.to_datetime(df[col], errors='coerce').dropna()
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:551: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  dates = pd.to_datetime(df[col], errors='coerce').dropna()
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:551: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  dates = pd.to_datetime(df[col], errors='coerce').dropna()
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:551: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  dates = pd.to_datetime(df[col], errors='coerce').dropna()
+2025-09-29 08:25:54,230 - WARNING - Error analyzing temporal coverage for Daily-discharge-sitrep-monthly-data-CSV-webfile-July2025v2.csv: 'utf-8' codec can't decode byte 0x92 in position 226821: invalid start byte
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:551: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  dates = pd.to_datetime(df[col], errors='coerce').dropna()
+/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py:551: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  dates = pd.to_datetime(df[col], errors='coerce').dropna()
+2025-09-29 08:25:54,265 - WARNING - Error analyzing temporal coverage for Daily-discharge-sitrep-monthly-data-webfile-September-2024.csv: 'utf-8' codec can't decode byte 0x92 in position 39057: invalid start byte
+2025-09-29 08:25:57,883 - INFO - Validation completed. Status: CRITICAL_FAILURE
+
+============================================================
+COMPREHENSIVE RAW DATA VALIDATION REPORT
+============================================================
+Status: CRITICAL_FAILURE
+Files Analyzed: 119
+Tests Run: 469
+Success Rate: 41.4%
+
+🚨 CRITICAL ISSUES: 20
+Traceback (most recent call last):
+  File "/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py", line 743, in <module>
+    success = main()
+  File "/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/new-data-integrity-tests/comprehensive_raw_data_validator.py", line 735, in main
+    print(f"  - {issue['message']}")
+TypeError: 'ValidationResult' object is not subscriptable
