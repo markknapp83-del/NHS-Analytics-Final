@@ -1,4 +1,4 @@
-import { supabaseAuth } from '@/lib/supabase-auth';
+import { createClient } from '@supabase/supabase-js';
 import type {
   Database,
   TrustMetrics,
@@ -12,9 +12,27 @@ import type {
   DiagnosticsData
 } from '@/types/database';
 
-// Use the authenticated client from supabase-auth
-// This ensures proper session handling and RLS policy compliance
-export const supabase = supabaseAuth;
+// Environment variables validation
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error('Missing Supabase environment variables');
+}
+
+// Create a dedicated DATA-ONLY Supabase client
+// This is separate from the auth client to avoid session/timing conflicts
+// Uses anon key with no session persistence for fast, reliable data access
+export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    persistSession: false,     // No user sessions - data queries only
+    autoRefreshToken: false,
+    detectSessionInUrl: false
+  }
+});
+
+// NOTE: Authentication is handled separately in supabase-auth.ts
+// This separation ensures data loading is never blocked by auth state initialization
 
 // Performance monitoring interface
 interface PerformanceMetrics {
@@ -45,7 +63,7 @@ export class NHSDatabaseClient {
 
   // Cache TTL configurations (in milliseconds)
   private readonly cacheTTL = {
-    trusts: 5 * 60 * 1000,        // 5 minutes - trust list changes rarely
+    trusts: 30 * 60 * 1000,       // 30 minutes - trust list changes very rarely
     metrics: 2 * 60 * 1000,       // 2 minutes - metrics data
     benchmarks: 10 * 60 * 1000,   // 10 minutes - benchmark data
     trends: 5 * 60 * 1000         // 5 minutes - trend analysis
@@ -152,45 +170,33 @@ export class NHSDatabaseClient {
     console.log('[getAllTrusts] No cache found, fetching from database');
 
     return this.withPerformanceTracking(async () => {
-      // Query with a reasonable limit and deduplicate client-side
-      console.log('[getAllTrusts] Querying trust_metrics table directly');
-      const { data, error } = await this.client
-        .from('trust_metrics')
-        .select('trust_code, trust_name, icb_code, icb_name')
-        .not('trust_name', 'like', 'Unknown%')
-        .order('trust_name')
-        .limit(5000); // Reasonable limit to get all distinct trusts
+      // Use the RPC function get_distinct_trusts for efficient server-side DISTINCT query
+      // This returns all 151 trusts without pagination limits
+      console.log('[getAllTrusts] Calling get_distinct_trusts RPC function');
 
-      console.log('[getAllTrusts] Query response:', { hasData: !!data, dataLength: data?.length, hasError: !!error, error: error });
+      const { data: rpcData, error: rpcError } = await this.client.rpc('get_distinct_trusts') as { data: any[] | null, error: any };
 
-      if (error) {
-        console.error('[getAllTrusts] Database error:', error);
-        throw new Error(`Failed to fetch trusts: ${error.message}`);
+      if (rpcError) {
+        console.error('[getAllTrusts] RPC error:', rpcError);
+        throw new Error(`Failed to fetch trusts via RPC: ${rpcError.message}`);
       }
 
-      if (!data || data.length === 0) {
-        console.warn('[getAllTrusts] No data returned from database');
+      if (!rpcData || rpcData.length === 0) {
+        console.warn('[getAllTrusts] RPC returned no data');
         return [];
       }
 
-      console.log('[getAllTrusts] Fetched', data.length, 'raw records from database');
+      console.log('[getAllTrusts] RPC returned', rpcData.length, 'distinct trusts');
 
-      // Deduplicate by trust_code on client side
-      const trustMap = new Map<string, Trust>();
-      data.forEach((row: any) => {
-        if (!trustMap.has(row.trust_code) && row.trust_name) {
-          trustMap.set(row.trust_code, {
-            code: row.trust_code,
-            name: row.trust_name,
-            icb_code: row.icb_code,
-            icb_name: row.icb_name
-          });
-        }
-      });
+      // Map RPC results to Trust type
+      const result: Trust[] = rpcData.map((row: any) => ({
+        code: row.trust_code,
+        name: row.trust_name,
+        icb_code: row.icb_code,
+        icb_name: row.icb_name
+      }));
 
-      const result = Array.from(trustMap.values());
-
-      // Sort by name to ensure consistent ordering
+      // Sort by name for consistent display
       result.sort((a, b) => a.name.localeCompare(b.name));
 
       console.log('[getAllTrusts] Returning', result.length, 'unique trusts');

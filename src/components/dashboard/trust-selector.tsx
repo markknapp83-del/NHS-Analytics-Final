@@ -109,7 +109,7 @@ function TrustSelector({ trusts, currentTrust, onSelect }: TrustSelectorProps) {
       </Button>
 
       {isOpen && (
-        <div className="absolute left-0 top-14 w-[500px] bg-white border border-border rounded-md shadow-dropdown z-[100] max-h-[70vh] flex flex-col">
+        <div className="absolute left-0 top-14 w-[500px] bg-white border border-border rounded-md shadow-dropdown z-[100]">
           {/* Search Bar */}
           <div className="p-3 border-b">
             <div className="relative">
@@ -125,8 +125,11 @@ function TrustSelector({ trusts, currentTrust, onSelect }: TrustSelectorProps) {
           </div>
 
           {/* Trust List */}
-          <div className="overflow-y-auto flex-1">
+          <div className="overflow-y-scroll overflow-x-hidden" style={{ maxHeight: '500px' }}>
             <div className="p-2">
+              <div className="text-xs text-gray-500 mb-2">
+                Showing {filteredTrusts.length} trusts
+              </div>
               {filteredTrusts.map((trust) => (
                 <button
                   key={trust.code}

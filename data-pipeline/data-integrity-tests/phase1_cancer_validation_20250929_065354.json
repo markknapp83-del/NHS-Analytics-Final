@@ -1,0 +1,459 @@
+{
+  "test_timestamp": "2025-09-29T06:53:25.492559",
+  "test_phase": "Phase 1: Cancer Raw Data Validation",
+  "data_directory": "/Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/Data",
+  "files_tested": [
+    "CWT-CRS-Apr-2024-to-Sep-2024-Data-Extract-Provider-Final.xlsx",
+    "CWT-CRS-Oct-2024-to-Mar-2025-Data-Extract-Provider.xlsx",
+    "CWT-CRS-Apr-2025-to-Jul-2025-Data-Extract-Provider.xlsx"
+  ],
+  "validation_results": {
+    "file_existence": {
+      "files_found": [
+        "CWT-CRS-Apr-2024-to-Sep-2024-Data-Extract-Provider-Final.xlsx",
+        "CWT-CRS-Oct-2024-to-Mar-2025-Data-Extract-Provider.xlsx",
+        "CWT-CRS-Apr-2025-to-Jul-2025-Data-Extract-Provider.xlsx"
+      ],
+      "files_missing": [],
+      "files_accessible": [
+        "CWT-CRS-Apr-2024-to-Sep-2024-Data-Extract-Provider-Final.xlsx",
+        "CWT-CRS-Oct-2024-to-Mar-2025-Data-Extract-Provider.xlsx",
+        "CWT-CRS-Apr-2025-to-Jul-2025-Data-Extract-Provider.xlsx"
+      ],
+      "files_inaccessible": []
+    },
+    "excel_integrity": {
+      "CWT-CRS-Apr-2024-to-Sep-2024-Data-Extract-Provider-Final.xlsx": {
+        "readable": true,
+        "sheet_names": [
+          "CWT CRS Provider Extract"
+        ],
+        "main_sheet_found": true,
+        "row_count": 61780,
+        "column_count": 11,
+        "main_sheet_name": "CWT CRS Provider Extract"
+      },
+      "CWT-CRS-Oct-2024-to-Mar-2025-Data-Extract-Provider.xlsx": {
+        "readable": true,
+        "sheet_names": [
+          "CWT CRS Provider Extract"
+        ],
+        "main_sheet_found": true,
+        "row_count": 61649,
+        "column_count": 11,
+        "main_sheet_name": "CWT CRS Provider Extract"
+      },
+      "CWT-CRS-Apr-2025-to-Jul-2025-Data-Extract-Provider.xlsx": {
+        "readable": true,
+        "sheet_names": [
+          "CWT CRS Provider Extract"
+        ],
+        "main_sheet_found": true,
+        "row_count": 41013,
+        "column_count": 11,
+        "main_sheet_name": "CWT CRS Provider Extract"
+      }
+    },
+    "nhs_schema": {
+      "CWT-CRS-Apr-2024-to-Sep-2024-Data-Extract-Provider-Final.xlsx": {
+        "columns_found": [
+          "PERIOD",
+          "YEAR",
+          "MONTH",
+          "STANDARD",
+          "ORG CODE",
+          "STAGE/ROUTE",
+          "TREATMENT MODALITY",
+          "CANCER TYPE",
+          "TOTAL TREATED",
+          "WITHIN STANDARD",
+          "BREACHES"
+        ],
+        "columns_missing": [],
+        "extra_columns": [
+          "PERIOD",
+          "YEAR"
+        ],
+        "schema_compliant": true
+      },
+      "CWT-CRS-Oct-2024-to-Mar-2025-Data-Extract-Provider.xlsx": {
+        "columns_found": [
+          "PERIOD",
+          "YEAR",
+          "MONTH",
+          "STANDARD",
+          "ORG CODE",
+          "STAGE/ROUTE",
+          "TREATMENT MODALITY",
+          "CANCER TYPE",
+          "TOTAL TREATED",
+          "WITHIN STANDARD",
+          "BREACHES"
+        ],
+        "columns_missing": [],
+        "extra_columns": [
+          "PERIOD",
+          "YEAR"
+        ],
+        "schema_compliant": true
+      },
+      "CWT-CRS-Apr-2025-to-Jul-2025-Data-Extract-Provider.xlsx": {
+        "columns_found": [
+          "PERIOD",
+          "YEAR",
+          "MONTH",
+          "STANDARD",
+          "ORG CODE",
+          "STAGE/ROUTE",
+          "TREATMENT MODALITY",
+          "CANCER TYPE",
+          "TOTAL TREATED",
+          "WITHIN STANDARD",
+          "BREACHES"
+        ],
+        "columns_missing": [],
+        "extra_columns": [
+          "PERIOD",
+          "YEAR"
+        ],
+        "schema_compliant": true
+      }
+    },
+    "data_completeness": {
+      "CWT-CRS-Apr-2024-to-Sep-2024-Data-Extract-Provider-Final.xlsx": {
+        "total_rows": 61780,
+        "non_empty_rows": 61780,
+        "trusts_count": 166,
+        "r_trusts_count": 147,
+        "months_covered": [
+          "APR",
+          "AUG",
+          "JUL",
+          "JUN",
+          "MAY",
+          "SEP"
+        ],
+        "cancer_types_found": [
+          "Exhibited (non-cancer) breast symptoms - cancer not initially suspected",
+          "Missing or Invalid",
+          "Suspected breast cancer",
+          "Suspected gynaecological cancer",
+          "Suspected lower gastrointestinal cancer",
+          "Suspected lung cancer",
+          "Suspected acute leukaemia",
+          "Suspected brain/central nervous system tumours",
+          "Suspected cancer - non-specific symptoms",
+          "Suspected children's cancer",
+          "Suspected haematological malignancies (excluding acute leukaemia)",
+          "Suspected head & neck cancer",
+          "Suspected other cancer",
+          "Suspected sarcoma",
+          "Suspected skin cancer",
+          "Suspected testicular cancer",
+          "Suspected upper gastrointestinal cancer",
+          "Suspected urological malignancies (excluding testicular)",
+          "Breast",
+          "Gynaecological",
+          "Haematological - Lymphoma",
+          "Haematological - Other (a)",
+          "Head & Neck",
+          "Lower Gastrointestinal",
+          "Lung",
+          "Other (a)",
+          "Skin",
+          "Upper Gastrointestinal - Hepatobiliary",
+          "Upper Gastrointestinal - Oesophagus & Stomach",
+          "Urological - Other (a)",
+          "Urological - Prostate",
+          "ALL CANCERS"
+        ],
+        "standards_found": [
+          "28-day FDS",
+          "31-day Combined",
+          "62-day Combined"
+        ],
+        "null_percentages": {
+          "ORG CODE": 0.0,
+          "MONTH": 0.0,
+          "CANCER TYPE": 0.0,
+          "STAGE/ROUTE": 0.0,
+          "TREATMENT MODALITY": 19.29,
+          "STANDARD": 0.0,
+          "TOTAL TREATED": 0.0,
+          "WITHIN STANDARD": 0.0,
+          "BREACHES": 0.0
+        },
+        "completeness_score": 97.86
+      },
+      "CWT-CRS-Oct-2024-to-Mar-2025-Data-Extract-Provider.xlsx": {
+        "total_rows": 61649,
+        "non_empty_rows": 61649,
+        "trusts_count": 158,
+        "r_trusts_count": 144,
+        "months_covered": [
+          "DEC",
+          "FEB",
+          "JAN",
+          "MAR",
+          "NOV",
+          "OCT"
+        ],
+        "cancer_types_found": [
+          "Exhibited (non-cancer) breast symptoms - cancer not initially suspected",
+          "Missing or Invalid",
+          "Suspected breast cancer",
+          "Suspected gynaecological cancer",
+          "Suspected lower gastrointestinal cancer",
+          "Suspected lung cancer",
+          "Suspected acute leukaemia",
+          "Suspected brain/central nervous system tumours",
+          "Suspected cancer - non-specific symptoms",
+          "Suspected children's cancer",
+          "Suspected haematological malignancies (excluding acute leukaemia)",
+          "Suspected head & neck cancer",
+          "Suspected other cancer",
+          "Suspected sarcoma",
+          "Suspected skin cancer",
+          "Suspected testicular cancer",
+          "Suspected upper gastrointestinal cancer",
+          "Suspected urological malignancies (excluding testicular)",
+          "Breast",
+          "Gynaecological",
+          "Haematological - Lymphoma",
+          "Haematological - Other (a)",
+          "Head & Neck",
+          "Lower Gastrointestinal",
+          "Lung",
+          "Other (a)",
+          "Skin",
+          "Upper Gastrointestinal - Hepatobiliary",
+          "Upper Gastrointestinal - Oesophagus & Stomach",
+          "Urological - Other (a)",
+          "Urological - Prostate",
+          "ALL CANCERS"
+        ],
+        "standards_found": [
+          "28-day FDS",
+          "31-day Combined",
+          "62-day Combined"
+        ],
+        "null_percentages": {
+          "ORG CODE": 0.0,
+          "MONTH": 0.0,
+          "CANCER TYPE": 0.0,
+          "STAGE/ROUTE": 0.0,
+          "TREATMENT MODALITY": 19.3,
+          "STANDARD": 0.0,
+          "TOTAL TREATED": 0.0,
+          "WITHIN STANDARD": 0.0,
+          "BREACHES": 0.0
+        },
+        "completeness_score": 97.86
+      },
+      "CWT-CRS-Apr-2025-to-Jul-2025-Data-Extract-Provider.xlsx": {
+        "total_rows": 41013,
+        "non_empty_rows": 41013,
+        "trusts_count": 159,
+        "r_trusts_count": 146,
+        "months_covered": [
+          "APR",
+          "JUL",
+          "JUN",
+          "MAY"
+        ],
+        "cancer_types_found": [
+          "Exhibited (non-cancer) breast symptoms - cancer not initially suspected",
+          "Missing or Invalid",
+          "Suspected breast cancer",
+          "Suspected gynaecological cancer",
+          "Suspected lower gastrointestinal cancer",
+          "Suspected lung cancer",
+          "Suspected acute leukaemia",
+          "Suspected brain/central nervous system tumours",
+          "Suspected cancer - non-specific symptoms",
+          "Suspected children's cancer",
+          "Suspected haematological malignancies (excluding acute leukaemia)",
+          "Suspected head & neck cancer",
+          "Suspected other cancer",
+          "Suspected sarcoma",
+          "Suspected skin cancer",
+          "Suspected testicular cancer",
+          "Suspected upper gastrointestinal cancer",
+          "Suspected urological malignancies (excluding testicular)",
+          "Breast",
+          "Gynaecological",
+          "Haematological - Lymphoma",
+          "Haematological - Other (a)",
+          "Head & Neck",
+          "Lower Gastrointestinal",
+          "Lung",
+          "Other (a)",
+          "Skin",
+          "Upper Gastrointestinal - Hepatobiliary",
+          "Upper Gastrointestinal - Oesophagus & Stomach",
+          "Urological - Other (a)",
+          "Urological - Prostate",
+          "ALL CANCERS"
+        ],
+        "standards_found": [
+          "28-day FDS",
+          "31-day Combined",
+          "62-day Combined"
+        ],
+        "null_percentages": {
+          "ORG CODE": 0.0,
+          "MONTH": 0.0,
+          "CANCER TYPE": 0.0,
+          "STAGE/ROUTE": 0.0,
+          "TREATMENT MODALITY": 19.39,
+          "STANDARD": 0.0,
+          "TOTAL TREATED": 0.0,
+          "WITHIN STANDARD": 0.0,
+          "BREACHES": 0.0
+        },
+        "completeness_score": 97.85
+      }
+    },
+    "nhs_standards": {
+      "CWT-CRS-Apr-2024-to-Sep-2024-Data-Extract-Provider-Final.xlsx": {
+        "standards_valid": [
+          "28-day FDS",
+          "31-day Combined",
+          "62-day Combined"
+        ],
+        "standards_invalid": [],
+        "cancer_types_valid": [
+          "Exhibited (non-cancer) breast symptoms - cancer not initially suspected",
+          "Missing or Invalid",
+          "Suspected breast cancer",
+          "Suspected gynaecological cancer",
+          "Suspected lower gastrointestinal cancer",
+          "Suspected lung cancer",
+          "Suspected acute leukaemia",
+          "Suspected brain/central nervous system tumours",
+          "Suspected cancer - non-specific symptoms",
+          "Suspected children's cancer",
+          "Suspected haematological malignancies (excluding acute leukaemia)",
+          "Suspected head & neck cancer",
+          "Suspected other cancer",
+          "Suspected sarcoma",
+          "Suspected skin cancer",
+          "Suspected testicular cancer",
+          "Suspected upper gastrointestinal cancer",
+          "Suspected urological malignancies (excluding testicular)",
+          "Breast",
+          "Gynaecological",
+          "Haematological - Lymphoma",
+          "Haematological - Other (a)",
+          "Head & Neck",
+          "Lower Gastrointestinal",
+          "Lung",
+          "Other (a)",
+          "Skin",
+          "Upper Gastrointestinal - Hepatobiliary",
+          "Upper Gastrointestinal - Oesophagus & Stomach",
+          "ALL CANCERS"
+        ],
+        "cancer_types_invalid": [
+          "Urological - Other (a)",
+          "Urological - Prostate"
+        ],
+        "performance_calculations_valid": true,
+        "calculation_errors": []
+      },
+      "CWT-CRS-Oct-2024-to-Mar-2025-Data-Extract-Provider.xlsx": {
+        "standards_valid": [
+          "28-day FDS",
+          "31-day Combined",
+          "62-day Combined"
+        ],
+        "standards_invalid": [],
+        "cancer_types_valid": [
+          "Exhibited (non-cancer) breast symptoms - cancer not initially suspected",
+          "Missing or Invalid",
+          "Suspected breast cancer",
+          "Suspected gynaecological cancer",
+          "Suspected lower gastrointestinal cancer",
+          "Suspected lung cancer",
+          "Suspected acute leukaemia",
+          "Suspected brain/central nervous system tumours",
+          "Suspected cancer - non-specific symptoms",
+          "Suspected children's cancer",
+          "Suspected haematological malignancies (excluding acute leukaemia)",
+          "Suspected head & neck cancer",
+          "Suspected other cancer",
+          "Suspected sarcoma",
+          "Suspected skin cancer",
+          "Suspected testicular cancer",
+          "Suspected upper gastrointestinal cancer",
+          "Suspected urological malignancies (excluding testicular)",
+          "Breast",
+          "Gynaecological",
+          "Haematological - Lymphoma",
+          "Haematological - Other (a)",
+          "Head & Neck",
+          "Lower Gastrointestinal",
+          "Lung",
+          "Other (a)",
+          "Skin",
+          "Upper Gastrointestinal - Hepatobiliary",
+          "Upper Gastrointestinal - Oesophagus & Stomach",
+          "ALL CANCERS"
+        ],
+        "cancer_types_invalid": [
+          "Urological - Other (a)",
+          "Urological - Prostate"
+        ],
+        "performance_calculations_valid": true,
+        "calculation_errors": []
+      },
+      "CWT-CRS-Apr-2025-to-Jul-2025-Data-Extract-Provider.xlsx": {
+        "standards_valid": [
+          "28-day FDS",
+          "31-day Combined",
+          "62-day Combined"
+        ],
+        "standards_invalid": [],
+        "cancer_types_valid": [
+          "Exhibited (non-cancer) breast symptoms - cancer not initially suspected",
+          "Missing or Invalid",
+          "Suspected breast cancer",
+          "Suspected gynaecological cancer",
+          "Suspected lower gastrointestinal cancer",
+          "Suspected lung cancer",
+          "Suspected acute leukaemia",
+          "Suspected brain/central nervous system tumours",
+          "Suspected cancer - non-specific symptoms",
+          "Suspected children's cancer",
+          "Suspected haematological malignancies (excluding acute leukaemia)",
+          "Suspected head & neck cancer",
+          "Suspected other cancer",
+          "Suspected sarcoma",
+          "Suspected skin cancer",
+          "Suspected testicular cancer",
+          "Suspected upper gastrointestinal cancer",
+          "Suspected urological malignancies (excluding testicular)",
+          "Breast",
+          "Gynaecological",
+          "Haematological - Lymphoma",
+          "Haematological - Other (a)",
+          "Head & Neck",
+          "Lower Gastrointestinal",
+          "Lung",
+          "Other (a)",
+          "Skin",
+          "Upper Gastrointestinal - Hepatobiliary",
+          "Upper Gastrointestinal - Oesophagus & Stomach",
+          "ALL CANCERS"
+        ],
+        "cancer_types_invalid": [
+          "Urological - Other (a)",
+          "Urological - Prostate"
+        ],
+        "performance_calculations_valid": true,
+        "calculation_errors": []
+      }
+    },
+    "data_quality": {
+      "CWT-CRS-Apr-2024-to-Sep-2024-Data-Extract-Provider-Final.xlsx": {
+        "duplicate_rows": 

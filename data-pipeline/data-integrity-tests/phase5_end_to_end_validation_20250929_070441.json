@@ -1,0 +1,329 @@
+{
+  "phase": "Phase 5: End-to-End Cross-Validation",
+  "timestamp": "2025-09-29T07:04:41.152161",
+  "sample_data_points": 5,
+  "raw_data_extraction": {
+    "files_processed": 1,
+    "data_points_found": 1,
+    "extraction_errors": [
+      "Service not found for Low Volume CYP Service: Children's Occupational Therapy",
+      "Service not found for High Wait Time Service: Adult Eating Disorders",
+      "Service not found for Consistent Performance Service: CAMHS",
+      "Service not found for Edge Case - Zero Waiting: Sexual Health Services"
+    ],
+    "extracted_values": {
+      "High Volume Adult Service": {
+        "total_waiting": 29976.0,
+        "trust_code": "UNKNOWN",
+        "trust_name": "Unknown Trust",
+        "service_column": "(A) Community nursing services",
+        "raw_file": "Community-health-services-waiting-lists-2024-25-August.xlsx"
+      }
+    }
+  },
+  "database_verification": {
+    "records_checked": 10,
+    "transformation_errors": [
+      "Invalid JSONB structure for trust RN7",
+      "Invalid JSONB structure for trust RWH",
+      "Invalid JSONB structure for trust REP",
+      "Invalid JSONB structure for trust RJN",
+      "Invalid JSONB structure for trust RX4",
+      "Invalid JSONB structure for trust RK5"
+    ],
+    "verified_values": {},
+    "mapping_consistency": {
+      "RXL": {
+        "adult_services_mapped": [
+          "podiatry",
+          "therapy_ot",
+          "msk_service",
+          "ltc_continence",
+          "ltc_respiratory",
+          "rehab_integrated",
+          "community_nursing",
+          "ltc_heart_failure",
+          "therapy_dietetics",
+          "weight_management",
+          "neurorehabilitation",
+          "therapy_speech_language"
+        ],
+        "cyp_services_mapped": [
+          "audiology",
+          "therapy_ot",
+          "community_paediatrics",
+          "therapy_physiotherapy",
+          "therapy_speech_language"
+        ],
+        "unexpected_adult_services": [
+          "therapy_ot",
+          "msk_service",
+          "ltc_continence",
+          "ltc_respiratory",
+          "rehab_integrated",
+          "ltc_heart_failure",
+          "therapy_dietetics",
+          "weight_management",
+          "neurorehabilitation",
+          "therapy_speech_language"
+        ],
+        "unexpected_cyp_services": [
+          "audiology",
+          "therapy_ot",
+          "community_paediatrics",
+          "therapy_physiotherapy",
+          "therapy_speech_language"
+        ]
+      },
+      "RTH": {
+        "adult_services_mapped": [],
+        "cyp_services_mapped": [
+          "community_paediatrics"
+        ],
+        "unexpected_adult_services": [],
+        "unexpected_cyp_services": [
+          "community_paediatrics"
+        ]
+      },
+      "RFR": {
+        "adult_services_mapped": [
+          "ltc_tb",
+          "podiatry",
+          "audiology",
+          "ltc_falls",
+          "ltc_stroke",
+          "therapy_ot",
+          "msk_service",
+          "ltc_diabetes",
+          "ltc_continence",
+          "ltc_lymphoedema",
+          "ltc_respiratory",
+          "community_nursing",
+          "ltc_heart_failure",
+          "therapy_dietetics",
+          "therapy_orthotics",
+          "therapy_physiotherapy",
+          "therapy_speech_language",
+          "urgent_community_response",
+          "clinical_support_social_care",
+          "intermediate_care_reablement"
+        ],
+        "cyp_services_mapped": [
+          "audiology",
+          "therapy_ot",
+          "newborn_hearing",
+          "community_paediatrics",
+          "therapy_physiotherapy",
+          "therapy_speech_language"
+        ],
+        "unexpected_adult_services": [
+          "ltc_tb",
+          "audiology",
+          "ltc_falls",
+          "ltc_stroke",
+          "therapy_ot",
+          "msk_service",
+          "ltc_diabetes",
+          "ltc_continence",
+          "ltc_lymphoedema",
+          "ltc_respiratory",
+          "ltc_heart_failure",
+          "therapy_dietetics",
+          "therapy_orthotics",
+          "therapy_physiotherapy",
+          "therapy_speech_language",
+          "urgent_community_response",
+          "clinical_support_social_care",
+          "intermediate_care_reablement"
+        ],
+        "unexpected_cyp_services": [
+          "audiology",
+          "therapy_ot",
+          "newborn_hearing",
+          "community_paediatrics",
+          "therapy_physiotherapy",
+          "therapy_speech_language"
+        ]
+      },
+      "RXP": {
+        "adult_services_mapped": [
+          "ltc_ms",
+          "podiatry",
+          "audiology",
+          "ltc_falls",
+          "ltc_stroke",
+          "therapy_ot",
+          "msk_service",
+          "ltc_lymphoedema",
+          "ltc_respiratory",
+          "rehab_integrated",
+          "ltc_heart_failure",
+          "ltc_tissue_viability",
+          "wheelchair_equipment",
+          "therapy_speech_language"
+        ],
+        "cyp_services_mapped": [
+          "audiology",
+          "therapy_ot",
+          "therapy_physiotherapy"
+        ],
+        "unexpected_adult_services": [
+          "ltc_ms",
+          "audiology",
+          "ltc_falls",
+          "ltc_stroke",
+          "therapy_ot",
+          "msk_service",
+          "ltc_lymphoedema",
+          "ltc_respiratory",
+          "rehab_integrated",
+          "ltc_heart_failure",
+          "ltc_tissue_viability",
+          "wheelchair_equipment",
+          "therapy_speech_language"
+        ],
+        "unexpected_cyp_services": [
+          "audiology",
+          "therapy_ot",
+          "therapy_physiotherapy"
+        ]
+      }
+    },
+    "jsonb_structure_validation": {
+      "RXL": {
+        "has_adult_services": true,
+        "has_cyp_services": true,
+        "has_metadata": true,
+        "adult_service_count": 12,
+        "cyp_service_count": 5
+      },
+      "RTH": {
+        "has_adult_services": true,
+        "has_cyp_services": true,
+        "has_metadata": true,
+        "adult_service_count": 0,
+        "cyp_service_count": 1
+      },
+      "RFR": {
+        "has_adult_services": true,
+        "has_cyp_services": true,
+        "has_metadata": true,
+        "adult_service_count": 20,
+        "cyp_service_count": 6
+      },
+      "RXP": {
+        "has_adult_services": true,
+        "has_cyp_services": true,
+        "has_metadata": true,
+        "adult_service_count": 14,
+        "cyp_service_count": 3
+      }
+    }
+  },
+  "frontend_validation": {
+    "kpi_calculations": {},
+    "chart_calculations": {},
+    "filter_logic": {},
+    "calculation_errors": []
+  },
+  "pipeline_integrity": {
+    "data_flow_stages": {
+      "raw_excel_extraction": {
+        "status": "unknown",
+        "issues": []
+      },
+      "database_transformation": {
+        "status": "unknown",
+        "issues": []
+      },
+      "frontend_calculation": {
+        "status": "unknown",
+        "issues": []
+      }
+    },
+    "pipeline_metrics": {
+      "total_stages_tested": 3,
+      "stages_with_issues": 0,
+      "total_issues_found": 0,
+      "data_points_traced": 5
+    },
+    "critical_issues": [
+      "Pipeline integrity score below acceptable threshold"
+    ],
+    "pipeline_score": 0.0
+  },
+  "cross_layer_consistency": {
+    "layer_comparisons": {
+      "High Volume Adult Service": {
+        "raw_value": null,
+        "database_value": null,
+        "frontend_value": null,
+        "consistency": "unknown"
+      },
+      "Low Volume CYP Service": {
+        "raw_value": null,
+        "database_value": null,
+        "frontend_value": null,
+        "consistency": "unknown"
+      },
+      "High Wait Time Service": {
+        "raw_value": null,
+        "database_value": null,
+        "frontend_value": null,
+        "consistency": "unknown"
+      },
+      "Consistent Performance Service": {
+        "raw_value": null,
+        "database_value": null,
+        "frontend_value": null,
+        "consistency": "unknown"
+      },
+      "Edge Case - Zero Waiting": {
+        "raw_value": null,
+        "database_value": null,
+        "frontend_value": null,
+        "consistency": "unknown"
+      }
+    },
+    "consistency_checks": {
+      "service_mapping_consistency": {
+        "status": "checked",
+        "adult_services_consistent": true,
+        "cyp_services_consistent": true,
+        "mapping_issues": []
+      },
+      "mathematical_formula_consistency": {
+        "status": "checked",
+        "kpi_formulas_consistent": true,
+        "wait_band_math_consistent": true,
+        "formula_issues": []
+      },
+      "data_structure_consistency": {
+        "status": "checked",
+        "jsonb_structure_consistent": true,
+        "field_naming_consistent": true,
+        "structure_issues": []
+      }
+    },
+    "inconsistencies_found": [],
+    "consistency_score": 0.0
+  },
+  "overall_summary": {
+    "validation_status": "needs_attention",
+    "key_metrics": {
+      "sample_data_points_traced": 5,
+      "raw_data_extractions": 0,
+      "database_records_verified": 0,
+      "frontend_calculations_tested": 0,
+      "pipeline_integrity_score": 0,
+      "cross_layer_consistency_score": 0
+    },
+    "critical_findings": [],
+    "recommendations": [
+      "Implement additional data validation checks in processing pipeline",
+      "Address pipeline integrity issues before production deployment",
+      "Investigate cross-layer data consistency issues"
+    ],
+    "overall_score": 0.0
+  }
+}

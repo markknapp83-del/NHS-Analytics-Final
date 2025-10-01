@@ -11,7 +11,14 @@ if (!supabaseUrl || !supabaseAnonKey) {
 
 // Create Supabase browser client for SSR compatibility
 // This uses cookies instead of localStorage, which works with server-side middleware
-export const supabaseAuth = createBrowserClient<Database>(supabaseUrl, supabaseAnonKey);
+export const supabaseAuth = createBrowserClient<Database>(supabaseUrl, supabaseAnonKey, {
+  global: {
+    fetch: (...args) => {
+      console.log('[Supabase Fetch]', args[0]);
+      return fetch(...args);
+    }
+  }
+});
 
 // Auth utility functions
 
@@ -50,8 +57,13 @@ export async function signInWithPassword(email: string, password: string) {
  * Sign out the current user
  */
 export async function signOut() {
+  console.log('[supabaseAuth] signOut called');
   const { error } = await supabaseAuth.auth.signOut();
-  if (error) throw error;
+  if (error) {
+    console.error('[supabaseAuth] signOut error:', error);
+    throw error;
+  }
+  console.log('[supabaseAuth] signOut successful');
 }
 
 /**

@@ -1,0 +1,150 @@
+{
+  "suite_name": "Community Health Data Integrity Suite (standard)",
+  "validation_level": "ValidationLevel.STANDARD",
+  "execution_timestamp": "2025-09-29T07:04:41.202856",
+  "total_execution_time_seconds": 16.50223398208618,
+  "phases_completed": 2,
+  "phases_failed": 3,
+  "overall_score": 0.0,
+  "critical_issues_count": 3,
+  "phase_results": [
+    {
+      "phase_name": "phase1_community_health_validation",
+      "status": "TestStatus.COMPLETED",
+      "execution_time_seconds": 11.910681962966919,
+      "overall_score": 0.0,
+      "critical_issues": [],
+      "recommendations": [],
+      "detailed_results": {
+        "overall_score": 0.0,
+        "critical_issues": [],
+        "recommendations": [],
+        "raw_output": "\ud83d\udd0d Starting Phase 1: Community Health Validation\n\ud83d\udcc1 Data directory: /Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/Data\n\ud83d\udd17 Supabase connection: \u2705 Connected\n----------------------------------------------------------------------\n\n1\ufe0f\u20e3 Testing Community Health Excel files...\n   \ud83d\udcca Checking Community Health Excel files...\n   \ud83d\udcc4 Found 12 Community Health Excel files\n      \ud83d\udccb Validating Community-health-services-waiting-lists-2024-25-August.xlsx...\n      \ud83d\udccb Validating Community-health-services-waiting-lists-2024-25-March.xlsx...\n      \ud83d\udccb Validating Community-health-services-waiting-lists-2024-25-September.xlsx...\n      \ud83d\udccb Validating Community-health-services-waiting-lists-2024-25-January.xlsx...\n      \ud83d\udccb Validating Community-health-services-waiting-lists-2025-26-June.xlsx...\n      \ud83d\udccb Validating Community-health-services-waiting-lists-2024-25-February.xlsx...\n      \ud83d\udccb Validating Community-health-services-waiting-lists-2024-25-December.xlsx...\n      \ud83d\udccb Validating Community-health-services-waiting-lists-2024-25-October.xlsx...\n      \ud83d\udccb Validating Community-health-services-waiting-lists-2024-25-November.xlsx...\n      \ud83d\udccb Validating Community-health-services-waiting-lists-2025-26-May.xlsx...\n      \ud83d\udccb Validating Community-health-services-waiting-lists-2025-26-July.xlsx...\n      \ud83d\udccb Validating Community-health-services-waiting-lists-2025-26-April.xlsx...\n   \u2705 Community Health files: 12/12 found\n\n2\ufe0f\u20e3 Testing service mapping accuracy...\n   \ud83d\udd17 Validating service mappings...\n      \ud83d\udcc4 Validating mappings using Community-health-services-waiting-lists-2024-25-August.xlsx\n      \ud83d\udcca Adult services found: 30\n      \ud83d\udcca Adult key services validated: 9/9\n      \ud83d\udcca CYP services found: 17\n      \ud83d\udcca CYP key services validated: 8/8\n      \ud83d\udcca Trust codes validated: 0/20 sample\n\n3\ufe0f\u20e3 Testing data quality and consistency...\n   \ud83d\udd0d Testing data quality and consistency...\n      \ud83d\udcc4 Testing data quality in Community-health-services-waiting-lists-2024-25-August.xlsx\n      \ud83d\udcc4 Testing data quality in Community-health-services-waiting-lists-2024-25-March.xlsx\n      \ud83d\udcc4 Testing data quality in Community-health-services-waiting-lists-2024-25-September.xlsx\n      \ud83d\udcca Wait band validation: 0 violations in 0 tests\n      \ud83d\udcca Data range validation: 0 outliers in 0 tests\n\n4\ufe0f\u20e3 Testing temporal consistency across files...\n   \ud83d\udcc5 Testing temporal consistency...\n      \ud83d\udcca Analyzing 12 files for temporal consistency\n\n5\ufe0f\u20e3 Testing against database records...\n   \ud83d\udd17 Comparing with database records...\n      \ud83d\udcca Found 1000 database records with Community Health data\n\n======================================================================\n\ud83d\udccb PHASE 1 COMMUNITY HEALTH VALIDATION SUMMARY\n======================================================================\n\u2705 Overall Status: PASS\n\ud83d\udcca Tests Passed: 5/5 (100.0%)\n\ud83d\udccb Total Issues: 0 (\ud83d\udd34 0 Critical, \ud83d\udfe1 0 Warnings)\n\ud83d\udcc4 Excel Files: 12/12 found\n\ud83d\udd17 Service Mappings: 9 Adult + 8 CYP services validated\n\ud83d\udd17 Database Alignment: 0.0% trust match rate\n\n\ud83d\udca1 Recommendations:\n   \u2022 \u2705 Community Health raw data validation passed - ready for Phase 2\n\n\ud83d\udcbe Detailed results saved to: phase1_community_health_results_20250929_070436.json\n"
+      },
+      "error_message": null
+    },
+    {
+      "phase_name": "phase2_community_health_validation",
+      "status": "TestStatus.FAILED",
+      "execution_time_seconds": 1.8531949520111084,
+      "overall_score": 0.0,
+      "critical_issues": [
+        "Phase execution failed with code 1"
+      ],
+      "recommendations": [
+        "Review phase2_community_health_validation script for errors"
+      ],
+      "detailed_results": {
+        "error_output": "\ud83d\udd17 Loaded 1000 database records with Community Health data\n\ud83d\udcc4 Loaded 3 Excel files for validation\n\ud83d\udd0d Starting Phase 2: Community Health Database Migration Integrity\n\ud83d\udcca Testing Community Health data transformation accuracy\n----------------------------------------------------------------------\n\n1\ufe0f\u20e3 Testing JSONB structure integrity...\n   \ud83d\udccb Checking Community Health JSONB structure integrity...\n      \ud83d\udcca Adult services structure: 81.0% success rate\n      \ud83d\udcca CYP services structure: 86.0% success rate\n      \ud83d\udcca Metadata structure: 100.0% success rate\n      \ud83d\udcca Total unique services found: 43\n\n2\ufe0f\u20e3 Testing service categorization accuracy...\n   \ud83d\udd0d Testing service categorization accuracy...\n      \ud83d\udcca Adult services categorization: 100.0% accuracy\n      \ud83d\udcca CYP services categorization: 22.6% accuracy\n      \ud83d\udcca Total Adult services found: 29\n      \ud83d\udcca Total CYP services found: 14\n      \ud83d\udcca Overlapping services: 8\n      \u26a0\ufe0f Missing key Adult services: 7\n\n3\ufe0f\u20e3 Testing wait band mathematics...\n   \ud83e\uddee Testing wait band mathematics...\n      \ud83d\udcca Wait band tests: 582\n      \ud83d\udcca Math violations: 8\n      \ud83d\udcca Services with 52+ week breaches: 86\n      \ud83d\udcca Average breach rate: 12.33%\n      \u26a0\ufe0f Violation rate: 1.4%\n\n4\ufe0f\u20e3 Testing metadata accuracy...\n   \ud83d\udcca Testing metadata accuracy...\n      \ud83d\udcca Services count accuracy: 100.0%\n      \ud83d\udcca Total waiting accuracy: 98.0%\n      \ud83d\udcca Service counts accuracy: 2.0%\n      \ud83d\udcca Overall metadata accuracy: 66.7%\n\n5\ufe0f\u20e3 Testing data transformation accuracy...\n   \ud83d\udd0d Testing data transformation accuracy...\n      \ud83d\udcca Transformation accuracy: 0.0%\n      \ud83d\udcca Exact matches: 0\n      \ud83d\udcca Close matches: 0\n      \ud83d\udcca Significant differences: 5\n\n======================================================================\n\ud83d\udccb PHASE 2 COMMUNITY HEALTH DATABASE MIGRATION INTEGRITY SUMMARY\n======================================================================\n\u274c Overall Status: FAIL\n\ud83d\udcca Tests Passed: 1/5 (20.0%)\n\ud83d\udccb Total Issues: 4 (\ud83d\udd34 3 Critical, \ud83d\udfe1 1 Warnings)\n\ud83d\udd17 Database Records: 1000 Community Health records analyzed\n\ud83d\udcca JSONB Structure: 43 unique services found\n\ud83e\uddee Wait Band Math: 8 violations in 582 tests\n\ud83c\udfaf Transformation Accuracy: 0.0%\n\n\u26a0\ufe0f Issues Found:\n   1. Warning: Some JSONB structure issues (89.0% success rate)\n   2. Critical: Service categorization issues - 61.3% accuracy\n   3. Critical: Low metadata accuracy (66.7%)\n   4. Critical: Low transformation accuracy (0.0%)\n\n\ud83d\udca1 Recommendations:\n   \u2022 \ud83d\udd34 Critical Community Health database migration issues found\n   \u2022 Review JSONB structure and data transformation pipeline\n   \u2022 Verify service categorization and wait band mathematics\n\n\ud83d\udcbe Detailed results saved to: phase2_community_health_results_20250929_070438.json\n"
+      },
+      "error_message": "\ud83d\udd17 Loaded 1000 database records with Community Health data\n\ud83d\udcc4 Loaded 3 Excel files for validation\n\ud83d\udd0d Starting Phase 2: Community Health Database Migration Integrity\n\ud83d\udcca Testing Community Health data transformation accuracy\n----------------------------------------------------------------------\n\n1\ufe0f\u20e3 Testing JSONB structure integrity...\n   \ud83d\udccb Checking Community Health JSONB structure integrity...\n      \ud83d\udcca Adult services structure: 81.0% success rate\n      \ud83d\udcca CYP services structure: 86.0% success rate\n      \ud83d\udcca Metadata structure: 100.0% success rate\n      \ud83d\udcca Total unique services found: 43\n\n2\ufe0f\u20e3 Testing service categorization accuracy...\n   \ud83d\udd0d Testing service categorization accuracy...\n      \ud83d\udcca Adult services categorization: 100.0% accuracy\n      \ud83d\udcca CYP services categorization: 22.6% accuracy\n      \ud83d\udcca Total Adult services found: 29\n      \ud83d\udcca Total CYP services found: 14\n      \ud83d\udcca Overlapping services: 8\n      \u26a0\ufe0f Missing key Adult services: 7\n\n3\ufe0f\u20e3 Testing wait band mathematics...\n   \ud83e\uddee Testing wait band mathematics...\n      \ud83d\udcca Wait band tests: 582\n      \ud83d\udcca Math violations: 8\n      \ud83d\udcca Services with 52+ week breaches: 86\n      \ud83d\udcca Average breach rate: 12.33%\n      \u26a0\ufe0f Violation rate: 1.4%\n\n4\ufe0f\u20e3 Testing metadata accuracy...\n   \ud83d\udcca Testing metadata accuracy...\n      \ud83d\udcca Services count accuracy: 100.0%\n      \ud83d\udcca Total waiting accuracy: 98.0%\n      \ud83d\udcca Service counts accuracy: 2.0%\n      \ud83d\udcca Overall metadata accuracy: 66.7%\n\n5\ufe0f\u20e3 Testing data transformation accuracy...\n   \ud83d\udd0d Testing data transformation accuracy...\n      \ud83d\udcca Transformation accuracy: 0.0%\n      \ud83d\udcca Exact matches: 0\n      \ud83d\udcca Close matches: 0\n      \ud83d\udcca Significant differences: 5\n\n======================================================================\n\ud83d\udccb PHASE 2 COMMUNITY HEALTH DATABASE MIGRATION INTEGRITY SUMMARY\n======================================================================\n\u274c Overall Status: FAIL\n\ud83d\udcca Tests Passed: 1/5 (20.0%)\n\ud83d\udccb Total Issues: 4 (\ud83d\udd34 3 Critical, \ud83d\udfe1 1 Warnings)\n\ud83d\udd17 Database Records: 1000 Community Health records analyzed\n\ud83d\udcca JSONB Structure: 43 unique services found\n\ud83e\uddee Wait Band Math: 8 violations in 582 tests\n\ud83c\udfaf Transformation Accuracy: 0.0%\n\n\u26a0\ufe0f Issues Found:\n   1. Warning: Some JSONB structure issues (89.0% success rate)\n   2. Critical: Service categorization issues - 61.3% accuracy\n   3. Critical: Low metadata accuracy (66.7%)\n   4. Critical: Low transformation accuracy (0.0%)\n\n\ud83d\udca1 Recommendations:\n   \u2022 \ud83d\udd34 Critical Community Health database migration issues found\n   \u2022 Review JSONB structure and data transformation pipeline\n   \u2022 Verify service categorization and wait band mathematics\n\n\ud83d\udcbe Detailed results saved to: phase2_community_health_results_20250929_070438.json\n"
+    },
+    {
+      "phase_name": "phase3_community_health_validation",
+      "status": "TestStatus.FAILED",
+      "execution_time_seconds": 1.0258879661560059,
+      "overall_score": 0.0,
+      "critical_issues": [
+        "Phase execution failed with code 1"
+      ],
+      "recommendations": [
+        "Review phase3_community_health_validation script for errors"
+      ],
+      "detailed_results": {
+        "error_output": "\ud83d\udd17 Loaded 1000 database records with Community Health data\n\ud83d\udd0d Starting Phase 3: Community Health Business Logic Validation\n\ud83d\udcca Testing Community Health business rules and data quality standards\n----------------------------------------------------------------------\n\n1\ufe0f\u20e3 Testing Community Health performance standards...\n   \ud83d\udcca Checking Community Health performance standards compliance...\n      \ud83d\udcc8 Analyzing 18-week performance...\n      \ud83d\udea8 Analyzing 52+ week breaches...\n      \ud83d\udcca Analyzing waiting list sizes...\n      \ud83d\udcca 18-week compliance rate: 95.2%\n      \ud83d\udcca Services with high 52+ week breaches: 5\n      \ud83d\udcca Services analyzed: 43\n\n2\ufe0f\u20e3 Testing mathematical consistency and relationships...\n   \ud83e\uddee Checking mathematical consistency...\n      \ud83d\udcca Overall mathematical accuracy: 95.0%\n      \ud83d\udcca Wait band hierarchy violations: 0\n      \ud83d\udcca Service total violations: 23\n      \ud83d\udcca Metadata consistency violations: 99\n\n3\ufe0f\u20e3 Testing data ranges and outlier detection...\n   \ud83d\udcc8 Detecting outliers and validating data ranges...\n      \ud83d\udcca Services analyzed: 12479\n      \ud83d\udcca Median waiting list size: 173.0\n      \ud83d\udcca Mean breach rate: 1.87%\n      \ud83d\udcca Waiting list outliers: 40\n      \ud83d\udcca Breach rate outliers: 22\n\n4\ufe0f\u20e3 Testing temporal consistency and trends...\n   \ud83d\udcc5 Testing temporal consistency...\n      \ud83d\udcca Analyzing trust data continuity...\n      \ud83d\udcca Trusts analyzed: 98\n      \ud83d\udcca Inconsistent reporting trusts: 13\n      \ud83d\udcca Unrealistic trend changes: 24\n      \ud83d\udcca Stable service trends: 10271\n\n5\ufe0f\u20e3 Testing Community Health business rule compliance...\n   \ud83d\udccb Testing Community Health business rule compliance...\n      \ud83d\udcca Testing Rule 1: Service categorization rules...\n      \ud83d\udcca Testing Rule 2: Waiting list distribution rules...\n      \ud83d\udcca Testing Rule 3: Metadata consistency rules...\n      \ud83d\udcca Business rule compliance: 90.0% (68 violations in 682 tests)\n\n======================================================================\n\ud83d\udccb PHASE 3 COMMUNITY HEALTH BUSINESS LOGIC VALIDATION SUMMARY\n======================================================================\n\u274c Overall Status: FAIL\n\ud83d\udcca Tests Passed: 4/5 (80.0%)\n\ud83d\udccb Total Issues: 1 (\ud83d\udd34 1 Critical, \ud83d\udfe1 0 Warnings)\n\ud83d\udd17 Database Records: 1000 Community Health records analyzed\n\ud83d\udcca 18-week Performance: 95.2% compliance rate\n\ud83e\uddee Mathematical Consistency: 95.0%\n\ud83d\udccb Business Rule Compliance: 90.0%\n\n\u26a0\ufe0f Issues Found:\n   1. Critical: High temporal inconsistency (13.3% trusts, 24 unrealistic changes)\n\n\ud83d\udca1 Recommendations:\n   \u2022 \ud83d\udd34 Critical Community Health business logic violations found\n   \u2022 Review data quality processes for Community Health services\n   \u2022 Implement additional business rule validation in ETL pipeline\n\n\ud83d\udcbe Detailed results saved to: phase3_community_health_results_20250929_070439.json\n"
+      },
+      "error_message": "\ud83d\udd17 Loaded 1000 database records with Community Health data\n\ud83d\udd0d Starting Phase 3: Community Health Business Logic Validation\n\ud83d\udcca Testing Community Health business rules and data quality standards\n----------------------------------------------------------------------\n\n1\ufe0f\u20e3 Testing Community Health performance standards...\n   \ud83d\udcca Checking Community Health performance standards compliance...\n      \ud83d\udcc8 Analyzing 18-week performance...\n      \ud83d\udea8 Analyzing 52+ week breaches...\n      \ud83d\udcca Analyzing waiting list sizes...\n      \ud83d\udcca 18-week compliance rate: 95.2%\n      \ud83d\udcca Services with high 52+ week breaches: 5\n      \ud83d\udcca Services analyzed: 43\n\n2\ufe0f\u20e3 Testing mathematical consistency and relationships...\n   \ud83e\uddee Checking mathematical consistency...\n      \ud83d\udcca Overall mathematical accuracy: 95.0%\n      \ud83d\udcca Wait band hierarchy violations: 0\n      \ud83d\udcca Service total violations: 23\n      \ud83d\udcca Metadata consistency violations: 99\n\n3\ufe0f\u20e3 Testing data ranges and outlier detection...\n   \ud83d\udcc8 Detecting outliers and validating data ranges...\n      \ud83d\udcca Services analyzed: 12479\n      \ud83d\udcca Median waiting list size: 173.0\n      \ud83d\udcca Mean breach rate: 1.87%\n      \ud83d\udcca Waiting list outliers: 40\n      \ud83d\udcca Breach rate outliers: 22\n\n4\ufe0f\u20e3 Testing temporal consistency and trends...\n   \ud83d\udcc5 Testing temporal consistency...\n      \ud83d\udcca Analyzing trust data continuity...\n      \ud83d\udcca Trusts analyzed: 98\n      \ud83d\udcca Inconsistent reporting trusts: 13\n      \ud83d\udcca Unrealistic trend changes: 24\n      \ud83d\udcca Stable service trends: 10271\n\n5\ufe0f\u20e3 Testing Community Health business rule compliance...\n   \ud83d\udccb Testing Community Health business rule compliance...\n      \ud83d\udcca Testing Rule 1: Service categorization rules...\n      \ud83d\udcca Testing Rule 2: Waiting list distribution rules...\n      \ud83d\udcca Testing Rule 3: Metadata consistency rules...\n      \ud83d\udcca Business rule compliance: 90.0% (68 violations in 682 tests)\n\n======================================================================\n\ud83d\udccb PHASE 3 COMMUNITY HEALTH BUSINESS LOGIC VALIDATION SUMMARY\n======================================================================\n\u274c Overall Status: FAIL\n\ud83d\udcca Tests Passed: 4/5 (80.0%)\n\ud83d\udccb Total Issues: 1 (\ud83d\udd34 1 Critical, \ud83d\udfe1 0 Warnings)\n\ud83d\udd17 Database Records: 1000 Community Health records analyzed\n\ud83d\udcca 18-week Performance: 95.2% compliance rate\n\ud83e\uddee Mathematical Consistency: 95.0%\n\ud83d\udccb Business Rule Compliance: 90.0%\n\n\u26a0\ufe0f Issues Found:\n   1. Critical: High temporal inconsistency (13.3% trusts, 24 unrealistic changes)\n\n\ud83d\udca1 Recommendations:\n   \u2022 \ud83d\udd34 Critical Community Health business logic violations found\n   \u2022 Review data quality processes for Community Health services\n   \u2022 Implement additional business rule validation in ETL pipeline\n\n\ud83d\udcbe Detailed results saved to: phase3_community_health_results_20250929_070439.json\n"
+    },
+    {
+      "phase_name": "phase4_frontend_accuracy_validation",
+      "status": "TestStatus.FAILED",
+      "execution_time_seconds": 1.0459721088409424,
+      "overall_score": 0.0,
+      "critical_issues": [
+        "Phase execution failed with code 1"
+      ],
+      "recommendations": [
+        "Review phase4_frontend_accuracy_validation script for errors"
+      ],
+      "detailed_results": {
+        "error_output": "/Users/markknapp/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n"
+      },
+      "error_message": "/Users/markknapp/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n"
+    },
+    {
+      "phase_name": "phase5_end_to_end_cross_validation",
+      "status": "TestStatus.COMPLETED",
+      "execution_time_seconds": 0.6652989387512207,
+      "overall_score": 0.0,
+      "critical_issues": [],
+      "recommendations": [],
+      "detailed_results": {
+        "overall_score": 0.0,
+        "critical_issues": [],
+        "recommendations": [],
+        "raw_output": "\ud83c\udfe5 NHS Community Health Data - Phase 5: End-to-End Cross-Validation\n======================================================================\n\ud83d\udd04 Phase 5: End-to-End Cross-Validation initialized\n\n\ud83d\udcca Starting Phase 5: End-to-End Cross-Validation...\n============================================================\n\ud83c\udfaf Step 1: Selecting sample data points for tracing...\n  \u2192 Selecting diverse data points across services and trusts...\n  \u2705 Selected 5 representative data point scenarios\n\ud83d\udccb Step 2: Extracting raw data values...\n  \u2192 Extracting values from raw Excel files...\n  \u2705 Extracted 1 data points from raw files\n\ud83d\uddc4\ufe0f Step 3: Verifying database transformations...\n  \u2192 Verifying database transformations...\n  \u2705 Verified 10 database records\n\ud83c\udfa8 Step 4: Validating frontend calculations...\n  \u2192 Validating frontend calculations...\n  \u2705 Validated frontend calculations for 0 KPIs\n\ud83d\udd17 Step 5: Analyzing pipeline integrity...\n  \u2192 Analyzing pipeline integrity...\n  \u2705 Pipeline integrity score: 0.0%\n\u2696\ufe0f Step 6: Cross-layer consistency validation...\n  \u2192 Validating cross-layer consistency...\n  \u2705 Cross-layer consistency score: 0.0%\n\n\ud83d\udcbe Results saved to: /Users/markknapp/Desktop/Projects/NHS-Data-Analytics-Tool-v6-master/data-integrity-tests/phase5_end_to_end_validation_20250929_070441.json\n\n\ud83d\udcca VALIDATION SUMMARY\n==================================================\n\ud83c\udfaf Overall Score: 0.0%\n\ud83d\udcca Status: NEEDS_ATTENTION\n\n\ud83d\udcc8 Key Metrics:\n   \u2022 Sample Data Points Traced: 5\n   \u2022 Raw Data Extractions: 0\n   \u2022 Database Records Verified: 0\n   \u2022 Frontend Calculations Tested: 0\n   \u2022 Pipeline Integrity Score: 0\n   \u2022 Cross Layer Consistency Score: 0\n\n\ud83d\udca1 Recommendations:\n   \u2022 Implement additional data validation checks in processing pipeline\n   \u2022 Address pipeline integrity issues before production deployment\n   \u2022 Investigate cross-layer data consistency issues\n\n\u2705 Phase 5 End-to-End Cross-Validation completed!\n"
+      },
+      "error_message": null
+    }
+  ],
+  "summary_report": {
+    "executive_summary": {
+      "overall_health": "critical",
+      "data_integrity_score": 0.0,
+      "pipeline_readiness": false,
+      "critical_issues_count": 3,
+      "testing_coverage": "5/5 phases completed"
+    },
+    "phase_breakdown": {
+      "raw_data_validation": {
+        "status": "completed",
+        "score": 0.0,
+        "issues": 0,
+        "execution_time": 11.910681962966919
+      },
+      "database_integrity": {
+        "status": "failed",
+        "score": 0.0,
+        "issues": 1,
+        "execution_time": 1.8531949520111084
+      },
+      "business_logic": {
+        "status": "failed",
+        "score": 0.0,
+        "issues": 1,
+        "execution_time": 1.0258879661560059
+      },
+      "frontend_accuracy": {
+        "status": "failed",
+        "score": 0.0,
+        "issues": 1,
+        "execution_time": 1.0459721088409424
+      },
+      "end_to_end_validation": {
+        "status": "completed",
+        "score": 0.0,
+        "issues": 0,
+        "execution_time": 0.6652989387512207
+      }
+    },
+    "performance_metrics": {
+      "total_execution_time": 16.501035928726196,
+      "average_phase_time": 3.300207185745239,
+      "slowest_phase": "phase1_community_health_validation"
+    },
+    "quality_indicators": {
+      "data_consistency": 100.0,
+      "validation_coverage": 40.0,
+      "automation_health": 40.0
+    }
+  },
+  "recommendations": [
+    "CRITICAL: Data integrity issues require immediate attention before production use",
+    "Fix 3 failed testing phase(s) before proceeding",
+    "Review phase4_frontend_accuracy_validation script for errors",
+    "Review phase3_community_health_validation script for errors",
+    "Review phase2_community_health_validation script for errors",
+    "Schedule regular automated testing to maintain data integrity",
+    "Set up monitoring alerts for critical data quality thresholds"
+  ]
+}

@@ -1,0 +1,2000 @@
+{
+  "test_timestamp": "2025-09-29T07:04:38.702131",
+  "test_phase": "Phase 3: Community Health Business Logic Validation",
+  "results": {
+    "community_health_performance_standards": {
+      "18_week_standard": {
+        "violations": [
+          {
+            "service": "cyp_services_community_paediatrics",
+            "total_waiting": 1145538.0,
+            "estimated_52_plus_rate": 26.16,
+            "trusts_affected": 71
+          },
+          {
+            "service": "cyp_services_therapy_speech_language",
+            "total_waiting": 460017.0,
+            "estimated_52_plus_rate": 9.35,
+            "trusts_affected": 59
+          }
+        ],
+        "compliant_services": 40,
+        "non_compliant_services": 2
+      },
+      "52_week_breach_analysis": {
+        "high_breach_services": [
+          {
+            "service": "cyp_services_therapy_ot",
+            "breach_rate": 7.72,
+            "total_breaches": 10002.0,
+            "total_waiting": 129559.0,
+            "trusts_affected": 61
+          },
+          {
+            "service": "cyp_services_community_paediatrics",
+            "breach_rate": 26.16,
+            "total_breaches": 299666.0,
+            "total_waiting": 1145538.0,
+            "trusts_affected": 71
+          },
+          {
+            "service": "cyp_services_therapy_speech_language",
+            "breach_rate": 9.35,
+            "total_breaches": 42999.0,
+            "total_waiting": 460017.0,
+            "trusts_affected": 59
+          },
+          {
+            "service": "adult_services_audiology",
+            "breach_rate": 5.95,
+            "total_breaches": 8240.0,
+            "total_waiting": 138516.0,
+            "trusts_affected": 25
+          },
+          {
+            "service": "cyp_services_therapy_dietetics",
+            "breach_rate": 6.38,
+            "total_breaches": 2148.0,
+            "total_waiting": 33661.0,
+            "trusts_affected": 30
+          }
+        ],
+        "total_services_analyzed": 42
+      },
+      "waiting_list_size_analysis": {
+        "oversized_services": [],
+        "undersized_services": [
+          {
+            "service": "adult_services_ltc_mnd",
+            "average_waiting": 1.7,
+            "total_waiting": 15.0,
+            "appearances": 9
+          }
+        ]
+      },
+      "service_availability_analysis": {
+        "services_with_zero_waiting": [],
+        "total_services": 0
+      },
+      "compliance_summary": {
+        "total_services_analyzed": 43,
+        "services_meeting_18_week_target": 40,
+        "services_not_meeting_18_week_target": 2,
+        "services_with_high_52_week_breaches": 5,
+        "compliance_rate_18_week": 95.2,
+        "breach_rate_52_week": 11.6
+      },
+      "status": "PASS"
+    },
+    "mathematical_consistency": {
+      "wait_band_hierarchy_validation": {
+        "tests": 1167,
+        "violations": []
+      },
+      "service_total_validation": {
+        "tests": 1167,
+        "violations": [
+          {
+            "trust_code": "RBD",
+            "service": "cyp_services_community_paediatrics",
+            "total_waiting": 2702.0,
+            "band_sum": 2364.0,
+            "difference_pct": 12.51
+          },
+          {
+            "trust_code": "R0D",
+            "service": "cyp_services_community_paediatrics",
+            "total_waiting": 3024.0,
+            "band_sum": 2264.0,
+            "difference_pct": 25.13
+          },
+          {
+            "trust_code": "RBD",
+            "service": "cyp_services_community_paediatrics",
+            "total_waiting": 3084.0,
+            "band_sum": 2294.0,
+            "difference_pct": 25.62
+          },
+          {
+            "trust_code": "RBD",
+            "service": "cyp_services_community_paediatrics",
+            "total_waiting": 2918.0,
+            "band_sum": 2318.0,
+            "difference_pct": 20.56
+          },
+          {
+            "trust_code": "RAL",
+            "service": "adult_services_community_nursing",
+            "total_waiting": 42.0,
+            "band_sum": 40.0,
+            "difference_pct": 4.76
+          },
+          {
+            "trust_code": "RAL",
+            "service": "cyp_services_community_nursing",
+            "total_waiting": 47.0,
+            "band_sum": 44.0,
+            "difference_pct": 6.38
+          },
+          {
+            "trust_code": "RAL",
+            "service": "cyp_services_community_paediatrics",
+            "total_waiting": 1570.0,
+            "band_sum": 1466.0,
+            "difference_pct": 6.62
+          },
+          {
+            "trust_code": "RAL",
+            "service": "cyp_services_therapy_speech_language",
+            "total_waiting": 452.0,
+            "band_sum": 443.0,
+            "difference_pct": 1.99
+          },
+          {
+            "trust_code": "RYR",
+            "service": "cyp_services_community_paediatrics",
+            "total_waiting": 1265.0,
+            "band_sum": 1244.0,
+            "difference_pct": 1.66
+          },
+          {
+            "trust_code": "RXL",
+            "service": "adult_services_ltc_respiratory",
+            "total_waiting": 58.0,
+            "band_sum": 36.0,
+            "difference_pct": 37.93
+          },
+          {
+            "trust_code": "RBD",
+            "service": "cyp_services_community_paediatrics",
+            "total_waiting": 2943.0,
+            "band_sum": 2294.0,
+            "difference_pct": 22.05
+          },
+          {
+            "trust_code": "RYW",
+            "service": "cyp_services_community_paediatrics",
+            "total_waiting": 17978.0,
+            "band_sum": 17463.0,
+            "difference_pct": 2.86
+          },
+          {
+            "trust_code": "RYW",
+            "service": "cyp_services_community_paediatrics",
+            "total_waiting": 17825.0,
+            "band_sum": 17408.0,
+            "difference_pct": 2.34
+          },
+          {
+            "trust_code": "RH8",
+            "service": "adult_services_rehab_integrated",
+            "total_waiting": 3271.0,
+            "band_sum": 2835.0,
+            "difference_pct": 13.33
+          },
+          {
+            "trust_code": "RJ6",
+            "service": "adult_services_therapy_speech_language",
+            "total_waiting": 588.0,
+            "band_sum": 571.0,
+            "difference_pct": 2.89
+          },
+          {
+            "trust_code": "RJ6",
+            "service": "cyp_services_therapy_ot",
+            "total_waiting": 69.0,
+            "band_sum": 59.0,
+            "difference_pct": 14.49
+          },
+          {
+            "trust_code": "RJ6",
+            "service": "cyp_services_therapy_physiotherapy",
+            "total_waiting": 17.0,
+            "band_sum": 15.0,
+            "difference_pct": 11.76
+          },
+          {
+            "trust_code": "RJ6",
+            "service": "cyp_services_therapy_speech_language",
+            "total_waiting": 109.0,
+            "band_sum": 100.0,
+            "difference_pct": 8.26
+          },
+          {
+            "trust_code": "RBT",
+            "service": "adult_services_intermediate_care_reablement",
+            "total_waiting": 54.0,
+            "band_sum": 53.0,
+            "difference_pct": 1.85
+          },
+          {
+            "trust_code": "RBL",
+            "service": "cyp_services_community_paediatrics",
+            "total_waiting": 4637.0,
+            "band_sum": 4018.0,
+            "difference_pct": 13.35
+          },
+          {
+            "trust_code": "RWX",
+            "service": "cyp_services_therapy_speech_language",
+            "total_waiting": 280.0,
+            "band_sum": 274.0,
+            "difference_pct": 2.14
+          },
+          {
+            "trust_code": "RPG",
+            "service": "cyp_services_community_paediatrics",
+            "total_waiting": 3856.0,
+            "band_sum": 3768.0,
+            "difference_pct": 2.28
+          },
+          {
+            "trust_code": "R1D",
+            "service": "adult_services_neurorehabilitation",
+            "total_waiting": 241.0,
+            "band_sum": 235.0,
+            "difference_pct": 2.49
+          }
+        ]
+      },
+      "metadata_consistency": {
+        "tests": 100,
+        "violations": [
+          {
+            "trust_code": "RXL",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 12,
+            "reported_cyp": 0,
+            "actual_cyp": 5
+          },
+          {
+            "trust_code": "RTH",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 0,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RFR",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 20,
+            "reported_cyp": 0,
+            "actual_cyp": 6
+          },
+          {
+            "trust_code": "RXP",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 14,
+            "reported_cyp": 0,
+            "actual_cyp": 3
+          },
+          {
+            "trust_code": "RCF",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 11,
+            "reported_cyp": 0,
+            "actual_cyp": 7
+          },
+          {
+            "trust_code": "RP5",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 0,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RFS",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 1,
+            "reported_cyp": 0,
+            "actual_cyp": 0
+          },
+          {
+            "trust_code": "RXQ",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 18,
+            "reported_cyp": 0,
+            "actual_cyp": 5
+          },
+          {
+            "trust_code": "RMP",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 9,
+            "reported_cyp": 0,
+            "actual_cyp": 5
+          },
+          {
+            "trust_code": "RWH",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 0,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RHQ",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 11,
+            "reported_cyp": 0,
+            "actual_cyp": 0
+          },
+          {
+            "trust_code": "RTF",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 10,
+            "reported_cyp": 0,
+            "actual_cyp": 6
+          },
+          {
+            "trust_code": "RMP",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 8,
+            "reported_cyp": 0,
+            "actual_cyp": 6
+          },
+          {
+            "trust_code": "RXR",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 6,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RBD",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 0,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RRE",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 16,
+            "reported_cyp": 0,
+            "actual_cyp": 6
+          },
+          {
+            "trust_code": "RHQ",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 11,
+            "reported_cyp": 0,
+            "actual_cyp": 0
+          },
+          {
+            "trust_code": "RH5",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 12,
+            "reported_cyp": 0,
+            "actual_cyp": 5
+          },
+          {
+            "trust_code": "R0D",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 0,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RCU",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 0,
+            "reported_cyp": 0,
+            "actual_cyp": 4
+          },
+          {
+            "trust_code": "RXQ",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 17,
+            "reported_cyp": 0,
+            "actual_cyp": 5
+          },
+          {
+            "trust_code": "RFR",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 21,
+            "reported_cyp": 0,
+            "actual_cyp": 6
+          },
+          {
+            "trust_code": "RTR",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 10,
+            "reported_cyp": 0,
+            "actual_cyp": 3
+          },
+          {
+            "trust_code": "RMP",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 8,
+            "reported_cyp": 0,
+            "actual_cyp": 6
+          },
+          {
+            "trust_code": "RBD",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 0,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RPA",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 0,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RBD",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 1,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RDU",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 4,
+            "reported_cyp": 0,
+            "actual_cyp": 0
+          },
+          {
+            "trust_code": "RMP",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 8,
+            "reported_cyp": 0,
+            "actual_cyp": 6
+          },
+          {
+            "trust_code": "R1H",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 7,
+            "reported_cyp": 0,
+            "actual_cyp": 6
+          },
+          {
+            "trust_code": "RYW",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 12,
+            "reported_cyp": 0,
+            "actual_cyp": 4
+          },
+          {
+            "trust_code": "RHQ",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 11,
+            "reported_cyp": 0,
+            "actual_cyp": 0
+          },
+          {
+            "trust_code": "RWD",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 0,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RXQ",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 17,
+            "reported_cyp": 0,
+            "actual_cyp": 5
+          },
+          {
+            "trust_code": "RWD",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 0,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RW4",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 18,
+            "reported_cyp": 0,
+            "actual_cyp": 3
+          },
+          {
+            "trust_code": "RMP",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 8,
+            "reported_cyp": 0,
+            "actual_cyp": 6
+          },
+          {
+            "trust_code": "RBD",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 1,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RPG",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 14,
+            "reported_cyp": 0,
+            "actual_cyp": 7
+          },
+          {
+            "trust_code": "RXP",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 14,
+            "reported_cyp": 0,
+            "actual_cyp": 4
+          },
+          {
+            "trust_code": "RJ2",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 12,
+            "reported_cyp": 0,
+            "actual_cyp": 4
+          },
+          {
+            "trust_code": "RK5",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 0,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RNA",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 9,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "R0B",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 12,
+            "reported_cyp": 0,
+            "actual_cyp": 5
+          },
+          {
+            "trust_code": "RAE",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 4,
+            "reported_cyp": 0,
+            "actual_cyp": 5
+          },
+          {
+            "trust_code": "RAL",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 18,
+            "reported_cyp": 0,
+            "actual_cyp": 6
+          },
+          {
+            "trust_code": "RX1",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 0,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RRE",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 16,
+            "reported_cyp": 0,
+            "actual_cyp": 6
+          },
+          {
+            "trust_code": "RJC",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 13,
+            "reported_cyp": 0,
+            "actual_cyp": 8
+          },
+          {
+            "trust_code": "RYJ",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 2,
+            "reported_cyp": 0,
+            "actual_cyp": 0
+          },
+          {
+            "trust_code": "RYR",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 1,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RXL",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 13,
+            "reported_cyp": 0,
+            "actual_cyp": 5
+          },
+          {
+            "trust_code": "RBD",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 1,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RXL",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 13,
+            "reported_cyp": 0,
+            "actual_cyp": 5
+          },
+          {
+            "trust_code": "RYW",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 12,
+            "reported_cyp": 0,
+            "actual_cyp": 4
+          },
+          {
+            "trust_code": "RHQ",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 10,
+            "reported_cyp": 0,
+            "actual_cyp": 0
+          },
+          {
+            "trust_code": "RK5",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 0,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RN3",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 12,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RYW",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 12,
+            "reported_cyp": 0,
+            "actual_cyp": 4
+          },
+          {
+            "trust_code": "RH8",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 11,
+            "reported_cyp": 0,
+            "actual_cyp": 2
+          },
+          {
+            "trust_code": "RTH",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 0,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RJ6",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 10,
+            "reported_cyp": 0,
+            "actual_cyp": 4
+          },
+          {
+            "trust_code": "RK9",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 5,
+            "reported_cyp": 0,
+            "actual_cyp": 3
+          },
+          {
+            "trust_code": "RXF",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 4,
+            "reported_cyp": 0,
+            "actual_cyp": 4
+          },
+          {
+            "trust_code": "RBT",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 14,
+            "reported_cyp": 0,
+            "actual_cyp": 4
+          },
+          {
+            "trust_code": "RQX",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 13,
+            "reported_cyp": 0,
+            "actual_cyp": 7
+          },
+          {
+            "trust_code": "RN3",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 11,
+            "reported_cyp": 0,
+            "actual_cyp": 0
+          },
+          {
+            "trust_code": "RVR",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 14,
+            "reported_cyp": 0,
+            "actual_cyp": 4
+          },
+          {
+            "trust_code": "RXK",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 10,
+            "reported_cyp": 0,
+            "actual_cyp": 5
+          },
+          {
+            "trust_code": "RTR",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 10,
+            "reported_cyp": 0,
+            "actual_cyp": 3
+          },
+          {
+            "trust_code": "RGP",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 0,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RBL",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 3,
+            "reported_cyp": 0,
+            "actual_cyp": 5
+          },
+          {
+            "trust_code": "RYJ",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 2,
+            "reported_cyp": 0,
+            "actual_cyp": 0
+          },
+          {
+            "trust_code": "RAE",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 4,
+            "reported_cyp": 0,
+            "actual_cyp": 5
+          },
+          {
+            "trust_code": "RXR",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 6,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RFS",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 1,
+            "reported_cyp": 0,
+            "actual_cyp": 0
+          },
+          {
+            "trust_code": "RA9",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 16,
+            "reported_cyp": 0,
+            "actual_cyp": 8
+          },
+          {
+            "trust_code": "RWX",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 9,
+            "reported_cyp": 0,
+            "actual_cyp": 5
+          },
+          {
+            "trust_code": "R0B",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 10,
+            "reported_cyp": 0,
+            "actual_cyp": 5
+          },
+          {
+            "trust_code": "RA2",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 12,
+            "reported_cyp": 0,
+            "actual_cyp": 0
+          },
+          {
+            "trust_code": "RRF",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 18,
+            "reported_cyp": 0,
+            "actual_cyp": 8
+          },
+          {
+            "trust_code": "RJN",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 14,
+            "reported_cyp": 0,
+            "actual_cyp": 8
+          },
+          {
+            "trust_code": "RL4",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 5,
+            "reported_cyp": 0,
+            "actual_cyp": 5
+          },
+          {
+            "trust_code": "RXF",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 4,
+            "reported_cyp": 0,
+            "actual_cyp": 4
+          },
+          {
+            "trust_code": "R0D",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 0,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RA2",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 12,
+            "reported_cyp": 0,
+            "actual_cyp": 0
+          },
+          {
+            "trust_code": "R0D",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 0,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "R0B",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 13,
+            "reported_cyp": 0,
+            "actual_cyp": 5
+          },
+          {
+            "trust_code": "RCF",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 12,
+            "reported_cyp": 0,
+            "actual_cyp": 7
+          },
+          {
+            "trust_code": "RBN",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 5,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RPG",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 14,
+            "reported_cyp": 0,
+            "actual_cyp": 7
+          },
+          {
+            "trust_code": "RJ7",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 2,
+            "reported_cyp": 0,
+            "actual_cyp": 0
+          },
+          {
+            "trust_code": "RH5",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 13,
+            "reported_cyp": 0,
+            "actual_cyp": 5
+          },
+          {
+            "trust_code": "RGR",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 8,
+            "reported_cyp": 0,
+            "actual_cyp": 6
+          },
+          {
+            "trust_code": "RMP",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 8,
+            "reported_cyp": 0,
+            "actual_cyp": 6
+          },
+          {
+            "trust_code": "R1D",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 15,
+            "reported_cyp": 0,
+            "actual_cyp": 7
+          },
+          {
+            "trust_code": "RRE",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 16,
+            "reported_cyp": 0,
+            "actual_cyp": 6
+          },
+          {
+            "trust_code": "RPA",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 0,
+            "reported_cyp": 0,
+            "actual_cyp": 1
+          },
+          {
+            "trust_code": "RYY",
+            "issue": "Service counts mismatch",
+            "reported_adult": 0,
+            "actual_adult": 11,
+            "reported_cyp": 0,
+            "actual_cyp": 7
+          }
+        ]
+      },
+      "cross_category_validation": {
+        "tests": 0,
+        "violations": []
+      },
+      "overall_accuracy": 95.0,
+      "status": "PASS"
+    },
+    "data_ranges_and_outliers": {
+      "waiting_list_outliers": {
+        "tests": 12479,
+        "outliers": [
+          {
+            "trust_code": "RXP",
+            "service": "adult_services_podiatry",
+            "waiting_list_size": 4538.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RXP",
+            "service": "adult_services_msk_service",
+            "waiting_list_size": 7677.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RXP",
+            "service": "adult_services_ltc_respiratory",
+            "waiting_list_size": 2240.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RCF",
+            "service": "adult_services_msk_service",
+            "waiting_list_size": 2330.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RWH",
+            "service": "cyp_services_community_paediatrics",
+            "waiting_list_size": 6303.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RBD",
+            "service": "cyp_services_community_paediatrics",
+            "waiting_list_size": 2702.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RRE",
+            "service": "adult_services_podiatry",
+            "waiting_list_size": 2367.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RRE",
+            "service": "adult_services_msk_service",
+            "waiting_list_size": 7389.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RRE",
+            "service": "adult_services_ltc_continence",
+            "waiting_list_size": 2280.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RH5",
+            "service": "adult_services_therapy_physiotherapy",
+            "waiting_list_size": 4259.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "R0D",
+            "service": "cyp_services_community_paediatrics",
+            "waiting_list_size": 3024.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RCU",
+            "service": "cyp_services_community_paediatrics",
+            "waiting_list_size": 11336.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RXQ",
+            "service": "adult_services_podiatry",
+            "waiting_list_size": 2216.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RBD",
+            "service": "cyp_services_community_paediatrics",
+            "waiting_list_size": 2602.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RBD",
+            "service": "cyp_services_community_paediatrics",
+            "waiting_list_size": 3084.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "R1H",
+            "service": "adult_services_msk_service",
+            "waiting_list_size": 3986.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RYW",
+            "service": "adult_services_podiatry",
+            "waiting_list_size": 2228.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RYW",
+            "service": "adult_services_msk_service",
+            "waiting_list_size": 13400.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RYW",
+            "service": "cyp_services_community_paediatrics",
+            "waiting_list_size": 17091.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RYW",
+            "service": "cyp_services_therapy_speech_language",
+            "waiting_list_size": 2034.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RWD",
+            "service": "cyp_services_community_paediatrics",
+            "waiting_list_size": 2536.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RXQ",
+            "service": "adult_services_podiatry",
+            "waiting_list_size": 2216.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RWD",
+            "service": "cyp_services_community_paediatrics",
+            "waiting_list_size": 2655.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RW4",
+            "service": "adult_services_podiatry",
+            "waiting_list_size": 5773.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RW4",
+            "service": "adult_services_msk_service",
+            "waiting_list_size": 3947.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RW4",
+            "service": "adult_services_community_nursing",
+            "waiting_list_size": 2868.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RBD",
+            "service": "cyp_services_community_paediatrics",
+            "waiting_list_size": 2918.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RPG",
+            "service": "adult_services_msk_service",
+            "waiting_list_size": 4258.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RPG",
+            "service": "cyp_services_community_paediatrics",
+            "waiting_list_size": 3294.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RXP",
+            "service": "adult_services_podiatry",
+            "waiting_list_size": 4397.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RXP",
+            "service": "adult_services_msk_service",
+            "waiting_list_size": 9428.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RXP",
+            "service": "adult_services_ltc_respiratory",
+            "waiting_list_size": 2204.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RJ2",
+            "service": "cyp_services_community_paediatrics",
+            "waiting_list_size": 1874.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "R0B",
+            "service": "adult_services_msk_service",
+            "waiting_list_size": 7452.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RAL",
+            "service": "adult_services_msk_service",
+            "waiting_list_size": 3564.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RX1",
+            "service": "cyp_services_community_paediatrics",
+            "waiting_list_size": 4145.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RRE",
+            "service": "adult_services_podiatry",
+            "waiting_list_size": 2679.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RRE",
+            "service": "adult_services_msk_service",
+            "waiting_list_size": 6890.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RRE",
+            "service": "adult_services_ltc_continence",
+            "waiting_list_size": 1874.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          },
+          {
+            "trust_code": "RJC",
+            "service": "adult_services_msk_service",
+            "waiting_list_size": 2070.0,
+            "outlier_type": "extremely_high",
+            "expected_range": "0 - 1867"
+          }
+        ]
+      },
+      "breach_rate_outliers": {
+        "tests": 12479,
+        "outliers": [
+          {
+            "trust_code": "RXL",
+            "service": "cyp_services_community_paediatrics",
+            "breach_rate": 32.4,
+            "total_waiting": 447.0,
+            "breaches_52_plus": 145.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "RWH",
+            "service": "cyp_services_community_paediatrics",
+            "breach_rate": 58.4,
+            "total_waiting": 6303.0,
+            "breaches_52_plus": 3684.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "RTF",
+            "service": "adult_services_wheelchair_equipment",
+            "breach_rate": 23.1,
+            "total_waiting": 655.0,
+            "breaches_52_plus": 151.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "RBD",
+            "service": "cyp_services_community_paediatrics",
+            "breach_rate": 37.7,
+            "total_waiting": 2702.0,
+            "breaches_52_plus": 1019.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "RH5",
+            "service": "adult_services_podiatry",
+            "breach_rate": 29.0,
+            "total_waiting": 899.0,
+            "breaches_52_plus": 261.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "R0D",
+            "service": "cyp_services_community_paediatrics",
+            "breach_rate": 44.2,
+            "total_waiting": 3024.0,
+            "breaches_52_plus": 1336.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "RCU",
+            "service": "cyp_services_therapy_ot",
+            "breach_rate": 22.3,
+            "total_waiting": 440.0,
+            "breaches_52_plus": 98.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "RCU",
+            "service": "cyp_services_community_paediatrics",
+            "breach_rate": 52.4,
+            "total_waiting": 11336.0,
+            "breaches_52_plus": 5942.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "RXQ",
+            "service": "cyp_services_community_paediatrics",
+            "breach_rate": 33.2,
+            "total_waiting": 1029.0,
+            "breaches_52_plus": 342.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "RTR",
+            "service": "adult_services_weight_management",
+            "breach_rate": 21.4,
+            "total_waiting": 285.0,
+            "breaches_52_plus": 61.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "RBD",
+            "service": "cyp_services_community_paediatrics",
+            "breach_rate": 50.3,
+            "total_waiting": 2602.0,
+            "breaches_52_plus": 1309.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "RPA",
+            "service": "cyp_services_community_paediatrics",
+            "breach_rate": 25.7,
+            "total_waiting": 835.0,
+            "breaches_52_plus": 215.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "RBD",
+            "service": "adult_services_ltc_respiratory",
+            "breach_rate": 26.0,
+            "total_waiting": 646.0,
+            "breaches_52_plus": 168.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "RBD",
+            "service": "cyp_services_community_paediatrics",
+            "breach_rate": 36.7,
+            "total_waiting": 3084.0,
+            "breaches_52_plus": 1133.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "R1H",
+            "service": "adult_services_ltc_respiratory",
+            "breach_rate": 25.9,
+            "total_waiting": 784.0,
+            "breaches_52_plus": 203.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "R1H",
+            "service": "cyp_services_community_paediatrics",
+            "breach_rate": 58.3,
+            "total_waiting": 1418.0,
+            "breaches_52_plus": 827.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "RYW",
+            "service": "adult_services_community_nursing",
+            "breach_rate": 25.8,
+            "total_waiting": 97.0,
+            "breaches_52_plus": 25.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "RYW",
+            "service": "cyp_services_community_paediatrics",
+            "breach_rate": 43.8,
+            "total_waiting": 17091.0,
+            "breaches_52_plus": 7478.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "RXQ",
+            "service": "cyp_services_community_paediatrics",
+            "breach_rate": 37.2,
+            "total_waiting": 1074.0,
+            "breaches_52_plus": 400.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "RBD",
+            "service": "cyp_services_community_paediatrics",
+            "breach_rate": 37.9,
+            "total_waiting": 2918.0,
+            "breaches_52_plus": 1105.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "RJ2",
+            "service": "cyp_services_community_paediatrics",
+            "breach_rate": 40.8,
+            "total_waiting": 1874.0,
+            "breaches_52_plus": 764.0,
+            "outlier_type": "extremely_high_breach_rate"
+          },
+          {
+            "trust_code": "RAL",
+            "service": "cyp_services_community_paediatrics",
+            "breach_rate": 31.5,
+            "total_waiting": 1570.0,
+            "breaches_52_plus": 495.0,
+            "outlier_type": "extremely_high_breach_rate"
+          }
+        ]
+      },
+      "service_volume_outliers": {
+        "tests": 0,
+        "outliers": []
+      },
+      "statistical_summary": {
+        "total_services_analyzed": 12479,
+        "median_waiting_list_size": 173.0,
+        "mean_breach_rate": 1.87,
+        "services_with_zero_waiting": 0
+      },
+      "status": "PASS"
+    },
+    "temporal_consistency": {
+      "trust_continuity": {
+        "total_trusts": 98,
+        "inconsistent_trusts": [
+          {
+            "trust_code": "RP5",
+            "issue": "reporting_gap",
+            "gap_from": "2025-03-01",
+            "gap_to": "2025-06-01",
+            "gap_months": 3.1
+          },
+          {
+            "trust_code": "RAE",
+            "issue": "reporting_gap",
+            "gap_from": "2024-09-01",
+            "gap_to": "2024-12-01",
+            "gap_months": 3.0
+          },
+          {
+            "trust_code": "RYJ",
+            "issue": "reporting_gap",
+            "gap_from": "2025-02-01",
+            "gap_to": "2025-05-01",
+            "gap_months": 3.0
+          },
+          {
+            "trust_code": "RJ6",
+            "issue": "reporting_gap",
+            "gap_from": "2024-09-01",
+            "gap_to": "2024-12-01",
+            "gap_months": 3.0
+          },
+          {
+            "trust_code": "RWX",
+            "issue": "reporting_gap",
+            "gap_from": "2024-09-01",
+            "gap_to": "2024-12-01",
+            "gap_months": 3.0
+          },
+          {
+            "trust_code": "RKB",
+            "issue": "reporting_gap",
+            "gap_from": "2025-03-01",
+            "gap_to": "2025-07-01",
+            "gap_months": 4.1
+          },
+          {
+            "trust_code": "RBK",
+            "issue": "reporting_gap",
+            "gap_from": "2024-09-01",
+            "gap_to": "2024-12-01",
+            "gap_months": 3.0
+          },
+          {
+            "trust_code": "RNN",
+            "issue": "reporting_gap",
+            "gap_from": "2024-08-01",
+            "gap_to": "2024-11-01",
+            "gap_months": 3.1
+          },
+          {
+            "trust_code": "RNN",
+            "issue": "reporting_gap",
+            "gap_from": "2025-03-01",
+            "gap_to": "2025-06-01",
+            "gap_months": 3.1
+          },
+          {
+            "trust_code": "RW5",
+            "issue": "reporting_gap",
+            "gap_from": "2024-10-01",
+            "gap_to": "2025-01-01",
+            "gap_months": 3.1
+          },
+          {
+            "trust_code": "RBQ",
+            "issue": "reporting_gap",
+            "gap_from": "2025-04-01",
+            "gap_to": "2025-07-01",
+            "gap_months": 3.0
+          },
+          {
+            "trust_code": "RVW",
+            "issue": "reporting_gap",
+            "gap_from": "2024-11-01",
+            "gap_to": "2025-02-01",
+            "gap_months": 3.1
+          },
+          {
+            "trust_code": "RJ1",
+            "issue": "reporting_gap",
+            "gap_from": "2025-03-01",
+            "gap_to": "2025-06-01",
+            "gap_months": 3.1
+          }
+        ]
+      },
+      "service_continuity": {
+        "total_services": 0,
+        "discontinued_services": []
+      },
+      "trend_analysis": {
+        "unrealistic_changes": [
+          {
+            "trust_code": "RMP",
+            "service": "adult_services_therapy_dietetics",
+            "period_from": "2024-10-01",
+            "period_to": "2024-11-01",
+            "waiting_from": 26.0,
+            "waiting_to": 550.0,
+            "change_rate": 2015.4
+          },
+          {
+            "trust_code": "RTR",
+            "service": "adult_services_therapy_ot",
+            "period_from": "2025-06-01",
+            "period_to": "2025-07-01",
+            "waiting_from": 30.0,
+            "waiting_to": 239.0,
+            "change_rate": 696.7
+          },
+          {
+            "trust_code": "RTR",
+            "service": "cyp_services_therapy_ot",
+            "period_from": "2025-05-01",
+            "period_to": "2025-06-01",
+            "waiting_from": 34.0,
+            "waiting_to": 233.0,
+            "change_rate": 585.3
+          },
+          {
+            "trust_code": "RYW",
+            "service": "adult_services_ltc_tissue_viability",
+            "period_from": "2024-08-01",
+            "period_to": "2024-09-01",
+            "waiting_from": 25.0,
+            "waiting_to": 207.0,
+            "change_rate": 728.0
+          },
+          {
+            "trust_code": "RYW",
+            "service": "cyp_services_community_paediatrics",
+            "period_from": "2024-12-01",
+            "period_to": "2025-01-01",
+            "waiting_from": 1310.0,
+            "waiting_to": 17091.0,
+            "change_rate": 1204.7
+          },
+          {
+            "trust_code": "RW4",
+            "service": "adult_services_ltc_continence",
+            "period_from": "2025-03-01",
+            "period_to": "2025-04-01",
+            "waiting_from": 20.0,
+            "waiting_to": 794.0,
+            "change_rate": 3870.0
+          },
+          {
+            "trust_code": "RW4",
+            "service": "adult_services_ltc_respiratory",
+            "period_from": "2025-03-01",
+            "period_to": "2025-04-01",
+            "waiting_from": 24.0,
+            "waiting_to": 205.0,
+            "change_rate": 754.2
+          },
+          {
+            "trust_code": "RAL",
+            "service": "cyp_services_therapy_speech_language",
+            "period_from": "2025-03-01",
+            "period_to": "2025-04-01",
+            "waiting_from": 64.0,
+            "waiting_to": 567.0,
+            "change_rate": 785.9
+          },
+          {
+            "trust_code": "RXK",
+            "service": "adult_services_therapy_orthotics",
+            "period_from": "2025-04-01",
+            "period_to": "2025-05-01",
+            "waiting_from": 26.0,
+            "waiting_to": 213.0,
+            "change_rate": 719.2
+          },
+          {
+            "trust_code": "RA9",
+            "service": "adult_services_ltc_respiratory",
+            "period_from": "2024-12-01",
+            "period_to": "2025-01-01",
+            "waiting_from": 12.0,
+            "waiting_to": 277.0,
+            "change_rate": 2208.3
+          },
+          {
+            "trust_code": "RA9",
+            "service": "adult_services_weight_management",
+            "period_from": "2025-01-01",
+            "period_to": "2025-03-01",
+            "waiting_from": 52.0,
+            "waiting_to": 761.0,
+            "change_rate": 1363.5
+          },
+          {
+            "trust_code": "R1D",
+            "service": "cyp_services_community_nursing",
+            "period_from": "2025-04-01",
+            "period_to": "2025-05-01",
+            "waiting_from": 47.0,
+            "waiting_to": 424.0,
+            "change_rate": 802.1
+          },
+          {
+            "trust_code": "RM3",
+            "service": "adult_services_podiatry",
+            "period_from": "2024-12-01",
+            "period_to": "2025-01-01",
+            "waiting_from": 191.0,
+            "waiting_to": 1398.0,
+            "change_rate": 631.9
+          },
+          {
+            "trust_code": "RM3",
+            "service": "cyp_services_audiology",
+            "period_from": "2025-02-01",
+            "period_to": "2025-03-01",
+            "waiting_from": 62.0,
+            "waiting_to": 570.0,
+            "change_rate": 819.4
+          },
+          {
+            "trust_code": "RJ8",
+            "service": "adult_services_ltc_tb",
+            "period_from": "2025-03-01",
+            "period_to": "2025-04-01",
+            "waiting_from": 15.0,
+            "waiting_to": 196.0,
+            "change_rate": 1206.7
+          },
+          {
+            "trust_code": "RBK",
+            "service": "adult_services_therapy_dietetics",
+            "period_from": "2025-01-01",
+            "period_to": "2025-04-01",
+            "waiting_from": 40.0,
+            "waiting_to": 292.0,
+            "change_rate": 630.0
+          },
+          {
+            "trust_code": "RVW",
+            "service": "adult_services_intermediate_care_reablement",
+            "period_from": "2024-09-01",
+            "period_to": "2025-02-01",
+            "waiting_from": 25.0,
+            "waiting_to": 189.0,
+            "change_rate": 656.0
+          },
+          {
+            "trust_code": "RW1",
+            "service": "adult_services_ltc_diabetes",
+            "period_from": "2024-09-01",
+            "period_to": "2024-10-01",
+            "waiting_from": 16.0,
+            "waiting_to": 224.0,
+            "change_rate": 1300.0
+          },
+          {
+            "trust_code": "RW1",
+            "service": "cyp_services_therapy_ot",
+            "period_from": "2024-09-01",
+            "period_to": "2024-10-01",
+            "waiting_from": 63.0,
+            "waiting_to": 577.0,
+            "change_rate": 815.9
+          },
+          {
+            "trust_code": "RW1",
+            "service": "cyp_services_therapy_physiotherapy",
+            "period_from": "2024-09-01",
+            "period_to": "2024-10-01",
+            "waiting_from": 24.0,
+            "waiting_to": 377.0,
+            "change_rate": 1470.8
+          },
+          {
+            "trust_code": "RW1",
+            "service": "cyp_services_therapy_speech_language",
+            "period_from": "2024-09-01",
+            "period_to": "2024-10-01",
+            "waiting_from": 80.0,
+            "waiting_to": 1826.0,
+            "change_rate": 2182.5
+          },
+          {
+            "trust_code": "RDR",
+            "service": "adult_services_rehab_integrated",
+            "period_from": "2024-12-01",
+            "period_to": "2025-01-01",
+            "waiting_from": 46.0,
+            "waiting_to": 844.0,
+            "change_rate": 1734.8
+          },
+          {
+            "trust_code": "RJL",
+            "service": "adult_services_neurorehabilitation",
+            "period_from": "2024-10-01",
+            "period_to": "2024-11-01",
+            "waiting_from": 21.0,
+            "waiting_to": 210.0,
+            "change_rate": 900.0
+          },
+          {
+            "trust_code": "RJL",
+            "service": "cyp_services_newborn_hearing",
+            "period_from": "2024-11-01",
+            "period_to": "2024-12-01",
+            "waiting_from": 22.0,
+            "waiting_to": 227.0,
+            "change_rate": 931.8
+          }
+        ],
+        "stable_services": 10271
+      },
+      "data_completeness_over_time": {
+        "months_analyzed": 0,
+        "coverage_gaps": []
+      },
+      "status": "FAIL"
+    },
+    "business_rule_compliance": {
+      "rules_tested": [
+        {
+          "rule_name": "Service categorization compliance (Adult vs CYP)",
+          "tests_performed": 50,
+          "violations": 0,
+          "compliance_rate": 100.0
+        },
+        {
+          "rule_name": "Reasonable waiting list distribution (52+ weeks \u2264 25%)",
+          "tests_performed": 582,
+          "violations": 19,
+          "compliance_rate": 96.7
+        },
+        {
+          "rule_name": "Metadata consistency (service counts match actual)",
+          "tests_performed": 50,
+          "violations": 49,
+          "compliance_rate": 2.0
+        }
+      ],
+      "violations": [
+        {
+          "trust_code": "RXL",
+          "rule": "Excessive 52+ week waits (>25% of total)",
+          "service": "cyp_services_community_paediatrics",
+          "total_waiting": 447.0,
+          "wait_52_plus": 145.0,
+          "breach_percentage": 32.4
+        },
+        {
+          "trust_code": "RWH",
+          "rule": "Excessive 52+ week waits (>25% of total)",
+          "service": "cyp_services_community_paediatrics",
+          "total_waiting": 6303.0,
+          "wait_52_plus": 3684.0,
+          "breach_percentage": 58.4
+        },
+        {
+          "trust_code": "RBD",
+          "rule": "Excessive 52+ week waits (>25% of total)",
+          "service": "cyp_services_community_paediatrics",
+          "total_waiting": 2702.0,
+          "wait_52_plus": 1019.0,
+          "breach_percentage": 37.7
+        },
+        {
+          "trust_code": "RH5",
+          "rule": "Excessive 52+ week waits (>25% of total)",
+          "service": "adult_services_podiatry",
+          "total_waiting": 899.0,
+          "wait_52_plus": 261.0,
+          "breach_percentage": 29.0
+        },
+        {
+          "trust_code": "R0D",
+          "rule": "Excessive 52+ week waits (>25% of total)",
+          "service": "cyp_services_community_paediatrics",
+          "total_waiting": 3024.0,
+          "wait_52_plus": 1336.0,
+          "breach_percentage": 44.2
+        },
+        {
+          "trust_code": "RCU",
+          "rule": "Excessive 52+ week waits (>25% of total)",
+          "service": "cyp_services_community_paediatrics",
+          "total_waiting": 11336.0,
+          "wait_52_plus": 5942.0,
+          "breach_percentage": 52.4
+        },
+        {
+          "trust_code": "RXQ",
+          "rule": "Excessive 52+ week waits (>25% of total)",
+          "service": "cyp_services_community_paediatrics",
+          "total_waiting": 1029.0,
+          "wait_52_plus": 342.0,
+          "breach_percentage": 33.2
+        },
+        {
+          "trust_code": "RBD",
+          "rule": "Excessive 52+ week waits (>25% of total)",
+          "service": "cyp_services_community_paediatrics",
+          "total_waiting": 2602.0,
+          "wait_52_plus": 1309.0,
+          "breach_percentage": 50.3
+        },
+        {
+          "trust_code": "RPA",
+          "rule": "Excessive 52+ week waits (>25% of total)",
+          "service": "cyp_services_community_paediatrics",
+          "total_waiting": 835.0,
+          "wait_52_plus": 215.0,
+          "breach_percentage": 25.7
+        },
+        {
+          "trust_code": "RBD",
+          "rule": "Excessive 52+ week waits (>25% of total)",
+          "service": "adult_services_ltc_respiratory",
+          "total_waiting": 646.0,
+          "wait_52_plus": 168.0,
+          "breach_percentage": 26.0
+        }
+      ],
+      "compliance_summary": {
+        "total_tests": 682,
+        "total_violations": 68,
+        "overall_compliance_rate": 90.0
+      },
+      "status": "PASS"
+    }
+  },
+  "summary": {
+    "overall_status": "FAIL",
+    "total_issues": 1,
+    "critical_issues": 1,
+    "warning_issues": 0,
+    "tests_passed": 4,
+    "tests_total": 5,
+    "pass_rate": 80.0
+  },
+  "issues_found": [
+    "Critical: High temporal inconsistency (13.3% trusts, 24 unrealistic changes)"
+  ],
+  "recommendations": [
+    "\ud83d\udd34 Critical Community Health business logic violations found",
+    "Review data quality processes for Community Health services",
+    "Implement additional business rule validation in ETL pipeline"
+  ],
+  "business_rules_tested": []
+}

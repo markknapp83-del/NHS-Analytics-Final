@@ -1,0 +1,5887 @@
+{
+  "test_timestamp": "2025-09-29T06:56:10.921489",
+  "test_phase": "Phase 3: Cancer Database Integrity Validation",
+  "database_url": "https://fsopilxzaaukmcqcskqm.supabase.co",
+  "connection_successful": true,
+  "validation_results": {
+    "database_connectivity": {
+      "connection_successful": true,
+      "basic_queries_working": true,
+      "trust_metrics_table_accessible": true,
+      "cancer_data_column_exists": true,
+      "sample_data_retrievable": true
+    },
+    "cancer_data_coverage": {
+      "total_records": 1000,
+      "records_with_cancer_data": 202,
+      "coverage_percentage": 20.200000000000003,
+      "unique_trusts_with_cancer_data": 127,
+      "periods_covered": [
+        "2024-04-01",
+        "2025-04-01",
+        "2025-10-01"
+      ],
+      "coverage_by_period": {
+        "2024-04-01": 63,
+        "2025-04-01": 76,
+        "2025-10-01": 63
+      },
+      "missing_data_trusts": []
+    },
+    "jsonb_structure": {
+      "records_tested": 20,
+      "valid_structures": 18,
+      "structure_errors": [
+        "RX3 (2024-04-01): Missing standard: 28_day_fds",
+        "RX3 (2024-04-01): Missing standard: 31_day_combined",
+        "R1L (2024-04-01): Missing standard: 28_day_fds",
+        "R1L (2024-04-01): Missing standard: 31_day_combined"
+      ],
+      "missing_fields": {},
+      "data_type_errors": [],
+      "standards_coverage": {
+        "RN7": [
+          "28_day_fds",
+          "31_day_combined",
+          "62_day_combined"
+        ],
+        "RWH": [
+          "28_day_fds",
+          "31_day_combined",
+          "62_day_combined"
+        ],
+        "REP": [
+          "28_day_fds",
+          "31_day_combined",
+          "62_day_combined"
+        ],
+        "RJN": [
+          "28_day_fds",
+          "31_day_combined",
+          "62_day_combined"
+        ],
+        "RK5": [
+          "28_day_fds",
+          "31_day_combined",
+          "62_day_combined"
+        ],
+        "RX3": [
+          "62_day_combined"
+        ],
+        "RHU": [
+          "28_day_fds",
+          "31_day_combined",
+          "62_day_combined"
+        ],
+        "RTH": [
+          "28_day_fds",
+          "31_day_combined",
+          "62_day_combined"
+        ],
+        "RHM": [
+          "28_day_fds",
+          "31_day_combined",
+          "62_day_combined"
+        ],
+        "RD8": [
+          "28_day_fds",
+          "31_day_combined",
+          "62_day_combined"
+        ],
+        "RHQ": [
+          "28_day_fds",
+          "31_day_combined",
+          "62_day_combined"
+        ],
+        "R1L": [
+          "62_day_combined"
+        ],
+        "RBD": [
+          "28_day_fds",
+          "31_day_combined",
+          "62_day_combined"
+        ],
+        "RTR": [
+          "28_day_fds",
+          "31_day_combined",
+          "62_day_combined"
+        ],
+        "RFF": [
+          "28_day_fds",
+          "31_day_combined",
+          "62_day_combined"
+        ],
+        "RCF": [
+          "28_day_fds",
+          "31_day_combined",
+          "62_day_combined"
+        ],
+        "RWG": [
+          "28_day_fds",
+          "31_day_combined",
+          "62_day_combined"
+        ],
+        "RVJ": [
+          "28_day_fds",
+          "31_day_combined",
+          "62_day_combined"
+        ],
+        "RAX": [
+          "28_day_fds",
+          "31_day_combined",
+          "62_day_combined"
+        ]
+      }
+    },
+    "data_consistency": {
+      "records_tested": 30,
+      "consistent_records": 30,
+      "consistency_errors": [],
+      "calculation_mismatches": [],
+      "negative_values_found": [],
+      "null_performance_records": []
+    },
+    "performance_metrics": {
+      "metrics_tested": 144,
+      "valid_metrics": 144,
+      "out_of_range_percentages": [],
+      "unrealistic_values": [
+        {
+          "trust": "RK5",
+          "standard": "28_day_fds",
+          "total_treated": 10114,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RHU",
+          "standard": "28_day_fds",
+          "total_treated": 16334,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RHU",
+          "standard": "31_day_combined",
+          "total_treated": 10110,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RTH",
+          "standard": "28_day_fds",
+          "total_treated": 18122,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RTH",
+          "standard": "31_day_combined",
+          "total_treated": 12832,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RHM",
+          "standard": "28_day_fds",
+          "total_treated": 10080,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RHQ",
+          "standard": "28_day_fds",
+          "total_treated": 14115,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RHQ",
+          "standard": "31_day_combined",
+          "total_treated": 15834,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RVJ",
+          "standard": "28_day_fds",
+          "total_treated": 17739,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RHM",
+          "standard": "28_day_fds",
+          "total_treated": 13828,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RHM",
+          "standard": "31_day_combined",
+          "total_treated": 13114,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RQM",
+          "standard": "28_day_fds",
+          "total_treated": 14991,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RM1",
+          "standard": "28_day_fds",
+          "total_treated": 14563,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RX1",
+          "standard": "28_day_fds",
+          "total_treated": 17529,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RX1",
+          "standard": "31_day_combined",
+          "total_treated": 11290,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RXL",
+          "standard": "28_day_fds",
+          "total_treated": 12360,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RX1",
+          "standard": "28_day_fds",
+          "total_treated": 11535,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RF4",
+          "standard": "28_day_fds",
+          "total_treated": 15358,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RBQ",
+          "standard": "31_day_combined",
+          "performance": 100,
+          "total_treated": 724,
+          "reason": "Perfect performance with high volume"
+        },
+        {
+          "trust": "RVV",
+          "standard": "28_day_fds",
+          "total_treated": 17476,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RWG",
+          "standard": "28_day_fds",
+          "total_treated": 11568,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RWE",
+          "standard": "28_day_fds",
+          "total_treated": 25709,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RWE",
+          "standard": "31_day_combined",
+          "total_treated": 10540,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RN3",
+          "standard": "28_day_fds",
+          "total_treated": 10359,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RXW",
+          "standard": "28_day_fds",
+          "total_treated": 17477,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RWD",
+          "standard": "28_day_fds",
+          "total_treated": 16270,
+          "reason": "Very high patient volume"
+        },
+        {
+          "trust": "RTE",
+          "standard": "28_day_fds",
+          "total_treated": 15962,
+          "reason": "Very high patient volume"
+        }
+      ],
+      "performance_distribution": {},
+      "standard_performance_stats": {
+        "28_day_fds": {
+          "count": 48,
+          "mean": 78.31666666666665,
+          "min": 64.4,
+          "max": 100,
+          "below_target": 13
+        },
+        "31_day_combined": {
+          "count": 47,
+          "mean": 92.19361702127661,
+          "min": 71.4,
+          "max": 100,
+          "below_target": 32
+        },
+        "62_day_combined": {
+          "count": 49,
+          "mean": 71.11428571428573,
+          "min": 38.9,
+          "max": 100,
+          "below_target": 44
+        }
+      }
+    },
+    "trust_coverage": {
+      "trusts_with_cancer_data": 202,
+      "total_trust_records": 1000,
+      "coverage_rate": 20.200000000000003,
+      "missing_cancer_data_trusts": [
+        {
+          "trust_code": "RX4",
+          "trust_name": "CUMBRIA, NORTHUMBERLAND, TYNE AND WEAR NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXL",
+          "trust_name": "BLACKPOOL TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTH",
+          "trust_name": "OXFORD UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RFR",
+          "trust_name": "THE ROTHERHAM NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXP",
+          "trust_name": "COUNTY DURHAM AND DARLINGTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RCF",
+          "trust_name": "AIREDALE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RP5",
+          "trust_name": "DONCASTER AND BASSETLAW TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RFS",
+          "trust_name": "CHESTERFIELD ROYAL HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTP",
+          "trust_name": "SURREY AND SUSSEX HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RXQ",
+          "trust_name": "BUCKINGHAMSHIRE HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RMP",
+          "trust_name": "TAMESIDE AND GLOSSOP INTEGRATED CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWH",
+          "trust_name": "EAST AND NORTH HERTFORDSHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RR8",
+          "trust_name": "LEEDS TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RWG",
+          "trust_name": "WEST HERTFORDSHIRE TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RHQ",
+          "trust_name": "SHEFFIELD TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTF",
+          "trust_name": "NORTHUMBRIA HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWF",
+          "trust_name": "MAIDSTONE AND TUNBRIDGE WELLS NHS TRUST"
+        },
+        {
+          "trust_code": "RMP",
+          "trust_name": "TAMESIDE AND GLOSSOP INTEGRATED CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNS",
+          "trust_name": "NORTHAMPTON GENERAL HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RN5",
+          "trust_name": "HAMPSHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXR",
+          "trust_name": "EAST LANCASHIRE HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RWF",
+          "trust_name": "MAIDSTONE AND TUNBRIDGE WELLS NHS TRUST"
+        },
+        {
+          "trust_code": "RBD",
+          "trust_name": "DORSET COUNTY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRE",
+          "trust_name": "MIDLANDS PARTNERSHIP UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RHQ",
+          "trust_name": "SHEFFIELD TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RPY",
+          "trust_name": "THE ROYAL MARSDEN NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RH5",
+          "trust_name": "SOMERSET NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXW",
+          "trust_name": "THE SHREWSBURY AND TELFORD HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "R0D",
+          "trust_name": "UNIVERSITY HOSPITALS DORSET NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RET",
+          "trust_name": "THE WALTON CENTRE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RCU",
+          "trust_name": "SHEFFIELD CHILDREN'S NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXQ",
+          "trust_name": "BUCKINGHAMSHIRE HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RFR",
+          "trust_name": "THE ROTHERHAM NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTR",
+          "trust_name": "SOUTH TEES HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RMP",
+          "trust_name": "TAMESIDE AND GLOSSOP INTEGRATED CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBD",
+          "trust_name": "DORSET COUNTY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RPA",
+          "trust_name": "MEDWAY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBD",
+          "trust_name": "DORSET COUNTY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RDU",
+          "trust_name": "FRIMLEY HEALTH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RF4",
+          "trust_name": "BARKING, HAVERING AND REDBRIDGE UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RWG",
+          "trust_name": "WEST HERTFORDSHIRE TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RMP",
+          "trust_name": "TAMESIDE AND GLOSSOP INTEGRATED CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R1H",
+          "trust_name": "BARTS HEALTH NHS TRUST"
+        },
+        {
+          "trust_code": "RYW",
+          "trust_name": "BIRMINGHAM COMMUNITY HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RET",
+          "trust_name": "THE WALTON CENTRE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTE",
+          "trust_name": "GLOUCESTERSHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RHQ",
+          "trust_name": "SHEFFIELD TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWD",
+          "trust_name": "UNITED LINCOLNSHIRE HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RJZ",
+          "trust_name": "KING'S COLLEGE HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNZ",
+          "trust_name": "SALISBURY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "REM",
+          "trust_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RKB",
+          "trust_name": "UNIVERSITY HOSPITALS COVENTRY AND WARWICKSHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RXQ",
+          "trust_name": "BUCKINGHAMSHIRE HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RWD",
+          "trust_name": "UNITED LINCOLNSHIRE TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RW4",
+          "trust_name": "MERSEY CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RMP",
+          "trust_name": "TAMESIDE AND GLOSSOP INTEGRATED CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBD",
+          "trust_name": "DORSET COUNTY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RPG",
+          "trust_name": "OXLEAS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXP",
+          "trust_name": "COUNTY DURHAM AND DARLINGTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJ2",
+          "trust_name": "LEWISHAM AND GREENWICH NHS TRUST"
+        },
+        {
+          "trust_code": "RQW",
+          "trust_name": "THE PRINCESS ALEXANDRA HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RN7",
+          "trust_name": "DARTFORD AND GRAVESHAM NHS TRUST"
+        },
+        {
+          "trust_code": "RK5",
+          "trust_name": "SHERWOOD FOREST HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNA",
+          "trust_name": "THE DUDLEY GROUP NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RN5",
+          "trust_name": "HAMPSHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTK",
+          "trust_name": "ASHFORD AND ST PETER'S HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RN7",
+          "trust_name": "DARTFORD AND GRAVESHAM NHS TRUST"
+        },
+        {
+          "trust_code": "R0B",
+          "trust_name": "SOUTH TYNESIDE AND SUNDERLAND NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RF4",
+          "trust_name": "BARKING, HAVERING AND REDBRIDGE UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RN5",
+          "trust_name": "HAMPSHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "REP",
+          "trust_name": "LIVERPOOL WOMEN'S NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RAE",
+          "trust_name": "BRADFORD TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RD1",
+          "trust_name": "ROYAL UNITED HOSPITALS BATH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RAL",
+          "trust_name": "ROYAL FREE LONDON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRJ",
+          "trust_name": "THE ROYAL ORTHOPAEDIC HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RX1",
+          "trust_name": "NOTTINGHAM UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RNQ",
+          "trust_name": "KETTERING GENERAL HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RD8",
+          "trust_name": "MILTON KEYNES UNIVERSITY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRE",
+          "trust_name": "MIDLANDS PARTNERSHIP NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RHM",
+          "trust_name": "UNIVERSITY HOSPITAL SOUTHAMPTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWA",
+          "trust_name": "HULL UNIVERSITY TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RL1",
+          "trust_name": "THE ROBERT JONES AND AGNES HUNT ORTHOPAEDIC HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJC",
+          "trust_name": "SOUTH WARWICKSHIRE UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RYJ",
+          "trust_name": "IMPERIAL COLLEGE HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RHU",
+          "trust_name": "PORTSMOUTH HOSPITALS UNIVERSITY NATIONAL HEALTH SERVICE TRUST"
+        },
+        {
+          "trust_code": "RYR",
+          "trust_name": "UNIVERSITY HOSPITALS SUSSEX NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXL",
+          "trust_name": "BLACKPOOL TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "REP",
+          "trust_name": "LIVERPOOL WOMEN'S NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBD",
+          "trust_name": "DORSET COUNTY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXL",
+          "trust_name": "BLACKPOOL TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RYW",
+          "trust_name": "BIRMINGHAM COMMUNITY HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RHQ",
+          "trust_name": "SHEFFIELD TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RK5",
+          "trust_name": "SHERWOOD FOREST HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RP6",
+          "trust_name": "MOORFIELDS EYE HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RN3",
+          "trust_name": "GREAT WESTERN HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RYW",
+          "trust_name": "BIRMINGHAM COMMUNITY HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RH8",
+          "trust_name": "ROYAL DEVON UNIVERSITY HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTH",
+          "trust_name": "OXFORD UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJ6",
+          "trust_name": "CROYDON HEALTH SERVICES NHS TRUST"
+        },
+        {
+          "trust_code": "RK9",
+          "trust_name": "UNIVERSITY HOSPITALS PLYMOUTH NHS TRUST"
+        },
+        {
+          "trust_code": "RXF",
+          "trust_name": "MID YORKSHIRE TEACHING NHS TRUST"
+        },
+        {
+          "trust_code": "RP4",
+          "trust_name": "GREAT ORMOND STREET HOSPITAL FOR CHILDREN NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RN7",
+          "trust_name": "DARTFORD AND GRAVESHAM NHS TRUST"
+        },
+        {
+          "trust_code": "RBT",
+          "trust_name": "MID CHESHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RQX",
+          "trust_name": "HOMERTON HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RQ3",
+          "trust_name": "BIRMINGHAM WOMEN'S AND CHILDREN'S NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RP7",
+          "trust_name": "LINCOLNSHIRE PARTNERSHIP NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RN3",
+          "trust_name": "GREAT WESTERN HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RVR",
+          "trust_name": "EPSOM AND ST HELIER UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RQW",
+          "trust_name": "THE PRINCESS ALEXANDRA HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RXK",
+          "trust_name": "SANDWELL AND WEST BIRMINGHAM HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RTR",
+          "trust_name": "SOUTH TEES HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RGP",
+          "trust_name": "JAMES PAGET UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWF",
+          "trust_name": "MAIDSTONE AND TUNBRIDGE WELLS NHS TRUST"
+        },
+        {
+          "trust_code": "RCX",
+          "trust_name": "THE QUEEN ELIZABETH HOSPITAL, KING'S LYNN, NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBL",
+          "trust_name": "WIRRAL UNIVERSITY TEACHING HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RYJ",
+          "trust_name": "IMPERIAL COLLEGE HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RAE",
+          "trust_name": "BRADFORD TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RPY",
+          "trust_name": "THE ROYAL MARSDEN NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXR",
+          "trust_name": "EAST LANCASHIRE HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RFS",
+          "trust_name": "CHESTERFIELD ROYAL HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RA9",
+          "trust_name": "TORBAY AND SOUTH DEVON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWX",
+          "trust_name": "BERKSHIRE HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R0B",
+          "trust_name": "SOUTH TYNESIDE AND SUNDERLAND NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RQW",
+          "trust_name": "THE PRINCESS ALEXANDRA HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "REN",
+          "trust_name": "THE CLATTERBRIDGE CANCER CENTRE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RA2",
+          "trust_name": "ROYAL SURREY COUNTY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRF",
+          "trust_name": "WRIGHTINGTON, WIGAN AND LEIGH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJN",
+          "trust_name": "EAST CHESHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RL4",
+          "trust_name": "THE ROYAL WOLVERHAMPTON NHS TRUST"
+        },
+        {
+          "trust_code": "RXF",
+          "trust_name": "MID YORKSHIRE TEACHING NHS TRUST"
+        },
+        {
+          "trust_code": "REN",
+          "trust_name": "THE CLATTERBRIDGE CANCER CENTRE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R0D",
+          "trust_name": "UNIVERSITY HOSPITALS DORSET NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RA2",
+          "trust_name": "ROYAL SURREY COUNTY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R0D",
+          "trust_name": "UNIVERSITY HOSPITALS DORSET NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R0B",
+          "trust_name": "SOUTH TYNESIDE AND SUNDERLAND NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWW",
+          "trust_name": "WARRINGTON AND HALTON TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RCF",
+          "trust_name": "AIREDALE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RHW",
+          "trust_name": "ROYAL BERKSHIRE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RQM",
+          "trust_name": "CHELSEA AND WESTMINSTER HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBN",
+          "trust_name": "MERSEY AND WEST LANCASHIRE TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RWA",
+          "trust_name": "HULL UNIVERSITY TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RAN",
+          "trust_name": "ROYAL NATIONAL ORTHOPAEDIC HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RCX",
+          "trust_name": "THE QUEEN ELIZABETH HOSPITAL, KING'S LYNN, NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXW",
+          "trust_name": "THE SHREWSBURY AND TELFORD HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RPG",
+          "trust_name": "OXLEAS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJ7",
+          "trust_name": "ST GEORGE'S UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RH5",
+          "trust_name": "SOMERSET NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RQW",
+          "trust_name": "THE PRINCESS ALEXANDRA HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RGR",
+          "trust_name": "WEST SUFFOLK NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RMP",
+          "trust_name": "TAMESIDE AND GLOSSOP INTEGRATED CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RGN",
+          "trust_name": "NORTH WEST ANGLIA NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R1D",
+          "trust_name": "SHROPSHIRE COMMUNITY HEALTH NHS TRUST"
+        },
+        {
+          "trust_code": "RJZ",
+          "trust_name": "KING'S COLLEGE HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRE",
+          "trust_name": "MIDLANDS PARTNERSHIP UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RHU",
+          "trust_name": "PORTSMOUTH HOSPITALS UNIVERSITY NATIONAL HEALTH SERVICE TRUST"
+        },
+        {
+          "trust_code": "RPA",
+          "trust_name": "MEDWAY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RYY",
+          "trust_name": "KENT COMMUNITY HEALTH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RMC",
+          "trust_name": "BOLTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "REM",
+          "trust_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RYJ",
+          "trust_name": "IMPERIAL COLLEGE HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RAN",
+          "trust_name": "ROYAL NATIONAL ORTHOPAEDIC HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RXN",
+          "trust_name": "LANCASHIRE TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RLQ",
+          "trust_name": "WYE VALLEY NHS TRUST"
+        },
+        {
+          "trust_code": "RJE",
+          "trust_name": "UNIVERSITY HOSPITALS OF NORTH MIDLANDS NHS TRUST"
+        },
+        {
+          "trust_code": "RXF",
+          "trust_name": "MID YORKSHIRE TEACHING NHS TRUST"
+        },
+        {
+          "trust_code": "RR8",
+          "trust_name": "LEEDS TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "R0D",
+          "trust_name": "UNIVERSITY HOSPITALS DORSET NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RM3",
+          "trust_name": "NORTHERN CARE ALLIANCE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTX",
+          "trust_name": "UNIVERSITY HOSPITALS OF MORECAMBE BAY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R1K",
+          "trust_name": "LONDON NORTH WEST UNIVERSITY HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RJ8",
+          "trust_name": "CORNWALL PARTNERSHIP NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RKB",
+          "trust_name": "UNIVERSITY HOSPITALS COVENTRY AND WARWICKSHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RWX",
+          "trust_name": "BERKSHIRE HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RVR",
+          "trust_name": "EPSOM AND ST HELIER UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RBT",
+          "trust_name": "MID CHESHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTX",
+          "trust_name": "UNIVERSITY HOSPITALS OF MORECAMBE BAY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWW",
+          "trust_name": "WARRINGTON AND HALTON TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RX4",
+          "trust_name": "CUMBRIA, NORTHUMBERLAND, TYNE AND WEAR NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBK",
+          "trust_name": "WALSALL HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RX4",
+          "trust_name": "CUMBRIA, NORTHUMBERLAND, TYNE AND WEAR NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RN5",
+          "trust_name": "HAMPSHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRE",
+          "trust_name": "MIDLANDS PARTNERSHIP UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RAJ",
+          "trust_name": "MID AND SOUTH ESSEX NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R1H",
+          "trust_name": "BARTS HEALTH NHS TRUST"
+        },
+        {
+          "trust_code": "RP6",
+          "trust_name": "MOORFIELDS EYE HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTH",
+          "trust_name": "OXFORD UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "TAD",
+          "trust_name": "BRADFORD DISTRICT CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RGT",
+          "trust_name": "CAMBRIDGE UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWH",
+          "trust_name": "EAST AND NORTH HERTFORDSHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RYY",
+          "trust_name": "KENT COMMUNITY HEALTH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTX",
+          "trust_name": "UNIVERSITY HOSPITALS OF MORECAMBE BAY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RFF",
+          "trust_name": "BARNSLEY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RP5",
+          "trust_name": "DONCASTER AND BASSETLAW TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RK5",
+          "trust_name": "SHERWOOD FOREST HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RPG",
+          "trust_name": "OXLEAS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RPC",
+          "trust_name": "QUEEN VICTORIA HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RGR",
+          "trust_name": "WEST SUFFOLK NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RN7",
+          "trust_name": "DARTFORD AND GRAVESHAM NHS TRUST"
+        },
+        {
+          "trust_code": "RDE",
+          "trust_name": "EAST SUFFOLK AND NORTH ESSEX NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWJ",
+          "trust_name": "STOCKPORT NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXK",
+          "trust_name": "SANDWELL AND WEST BIRMINGHAM HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RRF",
+          "trust_name": "WRIGHTINGTON, WIGAN AND LEIGH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RAE",
+          "trust_name": "BRADFORD TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXN",
+          "trust_name": "LANCASHIRE TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RH5",
+          "trust_name": "SOMERSET NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RMP",
+          "trust_name": "TAMESIDE AND GLOSSOP INTEGRATED CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBS",
+          "trust_name": "ALDER HEY CHILDREN'S NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWD",
+          "trust_name": "UNITED LINCOLNSHIRE TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RGR",
+          "trust_name": "WEST SUFFOLK NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RM1",
+          "trust_name": "NORFOLK AND NORWICH UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RM3",
+          "trust_name": "NORTHERN CARE ALLIANCE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RQW",
+          "trust_name": "THE PRINCESS ALEXANDRA HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RN7",
+          "trust_name": "DARTFORD AND GRAVESHAM NHS TRUST"
+        },
+        {
+          "trust_code": "RTE",
+          "trust_name": "GLOUCESTERSHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R0B",
+          "trust_name": "SOUTH TYNESIDE AND SUNDERLAND NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRF",
+          "trust_name": "WRIGHTINGTON, WIGAN AND LEIGH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNN",
+          "trust_name": "NORTH CUMBRIA INTEGRATED CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJZ",
+          "trust_name": "KING'S COLLEGE HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWE",
+          "trust_name": "UNIVERSITY HOSPITALS OF LEICESTER NHS TRUST"
+        },
+        {
+          "trust_code": "RNN",
+          "trust_name": "NORTH CUMBRIA INTEGRATED CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJ6",
+          "trust_name": "CROYDON HEALTH SERVICES NHS TRUST"
+        },
+        {
+          "trust_code": "RRK",
+          "trust_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTD",
+          "trust_name": "THE NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBV",
+          "trust_name": "THE CHRISTIE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RVJ",
+          "trust_name": "NORTH BRISTOL NHS TRUST"
+        },
+        {
+          "trust_code": "REF",
+          "trust_name": "ROYAL CORNWALL HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RH5",
+          "trust_name": "SOMERSET NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RLQ",
+          "trust_name": "WYE VALLEY NHS TRUST"
+        },
+        {
+          "trust_code": "RAN",
+          "trust_name": "ROYAL NATIONAL ORTHOPAEDIC HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RC9",
+          "trust_name": "BEDFORDSHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXP",
+          "trust_name": "COUNTY DURHAM AND DARLINGTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RR7",
+          "trust_name": "GATESHEAD HEALTH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWE",
+          "trust_name": "UNIVERSITY HOSPITALS OF LEICESTER NHS TRUST"
+        },
+        {
+          "trust_code": "RPG",
+          "trust_name": "OXLEAS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXC",
+          "trust_name": "EAST SUSSEX HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RPA",
+          "trust_name": "MEDWAY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RA2",
+          "trust_name": "ROYAL SURREY COUNTY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RVJ",
+          "trust_name": "NORTH BRISTOL NHS TRUST"
+        },
+        {
+          "trust_code": "RRF",
+          "trust_name": "WRIGHTINGTON, WIGAN AND LEIGH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RAS",
+          "trust_name": "THE HILLINGDON HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R0B",
+          "trust_name": "SOUTH TYNESIDE AND SUNDERLAND NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RR8",
+          "trust_name": "LEEDS TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RMP",
+          "trust_name": "TAMESIDE AND GLOSSOP INTEGRATED CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RLQ",
+          "trust_name": "WYE VALLEY NHS TRUST"
+        },
+        {
+          "trust_code": "RPY",
+          "trust_name": "THE ROYAL MARSDEN NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNS",
+          "trust_name": "NORTHAMPTON GENERAL HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RT1",
+          "trust_name": "CAMBRIDGESHIRE AND PETERBOROUGH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RVJ",
+          "trust_name": "NORTH BRISTOL NHS TRUST"
+        },
+        {
+          "trust_code": "RAX",
+          "trust_name": "KINGSTON AND RICHMOND NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RW1",
+          "trust_name": "HAMPSHIRE AND ISLE OF WIGHT HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWA",
+          "trust_name": "HULL UNIVERSITY TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "REF",
+          "trust_name": "ROYAL CORNWALL HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RH5",
+          "trust_name": "SOMERSET NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWF",
+          "trust_name": "MAIDSTONE AND TUNBRIDGE WELLS NHS TRUST"
+        },
+        {
+          "trust_code": "RWH",
+          "trust_name": "EAST AND NORTH HERTFORDSHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RD1",
+          "trust_name": "ROYAL UNITED HOSPITALS BATH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RGM",
+          "trust_name": "ROYAL PAPWORTH HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJ2",
+          "trust_name": "LEWISHAM AND GREENWICH NHS TRUST"
+        },
+        {
+          "trust_code": "RVR",
+          "trust_name": "EPSOM AND ST HELIER UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RPY",
+          "trust_name": "THE ROYAL MARSDEN NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "REF",
+          "trust_name": "ROYAL CORNWALL HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RNA",
+          "trust_name": "THE DUDLEY GROUP NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RYY",
+          "trust_name": "KENT COMMUNITY HEALTH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RAL",
+          "trust_name": "ROYAL FREE LONDON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RW5",
+          "trust_name": "LANCASHIRE & SOUTH CUMBRIA NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWD",
+          "trust_name": "UNITED LINCOLNSHIRE TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RJ8",
+          "trust_name": "CORNWALL PARTNERSHIP NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R0B",
+          "trust_name": "SOUTH TYNESIDE AND SUNDERLAND NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "REF",
+          "trust_name": "ROYAL CORNWALL HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RPY",
+          "trust_name": "THE ROYAL MARSDEN NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTR",
+          "trust_name": "SOUTH TEES HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNA",
+          "trust_name": "THE DUDLEY GROUP NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "REN",
+          "trust_name": "THE CLATTERBRIDGE CANCER CENTRE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RFR",
+          "trust_name": "THE ROTHERHAM NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RAN",
+          "trust_name": "ROYAL NATIONAL ORTHOPAEDIC HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RWW",
+          "trust_name": "WARRINGTON AND HALTON TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJR",
+          "trust_name": "COUNTESS OF CHESTER HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RAL",
+          "trust_name": "ROYAL FREE LONDON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXN",
+          "trust_name": "LANCASHIRE TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTH",
+          "trust_name": "OXFORD UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNN",
+          "trust_name": "NORTH CUMBRIA INTEGRATED CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RW5",
+          "trust_name": "LANCASHIRE & SOUTH CUMBRIA NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R1D",
+          "trust_name": "SHROPSHIRE COMMUNITY HEALTH NHS TRUST"
+        },
+        {
+          "trust_code": "RAX",
+          "trust_name": "KINGSTON AND RICHMOND NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RK9",
+          "trust_name": "UNIVERSITY HOSPITALS PLYMOUTH NHS TRUST"
+        },
+        {
+          "trust_code": "RRV",
+          "trust_name": "UNIVERSITY COLLEGE LONDON HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRF",
+          "trust_name": "WRIGHTINGTON, WIGAN AND LEIGH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWF",
+          "trust_name": "MAIDSTONE AND TUNBRIDGE WELLS NHS TRUST"
+        },
+        {
+          "trust_code": "RJ2",
+          "trust_name": "LEWISHAM AND GREENWICH NHS TRUST"
+        },
+        {
+          "trust_code": "RVR",
+          "trust_name": "EPSOM AND ST HELIER UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "R0A",
+          "trust_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RH5",
+          "trust_name": "SOMERSET NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJE",
+          "trust_name": "UNIVERSITY HOSPITALS OF NORTH MIDLANDS NHS TRUST"
+        },
+        {
+          "trust_code": "RBQ",
+          "trust_name": "LIVERPOOL HEART AND CHEST HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RPY",
+          "trust_name": "THE ROYAL MARSDEN NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJN",
+          "trust_name": "EAST CHESHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RNQ",
+          "trust_name": "KETTERING GENERAL HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RFF",
+          "trust_name": "BARNSLEY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRK",
+          "trust_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RQM",
+          "trust_name": "CHELSEA AND WESTMINSTER HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RCX",
+          "trust_name": "THE QUEEN ELIZABETH HOSPITAL, KING'S LYNN, NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTH",
+          "trust_name": "OXFORD UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RL4",
+          "trust_name": "THE ROYAL WOLVERHAMPTON NHS TRUST"
+        },
+        {
+          "trust_code": "RJ1",
+          "trust_name": "GUY'S AND ST THOMAS' NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RGN",
+          "trust_name": "NORTH WEST ANGLIA NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRE",
+          "trust_name": "MIDLANDS PARTNERSHIP UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWF",
+          "trust_name": "MAIDSTONE AND TUNBRIDGE WELLS NHS TRUST"
+        },
+        {
+          "trust_code": "RPC",
+          "trust_name": "QUEEN VICTORIA HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RCF",
+          "trust_name": "AIREDALE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RAJ",
+          "trust_name": "MID AND SOUTH ESSEX NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RP6",
+          "trust_name": "MOORFIELDS EYE HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "TAD",
+          "trust_name": "BRADFORD DISTRICT CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRK",
+          "trust_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RM1",
+          "trust_name": "NORFOLK AND NORWICH UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RT1",
+          "trust_name": "CAMBRIDGESHIRE AND PETERBOROUGH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXN",
+          "trust_name": "LANCASHIRE TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RHW",
+          "trust_name": "ROYAL BERKSHIRE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJZ",
+          "trust_name": "KING'S COLLEGE HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RA2",
+          "trust_name": "ROYAL SURREY COUNTY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBK",
+          "trust_name": "WALSALL HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RJN",
+          "trust_name": "EAST CHESHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RDU",
+          "trust_name": "FRIMLEY HEALTH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RVW",
+          "trust_name": "NORTH TEES AND HARTLEPOOL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RPG",
+          "trust_name": "OXLEAS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R0D",
+          "trust_name": "UNIVERSITY HOSPITALS DORSET NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRE",
+          "trust_name": "MIDLANDS PARTNERSHIP NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RL1",
+          "trust_name": "THE ROBERT JONES AND AGNES HUNT ORTHOPAEDIC HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RK9",
+          "trust_name": "UNIVERSITY HOSPITALS PLYMOUTH NHS TRUST"
+        },
+        {
+          "trust_code": "RC9",
+          "trust_name": "BEDFORDSHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNA",
+          "trust_name": "THE DUDLEY GROUP NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RQW",
+          "trust_name": "THE PRINCESS ALEXANDRA HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "R0D",
+          "trust_name": "UNIVERSITY HOSPITALS DORSET NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RF4",
+          "trust_name": "BARKING, HAVERING AND REDBRIDGE UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RJE",
+          "trust_name": "UNIVERSITY HOSPITALS OF NORTH MIDLANDS NHS TRUST"
+        },
+        {
+          "trust_code": "RR8",
+          "trust_name": "LEEDS TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RCU",
+          "trust_name": "SHEFFIELD CHILDREN'S NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RAE",
+          "trust_name": "BRADFORD TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBT",
+          "trust_name": "MID CHESHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RDU",
+          "trust_name": "FRIMLEY HEALTH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RCX",
+          "trust_name": "THE QUEEN ELIZABETH HOSPITAL, KING'S LYNN, NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RP6",
+          "trust_name": "MOORFIELDS EYE HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RVJ",
+          "trust_name": "NORTH BRISTOL NHS TRUST"
+        },
+        {
+          "trust_code": "RAN",
+          "trust_name": "ROYAL NATIONAL ORTHOPAEDIC HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RYJ",
+          "trust_name": "IMPERIAL COLLEGE HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RN7",
+          "trust_name": "DARTFORD AND GRAVESHAM NHS TRUST"
+        },
+        {
+          "trust_code": "R1H",
+          "trust_name": "BARTS HEALTH NHS TRUST"
+        },
+        {
+          "trust_code": "RTR",
+          "trust_name": "SOUTH TEES HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RN3",
+          "trust_name": "GREAT WESTERN HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RMC",
+          "trust_name": "BOLTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJZ",
+          "trust_name": "KING'S COLLEGE HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RVR",
+          "trust_name": "EPSOM AND ST HELIER UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RRJ",
+          "trust_name": "THE ROYAL ORTHOPAEDIC HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXG",
+          "trust_name": "SOUTH WEST YORKSHIRE PARTNERSHIP NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXC",
+          "trust_name": "EAST SUSSEX HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RJ1",
+          "trust_name": "GUY'S AND ST THOMAS' NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RM1",
+          "trust_name": "NORFOLK AND NORWICH UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWD",
+          "trust_name": "UNITED LINCOLNSHIRE HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RW1",
+          "trust_name": "SOUTHERN HEALTH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNQ",
+          "trust_name": "KETTERING GENERAL HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXL",
+          "trust_name": "BLACKPOOL TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RC9",
+          "trust_name": "BEDFORDSHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RAN",
+          "trust_name": "ROYAL NATIONAL ORTHOPAEDIC HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RHM",
+          "trust_name": "UNIVERSITY HOSPITAL SOUTHAMPTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "REF",
+          "trust_name": "ROYAL CORNWALL HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RX4",
+          "trust_name": "CUMBRIA, NORTHUMBERLAND, TYNE AND WEAR NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RL4",
+          "trust_name": "THE ROYAL WOLVERHAMPTON NHS TRUST"
+        },
+        {
+          "trust_code": "RKB",
+          "trust_name": "UNIVERSITY HOSPITALS COVENTRY AND WARWICKSHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RHM",
+          "trust_name": "UNIVERSITY HOSPITAL SOUTHAMPTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBK",
+          "trust_name": "WALSALL HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RWH",
+          "trust_name": "EAST AND NORTH HERTFORDSHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RTG",
+          "trust_name": "UNIVERSITY HOSPITALS OF DERBY AND BURTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXK",
+          "trust_name": "SANDWELL AND WEST BIRMINGHAM HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RNN",
+          "trust_name": "NORTH CUMBRIA INTEGRATED CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWJ",
+          "trust_name": "STOCKPORT NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJ2",
+          "trust_name": "LEWISHAM AND GREENWICH NHS TRUST"
+        },
+        {
+          "trust_code": "RW5",
+          "trust_name": "LANCASHIRE & SOUTH CUMBRIA NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJ6",
+          "trust_name": "CROYDON HEALTH SERVICES NHS TRUST"
+        },
+        {
+          "trust_code": "RCX",
+          "trust_name": "THE QUEEN ELIZABETH HOSPITAL, KING'S LYNN, NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RYY",
+          "trust_name": "KENT COMMUNITY HEALTH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R1A",
+          "trust_name": "HEREFORDSHIRE AND WORCESTERSHIRE HEALTH AND CARE NHS TRUST"
+        },
+        {
+          "trust_code": "REN",
+          "trust_name": "THE CLATTERBRIDGE CANCER CENTRE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXF",
+          "trust_name": "MID YORKSHIRE TEACHING NHS TRUST"
+        },
+        {
+          "trust_code": "RGP",
+          "trust_name": "JAMES PAGET UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RT1",
+          "trust_name": "CAMBRIDGESHIRE AND PETERBOROUGH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RK5",
+          "trust_name": "SHERWOOD FOREST HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RHQ",
+          "trust_name": "SHEFFIELD TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RAS",
+          "trust_name": "THE HILLINGDON HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RW4",
+          "trust_name": "MERSEY CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RCB",
+          "trust_name": "YORK AND SCARBOROUGH TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNN",
+          "trust_name": "NORTH CUMBRIA INTEGRATED CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRJ",
+          "trust_name": "THE ROYAL ORTHOPAEDIC HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBS",
+          "trust_name": "ALDER HEY CHILDREN'S NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTH",
+          "trust_name": "OXFORD UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RGN",
+          "trust_name": "NORTH WEST ANGLIA NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RKB",
+          "trust_name": "UNIVERSITY HOSPITALS COVENTRY AND WARWICKSHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "REP",
+          "trust_name": "LIVERPOOL WOMEN'S NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWP",
+          "trust_name": "WORCESTERSHIRE ACUTE HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RNZ",
+          "trust_name": "SALISBURY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R1F",
+          "trust_name": "ISLE OF WIGHT NHS TRUST"
+        },
+        {
+          "trust_code": "RXP",
+          "trust_name": "COUNTY DURHAM AND DARLINGTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWD",
+          "trust_name": "UNITED LINCOLNSHIRE TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RM3",
+          "trust_name": "NORTHERN CARE ALLIANCE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJ1",
+          "trust_name": "GUY'S AND ST THOMAS' NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RGP",
+          "trust_name": "JAMES PAGET UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWW",
+          "trust_name": "WARRINGTON AND HALTON TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RYR",
+          "trust_name": "UNIVERSITY HOSPITALS SUSSEX NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RLT",
+          "trust_name": "GEORGE ELIOT HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "REM",
+          "trust_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RW5",
+          "trust_name": "LANCASHIRE & SOUTH CUMBRIA NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RDR",
+          "trust_name": "SUSSEX COMMUNITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RPG",
+          "trust_name": "OXLEAS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRK",
+          "trust_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWE",
+          "trust_name": "UNIVERSITY HOSPITALS OF LEICESTER NHS TRUST"
+        },
+        {
+          "trust_code": "RH8",
+          "trust_name": "ROYAL DEVON UNIVERSITY HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RD8",
+          "trust_name": "MILTON KEYNES UNIVERSITY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RGM",
+          "trust_name": "ROYAL PAPWORTH HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBT",
+          "trust_name": "MID CHESHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXR",
+          "trust_name": "EAST LANCASHIRE HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RDE",
+          "trust_name": "EAST SUFFOLK AND NORTH ESSEX NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RQ3",
+          "trust_name": "BIRMINGHAM WOMEN'S AND CHILDREN'S NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RMC",
+          "trust_name": "BOLTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RCF",
+          "trust_name": "AIREDALE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNQ",
+          "trust_name": "KETTERING GENERAL HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RPA",
+          "trust_name": "MEDWAY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWG",
+          "trust_name": "WEST HERTFORDSHIRE TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RR7",
+          "trust_name": "GATESHEAD HEALTH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTF",
+          "trust_name": "NORTHUMBRIA HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RW5",
+          "trust_name": "LANCASHIRE & SOUTH CUMBRIA NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RDR",
+          "trust_name": "SUSSEX COMMUNITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RA2",
+          "trust_name": "ROYAL SURREY COUNTY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RCX",
+          "trust_name": "THE QUEEN ELIZABETH HOSPITAL, KING'S LYNN, NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RFS",
+          "trust_name": "CHESTERFIELD ROYAL HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RLQ",
+          "trust_name": "WYE VALLEY NHS TRUST"
+        },
+        {
+          "trust_code": "R0B",
+          "trust_name": "SOUTH TYNESIDE AND SUNDERLAND NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RYJ",
+          "trust_name": "IMPERIAL COLLEGE HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "R1A",
+          "trust_name": "HEREFORDSHIRE AND WORCESTERSHIRE HEALTH AND CARE NHS TRUST"
+        },
+        {
+          "trust_code": "RK5",
+          "trust_name": "SHERWOOD FOREST HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RDE",
+          "trust_name": "EAST SUFFOLK AND NORTH ESSEX NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTP",
+          "trust_name": "SURREY AND SUSSEX HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RJE",
+          "trust_name": "UNIVERSITY HOSPITALS OF NORTH MIDLANDS NHS TRUST"
+        },
+        {
+          "trust_code": "RKE",
+          "trust_name": "WHITTINGTON HEALTH NHS TRUST"
+        },
+        {
+          "trust_code": "RTP",
+          "trust_name": "SURREY AND SUSSEX HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RDU",
+          "trust_name": "FRIMLEY HEALTH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "REN",
+          "trust_name": "THE CLATTERBRIDGE CANCER CENTRE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWJ",
+          "trust_name": "STOCKPORT NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RM3",
+          "trust_name": "NORTHERN CARE ALLIANCE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRE",
+          "trust_name": "MIDLANDS PARTNERSHIP UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RQX",
+          "trust_name": "HOMERTON HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RKB",
+          "trust_name": "UNIVERSITY HOSPITALS COVENTRY AND WARWICKSHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RYJ",
+          "trust_name": "IMPERIAL COLLEGE HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RYW",
+          "trust_name": "BIRMINGHAM COMMUNITY HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RHM",
+          "trust_name": "UNIVERSITY HOSPITAL SOUTHAMPTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RM1",
+          "trust_name": "NORFOLK AND NORWICH UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "REM",
+          "trust_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RX4",
+          "trust_name": "CUMBRIA, NORTHUMBERLAND, TYNE AND WEAR NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWJ",
+          "trust_name": "STOCKPORT NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RF4",
+          "trust_name": "BARKING, HAVERING AND REDBRIDGE UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RWA",
+          "trust_name": "HULL UNIVERSITY TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RXF",
+          "trust_name": "MID YORKSHIRE TEACHING NHS TRUST"
+        },
+        {
+          "trust_code": "REM",
+          "trust_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RFR",
+          "trust_name": "THE ROTHERHAM NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RYR",
+          "trust_name": "UNIVERSITY HOSPITALS SUSSEX NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBK",
+          "trust_name": "WALSALL HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RM3",
+          "trust_name": "NORTHERN CARE ALLIANCE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RR7",
+          "trust_name": "GATESHEAD HEALTH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTF",
+          "trust_name": "NORTHUMBRIA HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJR",
+          "trust_name": "COUNTESS OF CHESTER HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNA",
+          "trust_name": "THE DUDLEY GROUP NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RAX",
+          "trust_name": "KINGSTON AND RICHMOND NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTG",
+          "trust_name": "UNIVERSITY HOSPITALS OF DERBY AND BURTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RX1",
+          "trust_name": "NOTTINGHAM UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RLT",
+          "trust_name": "GEORGE ELIOT HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RP4",
+          "trust_name": "GREAT ORMOND STREET HOSPITAL FOR CHILDREN NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RN5",
+          "trust_name": "HAMPSHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RA2",
+          "trust_name": "ROYAL SURREY COUNTY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RX4",
+          "trust_name": "CUMBRIA, NORTHUMBERLAND, TYNE AND WEAR NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTF",
+          "trust_name": "NORTHUMBRIA HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RW4",
+          "trust_name": "MERSEY CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RK9",
+          "trust_name": "UNIVERSITY HOSPITALS PLYMOUTH NHS TRUST"
+        },
+        {
+          "trust_code": "RBV",
+          "trust_name": "THE CHRISTIE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWP",
+          "trust_name": "WORCESTERSHIRE ACUTE HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RJ2",
+          "trust_name": "LEWISHAM AND GREENWICH NHS TRUST"
+        },
+        {
+          "trust_code": "RPY",
+          "trust_name": "THE ROYAL MARSDEN NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RVR",
+          "trust_name": "EPSOM AND ST HELIER UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RRV",
+          "trust_name": "UNIVERSITY COLLEGE LONDON HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBS",
+          "trust_name": "ALDER HEY CHILDREN'S NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RYW",
+          "trust_name": "BIRMINGHAM COMMUNITY HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBS",
+          "trust_name": "ALDER HEY CHILDREN'S NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RP6",
+          "trust_name": "MOORFIELDS EYE HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJ2",
+          "trust_name": "LEWISHAM AND GREENWICH NHS TRUST"
+        },
+        {
+          "trust_code": "RLQ",
+          "trust_name": "WYE VALLEY NHS TRUST"
+        },
+        {
+          "trust_code": "RET",
+          "trust_name": "THE WALTON CENTRE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RW1",
+          "trust_name": "HAMPSHIRE AND ISLE OF WIGHT HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJC",
+          "trust_name": "SOUTH WARWICKSHIRE UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXP",
+          "trust_name": "COUNTY DURHAM AND DARLINGTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWX",
+          "trust_name": "BERKSHIRE HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJC",
+          "trust_name": "SOUTH WARWICKSHIRE UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJE",
+          "trust_name": "UNIVERSITY HOSPITALS OF NORTH MIDLANDS NHS TRUST"
+        },
+        {
+          "trust_code": "RPY",
+          "trust_name": "THE ROYAL MARSDEN NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXW",
+          "trust_name": "THE SHREWSBURY AND TELFORD HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RBL",
+          "trust_name": "WIRRAL UNIVERSITY TEACHING HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RMP",
+          "trust_name": "TAMESIDE AND GLOSSOP INTEGRATED CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJZ",
+          "trust_name": "KING'S COLLEGE HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RL4",
+          "trust_name": "THE ROYAL WOLVERHAMPTON NHS TRUST"
+        },
+        {
+          "trust_code": "RQX",
+          "trust_name": "HOMERTON HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RA2",
+          "trust_name": "ROYAL SURREY COUNTY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJE",
+          "trust_name": "UNIVERSITY HOSPITALS OF NORTH MIDLANDS NHS TRUST"
+        },
+        {
+          "trust_code": "RK9",
+          "trust_name": "UNIVERSITY HOSPITALS PLYMOUTH NHS TRUST"
+        },
+        {
+          "trust_code": "R0A",
+          "trust_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R0D",
+          "trust_name": "UNIVERSITY HOSPITALS DORSET NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RKB",
+          "trust_name": "UNIVERSITY HOSPITALS COVENTRY AND WARWICKSHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RWJ",
+          "trust_name": "STOCKPORT NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RVW",
+          "trust_name": "NORTH TEES AND HARTLEPOOL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RF4",
+          "trust_name": "BARKING, HAVERING AND REDBRIDGE UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RRJ",
+          "trust_name": "THE ROYAL ORTHOPAEDIC HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RA7",
+          "trust_name": "UNIVERSITY HOSPITALS BRISTOL AND WESTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RC9",
+          "trust_name": "BEDFORDSHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RAS",
+          "trust_name": "THE HILLINGDON HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBV",
+          "trust_name": "THE CHRISTIE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJL",
+          "trust_name": "NORTHERN LINCOLNSHIRE AND GOOLE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R1K",
+          "trust_name": "LONDON NORTH WEST UNIVERSITY HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "REN",
+          "trust_name": "THE CLATTERBRIDGE CANCER CENTRE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJ6",
+          "trust_name": "CROYDON HEALTH SERVICES NHS TRUST"
+        },
+        {
+          "trust_code": "RTP",
+          "trust_name": "SURREY AND SUSSEX HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RWY",
+          "trust_name": "CALDERDALE AND HUDDERSFIELD NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RPY",
+          "trust_name": "THE ROYAL MARSDEN NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJ2",
+          "trust_name": "LEWISHAM AND GREENWICH NHS TRUST"
+        },
+        {
+          "trust_code": "RDE",
+          "trust_name": "EAST SUFFOLK AND NORTH ESSEX NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RGT",
+          "trust_name": "CAMBRIDGE UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RDU",
+          "trust_name": "FRIMLEY HEALTH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RLQ",
+          "trust_name": "WYE VALLEY NHS TRUST"
+        },
+        {
+          "trust_code": "RTR",
+          "trust_name": "SOUTH TEES HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBN",
+          "trust_name": "MERSEY AND WEST LANCASHIRE TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RJN",
+          "trust_name": "EAST CHESHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RRV",
+          "trust_name": "UNIVERSITY COLLEGE LONDON HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJ1",
+          "trust_name": "GUY'S AND ST THOMAS' NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RAL",
+          "trust_name": "ROYAL FREE LONDON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R0D",
+          "trust_name": "UNIVERSITY HOSPITALS DORSET NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RPY",
+          "trust_name": "THE ROYAL MARSDEN NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RPC",
+          "trust_name": "QUEEN VICTORIA HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RQ3",
+          "trust_name": "BIRMINGHAM WOMEN'S AND CHILDREN'S NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNA",
+          "trust_name": "THE DUDLEY GROUP NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RQM",
+          "trust_name": "CHELSEA AND WESTMINSTER HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RPC",
+          "trust_name": "QUEEN VICTORIA HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTG",
+          "trust_name": "UNIVERSITY HOSPITALS OF DERBY AND BURTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RQ3",
+          "trust_name": "BIRMINGHAM WOMEN'S AND CHILDREN'S NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RF4",
+          "trust_name": "BARKING, HAVERING AND REDBRIDGE UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RTP",
+          "trust_name": "SURREY AND SUSSEX HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RXW",
+          "trust_name": "THE SHREWSBURY AND TELFORD HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RK5",
+          "trust_name": "SHERWOOD FOREST HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RCB",
+          "trust_name": "YORK AND SCARBOROUGH TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RHQ",
+          "trust_name": "SHEFFIELD TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RN7",
+          "trust_name": "DARTFORD AND GRAVESHAM NHS TRUST"
+        },
+        {
+          "trust_code": "RTD",
+          "trust_name": "THE NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RN7",
+          "trust_name": "DARTFORD AND GRAVESHAM NHS TRUST"
+        },
+        {
+          "trust_code": "RX4",
+          "trust_name": "CUMBRIA, NORTHUMBERLAND, TYNE AND WEAR NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RQ3",
+          "trust_name": "BIRMINGHAM WOMEN'S AND CHILDREN'S NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXC",
+          "trust_name": "EAST SUSSEX HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RJR",
+          "trust_name": "COUNTESS OF CHESTER HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RKE",
+          "trust_name": "WHITTINGTON HEALTH NHS TRUST"
+        },
+        {
+          "trust_code": "RXK",
+          "trust_name": "SANDWELL AND WEST BIRMINGHAM HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RHW",
+          "trust_name": "ROYAL BERKSHIRE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RAJ",
+          "trust_name": "MID AND SOUTH ESSEX NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RN5",
+          "trust_name": "HAMPSHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJR",
+          "trust_name": "COUNTESS OF CHESTER HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJN",
+          "trust_name": "EAST CHESHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RHU",
+          "trust_name": "PORTSMOUTH HOSPITALS UNIVERSITY NATIONAL HEALTH SERVICE TRUST"
+        },
+        {
+          "trust_code": "RX1",
+          "trust_name": "NOTTINGHAM UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RWH",
+          "trust_name": "EAST AND NORTH HERTFORDSHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RJL",
+          "trust_name": "NORTHERN LINCOLNSHIRE AND GOOLE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RPG",
+          "trust_name": "OXLEAS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RN5",
+          "trust_name": "HAMPSHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBQ",
+          "trust_name": "LIVERPOOL HEART AND CHEST HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "TAD",
+          "trust_name": "BRADFORD DISTRICT CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RK5",
+          "trust_name": "SHERWOOD FOREST HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWY",
+          "trust_name": "CALDERDALE AND HUDDERSFIELD NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R1D",
+          "trust_name": "SHROPSHIRE COMMUNITY HEALTH NHS TRUST"
+        },
+        {
+          "trust_code": "R1A",
+          "trust_name": "HEREFORDSHIRE AND WORCESTERSHIRE HEALTH AND CARE NHS TRUST"
+        },
+        {
+          "trust_code": "RA2",
+          "trust_name": "ROYAL SURREY COUNTY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRK",
+          "trust_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RR7",
+          "trust_name": "GATESHEAD HEALTH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNZ",
+          "trust_name": "SALISBURY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBL",
+          "trust_name": "WIRRAL UNIVERSITY TEACHING HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNS",
+          "trust_name": "NORTHAMPTON GENERAL HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RHM",
+          "trust_name": "UNIVERSITY HOSPITAL SOUTHAMPTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RQX",
+          "trust_name": "HOMERTON HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RYY",
+          "trust_name": "KENT COMMUNITY HEALTH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RCU",
+          "trust_name": "SHEFFIELD CHILDREN'S NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJZ",
+          "trust_name": "KING'S COLLEGE HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNZ",
+          "trust_name": "SALISBURY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RX1",
+          "trust_name": "NOTTINGHAM UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RCB",
+          "trust_name": "YORK AND SCARBOROUGH TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RP4",
+          "trust_name": "GREAT ORMOND STREET HOSPITAL FOR CHILDREN NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R0A",
+          "trust_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RA9",
+          "trust_name": "TORBAY AND SOUTH DEVON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTE",
+          "trust_name": "GLOUCESTERSHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWY",
+          "trust_name": "CALDERDALE AND HUDDERSFIELD NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RMC",
+          "trust_name": "BOLTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RX1",
+          "trust_name": "NOTTINGHAM UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RMP",
+          "trust_name": "TAMESIDE AND GLOSSOP INTEGRATED CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R1A",
+          "trust_name": "HEREFORDSHIRE AND WORCESTERSHIRE HEALTH AND CARE NHS TRUST"
+        },
+        {
+          "trust_code": "RXF",
+          "trust_name": "MID YORKSHIRE TEACHING NHS TRUST"
+        },
+        {
+          "trust_code": "RLT",
+          "trust_name": "GEORGE ELIOT HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RW4",
+          "trust_name": "MERSEY CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNA",
+          "trust_name": "THE DUDLEY GROUP NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R1A",
+          "trust_name": "HEREFORDSHIRE AND WORCESTERSHIRE HEALTH AND CARE NHS TRUST"
+        },
+        {
+          "trust_code": "RAX",
+          "trust_name": "KINGSTON HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RA9",
+          "trust_name": "TORBAY AND SOUTH DEVON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXP",
+          "trust_name": "COUNTY DURHAM AND DARLINGTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJN",
+          "trust_name": "EAST CHESHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RAS",
+          "trust_name": "THE HILLINGDON HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RH8",
+          "trust_name": "ROYAL DEVON UNIVERSITY HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTR",
+          "trust_name": "SOUTH TEES HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RAE",
+          "trust_name": "BRADFORD TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTX",
+          "trust_name": "UNIVERSITY HOSPITALS OF MORECAMBE BAY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RX4",
+          "trust_name": "CUMBRIA, NORTHUMBERLAND, TYNE AND WEAR NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R1K",
+          "trust_name": "LONDON NORTH WEST UNIVERSITY HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RM1",
+          "trust_name": "NORFOLK AND NORWICH UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXW",
+          "trust_name": "THE SHREWSBURY AND TELFORD HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RHQ",
+          "trust_name": "SHEFFIELD TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRE",
+          "trust_name": "MIDLANDS PARTNERSHIP UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RQX",
+          "trust_name": "HOMERTON HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTG",
+          "trust_name": "UNIVERSITY HOSPITALS OF DERBY AND BURTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWE",
+          "trust_name": "UNIVERSITY HOSPITALS OF LEICESTER NHS TRUST"
+        },
+        {
+          "trust_code": "RJ7",
+          "trust_name": "ST GEORGE'S UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RMP",
+          "trust_name": "TAMESIDE AND GLOSSOP INTEGRATED CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRF",
+          "trust_name": "WRIGHTINGTON, WIGAN AND LEIGH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTR",
+          "trust_name": "SOUTH TEES HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RMC",
+          "trust_name": "BOLTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RVW",
+          "trust_name": "NORTH TEES AND HARTLEPOOL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "REF",
+          "trust_name": "ROYAL CORNWALL HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RAX",
+          "trust_name": "KINGSTON AND RICHMOND NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBV",
+          "trust_name": "THE CHRISTIE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RMC",
+          "trust_name": "BOLTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RCB",
+          "trust_name": "YORK AND SCARBOROUGH TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RP6",
+          "trust_name": "MOORFIELDS EYE HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJZ",
+          "trust_name": "KING'S COLLEGE HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXF",
+          "trust_name": "MID YORKSHIRE TEACHING NHS TRUST"
+        },
+        {
+          "trust_code": "RJZ",
+          "trust_name": "KING'S COLLEGE HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RW1",
+          "trust_name": "HAMPSHIRE AND ISLE OF WIGHT HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RDE",
+          "trust_name": "EAST SUFFOLK AND NORTH ESSEX NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RN3",
+          "trust_name": "GREAT WESTERN HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXQ",
+          "trust_name": "BUCKINGHAMSHIRE HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RQ3",
+          "trust_name": "BIRMINGHAM WOMEN'S AND CHILDREN'S NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RGN",
+          "trust_name": "NORTH WEST ANGLIA NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWX",
+          "trust_name": "BERKSHIRE HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RD1",
+          "trust_name": "ROYAL UNITED HOSPITALS BATH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBN",
+          "trust_name": "MERSEY AND WEST LANCASHIRE TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RKB",
+          "trust_name": "UNIVERSITY HOSPITALS COVENTRY AND WARWICKSHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RHU",
+          "trust_name": "PORTSMOUTH HOSPITALS UNIVERSITY NATIONAL HEALTH SERVICE TRUST"
+        },
+        {
+          "trust_code": "RMP",
+          "trust_name": "TAMESIDE AND GLOSSOP INTEGRATED CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RC9",
+          "trust_name": "BEDFORDSHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R1K",
+          "trust_name": "LONDON NORTH WEST UNIVERSITY HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RTD",
+          "trust_name": "THE NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTX",
+          "trust_name": "UNIVERSITY HOSPITALS OF MORECAMBE BAY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RVV",
+          "trust_name": "EAST KENT HOSPITALS UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R0A",
+          "trust_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RYJ",
+          "trust_name": "IMPERIAL COLLEGE HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RBT",
+          "trust_name": "MID CHESHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RN5",
+          "trust_name": "HAMPSHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RFF",
+          "trust_name": "BARNSLEY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWE",
+          "trust_name": "UNIVERSITY HOSPITALS OF LEICESTER NHS TRUST"
+        },
+        {
+          "trust_code": "RBS",
+          "trust_name": "ALDER HEY CHILDREN'S NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBK",
+          "trust_name": "WALSALL HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RP4",
+          "trust_name": "GREAT ORMOND STREET HOSPITAL FOR CHILDREN NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RDU",
+          "trust_name": "FRIMLEY HEALTH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RFF",
+          "trust_name": "BARNSLEY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RHM",
+          "trust_name": "UNIVERSITY HOSPITAL SOUTHAMPTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RYW",
+          "trust_name": "BIRMINGHAM COMMUNITY HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWG",
+          "trust_name": "WEST HERTFORDSHIRE TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RTD",
+          "trust_name": "THE NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTK",
+          "trust_name": "ASHFORD AND ST PETER'S HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RQX",
+          "trust_name": "HOMERTON HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RCB",
+          "trust_name": "YORK AND SCARBOROUGH TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R0D",
+          "trust_name": "UNIVERSITY HOSPITALS DORSET NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R1H",
+          "trust_name": "BARTS HEALTH NHS TRUST"
+        },
+        {
+          "trust_code": "RD1",
+          "trust_name": "ROYAL UNITED HOSPITALS BATH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RP6",
+          "trust_name": "MOORFIELDS EYE HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RLT",
+          "trust_name": "GEORGE ELIOT HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RVR",
+          "trust_name": "EPSOM AND ST HELIER UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RYR",
+          "trust_name": "UNIVERSITY HOSPITALS SUSSEX NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RGM",
+          "trust_name": "ROYAL PAPWORTH HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRK",
+          "trust_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RHU",
+          "trust_name": "PORTSMOUTH HOSPITALS UNIVERSITY NATIONAL HEALTH SERVICE TRUST"
+        },
+        {
+          "trust_code": "RXP",
+          "trust_name": "COUNTY DURHAM AND DARLINGTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RA7",
+          "trust_name": "UNIVERSITY HOSPITALS BRISTOL AND WESTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RW1",
+          "trust_name": "HAMPSHIRE AND ISLE OF WIGHT HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RHW",
+          "trust_name": "ROYAL BERKSHIRE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNS",
+          "trust_name": "NORTHAMPTON GENERAL HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RCF",
+          "trust_name": "AIREDALE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "TAD",
+          "trust_name": "BRADFORD DISTRICT CARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RFF",
+          "trust_name": "BARNSLEY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "REN",
+          "trust_name": "THE CLATTERBRIDGE CANCER CENTRE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RM1",
+          "trust_name": "NORFOLK AND NORWICH UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBK",
+          "trust_name": "WALSALL HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RVW",
+          "trust_name": "NORTH TEES AND HARTLEPOOL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RFR",
+          "trust_name": "THE ROTHERHAM NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RAS",
+          "trust_name": "THE HILLINGDON HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTF",
+          "trust_name": "NORTHUMBRIA HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWA",
+          "trust_name": "HULL UNIVERSITY TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RA9",
+          "trust_name": "TORBAY AND SOUTH DEVON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RDE",
+          "trust_name": "EAST SUFFOLK AND NORTH ESSEX NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RK5",
+          "trust_name": "SHERWOOD FOREST HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RLT",
+          "trust_name": "GEORGE ELIOT HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RWH",
+          "trust_name": "EAST AND NORTH HERTFORDSHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RWA",
+          "trust_name": "HULL UNIVERSITY TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RX1",
+          "trust_name": "NOTTINGHAM UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RK9",
+          "trust_name": "UNIVERSITY HOSPITALS PLYMOUTH NHS TRUST"
+        },
+        {
+          "trust_code": "RQM",
+          "trust_name": "CHELSEA AND WESTMINSTER HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RCU",
+          "trust_name": "SHEFFIELD CHILDREN'S NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RLQ",
+          "trust_name": "WYE VALLEY NHS TRUST"
+        },
+        {
+          "trust_code": "RD8",
+          "trust_name": "MILTON KEYNES UNIVERSITY HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RKB",
+          "trust_name": "UNIVERSITY HOSPITALS COVENTRY AND WARWICKSHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RJC",
+          "trust_name": "SOUTH WARWICKSHIRE UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RT1",
+          "trust_name": "CAMBRIDGESHIRE AND PETERBOROUGH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RW5",
+          "trust_name": "LANCASHIRE & SOUTH CUMBRIA NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RFS",
+          "trust_name": "CHESTERFIELD ROYAL HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RDR",
+          "trust_name": "SUSSEX COMMUNITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJ7",
+          "trust_name": "ST GEORGE'S UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBT",
+          "trust_name": "MID CHESHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RBQ",
+          "trust_name": "LIVERPOOL HEART AND CHEST HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RP7",
+          "trust_name": "LINCOLNSHIRE PARTNERSHIP NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R1D",
+          "trust_name": "SHROPSHIRE COMMUNITY HEALTH NHS TRUST"
+        },
+        {
+          "trust_code": "RK5",
+          "trust_name": "SHERWOOD FOREST HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R1D",
+          "trust_name": "SHROPSHIRE COMMUNITY HEALTH NHS TRUST"
+        },
+        {
+          "trust_code": "RP4",
+          "trust_name": "GREAT ORMOND STREET HOSPITAL FOR CHILDREN NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R0B",
+          "trust_name": "SOUTH TYNESIDE AND SUNDERLAND NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRK",
+          "trust_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RPA",
+          "trust_name": "MEDWAY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RX1",
+          "trust_name": "NOTTINGHAM UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RBK",
+          "trust_name": "WALSALL HEALTHCARE NHS TRUST"
+        },
+        {
+          "trust_code": "RP5",
+          "trust_name": "DONCASTER AND BASSETLAW TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RVJ",
+          "trust_name": "NORTH BRISTOL NHS TRUST"
+        },
+        {
+          "trust_code": "RTF",
+          "trust_name": "NORTHUMBRIA HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RAE",
+          "trust_name": "BRADFORD TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWF",
+          "trust_name": "MAIDSTONE AND TUNBRIDGE WELLS NHS TRUST"
+        },
+        {
+          "trust_code": "RWW",
+          "trust_name": "WARRINGTON AND HALTON TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJR",
+          "trust_name": "COUNTESS OF CHESTER HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRF",
+          "trust_name": "WRIGHTINGTON, WIGAN AND LEIGH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RX1",
+          "trust_name": "NOTTINGHAM UNIVERSITY HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RTK",
+          "trust_name": "ASHFORD AND ST PETER'S HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWG",
+          "trust_name": "WEST HERTFORDSHIRE TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RJE",
+          "trust_name": "UNIVERSITY HOSPITALS OF NORTH MIDLANDS NHS TRUST"
+        },
+        {
+          "trust_code": "RYY",
+          "trust_name": "KENT COMMUNITY HEALTH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RQM",
+          "trust_name": "CHELSEA AND WESTMINSTER HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RDR",
+          "trust_name": "SUSSEX COMMUNITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RCD",
+          "trust_name": "HARROGATE AND DISTRICT NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RD1",
+          "trust_name": "ROYAL UNITED HOSPITALS BATH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RA9",
+          "trust_name": "TORBAY AND SOUTH DEVON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RN3",
+          "trust_name": "GREAT WESTERN HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R1A",
+          "trust_name": "HEREFORDSHIRE AND WORCESTERSHIRE HEALTH AND CARE NHS TRUST"
+        },
+        {
+          "trust_code": "RXF",
+          "trust_name": "MID YORKSHIRE TEACHING NHS TRUST"
+        },
+        {
+          "trust_code": "RK5",
+          "trust_name": "SHERWOOD FOREST HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RKB",
+          "trust_name": "UNIVERSITY HOSPITALS COVENTRY AND WARWICKSHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RPA",
+          "trust_name": "MEDWAY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXP",
+          "trust_name": "COUNTY DURHAM AND DARLINGTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RYR",
+          "trust_name": "UNIVERSITY HOSPITALS SUSSEX NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWJ",
+          "trust_name": "STOCKPORT NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RVJ",
+          "trust_name": "NORTH BRISTOL NHS TRUST"
+        },
+        {
+          "trust_code": "RT1",
+          "trust_name": "CAMBRIDGESHIRE AND PETERBOROUGH NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJN",
+          "trust_name": "EAST CHESHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RPG",
+          "trust_name": "OXLEAS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWH",
+          "trust_name": "EAST AND NORTH HERTFORDSHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RWJ",
+          "trust_name": "STOCKPORT NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJL",
+          "trust_name": "NORTHERN LINCOLNSHIRE AND GOOLE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNS",
+          "trust_name": "NORTHAMPTON GENERAL HOSPITAL NHS TRUST"
+        },
+        {
+          "trust_code": "RK9",
+          "trust_name": "UNIVERSITY HOSPITALS PLYMOUTH NHS TRUST"
+        },
+        {
+          "trust_code": "RH5",
+          "trust_name": "SOMERSET NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RLQ",
+          "trust_name": "WYE VALLEY NHS TRUST"
+        },
+        {
+          "trust_code": "RAE",
+          "trust_name": "BRADFORD TEACHING HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJN",
+          "trust_name": "EAST CHESHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RK5",
+          "trust_name": "SHERWOOD FOREST HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R1D",
+          "trust_name": "SHROPSHIRE COMMUNITY HEALTH NHS TRUST"
+        },
+        {
+          "trust_code": "RJ6",
+          "trust_name": "CROYDON HEALTH SERVICES NHS TRUST"
+        },
+        {
+          "trust_code": "RPY",
+          "trust_name": "THE ROYAL MARSDEN NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RVV",
+          "trust_name": "EAST KENT HOSPITALS UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RK9",
+          "trust_name": "UNIVERSITY HOSPITALS PLYMOUTH NHS TRUST"
+        },
+        {
+          "trust_code": "RN5",
+          "trust_name": "HAMPSHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RCX",
+          "trust_name": "THE QUEEN ELIZABETH HOSPITAL, KING'S LYNN, NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RYW",
+          "trust_name": "BIRMINGHAM COMMUNITY HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RXP",
+          "trust_name": "COUNTY DURHAM AND DARLINGTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RJN",
+          "trust_name": "EAST CHESHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RRE",
+          "trust_name": "MIDLANDS PARTNERSHIP UNIVERSITY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNZ",
+          "trust_name": "SALISBURY NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RWH",
+          "trust_name": "EAST AND NORTH HERTFORDSHIRE NHS TRUST"
+        },
+        {
+          "trust_code": "RTF",
+          "trust_name": "NORTHUMBRIA HEALTHCARE NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RNA",
+          "trust_name": "THE DUDLEY GROUP NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTE",
+          "trust_name": "GLOUCESTERSHIRE HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "R1H",
+          "trust_name": "BARTS HEALTH NHS TRUST"
+        },
+        {
+          "trust_code": "RWD",
+          "trust_name": "UNITED LINCOLNSHIRE TEACHING HOSPITALS NHS TRUST"
+        },
+        {
+          "trust_code": "RWF",
+          "trust_name": "MAIDSTONE AND TUNBRIDGE WELLS NHS TRUST"
+        },
+        {
+          "trust_code": "RJ1",
+          "trust_name": "GUY'S AND ST THOMAS' NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RRJ",
+          "trust_name": "THE ROYAL ORTHOPAEDIC HOSPITAL NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RTH",
+          "trust_name": "OXFORD UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RMC",
+          "trust_name": "BOLTON NHS FOUNDATION TRUST"
+        },
+        {
+          "trust_code": "RK9",
+          "trust_name": "UNIVERSITY HOSPITALS PLYMOUTH NHS TRUST"
+        },
+        {
+          "trust_code": "R1A",
+          "trust_name": "HEREFORDSHIRE AND WORCESTERSHIRE HEALTH AND CARE NHS TRUST"
+        }
+      ],
+      "r_code_trusts_with_data": 202,
+      "sample_trusts_validated": [
+        {
+          "trust_code": "RN7",
+          "periods": [
+            "2024-04-01",
+            "2025-10-01",
+            "2025-04-01"
+          ],
+          "period_count": 3
+        },
+        {
+          "trust_code": "RWH",
+          "periods": [
+            "2025-04-01",
+            "2025-10-01",
+            "2024-04-01"
+          ],
+          "period_count": 3
+        },
+        {
+          "trust_code": "REP",
+          "periods": [
+            "2025-10-01",
+            "2024-04-01",
+            "2025-04-01"
+          ],
+          "period_count": 3
+        },
+        {
+          "trust_code": "RJN",
+          "periods": [
+            "2025-10-01",
+            "2025-04-01",
+            "2024-04-01"
+          ],
+          "period_count": 3
+        },
+        {
+          "trust_code": "RK5",
+          "periods": [
+            "2024-04-01",
+            "2025-04-01",
+            "2025-10-01"
+          ],
+          "period_count": 3
+        }
+      ]
+    },
+    "quarter_period_validation": {
+      "periods_found": [
+        "2024-04-01",
+        "2025-04-01",
+        "2025-10-01"
+      ],
+      "valid_periods": 0,
+      "invalid_periods": [
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-10-01",
+          "jsonb_period": "2025-Q3",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2024-04-01",
+          "jsonb_period": "2024-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "database_period": "2025-04-01",
+          "jsonb_period": "2025-Q1",
+          "issue": "Period mismatch between database and JSONB"
+        },
+        {
+          "period": "2024-04-01",
+          "issue": "Invalid period format"
+        },
+        {
+          "period": "2025-04-01",
+          "issue": "Invalid period format"
+        },
+        {
+          "period": "2025-10-01",
+          "issue": "Invalid period format"
+        }
+      ],
+      "quarter_consistency": false,
+      "period_date_validation": {
+        "2024-04-01": {
+          "start": "2024-04-01",
+          "end": "2024-06-30",
+          "valid_format": true,
+          "logical_order": true
+        },
+        "2025-04-01": {
+          "start": "2025-04-01",
+          "end": "2025-06-30",
+          "valid_format": true,
+          "logical_order": true
+        },
+        "2025-10-01": {
+          "start": "2025-10-01",
+          "end": "2025-12-31",
+          "valid_format": true,
+          "logical_order": true
+        }
+      },
+      "expected_periods": [
+        "2024-Q1",
+        "2024-Q2",
+        "2024-Q3",
+        "2025-Q4",
+        "2025-Q1"
+      ]
+    },
+    "cross_reference_validation": {
+      "sample_trusts_tested": 3,
+      "cross_reference_matches": 3,
+      "validation_results": [],
+      "known_trust_validation": {
+        "RJ1": {
+          "trust_code": "RJ1",
+          "has_data": true,
+          "period": "2025-10-01",
+          "standards_count": 3,
+          "total_patients": 30841,
+          "overall_performance": 68.8
+        },
+        "RGT": {
+          "trust_code": "RGT",
+          "has_data": true,
+          "period": "2025-10-01",
+          "standards_count": 3,
+          "total_patients": 28466,
+          "overall_performance": 77.4
+        },
+        "RBL": {
+          "trust_code": "RBL",
+          "has_data": true,
+          "period": "2025-10-01",
+          "standards_count": 3,
+          "total_patients": 15468,
+          "overall_performance": 78.4
+        }
+      }
+    }
+  },
+  "summary": {
+    "database_accessible": true,
+    "total_tests_run": 8,
+    "tests_passed": 3,
+    "critical_issues": 0,
+    "high_issues": 0,
+    "medium_issues": 1,
+    "low_issues": 1,
+    "overall_integrity_score": 94,
+    "coverage_metrics": {
+      "data_coverage_pct": 20.200000000000003,
+      "trusts_with_data": 127,
+      "periods_covered": 3
+    }
+  },
+  "issues_found": [
+    {
+      "severity": "MEDIUM",
+      "category": "PERIOD_INCONSISTENCY",
+      "description": "Period inconsistency between database and JSONB data",
+      "impact": "May cause confusion in period-based analysis",
+      "recommendation": "Review period assignment logic in data processing"
+    },
+    {
+      "severity": "LOW",
+      "category": "INVALID_PERIOD_FORMAT",
+      "description": "Invalid period formats found: 440 issues",
+      "impact": "May cause display or filtering issues",
+      "recommendation": "Standardize period format to YYYY-QX"
+    }
+  ],
+  "recommendations": [
+    "\u2705 Database ready for Phase 4 frontend validation"
+  ],
+  "overall_status": "MEDIUM_ISSUES"
+}
