@@ -51,15 +51,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     // Get initial session
     supabaseAuth.auth.getSession().then(async ({ data: { session } }) => {
       if (session?.user) {
-        const { profile, isAdmin } = await loadUserProfile(session.user);
-
+        // CRITICAL FIX: Set auth state IMMEDIATELY with session data
+        // This allows data queries to start without waiting for profile loading
         setAuthState({
           user: session.user,
           session,
-          profile,
-          isLoading: false,
+          profile: null,  // Will be loaded in background
+          isLoading: false,  // Allow app to render immediately
           isAuthenticated: true,
-          isAdministrator: isAdmin,
+          isAdministrator: false,  // Will be updated when profile loads
+        });
+
+        // Load profile in background (non-blocking)
+        loadUserProfile(session.user).then(({ profile, isAdmin }) => {
+          setAuthState(prev => ({
+            ...prev,
+            profile,
+            isAdministrator: isAdmin,
+          }));
         });
       } else {
         setAuthState({
@@ -79,15 +88,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         console.log('Auth state changed:', event);
 
         if (session?.user) {
-          const { profile, isAdmin } = await loadUserProfile(session.user);
-
+          // Set auth immediately, load profile in background
           setAuthState({
             user: session.user,
             session,
-            profile,
+            profile: null,
             isLoading: false,
             isAuthenticated: true,
-            isAdministrator: isAdmin,
+            isAdministrator: false,
+          });
+
+          loadUserProfile(session.user).then(({ profile, isAdmin }) => {
+            setAuthState(prev => ({
+              ...prev,
+              profile,
+              isAdministrator: isAdmin,
+            }));
           });
         } else {
           setAuthState({

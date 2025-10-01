@@ -32,7 +32,8 @@
       "Bash(npm run build:*)",
       "Bash(cat:*)",
       "Bash(xargs kill:*)",
-      "Bash(psql \"postgresql://postgres.fsopilxzaaukmcqcskqm:$SUPABASE_SERVICE_ROLE_KEY#*:@aws-0-eu-central-1.pooler.supabase.com:6543/postgres\" -c \"SELECT schemaname, tablename, policyname, permissive, roles, cmd, qual FROM pg_policies WHERE tablename = ''trust_metrics'';\")"
+      "Bash(psql \"postgresql://postgres.fsopilxzaaukmcqcskqm:$SUPABASE_SERVICE_ROLE_KEY#*:@aws-0-eu-central-1.pooler.supabase.com:6543/postgres\" -c \"SELECT schemaname, tablename, policyname, permissive, roles, cmd, qual FROM pg_policies WHERE tablename = ''trust_metrics'';\")",
+      "Bash(vercel:*)"
     ],
     "deny": [],
     "ask": []
