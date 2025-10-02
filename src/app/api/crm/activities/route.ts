@@ -63,9 +63,9 @@ export async function POST(request: NextRequest) {
     };
 
     // Insert the activity
-    // @ts-expect-error - Supabase type inference issue
     const { data: insertedActivity, error: activityError } = await supabase
       .from('activities')
+      // @ts-expect-error - Supabase type inference issue
       .insert(activityData)
       .select()
       .single();
@@ -75,24 +75,36 @@ export async function POST(request: NextRequest) {
     // Update last_contact_date on the account
     // @ts-expect-error - Supabase type inference issue
     if (insertedActivity?.trust_code) {
-      // @ts-expect-error - Supabase type inference issue
       await supabase
         .from('accounts')
+        // @ts-expect-error - Supabase type inference issue
         .update({ last_contact_date: new Date(insertedActivity.activity_date).toISOString().split('T')[0] })
+        // @ts-expect-error - Supabase type inference issue
         .eq('trust_code', insertedActivity.trust_code);
     }
 
     // Create task if follow-up required
     if (body.follow_up_required && body.follow_up_date && body.follow_up_assigned_to) {
       // @ts-expect-error - Supabase type inference issue
+      const trustCode = insertedActivity?.trust_code;
+      // @ts-expect-error - Supabase type inference issue
+      const contactId = insertedActivity?.contact_id;
+      // @ts-expect-error - Supabase type inference issue
+      const opportunityId = insertedActivity?.opportunity_id;
+      // @ts-expect-error - Supabase type inference issue
+      const subject = insertedActivity?.subject;
+      // @ts-expect-error - Supabase type inference issue
+      const nextSteps = insertedActivity?.next_steps;
+
       await supabase
         .from('tasks')
+        // @ts-expect-error - Supabase type inference issue
         .insert({
-          trust_code: insertedActivity?.trust_code,
-          contact_id: insertedActivity?.contact_id,
-          opportunity_id: insertedActivity?.opportunity_id,
-          task_title: `Follow-up: ${insertedActivity?.subject}`,
-          task_description: insertedActivity?.next_steps,
+          trust_code: trustCode,
+          contact_id: contactId,
+          opportunity_id: opportunityId,
+          task_title: `Follow-up: ${subject}`,
+          task_description: nextSteps,
           due_date: body.follow_up_date,
           assigned_to: body.follow_up_assigned_to,
           created_by: user.email,

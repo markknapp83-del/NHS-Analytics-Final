@@ -1,0 +1,1 @@
+I'm going to use a simpler approach - just add a console.log to the Log Call button to test if the click is being registered. Let me check if there's a JavaScript error preventing the clicks.

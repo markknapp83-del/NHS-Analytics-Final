@@ -6,7 +6,8 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Textarea } from '@/components/ui/textarea';
-import { CheckCircle, MessageSquare, AlertCircle } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { CheckCircle, MessageSquare, AlertCircle, Search } from 'lucide-react';
 import { supabase } from '@/lib/supabase-client';
 
 interface DiscardedTender {
@@ -30,6 +31,7 @@ export default function DiscardedTendersReviewPage() {
   const [discarded, setDiscarded] = useState<DiscardedTender[]>([]);
   const [filteredDiscarded, setFilteredDiscarded] = useState<DiscardedTender[]>([]);
   const [filter, setFilter] = useState<'all' | 'unreviewed' | 'flagged'>('unreviewed');
+  const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [activeNote, setActiveNote] = useState<{ id: string; notes: string } | null>(null);
@@ -40,21 +42,37 @@ export default function DiscardedTendersReviewPage() {
 
   useEffect(() => {
     applyFilter();
-  }, [filter, discarded]);
+  }, [filter, searchTerm, discarded]);
 
   const loadDiscardedTenders = async () => {
     try {
       setLoading(true);
 
-      const { data, error: fetchError } = await supabase
-        .from('discarded_tenders')
-        .select('*')
-        .order('discard_confidence', { ascending: true })
-        .limit(200);
+      // Fetch all records in batches (Supabase has a 1000 record limit per query)
+      const batchSize = 1000;
+      let allData: DiscardedTender[] = [];
+      let start = 0;
+      let hasMore = true;
 
-      if (fetchError) throw fetchError;
+      while (hasMore) {
+        const { data, error: fetchError } = await supabase
+          .from('discarded_tenders')
+          .select('*')
+          .order('discard_confidence', { ascending: true })
+          .range(start, start + batchSize - 1);
 
-      setDiscarded(data || []);
+        if (fetchError) throw fetchError;
+
+        if (data && data.length > 0) {
+          allData = [...allData, ...data];
+          start += batchSize;
+          hasMore = data.length === batchSize;
+        } else {
+          hasMore = false;
+        }
+      }
+
+      setDiscarded(allData);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load discarded tenders');
     } finally {
@@ -65,6 +83,7 @@ export default function DiscardedTendersReviewPage() {
   const applyFilter = () => {
     let filtered = [...discarded];
 
+    // Apply status filter
     switch (filter) {
       case 'unreviewed':
         filtered = filtered.filter(d => !d.reviewed);
@@ -73,6 +92,18 @@ export default function DiscardedTendersReviewPage() {
         filtered = filtered.filter(d => d.should_include === true);
         break;
       // 'all' - no filtering
+    }
+
+    // Apply text search
+    if (searchTerm.trim()) {
+      const searchLower = searchTerm.toLowerCase();
+      filtered = filtered.filter(d =>
+        d.title?.toLowerCase().includes(searchLower) ||
+        d.description?.toLowerCase().includes(searchLower) ||
+        d.buyer_organisation_name?.toLowerCase().includes(searchLower) ||
+        d.discard_reason?.toLowerCase().includes(searchLower) ||
+        d.search_text?.toLowerCase().includes(searchLower)
+      );
     }
 
     setFilteredDiscarded(filtered);
@@ -190,6 +221,20 @@ export default function DiscardedTendersReviewPage() {
             <p className="text-sm text-muted-foreground">Should Include (False Negatives)</p>
           </CardContent>
         </Card>
+      </div>
+
+      {/* Search */}
+      <div className="mb-6">
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <Input
+            type="text"
+            placeholder="Search by title, description, buyer, or discard reason..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="pl-10"
+          />
+        </div>
       </div>
 
       {/* Filter Tabs */}

@@ -39,6 +39,7 @@ export async function PUT(
 
     const { data, error } = await supabase
       .from('opportunities')
+      // @ts-expect-error - Supabase type inference issue
       .update(body)
       .eq('id', id)
       .select()

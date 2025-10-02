@@ -95,7 +95,7 @@ type SortField = 'trust_name' | 'account_owner' | 'account_stage' | 'last_contac
 type SortDirection = 'asc' | 'desc';
 
 export default function ManagementDashboardPage() {
-  const { isAdministrator, isLoading } = useAuth();
+  const { isSystemAdmin, isLoading } = useAuth();
   const router = useRouter();
 
   const [trustCoverage, setTrustCoverage] = useState<TrustCoverage[]>([]);
@@ -117,16 +117,16 @@ export default function ManagementDashboardPage() {
 
   useEffect(() => {
     // Redirect non-admins
-    if (!isLoading && !isAdministrator) {
+    if (!isLoading && !isSystemAdmin) {
       router.push('/crm/accounts');
     }
-  }, [isAdministrator, isLoading, router]);
+  }, [isSystemAdmin, isLoading, router]);
 
   useEffect(() => {
-    if (isAdministrator) {
+    if (isSystemAdmin) {
       fetchData();
     }
-  }, [isAdministrator]);
+  }, [isSystemAdmin]);
 
   const fetchData = async () => {
     try {
@@ -444,7 +444,7 @@ export default function ManagementDashboardPage() {
     );
   }
 
-  if (!isAdministrator) {
+  if (!isSystemAdmin) {
     return null;
   }
 

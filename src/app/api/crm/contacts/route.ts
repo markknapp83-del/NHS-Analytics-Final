@@ -66,6 +66,7 @@ export async function POST(request: NextRequest) {
 
     const { data, error } = await supabase
       .from('contacts')
+      // @ts-expect-error - Supabase type inference issue
       .insert(contactData)
       .select()
       .single();

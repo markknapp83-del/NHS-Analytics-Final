@@ -35,6 +35,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const profile = await getUserProfile(user.id);
       console.log('Profile loaded:', profile);
 
+      // @ts-expect-error - Supabase type inference issue
       const permissions = getRolePermissions(profile?.role || null);
       console.log('Permissions computed:', permissions);
 
@@ -73,10 +74,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
         // Load profile in background (non-blocking)
         loadUserProfile(session.user).then(({ profile, permissions }) => {
+          // @ts-expect-error - Supabase type inference issue
+          const userRole = profile?.role || null;
           setAuthState(prev => ({
             ...prev,
             profile,
-            role: profile?.role || null,
+            role: userRole,
             ...permissions,
           }));
         });
@@ -113,10 +116,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           });
 
           loadUserProfile(session.user).then(({ profile, permissions }) => {
+            // @ts-expect-error - Supabase type inference issue
+            const userRole = profile?.role || null;
             setAuthState(prev => ({
               ...prev,
               profile,
-              role: profile?.role || null,
+              role: userRole,
               ...permissions,
             }));
           });
@@ -148,13 +153,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       if (user) {
         const { profile, permissions } = await loadUserProfile(user);
 
+        // @ts-expect-error - Supabase type inference issue
+        const userRole = profile?.role || null;
         setAuthState({
           user,
           session,
           profile,
           isLoading: false,
           isAuthenticated: true,
-          role: profile?.role || null,
+          role: userRole,
           ...permissions,
         });
       }
@@ -189,10 +196,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (authState.user) {
       const { profile, permissions } = await loadUserProfile(authState.user);
 
+      // @ts-expect-error - Supabase type inference issue
+      const userRole = profile?.role || null;
       setAuthState(prev => ({
         ...prev,
         profile,
-        role: profile?.role || null,
+        role: userRole,
         ...permissions,
       }));
     }

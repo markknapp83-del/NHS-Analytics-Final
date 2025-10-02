@@ -65,6 +65,7 @@ interface Contact {
   id: string;
   trust_code: string;
   name: string;
+  full_name: string;
   job_title: string;
   department: string;
   email: string;
@@ -99,6 +100,7 @@ interface Activity {
   activity_date: string;
   subject: string;
   description: string;
+  notes?: string | null;
   outcome: string | null;
   next_steps: string | null;
   logged_by: string;

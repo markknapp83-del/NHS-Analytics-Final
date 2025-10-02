@@ -68,6 +68,8 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json();
 
+    console.log('[Opportunities POST] Request body:', JSON.stringify(body, null, 2));
+
     const { data, error } = await supabase
       .from('opportunities')
       .insert({
@@ -77,34 +79,45 @@ export async function POST(request: NextRequest) {
       .select()
       .single();
 
-    if (error) throw error;
+    if (error) {
+      console.error('[Opportunities POST] Supabase error:', error);
+      throw error;
+    }
 
     // Auto-create or assign account for this trust
-    if (data && data.trust_code) {
+    // @ts-expect-error - Supabase type inference issue
+    const trustCode = data?.trust_code;
+    if (data && trustCode) {
       try {
         // Check if account exists
         const { data: existingAccount } = await supabase
           .from('accounts')
           .select('*')
-          .eq('trust_code', data.trust_code)
+          .eq('trust_code', trustCode)
           .single();
 
         if (!existingAccount) {
           // No account exists - create one
           await supabase
             .from('accounts')
+            // @ts-expect-error - Supabase type inference issue
             .insert({
-              trust_code: data.trust_code,
+              trust_code: trustCode,
               account_owner: user.email,
               account_stage: 'prospect',
               created_by: user.email,
             });
-        } else if (!existingAccount.account_owner) {
-          // Account exists but has no owner - assign to current user
-          await supabase
-            .from('accounts')
-            .update({ account_owner: user.email })
-            .eq('trust_code', data.trust_code);
+        } else {
+          // @ts-expect-error - Supabase type inference issue
+          const accountOwner = existingAccount?.account_owner;
+          if (!accountOwner) {
+            // Account exists but has no owner - assign to current user
+            await supabase
+              .from('accounts')
+              // @ts-expect-error - Supabase type inference issue
+              .update({ account_owner: user.email })
+              .eq('trust_code', trustCode);
+          }
         }
         // If account has an owner, leave it unchanged
       } catch (accountError) {

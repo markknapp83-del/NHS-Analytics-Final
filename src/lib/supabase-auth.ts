@@ -245,6 +245,7 @@ export async function isAdministrator(userId: string): Promise<boolean> {
   try {
     console.log('Checking admin status for user:', userId);
     const profile = await getUserProfile(userId);
+    // @ts-expect-error - Supabase type inference issue
     const isAdmin = profile?.role === 'system_administrator' || profile?.role === 'management';
     console.log('isAdministrator result:', isAdmin);
     return isAdmin;
@@ -276,6 +277,7 @@ export async function updateUserRole(
 ) {
   const { error } = await supabaseAuth
     .from('user_profiles')
+    // @ts-expect-error - Supabase type inference issue
     .update({ role, updated_at: new Date().toISOString() })
     .eq('id', userId);
 

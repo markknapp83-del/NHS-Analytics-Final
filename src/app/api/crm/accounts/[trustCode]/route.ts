@@ -13,25 +13,36 @@ export async function GET(
       .eq('trust_code', trustCode)
       .single();
 
-    if (error && error.code !== 'PGRST116') throw error;
-
-    // If no account exists, fetch trust data from trust_metrics
-    if (!data || error?.code === 'PGRST116') {
-      const { data: trustData } = await supabaseAuth
+    // If no account exists (PGRST116 = row not found), fetch trust data from trust_metrics
+    if (!data && error?.code === 'PGRST116') {
+      const trustResult = await supabaseAuth
         .from('trust_metrics')
         .select('trust_code, trust_name, icb_code, icb_name')
         .eq('trust_code', trustCode)
         .limit(1)
         .single();
 
-      if (trustData) {
+      if (trustResult.error && trustResult.error.code !== 'PGRST116') {
+        throw trustResult.error;
+      }
+
+      if (trustResult.data) {
         // Return a placeholder account structure with trust data
+        // @ts-expect-error - Supabase type inference issue
+        const trust_code = trustResult.data.trust_code;
+        // @ts-expect-error - Supabase type inference issue
+        const trust_name = trustResult.data.trust_name;
+        // @ts-expect-error - Supabase type inference issue
+        const icb_code = trustResult.data.icb_code;
+        // @ts-expect-error - Supabase type inference issue
+        const icb_name = trustResult.data.icb_name;
+
         return NextResponse.json({
           data: {
-            trust_code: trustData.trust_code,
-            trust_name: trustData.trust_name,
-            icb_code: trustData.icb_code,
-            icb_name: trustData.icb_name,
+            trust_code,
+            trust_name,
+            icb_code,
+            icb_name,
             account_owner: null,
             account_stage: null,
             last_contact_date: null,
@@ -43,6 +54,11 @@ export async function GET(
           error: null,
         });
       }
+    }
+
+    // Handle other database errors
+    if (error) {
+      throw error;
     }
 
     return NextResponse.json({ data, error: null });

@@ -32,7 +32,7 @@ interface TrustAccount {
 }
 
 export default function MyAccountsPage() {
-  const { user, isAdministrator } = useAuth();
+  const { user, isSystemAdmin } = useAuth();
   const [accounts, setAccounts] = useState<TrustAccount[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -41,7 +41,7 @@ export default function MyAccountsPage() {
 
   useEffect(() => {
     fetchAccounts();
-  }, [user?.email, isAdministrator]);
+  }, [user?.email, isSystemAdmin]);
 
   const fetchAccounts = async () => {
     try {
@@ -49,7 +49,7 @@ export default function MyAccountsPage() {
       const params = new URLSearchParams();
 
       // If not admin, filter by current user's accounts
-      if (!isAdministrator && user?.email) {
+      if (!isSystemAdmin && user?.email) {
         params.append('account_owner', user.email);
       }
 
@@ -124,7 +124,7 @@ export default function MyAccountsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">
-            {isAdministrator ? 'All Accounts' : 'My Accounts'}
+            {isSystemAdmin ? 'All Accounts' : 'My Accounts'}
           </h1>
           <p className="text-gray-600 mt-1">
             {filteredAccounts.length} of {accounts.length} NHS trusts
@@ -180,7 +180,7 @@ export default function MyAccountsPage() {
         {filteredAccounts.map((account) => (
           <Link
             key={account.trust_code}
-            href={`/crm/accounts/${account.trust_code}`}
+            href={`/crm/trusts/${account.trust_code}`}
             className="block"
           >
             <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
