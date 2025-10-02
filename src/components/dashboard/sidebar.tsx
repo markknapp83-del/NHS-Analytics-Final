@@ -24,7 +24,8 @@ import {
   UserCheck,
   Target,
   CheckSquare,
-  LayoutDashboard
+  LayoutDashboard,
+  Calendar
 } from 'lucide-react';
 import {
   Tooltip,
@@ -59,11 +60,12 @@ export function DashboardSidebar() {
   };
 
   const crmNavigation = [
-    { name: 'My Accounts', href: '/crm/accounts', icon: Building2, requiresPermission: 'crm' },
+    { name: 'My Dashboard', href: '/crm/dashboard', icon: LayoutDashboard, requiresPermission: 'crm' },
+    { name: 'My Opportunities', href: '/crm/opportunities', icon: Target, requiresPermission: 'crm' },
+    { name: 'Trusts', href: '/crm/trusts', icon: Building2, requiresPermission: 'crm' },
     { name: 'Contacts', href: '/crm/contacts', icon: UserCheck, requiresPermission: 'crm' },
-    { name: 'My Pipeline', href: '/crm/pipeline', icon: Target, requiresPermission: 'crm' },
     { name: 'My Tasks', href: '/crm/tasks', icon: CheckSquare, requiresPermission: 'crm' },
-    { name: 'Management', href: '/crm/management', icon: LayoutDashboard, requiresPermission: 'management' },
+    { name: 'Calendar', href: '/crm/calendar', icon: Calendar, requiresPermission: 'crm' },
   ];
 
   const analyticsNavigation = [
