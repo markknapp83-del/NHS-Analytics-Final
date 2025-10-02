@@ -85,25 +85,46 @@ export async function middleware(request: NextRequest) {
       return NextResponse.redirect(new URL('/dashboard', request.url));
     }
 
-    // Check for admin-only routes
-    if (pathname.startsWith('/dashboard/settings')) {
-      if (!session) {
-        const redirectUrl = new URL('/login', request.url);
-        redirectUrl.searchParams.set('redirect', pathname);
-        return NextResponse.redirect(redirectUrl);
-      }
-
-      // Check if user is administrator
+    // Role-based route protection
+    if (session) {
       const { data: profile } = await supabase
         .from('user_profiles')
         .select('role')
         .eq('id', session.user.id)
         .single();
 
-      if (profile?.role !== 'administrator') {
-        // Not an administrator, redirect to dashboard
-        return NextResponse.redirect(new URL('/dashboard', request.url));
+      const userRole = profile?.role as 'data_only' | 'sales' | 'management' | 'system_administrator' | null;
+
+      // Settings route - admin only
+      if (pathname.startsWith('/dashboard/settings')) {
+        if (userRole !== 'system_administrator' && userRole !== 'management') {
+          return NextResponse.redirect(new URL('/dashboard', request.url));
+        }
       }
+
+      // CRM routes - sales, management, system_administrator only
+      if (pathname.startsWith('/crm')) {
+        if (userRole === 'data_only') {
+          return NextResponse.redirect(new URL('/dashboard', request.url));
+        }
+
+        // Management routes - management and system_administrator only
+        if (pathname.startsWith('/crm/management')) {
+          if (userRole !== 'management' && userRole !== 'system_administrator') {
+            return NextResponse.redirect(new URL('/crm/accounts', request.url));
+          }
+        }
+      }
+
+      // Tenders routes - sales, management, system_administrator only
+      if (pathname.startsWith('/tenders')) {
+        if (userRole === 'data_only') {
+          return NextResponse.redirect(new URL('/dashboard', request.url));
+        }
+      }
+
+      // Dashboard routes - accessible to all authenticated users
+      // (no additional checks needed)
     }
 
     return response;

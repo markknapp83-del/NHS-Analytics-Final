@@ -1,0 +1,227 @@
+{
+  "source": "Contracts Finder API - Public CSV Export",
+  "endpoint": "https://www.contractsfinder.service.gov.uk/Search/GetCsvFile",
+  "query_params": {
+    "keyword": "NHS Trust",
+    "published": 90
+  },
+  "date_captured": "2025-10-01",
+  "total_results": "~849 notices",
+
+  "csv_structure": {
+    "format": "CSV with headers",
+    "delimiter": ",",
+    "quote_char": "\"",
+    "total_fields": 42,
+    "encoding": "UTF-8"
+  },
+
+  "field_definitions": {
+    "Notice Identifier": {
+      "type": "string (UUID)",
+      "required": true,
+      "example": "23f2f473-8e8d-4a38-b8ba-8535ee7cb1de",
+      "description": "Unique identifier for the tender notice"
+    },
+    "Notice Type": {
+      "type": "string",
+      "required": true,
+      "example": "Contract",
+      "possible_values": ["Contract", "Award", "Future Opportunity"],
+      "description": "Type of procurement notice"
+    },
+    "Organisation Name": {
+      "type": "string",
+      "required": true,
+      "example": "St George's University Hospitals NHS Foundation Trust",
+      "description": "Name of the buying organization"
+    },
+    "Status": {
+      "type": "string",
+      "required": true,
+      "example": "Open",
+      "possible_values": ["Open", "Closed", "Awarded", "Cancelled"],
+      "description": "Current status of the tender"
+    },
+    "Published Date": {
+      "type": "date",
+      "required": true,
+      "format": "DD MMMM YYYY",
+      "example": "30 September 2025",
+      "description": "Date the notice was published"
+    },
+    "Title": {
+      "type": "string",
+      "required": true,
+      "example": "LTHW Constant&Variable Temperature Plant/Eqpt Refurb Works",
+      "description": "Tender title"
+    },
+    "Description": {
+      "type": "text",
+      "required": false,
+      "example": "Tender for LTHW Constant & Variable Temperature Centre Plant/Equipment Refurbishment Works",
+      "description": "Detailed description of the tender"
+    },
+    "Value Low": {
+      "type": "number",
+      "required": false,
+      "example": "1000000",
+      "description": "Minimum contract value in GBP"
+    },
+    "Value High": {
+      "type": "number",
+      "required": false,
+      "example": "1000000",
+      "description": "Maximum contract value in GBP"
+    },
+    "Closing Date": {
+      "type": "date",
+      "required": false,
+      "format": "DD MMMM YYYY",
+      "example": "15 October 2025",
+      "description": "Deadline for tender submissions"
+    },
+    "Closing Time": {
+      "type": "time",
+      "required": false,
+      "format": "HH:MM",
+      "example": "12:00",
+      "description": "Specific time for tender deadline"
+    },
+    "Postcode": {
+      "type": "string",
+      "required": false,
+      "example": "SW17 0QT",
+      "description": "Location postcode"
+    },
+    "Region": {
+      "type": "string",
+      "required": false,
+      "example": "London",
+      "possible_values": ["London", "South East", "North West", "Wales", "Scotland", "etc."],
+      "description": "Geographic region"
+    },
+    "Cpv Codes": {
+      "type": "string (comma-separated)",
+      "required": false,
+      "example": "45331100,45331200",
+      "description": "Common Procurement Vocabulary classification codes"
+    },
+    "OJEU Contract Type": {
+      "type": "string",
+      "required": false,
+      "example": "Works",
+      "possible_values": ["Goods", "Services", "Works"],
+      "description": "Type of contract"
+    },
+    "Contact Name": {
+      "type": "string",
+      "required": false,
+      "example": "John Smith",
+      "description": "Buyer contact person"
+    },
+    "Contact Email": {
+      "type": "string",
+      "required": false,
+      "example": "procurement@trust.nhs.uk",
+      "description": "Buyer contact email"
+    },
+    "Contact Telephone": {
+      "type": "string",
+      "required": false,
+      "example": "020 1234 5678",
+      "description": "Buyer contact phone"
+    },
+    "Suitable for SME": {
+      "type": "string",
+      "required": false,
+      "example": "Yes",
+      "possible_values": ["Yes", "No", ""],
+      "description": "Whether suitable for small/medium enterprises"
+    },
+    "Suitable for VCO": {
+      "type": "string",
+      "required": false,
+      "example": "Yes",
+      "possible_values": ["Yes", "No", ""],
+      "description": "Whether suitable for voluntary/community organizations"
+    }
+  },
+
+  "sample_tenders": [
+    {
+      "tender_id": "23f2f473-8e8d-4a38-b8ba-8535ee7cb1de",
+      "type": "Contract",
+      "organization": "St George's University Hospitals NHS Foundation Trust",
+      "title": "LTHW Constant&Variable Temperature Plant/Eqpt Refurb Works at St George's Hosp",
+      "description": "Tender for LTHW Constant & Variable Temperature Centre Plant/Equipment Refurbishment Works",
+      "status": "Open",
+      "published": "30 September 2025",
+      "value_low": 1000000,
+      "value_high": 1000000,
+      "location": "SW17 0QT, London",
+      "contract_type": "Works",
+      "suitable_sme": "Yes",
+      "suitable_vco": "Yes",
+      "notes": "Equipment refurbishment tender with fixed £1M value"
+    },
+    {
+      "tender_id": "ee03a0d2-bffc-4fe2-b4ed-1fdf9f27061b",
+      "type": "Contract",
+      "organization": "Hywel Dda University Health Board",
+      "title": "Maintenance of Cone Beam Dental CT Scanning System",
+      "description": "Swansea Bay UHB is renewing a contract for Cone Beam CT Scanning System",
+      "status": "Open",
+      "published": "30 September 2025",
+      "value_low": null,
+      "value_high": null,
+      "location": "Wales",
+      "contract_type": "Services",
+      "suitable_sme": "Yes",
+      "suitable_vco": "Yes",
+      "notes": "Medical equipment maintenance - value not specified"
+    }
+  ],
+
+  "nhs_organization_patterns": [
+    "NHS Foundation Trust",
+    "NHS Trust",
+    "University Hospitals NHS",
+    "Health Board",
+    "Clinical Commissioning Group",
+    "Integrated Care Board",
+    "NHS England",
+    "Health and Social Care"
+  ],
+
+  "data_quality_assessment": {
+    "title_populated": "100%",
+    "organization_populated": "100%",
+    "published_date_populated": "100%",
+    "description_populated": "~90%",
+    "closing_date_populated": "~80%",
+    "value_populated": "~60%",
+    "cpv_codes_populated": "~40%",
+    "contact_details_populated": "~50%"
+  },
+
+  "cpv_code_categories": {
+    "health_services": "85000000",
+    "medical_equipment": "33100000",
+    "hospital_equipment": "33190000",
+    "surgical_equipment": "33141000",
+    "diagnostic_equipment": "33111000",
+    "pharmaceutical_products": "33600000",
+    "laboratory_equipment": "38000000"
+  },
+
+  "implementation_notes": {
+    "authentication": "None required for CSV endpoint",
+    "rate_limits": "Unknown - implement conservative polling",
+    "pagination": "CSV returns full result set (no pagination needed)",
+    "caching_strategy": "Daily refresh recommended, cache CSV locally",
+    "parsing": "Use Papa Parse library (already in project dependencies)",
+    "trust_mapping": "Fuzzy matching required - organization names not standardized",
+    "estimated_nhs_tenders": "200-400 NHS-specific tenders in 90-day window"
+  }
+}

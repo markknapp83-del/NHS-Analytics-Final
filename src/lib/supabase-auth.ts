@@ -41,6 +41,47 @@ export async function signUpWithPassword(email: string, password: string, fullNa
 }
 
 /**
+ * Create a new user (admin only)
+ * This creates both the auth user and the user profile
+ * Uses the admin API endpoint to bypass email confirmation
+ */
+export async function createUser(
+  email: string,
+  password: string,
+  fullName: string,
+  role: 'data_only' | 'sales' | 'management' | 'system_administrator',
+  emailConfirmed: boolean = false
+) {
+  console.log('[createUser] Creating user via admin API:', { email, fullName, role, emailConfirmed });
+
+  // Call the admin API endpoint which uses service role key
+  const response = await fetch('/api/admin/create-user', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      email,
+      password,
+      fullName,
+      role,
+      emailConfirmed,
+    }),
+  });
+
+  const result = await response.json();
+
+  if (!response.ok) {
+    console.error('[createUser] API error:', result);
+    throw new Error(result.error || 'Failed to create user');
+  }
+
+  console.log('[createUser] User created successfully:', result.user);
+
+  return result;
+}
+
+/**
  * Sign in with email and password
  */
 export async function signInWithPassword(email: string, password: string) {
@@ -197,24 +238,18 @@ export async function getUserProfile(userId: string) {
 // }
 
 /**
- * Check if user is administrator
+ * Check if user is administrator (DEPRECATED - use RBAC utilities instead)
+ * @deprecated Use getRolePermissions from @/lib/rbac instead
  */
 export async function isAdministrator(userId: string): Promise<boolean> {
   try {
     console.log('Checking admin status for user:', userId);
-    const { data, error } = await (supabaseAuth.rpc as any)('is_administrator', {
-      user_id: userId,
-    });
-
-    console.log('is_administrator RPC response:', { data, error });
-
-    if (error) {
-      console.error('is_administrator error:', error);
-      throw error;
-    }
-    return data || false;
+    const profile = await getUserProfile(userId);
+    const isAdmin = profile?.role === 'system_administrator' || profile?.role === 'management';
+    console.log('isAdministrator result:', isAdmin);
+    return isAdmin;
   } catch (error) {
-    console.error('is_administrator caught error:', error);
+    console.error('isAdministrator caught error:', error);
     return false;
   }
 }
@@ -235,11 +270,14 @@ export async function getAllUserProfiles() {
 /**
  * Update user role (admin only)
  */
-export async function updateUserRole(userId: string, role: 'user' | 'administrator') {
-  const { error } = await (supabaseAuth.rpc as any)('update_user_role', {
-    target_user_id: userId,
-    new_role: role,
-  });
+export async function updateUserRole(
+  userId: string,
+  role: 'data_only' | 'sales' | 'management' | 'system_administrator'
+) {
+  const { error } = await supabaseAuth
+    .from('user_profiles')
+    .update({ role, updated_at: new Date().toISOString() })
+    .eq('id', userId);
 
   if (error) throw error;
 }

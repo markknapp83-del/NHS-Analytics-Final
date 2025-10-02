@@ -1,0 +1,193 @@
+{
+  "timestamp": "2025-10-01T13:04:49.085Z",
+  "stats": {
+    "total_processed": 44,
+    "still_opportunities": 43,
+    "reclassified_to_discard": 1,
+    "by_category": {
+      "Healthcare service but not insourcing: Machinery parts and printing services": 1
+    }
+  },
+  "reclassified_items": [
+    {
+      "id": "b2605ba9-779b-47ff-adb4-2dc04742404a",
+      "title": "Supply of OEM Dental Machinery Parts",
+      "reason": "Healthcare service but not insourcing: Machinery parts and printing services",
+      "matched_trust": "RYY"
+    }
+  ],
+  "still_valid_items": [
+    {
+      "id": "a0f46fdd-6a13-4161-9a3a-3e8e502deef3",
+      "title": "BSMHFT Shared Care Record"
+    },
+    {
+      "id": "7f4d229e-047f-4009-b670-4c8728f0158f",
+      "title": "Managed Staff Bank Services - Medics"
+    },
+    {
+      "id": "79a83254-64f2-4802-af55-f53ccb9ee162",
+      "title": "Neutral Vender for Locum Doctors"
+    },
+    {
+      "id": "6779a263-64cc-422b-a0b7-e46552478599",
+      "title": "Risk & Governance Lead"
+    },
+    {
+      "id": "87284a78-7432-48a9-b9f5-1ccf3bc00618",
+      "title": "RECRUITMENT SUPPORT OF INTERIM POSTS"
+    },
+    {
+      "id": "3ba97b14-d895-4e6e-91b0-eb8511abdebc",
+      "title": "Insourcing Arrangement for Elective Care"
+    },
+    {
+      "id": "c68cbc00-95e3-451e-ad2a-8e33795c1e8c",
+      "title": "Insourcing Arrangement for Elective Care"
+    },
+    {
+      "id": "0820c288-87c7-43d9-a7eb-7e4d0f8b3796",
+      "title": "The Provision of Speech and Language Therapy Services"
+    },
+    {
+      "id": "8ed2fa98-fa69-4145-b1da-c67d984d343e",
+      "title": "Productive Partners planning support"
+    },
+    {
+      "id": "b2b381f0-330b-467c-95f3-aa03c08b8a91",
+      "title": "Strategic Delivery Partnership for KCHFT's Improvement Programme"
+    },
+    {
+      "id": "8ac3a50c-6418-42cf-ba82-300b6aa39ade",
+      "title": "Managed Staff Bank Services - Medics"
+    },
+    {
+      "id": "7de27c3f-50c2-4795-9ae7-d927d3116f94",
+      "title": "Radiotherapy Services"
+    },
+    {
+      "id": "e8b3c296-c83d-4998-b2dc-fa8f8e7d251c",
+      "title": "CA15657 - Clinical Coding Services for Admitted Patient Care (APC)"
+    },
+    {
+      "id": "1878e19d-efc0-4614-a643-449f0a316b39",
+      "title": "Insourcing Arrangement for Elective Care"
+    },
+    {
+      "id": "35df02be-ad17-448c-9da4-ac66523bf51a",
+      "title": "Emergency Department Leadership Development"
+    },
+    {
+      "id": "cb0c0c46-3fd1-4953-8586-7008e6e61835",
+      "title": "Risk and Governance Lead"
+    },
+    {
+      "id": "a5975297-1e57-4bbd-b78d-94988fd72c68",
+      "title": "Anaesthetic Paediatric Theatre Insourcing"
+    },
+    {
+      "id": "801427bc-70d9-49e0-b778-89fcd215d3e2",
+      "title": "DHC DH1316 Alderney Hospital Herm Ward Extension MEP Design Services"
+    },
+    {
+      "id": "065e9b19-1b1b-47a2-b035-4e5791a9de92",
+      "title": "Molecular Pathology Diagnostic Services Managed Service"
+    },
+    {
+      "id": "aebe4fc1-491c-45b3-9fa2-a05f2d42a8c6",
+      "title": "NLFT - Digital Therapy Services - RFI"
+    },
+    {
+      "id": "f45c9467-c1fd-4d86-9757-d2548dbc8a39",
+      "title": "APMS Services for Nursing/Older people Homes in Lambeth"
+    },
+    {
+      "id": "fef75708-492a-43f0-bdfb-0029e91be2cb",
+      "title": "Teleradiology Reporting Services"
+    },
+    {
+      "id": "3d6c2982-3cd5-4f3d-98d3-ac3644d5b775",
+      "title": "Provision of Non Clinical Staff."
+    },
+    {
+      "id": "c5b3a2ea-da45-45fc-9dc9-ec89cb0e1e5b",
+      "title": "Provision of Non Clinical Staff."
+    },
+    {
+      "id": "31c5c13b-23a7-4cd8-93af-f6265548fb32",
+      "title": "Soft Market Testing - D2 & NHS ICB Specialist Homes Provision"
+    },
+    {
+      "id": "9eccefd9-7a82-4426-8eff-9537f86d044d",
+      "title": "Market Engagement Event for Speech and Language Therapy Services for Children and Young People"
+    },
+    {
+      "id": "c02064a0-fc33-468e-bf5e-9eed0b72576f",
+      "title": "Provision of Non Clinical Staff"
+    },
+    {
+      "id": "4e73f9a5-7ff2-4f75-a83f-7965be89b930",
+      "title": "Provision of Non Clinical Staff."
+    },
+    {
+      "id": "e9c5d71b-a69f-41d5-880c-22d81326d40e",
+      "title": "ENHT - Here For You Services"
+    },
+    {
+      "id": "37d926fd-ef26-4276-8709-f4dbd6c6029d",
+      "title": "Insourcing for Echocardiography"
+    },
+    {
+      "id": "448ed89a-487e-47e6-9fac-4478208c4633",
+      "title": "Senior Leadership Development Programme for Nurses, Midwives and Allied Health Professionals."
+    },
+    {
+      "id": "7b5af2eb-edb2-4e69-8c62-804fed45b2b9",
+      "title": "Moving and handling training for clinical staff"
+    },
+    {
+      "id": "32154ec0-73bd-4d51-803a-d6c59527f1ec",
+      "title": "Silverlock and Queens Rd GP Practices - Market Engagement"
+    },
+    {
+      "id": "75aba7aa-a579-4824-ba69-2739369627c7",
+      "title": "City & Hackney NHS Talking Therapy Waiting list initiative - Remote Cognitive Behavioural Therapy"
+    },
+    {
+      "id": "bb55b2b1-68eb-4fc4-84ab-81d05e51dea0",
+      "title": "Managed Service Resident Doctors (RD's)"
+    },
+    {
+      "id": "76d7a083-bb03-4d94-8d8d-c02092a7ed13",
+      "title": "Hampshire & Isle of Wight Individual Placement and Support"
+    },
+    {
+      "id": "bdce1cb9-d18b-4e8d-a496-4b80cd71f7d9",
+      "title": "WHPC00725"
+    },
+    {
+      "id": "b1c57962-4bc6-4577-a06a-39c5d3bd772a",
+      "title": "Down Syndrome Simulation Manikin"
+    },
+    {
+      "id": "b414b961-2020-45c2-93b3-bada1de7ecc7",
+      "title": "Bank / Agency Staffing Renewal"
+    },
+    {
+      "id": "267e5469-303c-41e6-89db-21e1d1be9eba",
+      "title": "Provision of Employee Assistant Programme (EAP) & Physiotherapy Services for South Western Ambulance Service NHS Foundation Trust Staff and Associated People"
+    },
+    {
+      "id": "cf158f3e-d00c-42f4-b7f4-fdbae69c426d",
+      "title": "Insourcing Arrangement for Elective Care"
+    },
+    {
+      "id": "90231213-6445-4559-8e08-e18ba33053ec",
+      "title": "Norfolk Individual Placement and Support"
+    },
+    {
+      "id": "f851ef0c-8578-42e3-8631-df9058d7344c",
+      "title": "Medical Staff Job Planning"
+    }
+  ]
+}

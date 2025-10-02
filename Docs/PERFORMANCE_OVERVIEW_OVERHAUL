@@ -1,0 +1,1200 @@
+Project Overview
+Redesign the Trust Overview page to integrate procurement/tender intelligence with operational performance metrics. Create a cohesive narrative showing both NHS trust challenges and their market responses.
+Current State Analysis
+Existing Components (To Keep)
+
+✅ RTT 18-week Compliance KPI Card
+✅ Critical Diagnostics KPI Card
+✅ Community Services Total Waiting KPI Card
+✅ RTT Performance Trend Chart
+✅ Community Services Waiting Lists Chart
+✅ Diagnostic Services Breakdown Chart
+
+Components to Remove
+
+❌ A&E 4-hour Performance KPI Card (not core to insourcing narrative)
+❌ Critical Issues Alert Box (too detailed for overview - move to RTT Deep Dive tab)
+
+New Components to Add
+
+✨ Market Activity KPI Card
+✨ Procurement Activity Timeline Chart
+✨ Competitive Landscape Chart (Supplier Award Distribution)
+
+Target Layout Structure
+┌─────────────────────────────────────────────────────────────────────┐
+│ Trust Selector: [MANCHESTER UNIVERSITY NHS FOUNDATION TRUST ▼]      │
+│                                                    Latest Data: Jul 25│
+└─────────────────────────────────────────────────────────────────────┘
+
+Performance Overview
+Comprehensive trust health dashboard with meaningful metrics across RTT, 
+diagnostics, procurement activity, and community health data
+
+┌────────────────┬────────────────┬────────────────┬────────────────┐
+│ RTT 18-week    │ Critical       │ Market         │ Community      │
+│ Compliance     │ Diagnostics    │ Activity       │ Services       │
+│                │                │                │ Waiting        │
+│ 53.2%   ↑1.6% │ 6 services     │ 27 Active      │ 19,273         │
+│ Target: 92%    │ >15% breach    │ £8.5M Value    │ ↑11.0%         │
+│ [Concern]      │ [Critical]     │ 5 Insourcing   │ Patients       │
+│                │                │ [View All →]   │                │
+└────────────────┴────────────────┴────────────────┴────────────────┘
+
+┌─────────────────────────────────┬─────────────────────────────────┐
+│ RTT Performance Trend           │ Procurement Activity Timeline   │
+│ 18-week compliance over time    │ Tender publications & awards    │
+│                                 │ over time                       │
+│ [Line chart with 92% target]   │ [Timeline with colored dots]    │
+│                                 │                                 │
+│ Current chart maintained        │ 🔵 General (£X.Xm)             │
+│                                 │ 🟢 Insourcing (£X.Xm)          │
+│                                 │ 🟡 Frameworks                   │
+└─────────────────────────────────┴─────────────────────────────────┘
+
+┌─────────────────────────────────┬─────────────────────────────────┐
+│ Community Services Waiting      │ Competitive Landscape           │
+│ Total patients waiting by       │ Top suppliers by contract value │
+│ service over time               │                                 │
+│                                 │ [Horizontal bar chart]          │
+│ [Multi-line chart]              │                                 │
+│ - Audiology                     │ Company X  ████████ £4.2M      │
+│ - MSK Services                  │ Company Y  ██████ £2.8M        │
+│ - Physiotherapy                 │ Company Z  ████ £1.9M          │
+│ - Podiatry                      │ Your Co    ███ £1.2M           │
+└─────────────────────────────────┴─────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ Diagnostic Services Breakdown                                        │
+│ 6+ and 13+ week breach categories across diagnostic services        │
+│                                                                      │
+│ [Stacked bar chart - existing visualization maintained]             │
+└─────────────────────────────────────────────────────────────────────┘
+Detailed Component Specifications
+1. Market Activity KPI Card (NEW)
+Location: Top row, position 3 (replaces A&E card)
+Data Requirements:
+
+Query tenders table filtered by trust_code of selected trust
+Count total tenders with status IN ('open', 'published', 'live')
+Sum value field for total opportunity value
+Filter count where classification = 'insourcing_opportunity'
+Sum value for insourcing opportunities specifically
+Calculate trend: Compare last 3 months vs. previous 3 months
+
+Visual Design:
+typescriptinterface MarketActivityCardProps {
+  trustCode: string;
+  data: {
+    totalActiveProcurements: number;
+    totalValue: number;
+    insourcingOpportunities: number;
+    insourcingValue: number;
+    trendPercentage: number; // positive or negative
+  }
+}
+Card Layout:
+┌─────────────────────────────────────┐
+│ 📊 Market Activity                  │
+│                                     │
+│     27 Active Procurements          │
+│     £8.5M Total Value              │
+│                                     │
+│  🎯 5 Insourcing Opportunities      │
+│     £2.1M Value                     │
+│                                     │
+│  ↑ 15% vs. last quarter            │
+│                                     │
+│  [View All Tenders →]              │
+└─────────────────────────────────────┘
+Color Coding:
+
+Border color based on insourcing opportunity count:
+
+0 opportunities: border-slate-300
+1-3 opportunities: border-blue-500
+4+ opportunities: border-green-500 (pulsing animation)
+
+
+
+Click Behavior:
+
+Entire card clickable
+Navigates to /tenders page with filter pre-applied to current trust
+Tab automatically set to "Insourcing Opportunities"
+
+Implementation Files:
+
+/components/dashboard/market-activity-card.tsx
+/lib/queries/tender-queries.ts (new query functions)
+
+
+2. Procurement Activity Timeline Chart (NEW)
+Location: Middle section, right side (equal width to RTT chart)
+Data Requirements:
+
+Query tenders table filtered by trust_code
+Include fields: published_date, title, value, status, classification
+Date range: Same as RTT chart (last 12 months)
+Sort by published_date
+Group by month for density calculation
+
+Visual Design:
+typescriptinterface ProcurementTimelineProps {
+  trustCode: string;
+  dateRange: { start: string; end: string };
+  tenders: Array<{
+    id: string;
+    publishedDate: string;
+    title: string;
+    value: number;
+    status: string;
+    classification: string;
+    contractsFinderUrl?: string;
+  }>;
+}
+Chart Structure:
+
+X-axis: Time (same scale as RTT chart above it)
+Y-axis: Not used (single row timeline)
+Visual elements: Colored dots representing tenders
+Dot characteristics:
+
+Color:
+
+🔵 Blue (#3b82f6): General procurement
+🟢 Green (#10b981): Insourcing opportunities (classification='insourcing_opportunity')
+🟡 Yellow (#f59e0b): Framework awards (is_framework=true)
+
+
+Size: Based on contract value
+
+Small (6px): < £500k
+Medium (10px): £500k - £2M
+Large (14px): > £2M
+
+
+Position: Scatter along timeline by published_date
+Stacking: If multiple tenders in same month, stack vertically with slight offset
+
+
+
+Interactive Features:
+
+Hover: Show tooltip with:
+
+  Tender Title
+  Value: £2.3M
+  Status: Awarded
+  Published: Jan 2025
+  Classification: Insourcing Opportunity
+  [Click to view details]
+
+Click: Open tender detail modal or navigate to tender detail page
+Legend: Below chart showing color/size encoding
+
+Correlation Highlighting (Optional Enhancement):
+
+When user hovers over RTT chart data point, highlight tenders from same time period
+Creates visual link between performance drops and procurement responses
+
+Implementation Files:
+
+/components/charts/procurement-timeline.tsx
+/components/charts/procurement-timeline-tooltip.tsx
+/lib/chart-utils/timeline-helpers.ts
+
+
+3. Competitive Landscape Chart (NEW)
+Location: Bottom section, right side (replacing or alongside existing chart)
+Data Requirements:
+
+Query tenders table WHERE status = 'awarded' AND trust_code = [selected]
+Extract awarded_supplier field (supplier name from awarded contracts)
+Group by supplier, sum contract values, count contracts
+Order by total value descending
+Limit to top 5 suppliers
+
+Visual Design:
+typescriptinterface CompetitiveLandscapeProps {
+  trustCode: string;
+  suppliers: Array<{
+    name: string;
+    totalValue: number;
+    contractCount: number;
+    contracts: Array<{
+      title: string;
+      value: number;
+      awardDate: string;
+    }>;
+  }>;
+  userCompanyName?: string; // To highlight "your company" if present
+}
+Chart Type: Horizontal Bar Chart
+Chart Structure:
+Supplier Activity (Last 12 Months)
+
+Company X     ████████████ £4.2M (3 contracts)
+Company Y     ████████ £2.8M (2 contracts)  
+Company Z     ██████ £1.9M (4 contracts)
+Your Company  ████ £1.2M (1 contract) ⭐
+Company W     ███ £0.8M (1 contract)
+
+[View Competitor Analysis →]
+Bar Characteristics:
+
+Color:
+
+Standard suppliers: bg-blue-500
+User's company (if in top 5): bg-green-500 with star icon
+Hover state: Lighter shade
+
+
+Width: Proportional to total contract value
+Label: Supplier name on left, value + count on right
+Height: Equal height bars with consistent spacing
+
+Interactive Features:
+
+Hover: Show tooltip with:
+
+  Company X
+  Total Value: £4.2M
+  Contracts: 3
+  
+  Recent Awards:
+  - Locum Medical Staff (£2.3M, Jan 2025)
+  - Imaging Services (£1.2M, Sep 2024)
+  - Pharmacy Staff (£0.7M, Jun 2024)
+
+Click on supplier: Navigate to competitor analysis page filtered to that supplier
+Click "View Competitor Analysis" button: Navigate to full competitor intelligence page
+
+Empty State:
+If no awarded contracts found:
+┌─────────────────────────────────────┐
+│ 📊 Competitive Landscape            │
+│                                     │
+│  No awarded contracts in database   │
+│                                     │
+│  This trust may:                    │
+│  • Use frameworks exclusively       │
+│  • Award contracts outside CF       │
+│  • Have no recent awards            │
+│                                     │
+│  [View All Tenders →]              │
+└─────────────────────────────────────┘
+Implementation Files:
+
+/components/charts/competitive-landscape-chart.tsx
+/components/charts/supplier-tooltip.tsx
+/lib/queries/supplier-queries.ts
+
+
+Data Integration Requirements
+Database Queries Needed
+1. Market Activity Card Query:
+typescript// /lib/queries/tender-queries.ts
+
+export async function getMarketActivitySummary(trustCode: string) {
+  const threeMonthsAgo = new Date();
+  threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
+  
+  const sixMonthsAgo = new Date();
+  sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+
+  // Get current period (last 3 months)
+  const currentPeriod = await supabase
+    .from('tenders')
+    .select('value, classification')
+    .eq('trust_code', trustCode)
+    .in('status', ['open', 'published', 'live'])
+    .gte('published_date', threeMonthsAgo.toISOString());
+
+  // Get previous period (3-6 months ago)
+  const previousPeriod = await supabase
+    .from('tenders')
+    .select('value')
+    .eq('trust_code', trustCode)
+    .gte('published_date', sixMonthsAgo.toISOString())
+    .lt('published_date', threeMonthsAgo.toISOString());
+
+  // Calculate metrics
+  const totalActive = currentPeriod.data?.length || 0;
+  const totalValue = currentPeriod.data?.reduce((sum, t) => sum + (t.value || 0), 0) || 0;
+  const insourcingCount = currentPeriod.data?.filter(t => t.classification === 'insourcing_opportunity').length || 0;
+  const insourcingValue = currentPeriod.data
+    ?.filter(t => t.classification === 'insourcing_opportunity')
+    .reduce((sum, t) => sum + (t.value || 0), 0) || 0;
+  
+  const previousCount = previousPeriod.data?.length || 0;
+  const trend = previousCount > 0 
+    ? ((totalActive - previousCount) / previousCount) * 100 
+    : 0;
+
+  return {
+    totalActiveProcurements: totalActive,
+    totalValue,
+    insourcingOpportunities: insourcingCount,
+    insourcingValue,
+    trendPercentage: trend
+  };
+}
+2. Procurement Timeline Query:
+typescriptexport async function getProcurementTimeline(trustCode: string, dateRange: { start: string; end: string }) {
+  const { data, error } = await supabase
+    .from('tenders')
+    .select('id, published_date, title, value, status, classification, is_framework, contracts_finder_url')
+    .eq('trust_code', trustCode)
+    .gte('published_date', dateRange.start)
+    .lte('published_date', dateRange.end)
+    .order('published_date', { ascending: true });
+
+  if (error) throw error;
+  return data;
+}
+3. Competitive Landscape Query:
+typescriptexport async function getTopSuppliers(trustCode: string, limit: number = 5) {
+  const twelveMonthsAgo = new Date();
+  twelveMonthsAgo.setFullYear(twelveMonthsAgo.getFullYear() - 1);
+
+  const { data, error } = await supabase
+    .from('tenders')
+    .select('awarded_supplier, value, title, award_date')
+    .eq('trust_code', trustCode)
+    .eq('status', 'awarded')
+    .not('awarded_supplier', 'is', null)
+    .gte('award_date', twelveMonthsAgo.toISOString())
+    .order('value', { ascending: false });
+
+  if (error) throw error;
+
+  // Group by supplier
+  const supplierMap = new Map();
+  data?.forEach(tender => {
+    const supplier = tender.awarded_supplier;
+    if (!supplierMap.has(supplier)) {
+      supplierMap.set(supplier, {
+        name: supplier,
+        totalValue: 0,
+        contractCount: 0,
+        contracts: []
+      });
+    }
+    const supplierData = supplierMap.get(supplier);
+    supplierData.totalValue += tender.value || 0;
+    supplierData.contractCount += 1;
+    supplierData.contracts.push({
+      title: tender.title,
+      value: tender.value,
+      awardDate: tender.award_date
+    });
+  });
+
+  // Convert to array and sort
+  const suppliers = Array.from(supplierMap.values())
+    .sort((a, b) => b.totalValue - a.totalValue)
+    .slice(0, limit);
+
+  return suppliers;
+}
+
+Component Implementation Order
+Phase 1: Data Layer (2 hours)
+
+Create /lib/queries/tender-queries.ts
+Implement getMarketActivitySummary() function
+Implement getProcurementTimeline() function
+Implement getTopSuppliers() function
+Add TypeScript interfaces for all return types
+Test queries against Supabase database
+
+Deliverables:
+
+ Tender queries module created
+ All three query functions working
+ Type definitions complete
+ Query performance validated (<500ms)
+
+
+Phase 2: Market Activity KPI Card (2 hours)
+
+Create /components/dashboard/market-activity-card.tsx
+Implement card layout with ShadCN Card component
+Add data fetching using getMarketActivitySummary()
+Implement trend calculation and arrow indicator
+Add color-coded border based on opportunity count
+Implement click-through navigation to tenders page
+Add loading and error states
+Style with NHS color palette
+
+Component Structure:
+typescript// /components/dashboard/market-activity-card.tsx
+
+import { Card, CardContent } from '@/components/ui/card';
+import { TrendingUp, TrendingDown } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useQuery } from '@tanstack/react-query';
+import { getMarketActivitySummary } from '@/lib/queries/tender-queries';
+
+export function MarketActivityCard({ trustCode }: { trustCode: string }) {
+  const router = useRouter();
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['market-activity', trustCode],
+    queryFn: () => getMarketActivitySummary(trustCode)
+  });
+
+  if (isLoading) return <MarketActivitySkeleton />;
+  if (error) return <MarketActivityError />;
+
+  const handleClick = () => {
+    router.push(`/tenders?trust=${trustCode}&tab=insourcing`);
+  };
+
+  return (
+    <Card 
+      className={cn(
+        "cursor-pointer transition-all hover:shadow-lg",
+        data.insourcingOpportunities >= 4 && "border-green-500 animate-pulse-border"
+      )}
+      onClick={handleClick}
+    >
+      <CardContent className="p-6">
+        {/* Implementation */}
+      </CardContent>
+    </Card>
+  );
+}
+Deliverables:
+
+ Market Activity card component created
+ Data fetching integrated
+ Visual design matches mockup
+ Click navigation working
+ Responsive on mobile
+
+
+Phase 3: Procurement Timeline Chart (4 hours)
+
+Create /components/charts/procurement-timeline.tsx
+Set up Recharts ScatterChart with custom dot rendering
+Implement color coding for tender classifications
+Implement size encoding based on contract value
+Create custom tooltip component
+Add legend below chart
+Implement click handlers for tender details
+Style to match RTT chart aesthetic
+Add loading skeleton state
+
+Chart Implementation:
+typescript// /components/charts/procurement-timeline.tsx
+
+import { ScatterChart, Scatter, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { getProcurementTimeline } from '@/lib/queries/tender-queries';
+import { useQuery } from '@tanstack/react-query';
+
+export function ProcurementTimeline({ trustCode, dateRange }: Props) {
+  const { data: tenders, isLoading } = useQuery({
+    queryKey: ['procurement-timeline', trustCode, dateRange],
+    queryFn: () => getProcurementTimeline(trustCode, dateRange)
+  });
+
+  // Transform data for scatter chart
+  const chartData = tenders?.map(tender => ({
+    x: new Date(tender.published_date).getTime(),
+    y: 1, // Single row timeline
+    value: tender.value,
+    classification: tender.classification,
+    ...tender
+  }));
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Procurement Activity Timeline</CardTitle>
+        <CardDescription>
+          Tender publications and awards over time with insourcing opportunities highlighted
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <ResponsiveContainer width="100%" height={200}>
+          <ScatterChart>
+            <XAxis 
+              type="number"
+              dataKey="x"
+              domain={['dataMin', 'dataMax']}
+              tickFormatter={(tick) => formatDate(tick)}
+            />
+            <Scatter
+              data={chartData}
+              shape={<CustomDot />}
+            />
+            <Tooltip content={<ProcurementTooltip />} />
+          </ScatterChart>
+        </ResponsiveContainer>
+        <TimelineLegend />
+      </CardContent>
+    </Card>
+  );
+}
+
+function CustomDot(props: any) {
+  const { cx, cy, payload } = props;
+  const size = getDotSize(payload.value);
+  const color = getDotColor(payload.classification, payload.is_framework);
+  
+  return (
+    <circle
+      cx={cx}
+      cy={cy}
+      r={size}
+      fill={color}
+      stroke="white"
+      strokeWidth={2}
+      className="cursor-pointer hover:stroke-4"
+      onClick={() => handleDotClick(payload)}
+    />
+  );
+}
+Helper Functions:
+typescriptfunction getDotSize(value: number): number {
+  if (value < 500000) return 6;
+  if (value < 2000000) return 10;
+  return 14;
+}
+
+function getDotColor(classification: string, isFramework: boolean): string {
+  if (classification === 'insourcing_opportunity') return '#10b981'; // Green
+  if (isFramework) return '#f59e0b'; // Yellow
+  return '#3b82f6'; // Blue
+}
+Deliverables:
+
+ Timeline chart component created
+ Scatter plot rendering correctly
+ Color/size encoding working
+ Tooltip showing tender details
+ Click navigation implemented
+ Legend explaining visual encoding
+ Matches RTT chart time scale
+
+
+Phase 4: Competitive Landscape Chart (3 hours)
+
+Create /components/charts/competitive-landscape-chart.tsx
+Implement horizontal bar chart with Recharts
+Add supplier name labels
+Implement value/count display on bars
+Create hover tooltip with contract details
+Highlight user's company if present
+Add click navigation to competitor analysis
+Handle empty state (no awards)
+Add "View Competitor Analysis" button
+
+Chart Implementation:
+typescript// /components/charts/competitive-landscape-chart.tsx
+
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import { getTopSuppliers } from '@/lib/queries/tender-queries';
+import { useQuery } from '@tanstack/react-query';
+
+export function CompetitiveLandscapeChart({ trustCode, userCompanyName }: Props) {
+  const { data: suppliers, isLoading } = useQuery({
+    queryKey: ['top-suppliers', trustCode],
+    queryFn: () => getTopSuppliers(trustCode, 5)
+  });
+
+  if (isLoading) return <CompetitiveLandscapeSkeleton />;
+  
+  if (!suppliers || suppliers.length === 0) {
+    return <EmptyCompetitiveState />;
+  }
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Competitive Landscape</CardTitle>
+        <CardDescription>
+          Top suppliers by contract value over last 12 months
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart
+            data={suppliers}
+            layout="vertical"
+            margin={{ left: 150, right: 20 }}
+          >
+            <XAxis type="number" />
+            <YAxis 
+              type="category" 
+              dataKey="name"
+              width={140}
+            />
+            <Tooltip content={<SupplierTooltip />} />
+            <Bar 
+              dataKey="totalValue" 
+              radius={[0, 8, 8, 0]}
+            >
+              {suppliers.map((supplier, index) => (
+                <Cell
+                  key={supplier.name}
+                  fill={supplier.name === userCompanyName ? '#10b981' : '#3b82f6'}
+                  className="cursor-pointer hover:opacity-80"
+                  onClick={() => handleSupplierClick(supplier.name)}
+                />
+              ))}
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+        <Button 
+          variant="outline" 
+          className="w-full mt-4"
+          onClick={() => router.push('/competitor-analysis')}
+        >
+          View Full Competitor Analysis →
+        </Button>
+      </CardContent>
+    </Card>
+  );
+}
+Deliverables:
+
+ Competitive landscape chart created
+ Horizontal bar chart rendering
+ Supplier highlighting working
+ Tooltip with contract details
+ Click navigation to competitor page
+ Empty state handling
+ Mobile responsive
+
+
+Phase 5: Overview Page Integration (2 hours)
+
+Update /app/dashboard/page.tsx (Overview tab)
+Remove A&E KPI card component
+Remove Critical Issues Alert box component
+Add Market Activity card to KPI row
+Add Procurement Timeline to middle section
+Add Competitive Landscape to bottom section
+Ensure consistent spacing and alignment
+Test responsive layout on all screen sizes
+Verify all data fetching and error handling
+
+Updated Overview Page Structure:
+typescript// /app/dashboard/page.tsx
+
+export default function OverviewPage() {
+  const { getTrustData } = useNHSData();
+  const [selectedTrust] = useTrustSelection();
+  const trustData = getTrustData(selectedTrust);
+
+  if (!trustData.length) {
+    return <LoadingState />;
+  }
+
+  return (
+    <div className="p-6 space-y-6">
+      {/* KPI Cards Row */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <RTTComplianceCard trustData={trustData} />
+        <CriticalDiagnosticsCard trustData={trustData} />
+        <MarketActivityCard trustCode={selectedTrust} /> {/* NEW */}
+        <CommunityServicesCard trustData={trustData} />
+      </div>
+
+      {/* Middle Section: Performance + Timeline */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Card>
+          <CardHeader>
+            <CardTitle>Performance vs 92% Target</CardTitle>
+            <CardDescription>RTT 18-week compliance over time</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <RTTPerformanceChart data={trustData} />
+          </CardContent>
+        </Card>
+
+        <ProcurementTimeline  {/* NEW */}
+          trustCode={selectedTrust}
+          dateRange={getDateRangeFromTrustData(trustData)}
+        />
+      </div>
+
+      {/* Bottom Section: Community Services + Competitive Landscape */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Card>
+          <CardHeader>
+            <CardTitle>Community Services Waiting Lists</CardTitle>
+            <CardDescription>Patient waiting by service over time</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <CommunityServicesChart data={trustData} />
+          </CardContent>
+        </Card>
+
+        <CompetitiveLandscapeChart  {/* NEW */}
+          trustCode={selectedTrust}
+          userCompanyName="Your Company Name" // TODO: Get from config
+        />
+      </div>
+
+      {/* Full Width: Diagnostics Breakdown */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Diagnostic Services Breakdown</CardTitle>
+          <CardDescription>
+            6+ and 13+ week breach categories across diagnostic services
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <DiagnosticsBreakdownChart data={trustData} />
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+Deliverables:
+
+ Overview page updated with new components
+ Old components removed cleanly
+ Layout spacing consistent
+ All charts rendering correctly
+ Responsive design working
+ No console errors
+
+
+Phase 6: Polish & Testing (2 hours)
+
+Add loading skeletons for all new components
+Implement error boundaries
+Test with different trust selections
+Test with trusts that have no tender data
+Verify click-through navigation works
+Test mobile responsive layout
+Check accessibility (keyboard navigation, screen readers)
+Performance optimization (check render times)
+Cross-browser testing (Chrome, Firefox, Safari, Edge)
+
+Loading States:
+typescriptexport function MarketActivitySkeleton() {
+  return (
+    <Card>
+      <CardContent className="p-6">
+        <Skeleton className="h-4 w-32 mb-4" />
+        <Skeleton className="h-8 w-24 mb-2" />
+        <Skeleton className="h-6 w-28 mb-4" />
+        <Skeleton className="h-4 w-36" />
+      </CardContent>
+    </Card>
+  );
+}
+Error States:
+typescriptexport function MarketActivityError() {
+  return (
+    <Card className="border-red-200 bg-red-50">
+      <CardContent className="p-6">
+        <AlertTriangle className="h-6 w-6 text-red-600 mb-2" />
+        <p className="text-sm text-red-700">
+          Failed to load market activity data
+        </p>
+        <Button variant="outline" size="sm" className="mt-2">
+          Retry
+        </Button>
+      </CardContent>
+    </Card>
+  );
+}
+Deliverables:
+
+ Loading states for all components
+ Error handling implemented
+ Tested across multiple trusts
+ Empty state testing complete
+ Mobile layout verified
+ Accessibility checklist complete
+ Performance benchmarks met
+ Cross-browser compatibility confirmed
+
+
+Technical Requirements
+Dependencies
+
+✅ Already installed: recharts, @tanstack/react-query, lucide-react
+✅ Already installed: ShadCN UI components (Card, Button, Badge, Skeleton)
+No new dependencies required
+
+Database Schema
+
+✅ Existing tenders table already has all required fields:
+
+trust_code, icb_code
+published_date, award_date
+title, description, value
+status, classification, is_framework
+awarded_supplier
+contracts_finder_url
+
+
+
+Performance Targets
+
+Market Activity card query: < 300ms
+Procurement Timeline query: < 500ms
+Competitive Landscape query: < 400ms
+Total page load time: < 2 seconds
+Chart render time: < 500ms each
+
+Responsive Breakpoints
+
+Mobile (<768px):
+
+KPI cards: 2 columns
+All charts: 1 column (stacked)
+Timeline: Vertical orientation
+
+
+Tablet (768-1024px):
+
+KPI cards: 2 columns
+Charts: 2 columns
+Maintain readability
+
+
+Desktop (>1024px):
+
+KPI cards: 4 columns
+Charts: 2 columns
+Full featured layout
+
+
+
+
+Visual Design System
+Color Palette (NHS Theme)
+css:root {
+  --nhs-blue: #005eb8;
+  --nhs-dark-blue: #003087;
+  --success-green: #10b981;
+  --warning-amber: #f59e0b;
+  --danger-red: #ef4444;
+  
+  /* Tender classifications */
+  --tender-general: #3b82f6; /* Blue */
+  --tender-insourcing: #10b981; /* Green */
+  --tender-framework: #f59e0b; /* Yellow */
+}
+Typography
+
+Headings: Font weight 700 (bold)
+Body text: Font weight 400 (regular)
+Metrics: Font weight 600 (semibold)
+Labels: Font size 0.875rem (14px)
+Values: Font size 1.5rem (24px) for KPIs
+
+Spacing
+
+Card padding: p-6 (24px)
+Grid gaps: gap-6 (24px)
+Section spacing: space-y-6 (24px vertical)
+Consistent with existing dashboard spacing
+
+Animation
+
+Hover states: 150ms transition
+Loading skeletons: Pulse animation
+High-priority items: Subtle pulse border (green opportunities)
+Chart interactions: Smooth transitions on hover/click
+
+
+Testing Checklist
+Functional Testing
+
+ Market Activity card displays correct counts
+ Market Activity card shows correct value totals
+ Trend percentage calculates correctly
+ Insourcing opportunities highlighted properly
+ Click on Market Activity navigates to tenders page
+ Procurement Timeline displays all tenders
+ Timeline dots color-coded correctly
+ Timeline dots sized by value
+ Timeline tooltip shows complete information
+ Click on timeline dot opens tender details
+ Competitive Landscape shows top 5 suppliers
+ Supplier bars show correct values
+ User's company highlighted if present
+ Click on supplier navigates to competitor page
+ Empty states display when no data available
+
+Data Integrity Testing
+
+ Query results match expected data
+ Date ranges align correctly across charts
+ Value calculations are accurate
+ Classification filtering works correctly
+ Trust filtering works correctly
+ Status filtering works correctly
+
+UI/UX Testing
+
+ All charts align properly
+ Spacing consistent throughout
+ Colors match NHS theme
+ Text is readable on all backgrounds
+ Icons display correctly
+ Loading states are smooth
+ Error messages are helpful
+ Tooltips appear in correct positions
+ Click areas are intuitive
+
+Responsive Testing
+
+ Mobile layout (iPhone 12/13)
+ Mobile layout (iPad)
+ Tablet layout (1024px)
+ Desktop layout (1440px)
+ Desktop layout (1920px)
+ Ultra-wide layout (2560px)
+
+Performance Testing
+
+ Initial page load < 2 seconds
+ Market Activity query < 300ms
+ Timeline query < 500ms
+ Competitive Landscape query < 400ms
+ Chart renders < 500ms each
+ No memory leaks on trust switching
+ Smooth scrolling throughout page
+
+Accessibility Testing
+
+ Keyboard navigation works
+ Focus indicators visible
+ Screen reader announcements correct
+ Color contrast meets WCAG AA
+ Alt text on all icons
+ ARIA labels where appropriate
+ Tab order logical
+
+Browser Compatibility
+
+ Chrome (latest)
+ Firefox (latest)
+ Safari (latest)
+ Edge (latest)
+ Chrome mobile
+ Safari mobile
+
+
+Success Criteria
+Must Have (MVP)
+
+✅ All three new components rendering correctly
+✅ Data integration complete and accurate
+✅ Overview page layout matches design spec
+✅ Click-through navigation working
+✅ Responsive on desktop and mobile
+✅ Loading and error states handled
+✅ Performance targets met
+
+Should Have (Nice to Have)
+
+✅ Smooth animations and transitions
+✅ Hover interactions polished
+✅ Empty states informative
+✅ Tooltips comprehensive
+✅ Accessibility features complete
+
+Could Have (Future Enhancement)
+
+🔮 Correlation highlighting between RTT and procurement
+🔮 Drill-down from timeline to tender categories
+🔮 Export functionality for charts
+🔮 Comparison mode (multiple trusts side-by-side)
+🔮 Advanced filtering on timeline (by category, value range)
+
+
+Risk Mitigation
+Potential Issues & Solutions
+Issue: Tender data may be sparse for some trusts
+
+Solution: Implement graceful empty states with helpful messaging
+Fallback: Show "No data available" with option to view all tenders
+
+Issue: Large number of tenders may cause timeline to be cluttered
+
+Solution: Implement clustering for dense time periods
+Fallback: Add zoom/pan functionality or month grouping
+
+Issue: Supplier names may be inconsistent in database
+
+Solution: Implement fuzzy matching for supplier aggregation
+Fallback: Display "as recorded" with note about variations
+
+Issue: Query performance may degrade with large datasets
+
+Solution: Implement pagination and date range limiting
+Fallback: Add caching layer for frequently accessed trusts
+
+Issue: Responsive layout may break on unusual screen sizes
+
+Solution: Test on multiple devices and add breakpoint adjustments
+Fallback: Implement CSS container queries for better adaptation
+
+
+Timeline Estimate
+Total: ~15 hours of development time
+
+Phase 1: Data Layer (2 hours)
+Phase 2: Market Activity Card (2 hours)
+Phase 3: Procurement Timeline (4 hours)
+Phase 4: Competitive Landscape (3 hours)
+Phase 5: Overview Integration (2 hours)
+Phase 6: Polish & Testing (2 hours)
+
+Recommended Schedule:
+
+Day 1 (6 hours): Phases 1-2
+Day 2 (6 hours): Phase 3
+Day 3 (3 hours): Phases 4-6
+
+
+Post-Implementation Tasks
+Documentation
+
+ Update component README with new components
+ Document new database queries
+ Add JSDoc comments to all functions
+ Create user guide for new features
+ Update technical architecture diagram
+
+Monitoring
+
+ Add performance tracking for new queries
+ Monitor error rates for tender data fetching
+ Track user interactions with new components
+ Measure page load times post-deployment
+
+Future Enhancements
+
+ Add "Related Opportunities" section to tender details
+ Implement procurement trend analysis (month-over-month)
+ Build custom alert system for new insourcing opportunities
+ Create procurement activity heatmap by ICB region
+ Add competitive win-rate analysis
+
+
+Questions for Clarification
+Before implementation begins, please confirm:
+
+User Company Name: How should we identify "Your Company" in the Competitive Landscape chart?
+
+Environment variable?
+User profile setting?
+Hardcoded constant?
+
+
+Value Display: Should contract values display as:
+
+Full precision (£2,345,678)?
+Rounded (£2.3M)?
+Range (£2M-£3M)?
+
+
+Tender Detail Navigation: When clicking timeline dots, should we:
+
+Open modal overlay?
+Navigate to dedicated tender detail page?
+Open external Contracts Finder link?
+
+
+Empty State Preferences: For trusts with no tender data, should we:
+
+Show empty state only?
+Show ICB-level data as fallback?
+Hide components entirely?
+
+
+Date Range Synchronization: Should procurement timeline always match RTT chart date range, or allow independent adjustment?
+
+
+Claude Code Execution Instructions
+To implement this plan, Claude Code should execute in the following order:
+bash# Phase 1: Data Layer
+claude-code create /lib/queries/tender-queries.ts
+claude-code implement getMarketActivitySummary
+claude-code implement getProcurementTimeline  
+claude-code implement getTopSuppliers
+claude-code test tender-queries.ts
+
+# Phase 2: Market Activity Card
+claude-code create /components/dashboard/market-activity-card.tsx
+claude-code implement MarketActivityCard component
+claude-code implement MarketActivitySkeleton
+claude-code implement MarketActivityError
+claude-code test market-activity-card.tsx
+
+# Phase 3: Procurement Timeline
+claude-code create /components/charts/procurement-timeline.tsx
+claude-code implement ProcurementTimeline component
+claude-code implement CustomDot renderer
+claude-code implement ProcurementTooltip
+claude-code implement TimelineLegend
+claude-code test procurement-timeline.tsx
+
+# Phase 4: Competitive Landscape
+claude-code create /components/charts/competitive-landscape-chart.tsx
+claude-code implement CompetitiveLandscapeChart component
+claude-code implement SupplierTooltip
+claude-code implement EmptyCompetitiveState
+claude-code test competitive-landscape-chart.tsx
+
+# Phase 5: Overview Integration
+claude-code update /app/dashboard/page.tsx
+claude-code remove A&E card component
+claude-code remove Critical Issues alert
+claude-code integrate new components
+claude-code test overview page
+
+# Phase 6: Polish
+claude-code add loading states
+claude-code add error boundaries
+claude-code test responsive layout
+claude-code verify accessibility
+claude-code run performance tests
+
+Final Notes
+This redesign maintains the clean, professional aesthetic while adding powerful procurement intelligence that creates a complete narrative:
+"This trust has operational challenges (RTT/A&E/Diagnostics) AND they're actively trying to solve them (Procurement Activity) BUT they're working with these competitors (Competitive Landscape) SO here's your opportunity (Insourcing Opportunities)."
+The overview page becomes a one-stop intelligence dashboard that answers:
+
+What problems does this trust have?
+What are they doing about it?
+Who are they working with?
+Where is our opportunity?
+
+Ready for Claude Code implementation! 🚀
+</artifact>
+I've created a comprehensive implementation plan for Claude Code. The plan includes:
+Key Features:
+
+Detailed component specifications - Exact layout, data requirements, and visual design for each new component
+Complete data queries - TypeScript implementations ready for Supabase integration
+Phase-by-phase implementation - 6 clear phases with time estimates (15 hours total)
+Testing checklist - Functional, UI/UX, performance, and accessibility testing
+Risk mitigation - Common issues and solutions identified upfront
+Claude Code execution instructions - Step-by-step commands for implementation
+
+The New Layout:
+
+Top Row: 4 KPI cards (RTT, Critical Diagnostics, Market Activity [NEW], Community Services)
+Middle: RTT Performance Trend + Procurement Timeline [NEW]
+Bottom: Community Services Waiting + Competitive Landscape [NEW]
+Full Width: Diagnostic Services Breakdown (existing)
+
+What Makes This Clean:
+
+Removed A&E card and Critical Issues alert (reducing clutter)
+Added only 3 new visual elements but they tell the complete story
+Maintained familiar layout structure
+All new components have proper loading/error states

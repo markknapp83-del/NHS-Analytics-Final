@@ -13,13 +13,23 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import {
   getAllUserProfiles,
   updateUserRole,
   sendPasswordResetEmail,
   getMFAFactors,
+  createUser,
 } from '@/lib/supabase-auth';
 import { MFASetup } from '@/components/auth/mfa-setup';
-import type { UserProfile } from '@/types/auth';
+import type { UserProfile, UserRole } from '@/types/auth';
+import { getRoleDisplayName } from '@/lib/rbac';
 import {
   Users,
   Shield,
@@ -29,11 +39,13 @@ import {
   Loader2,
   ShieldCheck,
   ShieldOff,
+  UserPlus,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { Checkbox } from '@/components/ui/checkbox';
 
 export default function SettingsPage() {
-  const { isAdministrator, isLoading: authLoading, user } = useAuth();
+  const { isSystemAdmin, isLoading: authLoading, user } = useAuth();
   const router = useRouter();
   const [users, setUsers] = useState<UserProfile[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -42,16 +54,25 @@ export default function SettingsPage() {
   const [showMFASetup, setShowMFASetup] = useState(false);
   const [hasMFA, setHasMFA] = useState(false);
 
+  // Create user dialog state
+  const [showCreateUser, setShowCreateUser] = useState(false);
+  const [isCreatingUser, setIsCreatingUser] = useState(false);
+  const [newUserEmail, setNewUserEmail] = useState('');
+  const [newUserPassword, setNewUserPassword] = useState('');
+  const [newUserFullName, setNewUserFullName] = useState('');
+  const [newUserRole, setNewUserRole] = useState<UserRole>('sales');
+  const [emailConfirmed, setEmailConfirmed] = useState(true);
+
   useEffect(() => {
     if (!authLoading) {
-      if (!isAdministrator) {
+      if (!isSystemAdmin) {
         router.push('/dashboard');
       } else {
         loadUsers();
         checkMFAStatus();
       }
     }
-  }, [isAdministrator, authLoading, router]);
+  }, [isSystemAdmin, authLoading, router]);
 
   const loadUsers = async () => {
     try {
@@ -74,7 +95,7 @@ export default function SettingsPage() {
     }
   };
 
-  const handleRoleChange = async (userId: string, newRole: 'user' | 'administrator') => {
+  const handleRoleChange = async (userId: string, newRole: UserRole) => {
     setError(null);
     setSuccess(null);
 
@@ -105,6 +126,53 @@ export default function SettingsPage() {
     setSuccess('Two-factor authentication has been enabled successfully');
   };
 
+  const handleCreateUser = async () => {
+    setError(null);
+    setSuccess(null);
+
+    // Validation
+    if (!newUserEmail || !newUserPassword || !newUserFullName) {
+      setError('Please fill in all required fields');
+      return;
+    }
+
+    if (newUserPassword.length < 6) {
+      setError('Password must be at least 6 characters');
+      return;
+    }
+
+    try {
+      setIsCreatingUser(true);
+      const result = await createUser(newUserEmail, newUserPassword, newUserFullName, newUserRole, emailConfirmed);
+
+      console.log('[Settings] User created:', result);
+
+      setSuccess(
+        emailConfirmed
+          ? `User created successfully! ${newUserFullName} can log in immediately with email: ${newUserEmail}`
+          : `User created successfully! A confirmation email has been sent to ${newUserEmail}`
+      );
+
+      // Reset form and close dialog
+      setNewUserEmail('');
+      setNewUserPassword('');
+      setNewUserFullName('');
+      setNewUserRole('sales');
+      setEmailConfirmed(true);
+      setShowCreateUser(false);
+
+      // Reload users list after a short delay to ensure trigger completed
+      setTimeout(async () => {
+        await loadUsers();
+      }, 1000);
+    } catch (err: any) {
+      console.error('[Settings] Failed to create user:', err);
+      setError(err.message || 'Failed to create user');
+    } finally {
+      setIsCreatingUser(false);
+    }
+  };
+
   if (authLoading || isLoading) {
     return (
       <div className="flex items-center justify-center h-full">
@@ -113,7 +181,7 @@ export default function SettingsPage() {
     );
   }
 
-  if (!isAdministrator) {
+  if (!isSystemAdmin) {
     return null;
   }
 
@@ -186,9 +254,18 @@ export default function SettingsPage() {
 
       {/* User Management */}
       <div className="bg-white border border-gray-200 rounded-lg p-6 space-y-4">
-        <div className="flex items-center gap-3">
-          <Users className="h-6 w-6 text-[#005eb8]" />
-          <h2 className="text-xl font-semibold">User Management</h2>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <Users className="h-6 w-6 text-[#005eb8]" />
+            <h2 className="text-xl font-semibold">User Management</h2>
+          </div>
+          <Button
+            onClick={() => setShowCreateUser(true)}
+            className="bg-[#005eb8] hover:bg-[#003d7a]"
+          >
+            <UserPlus className="h-4 w-4 mr-2" />
+            Create User
+          </Button>
         </div>
 
         <div className="overflow-x-auto">
@@ -221,17 +298,19 @@ export default function SettingsPage() {
                   <td className="px-4 py-4">
                     <Select
                       value={profile.role}
-                      onValueChange={(value: 'user' | 'administrator') =>
+                      onValueChange={(value: UserRole) =>
                         handleRoleChange(profile.id, value)
                       }
                       disabled={profile.id === user?.id}
                     >
-                      <SelectTrigger className="w-40">
+                      <SelectTrigger className="w-48">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="user">User</SelectItem>
-                        <SelectItem value="administrator">Administrator</SelectItem>
+                        <SelectItem value="data_only">Data Only</SelectItem>
+                        <SelectItem value="sales">Sales</SelectItem>
+                        <SelectItem value="management">Management</SelectItem>
+                        <SelectItem value="system_administrator">System Administrator</SelectItem>
                       </SelectContent>
                     </Select>
                   </td>
@@ -268,6 +347,105 @@ export default function SettingsPage() {
           </div>
         )}
       </div>
+
+      {/* Create User Dialog */}
+      <Dialog open={showCreateUser} onOpenChange={setShowCreateUser}>
+        <DialogContent className="sm:max-w-[500px]">
+          <DialogHeader>
+            <DialogTitle>Create New User</DialogTitle>
+            <DialogDescription>
+              Add a new user to the system with specified role and permissions.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-4 py-4">
+            <div className="space-y-2">
+              <Label htmlFor="fullName">Full Name *</Label>
+              <Input
+                id="fullName"
+                placeholder="John Smith"
+                value={newUserFullName}
+                onChange={(e) => setNewUserFullName(e.target.value)}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="email">Email Address *</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="john.smith@example.com"
+                value={newUserEmail}
+                onChange={(e) => setNewUserEmail(e.target.value)}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="password">Password *</Label>
+              <Input
+                id="password"
+                type="password"
+                placeholder="Minimum 6 characters"
+                value={newUserPassword}
+                onChange={(e) => setNewUserPassword(e.target.value)}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="role">Role *</Label>
+              <Select value={newUserRole} onValueChange={(value: UserRole) => setNewUserRole(value)}>
+                <SelectTrigger id="role">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="data_only">Data Only</SelectItem>
+                  <SelectItem value="sales">Sales</SelectItem>
+                  <SelectItem value="management">Management</SelectItem>
+                  <SelectItem value="system_administrator">System Administrator</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <Checkbox
+                id="emailConfirmed"
+                checked={emailConfirmed}
+                onCheckedChange={(checked) => setEmailConfirmed(checked as boolean)}
+              />
+              <Label
+                htmlFor="emailConfirmed"
+                className="text-sm font-normal cursor-pointer"
+              >
+                Mark email as confirmed (user can login immediately without email verification)
+              </Label>
+            </div>
+          </div>
+
+          <DialogFooter>
+            <Button
+              variant="outline"
+              onClick={() => setShowCreateUser(false)}
+              disabled={isCreatingUser}
+            >
+              Cancel
+            </Button>
+            <Button
+              onClick={handleCreateUser}
+              disabled={isCreatingUser}
+              className="bg-[#005eb8] hover:bg-[#003d7a]"
+            >
+              {isCreatingUser ? (
+                <>
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                  Creating...
+                </>
+              ) : (
+                'Create User'
+              )}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

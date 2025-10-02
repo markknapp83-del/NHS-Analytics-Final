@@ -18,7 +18,13 @@ import {
   LogOut,
   ChevronLeft,
   ChevronRight,
-  Stethoscope
+  Stethoscope,
+  FileText,
+  Briefcase,
+  UserCheck,
+  Target,
+  CheckSquare,
+  LayoutDashboard
 } from 'lucide-react';
 import {
   Tooltip,
@@ -30,7 +36,14 @@ export function DashboardSidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-  const { signOut, isAdministrator } = useAuth();
+  const {
+    signOut,
+    canAccessAnalytics,
+    canAccessCRM,
+    canAccessTenders,
+    canManageTeam,
+    isSystemAdmin
+  } = useAuth();
 
   const handleLogout = async () => {
     console.log('[Sidebar] Logout button clicked');
@@ -45,16 +58,46 @@ export function DashboardSidebar() {
     }
   };
 
-  const navigation = [
-    { name: 'Overview', href: '/dashboard', icon: BarChart3 },
-    { name: 'RTT Deep Dive', href: '/dashboard/rtt-deep-dive', icon: TrendingUp },
-    { name: 'Community Health', href: '/dashboard/community-health', icon: Users },
-    { name: 'Cancer Performance', href: '/dashboard/cancer-performance', icon: Activity },
-    { name: 'Diagnostics', href: '/dashboard/diagnostics', icon: Stethoscope },
-    { name: 'Capacity & Flow', href: '/dashboard/capacity', icon: Building2 },
-    { name: 'ICB Analysis', href: '/dashboard/icb-analysis', icon: MapPin },
-    { name: 'Custom Analytics', href: '/dashboard/custom-analytics', icon: LineChart }
+  const crmNavigation = [
+    { name: 'My Accounts', href: '/crm/accounts', icon: Building2, requiresPermission: 'crm' },
+    { name: 'Contacts', href: '/crm/contacts', icon: UserCheck, requiresPermission: 'crm' },
+    { name: 'My Pipeline', href: '/crm/pipeline', icon: Target, requiresPermission: 'crm' },
+    { name: 'My Tasks', href: '/crm/tasks', icon: CheckSquare, requiresPermission: 'crm' },
+    { name: 'Management', href: '/crm/management', icon: LayoutDashboard, requiresPermission: 'management' },
   ];
+
+  const analyticsNavigation = [
+    { name: 'Overview', href: '/dashboard', icon: BarChart3, requiresPermission: 'analytics' },
+    { name: 'RTT Deep Dive', href: '/dashboard/rtt-deep-dive', icon: TrendingUp, requiresPermission: 'analytics' },
+    { name: 'Community Health', href: '/dashboard/community-health', icon: Users, requiresPermission: 'analytics' },
+    { name: 'Cancer Performance', href: '/dashboard/cancer-performance', icon: Activity, requiresPermission: 'analytics' },
+    { name: 'Diagnostics', href: '/dashboard/diagnostics', icon: Stethoscope, requiresPermission: 'analytics' },
+    { name: 'Capacity & Flow', href: '/dashboard/capacity', icon: Building2, requiresPermission: 'analytics' },
+    { name: 'ICB Analysis', href: '/dashboard/icb-analysis', icon: MapPin, requiresPermission: 'analytics' },
+    { name: 'Custom Analytics', href: '/dashboard/custom-analytics', icon: LineChart, requiresPermission: 'analytics' },
+  ];
+
+  const tendersNavigation = [
+    { name: 'Tenders', href: '/tenders', icon: FileText, requiresPermission: 'tenders' }
+  ];
+
+  // Helper function to check if user has permission for a nav item
+  const hasPermission = (requiresPermission?: string) => {
+    if (!requiresPermission) return true;
+
+    switch (requiresPermission) {
+      case 'analytics':
+        return canAccessAnalytics;
+      case 'crm':
+        return canAccessCRM;
+      case 'tenders':
+        return canAccessTenders;
+      case 'management':
+        return canManageTeam;
+      default:
+        return false;
+    }
+  };
 
   return (
     <div className={cn(
@@ -77,39 +120,130 @@ export function DashboardSidebar() {
 
       {/* Navigation */}
       <nav className="flex-1 p-2 space-y-1 overflow-y-auto">
-        {navigation.map((item) => {
-          const isActive = pathname === item.href;
+        {/* CRM Section */}
+        {canAccessCRM && (
+          <>
+            {!isCollapsed && (
+              <div className="px-3 py-2 text-xs font-semibold text-white/60 uppercase tracking-wider">
+                CRM
+              </div>
+            )}
+            {crmNavigation.map((item) => {
+              if (!hasPermission(item.requiresPermission)) return null;
+              const isActive = pathname === item.href;
 
-          return (
-            <Tooltip key={item.name} delayDuration={300}>
-              <TooltipTrigger asChild>
-                <Link
-                  href={item.href}
-                  className={cn(
-                    "flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium transition-all duration-200",
-                    isActive
-                      ? "bg-white/12 text-white shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]"
-                      : "text-white/90 hover:bg-white/8 hover:text-white",
-                    isCollapsed && "justify-center"
+              return (
+                <Tooltip key={item.name} delayDuration={300}>
+                  <TooltipTrigger asChild>
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        "flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium transition-all duration-200",
+                        isActive
+                          ? "bg-white/12 text-white shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]"
+                          : "text-white/90 hover:bg-white/8 hover:text-white",
+                        isCollapsed && "justify-center"
+                      )}
+                    >
+                      <item.icon className="h-5 w-5 shrink-0" />
+                      {!isCollapsed && <span>{item.name}</span>}
+                    </Link>
+                  </TooltipTrigger>
+                  {isCollapsed && (
+                    <TooltipContent side="right">
+                      {item.name}
+                    </TooltipContent>
                   )}
-                >
-                  <item.icon className="h-5 w-5 shrink-0" />
-                  {!isCollapsed && <span>{item.name}</span>}
-                </Link>
-              </TooltipTrigger>
-              {isCollapsed && (
-                <TooltipContent side="right">
-                  {item.name}
-                </TooltipContent>
-              )}
-            </Tooltip>
-          );
-        })}
+                </Tooltip>
+              );
+            })}
+          </>
+        )}
+
+        {/* Analytics Section */}
+        {canAccessAnalytics && (
+          <div className={cn("border-t border-white/10 mt-4 pt-4", isCollapsed && "mx-2")}>
+            {!isCollapsed && (
+              <div className="px-3 py-2 text-xs font-semibold text-white/60 uppercase tracking-wider">
+                Analytics
+              </div>
+            )}
+            {analyticsNavigation.map((item) => {
+              if (!hasPermission(item.requiresPermission)) return null;
+              const isActive = pathname === item.href;
+
+              return (
+                <Tooltip key={item.name} delayDuration={300}>
+                  <TooltipTrigger asChild>
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        "flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium transition-all duration-200",
+                        isActive
+                          ? "bg-white/12 text-white shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]"
+                          : "text-white/90 hover:bg-white/8 hover:text-white",
+                        isCollapsed && "justify-center"
+                      )}
+                    >
+                      <item.icon className="h-5 w-5 shrink-0" />
+                      {!isCollapsed && <span>{item.name}</span>}
+                    </Link>
+                  </TooltipTrigger>
+                  {isCollapsed && (
+                    <TooltipContent side="right">
+                      {item.name}
+                    </TooltipContent>
+                  )}
+                </Tooltip>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Tenders Section */}
+        {canAccessTenders && (
+          <div className={cn("border-t border-white/10 mt-4 pt-4", isCollapsed && "mx-2")}>
+            {!isCollapsed && (
+              <div className="px-3 py-2 text-xs font-semibold text-white/60 uppercase tracking-wider">
+                Tenders
+              </div>
+            )}
+            {tendersNavigation.map((item) => {
+              if (!hasPermission(item.requiresPermission)) return null;
+              const isActive = pathname === item.href;
+
+              return (
+                <Tooltip key={item.name} delayDuration={300}>
+                  <TooltipTrigger asChild>
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        "flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium transition-all duration-200",
+                        isActive
+                          ? "bg-white/12 text-white shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]"
+                          : "text-white/90 hover:bg-white/8 hover:text-white",
+                        isCollapsed && "justify-center"
+                      )}
+                    >
+                      <item.icon className="h-5 w-5 shrink-0" />
+                      {!isCollapsed && <span>{item.name}</span>}
+                    </Link>
+                  </TooltipTrigger>
+                  {isCollapsed && (
+                    <TooltipContent side="right">
+                      {item.name}
+                    </TooltipContent>
+                  )}
+                </Tooltip>
+              );
+            })}
+          </div>
+        )}
       </nav>
 
       {/* Settings Section */}
       <div className="p-2 border-t border-white/10 space-y-2">
-        {isAdministrator && (
+        {isSystemAdmin && (
           <Tooltip delayDuration={300}>
             <TooltipTrigger asChild>
               <Link

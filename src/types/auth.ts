@@ -1,6 +1,6 @@
 import type { User, Session } from '@supabase/supabase-js';
 
-export type UserRole = 'user' | 'administrator';
+export type UserRole = 'data_only' | 'sales' | 'management' | 'system_administrator';
 
 export interface UserProfile {
   id: string;
@@ -20,7 +20,13 @@ export interface AuthState {
   profile: UserProfile | null;
   isLoading: boolean;
   isAuthenticated: boolean;
-  isAdministrator: boolean;
+  role: UserRole | null;
+  // Role-based permission flags
+  canAccessAnalytics: boolean;
+  canAccessCRM: boolean;
+  canAccessTenders: boolean;
+  canManageTeam: boolean;
+  isSystemAdmin: boolean;
 }
 
 export interface AuthContextValue extends AuthState {

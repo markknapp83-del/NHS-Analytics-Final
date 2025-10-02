@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { TrustMetrics } from '@/types/database';
-import { Clock, AlertTriangle, Activity, Users, TrendingUp, TrendingDown, Minus } from 'lucide-react';
+import { Clock, AlertTriangle, Users, Activity, TrendingUp, TrendingDown, Minus } from 'lucide-react';
 
 interface KPICard {
   title: string;
@@ -17,7 +17,11 @@ interface KPICard {
   getStatus: (value: number) => 'excellent' | 'good' | 'concern' | 'critical' | 'no-data';
 }
 
-export function OverviewKPICards({ trustData }: { trustData: TrustMetrics[] }) {
+export function OverviewKPICards({
+  trustData
+}: {
+  trustData: TrustMetrics[];
+}) {
   // Find the latest record that has A&E data for accurate performance metrics
   const latestDataWithAE = [...trustData].reverse().find(record =>
     record.ae_data?.four_hour_performance_pct !== null &&
@@ -110,7 +114,7 @@ export function OverviewKPICards({ trustData }: { trustData: TrustMetrics[] }) {
       format: "percentage",
       description: "Target: 95%",
       icon: Activity,
-      getStatus: (value: number) => !value ? 'no-data' : value >= 95 ? 'excellent' : value >= 85 ? 'good' : value >= 70 ? 'concern' : 'critical'
+      getStatus: (value: number) => value >= 95 ? 'excellent' : value >= 85 ? 'good' : value >= 70 ? 'concern' : 'critical'
     },
     {
       title: "Community Services Total Waiting",

@@ -9,9 +9,9 @@ import { AlertTriangle } from 'lucide-react';
 import { RTTPerformanceChart } from '@/components/charts/rtt-performance-chart';
 import { CommunityTrendsChart } from '@/components/charts/community-trends-chart';
 import { OverviewKPICards } from '@/components/dashboard/overview-kpi-cards';
-import { CriticalIssuesPanel } from '@/components/dashboard/critical-issues-panel';
 import { DiagnosticBreachBreakdownChart } from '@/components/charts/diagnostic-breach-breakdown-chart';
 import { PageTitle, PageDescription } from '@/components/ui/typography';
+import { CriticalIssuesPanel } from '@/components/dashboard/critical-issues-panel';
 
 export default function OverviewPage() {
   const [selectedTrust] = useTrustSelection();
@@ -34,6 +34,7 @@ export default function OverviewPage() {
     }
     return null;
   }, [filteredData]);
+
 
   if (isLoading) {
     return (
@@ -73,7 +74,7 @@ export default function OverviewPage() {
         <div>
           <PageTitle>Performance Overview</PageTitle>
           <PageDescription>
-            Comprehensive trust health dashboard with meaningful metrics across RTT, diagnostics, A&E, and capacity data
+            Comprehensive trust health dashboard with meaningful metrics across RTT, diagnostics, procurement activity, and community health data
           </PageDescription>
         </div>
         {latestData && (
@@ -86,12 +87,12 @@ export default function OverviewPage() {
         )}
       </div>
 
-      {/* Updated KPI Cards */}
+      {/* KPI Cards */}
       <OverviewKPICards trustData={filteredData} />
 
-      {/* 2x2 Chart Grid - Updated Content */}
+      {/* Middle Section: RTT Performance + Critical Issues Alert */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Top Left: RTT Performance Trend (UNCHANGED) */}
+        {/* Left: RTT Performance Trend */}
         <Card>
           <CardHeader>
             <CardTitle>RTT Performance Trend</CardTitle>
@@ -102,10 +103,13 @@ export default function OverviewPage() {
           </CardContent>
         </Card>
 
-        {/* Top Right: Critical Issues Alert Panel (NEW) */}
+        {/* Right: Critical Issues Alert */}
         <CriticalIssuesPanel trustData={filteredData} />
+      </div>
 
-        {/* Bottom Left: Community Services Waiting Lists */}
+      {/* Bottom Section: Community Services + Diagnostic Services Breakdown */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Left: Community Services Waiting Lists */}
         <Card>
           <CardHeader>
             <CardTitle>Community Services Waiting Lists</CardTitle>
@@ -116,11 +120,13 @@ export default function OverviewPage() {
           </CardContent>
         </Card>
 
-        {/* Bottom Right: Diagnostic Breach Breakdown (NEW) */}
+        {/* Right: Diagnostic Services Breakdown */}
         <Card>
           <CardHeader>
             <CardTitle>Diagnostic Services Breakdown</CardTitle>
-            <CardDescription>6+ and 13+ week breach categories across diagnostic services</CardDescription>
+            <CardDescription>
+              6+ and 13+ week breach categories across diagnostic services
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <DiagnosticBreachBreakdownChart data={filteredData} />
