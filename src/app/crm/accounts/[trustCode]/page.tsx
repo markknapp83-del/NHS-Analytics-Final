@@ -113,17 +113,6 @@ interface AccountNote {
   created_at: string;
 }
 
-interface PerformanceAlert {
-  trust_code: string;
-  trust_name: string;
-  alert_type: string;
-  severity: string;
-  metric_name: string;
-  current_value: number;
-  threshold: number;
-  details: string;
-}
-
 export default function TrustProfilePage({ params }: { params: Promise<{ trustCode: string }> }) {
   const { trustCode } = use(params);
   const { user, profile } = useAuth();
@@ -134,7 +123,6 @@ export default function TrustProfilePage({ params }: { params: Promise<{ trustCo
   const [opportunities, setOpportunities] = useState<Opportunity[]>([]);
   const [activities, setActivities] = useState<Activity[]>([]);
   const [notes, setNotes] = useState<AccountNote[]>([]);
-  const [alerts, setAlerts] = useState<PerformanceAlert[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('contacts');
 
@@ -167,6 +155,7 @@ export default function TrustProfilePage({ params }: { params: Promise<{ trustCo
     description: '',
   });
   const [newActivity, setNewActivity] = useState({
+    contact_id: '',
     activity_type: 'email',
     activity_date: new Date().toISOString().split('T')[0],
     subject: '',
@@ -174,6 +163,7 @@ export default function TrustProfilePage({ params }: { params: Promise<{ trustCo
     outcome: '',
     next_steps: '',
   });
+  const [selectedContactId, setSelectedContactId] = useState<string>('');
 
   useEffect(() => {
     if (trustCode) {
@@ -190,7 +180,6 @@ export default function TrustProfilePage({ params }: { params: Promise<{ trustCo
         fetchOpportunities(),
         fetchActivities(),
         fetchNotes(),
-        fetchAlerts(),
       ]);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -256,18 +245,6 @@ export default function TrustProfilePage({ params }: { params: Promise<{ trustCo
       }
     } catch (error) {
       console.error('Error fetching notes:', error);
-    }
-  };
-
-  const fetchAlerts = async () => {
-    try {
-      const response = await fetch(`/api/crm/reports?type=performance-alerts&trust_code=${trustCode}`);
-      const result = await response.json();
-      if (result.data) {
-        setAlerts(result.data);
-      }
-    } catch (error) {
-      console.error('Error fetching alerts:', error);
     }
   };
 
@@ -386,6 +363,7 @@ export default function TrustProfilePage({ params }: { params: Promise<{ trustCo
 
       if (response.ok) {
         setNewActivity({
+          contact_id: '',
           activity_type: 'email',
           activity_date: new Date().toISOString().split('T')[0],
           subject: '',
@@ -400,6 +378,20 @@ export default function TrustProfilePage({ params }: { params: Promise<{ trustCo
     } catch (error) {
       console.error('Error adding activity:', error);
     }
+  };
+
+  const handleLogCall = (contactId: string) => {
+    setNewActivity({
+      contact_id: contactId,
+      activity_type: 'call',
+      activity_date: new Date().toISOString().split('T')[0],
+      subject: '',
+      description: '',
+      outcome: '',
+      next_steps: '',
+    });
+    setSelectedContactId(contactId);
+    setShowAddActivity(true);
   };
 
   const getStageColor = (stage: string | null) => {
@@ -422,16 +414,6 @@ export default function TrustProfilePage({ params }: { params: Promise<{ trustCo
       closed_lost: 'bg-red-100 text-red-800',
     };
     return colors[stage] || colors.qualification;
-  };
-
-  const getAlertSeverityColor = (severity: string) => {
-    const colors: Record<string, string> = {
-      critical: 'bg-red-100 text-red-800 border-red-300',
-      high: 'bg-orange-100 text-orange-800 border-orange-300',
-      medium: 'bg-yellow-100 text-yellow-800 border-yellow-300',
-      low: 'bg-blue-100 text-blue-800 border-blue-300',
-    };
-    return colors[severity] || colors.medium;
   };
 
   const getActivityIcon = (type: string) => {
@@ -502,36 +484,6 @@ export default function TrustProfilePage({ params }: { params: Promise<{ trustCo
           Back to Accounts
         </Button>
       </Link>
-
-      {/* Performance Alerts Banner */}
-      {alerts.length > 0 && (
-        <Card className="border-yellow-300 bg-yellow-50">
-          <CardHeader className="pb-3">
-            <div className="flex items-center gap-2">
-              <AlertTriangle className="h-5 w-5 text-yellow-600" />
-              <CardTitle className="text-lg">Performance Alerts</CardTitle>
-            </div>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            {alerts.map((alert, index) => (
-              <div
-                key={index}
-                className={`p-3 rounded-lg border ${getAlertSeverityColor(alert.severity)}`}
-              >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <p className="font-medium">{alert.metric_name}</p>
-                    <p className="text-sm mt-1">{alert.details}</p>
-                  </div>
-                  <Badge variant="outline" className="ml-2">
-                    {alert.severity}
-                  </Badge>
-                </div>
-              </div>
-            ))}
-          </CardContent>
-        </Card>
-      )}
 
       {/* Header Section */}
       <Card>
@@ -803,7 +755,7 @@ export default function TrustProfilePage({ params }: { params: Promise<{ trustCo
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div>
-                        <CardTitle className="text-lg">{contact.name}</CardTitle>
+                        <CardTitle className="text-lg">{contact.full_name}</CardTitle>
                         <CardDescription>
                           {contact.job_title}
                           {contact.department && ` • ${contact.department}`}
@@ -853,7 +805,7 @@ export default function TrustProfilePage({ params }: { params: Promise<{ trustCo
                     </div>
 
                     <div className="flex gap-2 pt-2 border-t">
-                      <Button size="sm" variant="outline" className="flex-1">
+                      <Button size="sm" variant="outline" className="flex-1" onClick={() => handleLogCall(contact.id)}>
                         <Phone className="h-3 w-3 mr-1" />
                         Log Call
                       </Button>
@@ -1012,88 +964,10 @@ export default function TrustProfilePage({ params }: { params: Promise<{ trustCo
         <TabsContent value="activities" className="space-y-4">
           <div className="flex justify-between items-center">
             <h3 className="text-lg font-semibold">Recent Activity</h3>
-            <Sheet open={showAddActivity} onOpenChange={setShowAddActivity}>
-              <SheetTrigger asChild>
-                <Button>
-                  <Plus className="h-4 w-4 mr-2" />
-                  Log Activity
-                </Button>
-              </SheetTrigger>
-              <SheetContent>
-                <SheetHeader>
-                  <SheetTitle>Log Activity</SheetTitle>
-                  <SheetDescription>
-                    Record an activity for {account.trust_name}
-                  </SheetDescription>
-                </SheetHeader>
-                <div className="space-y-4 py-4">
-                  <div>
-                    <label className="text-sm font-medium">Activity Type</label>
-                    <Select
-                      value={newActivity.activity_type}
-                      onValueChange={(value) => setNewActivity({ ...newActivity, activity_type: value })}
-                    >
-                      <SelectTrigger>
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="call">Phone Call</SelectItem>
-                        <SelectItem value="meeting">Meeting</SelectItem>
-                        <SelectItem value="email">Email</SelectItem>
-                        <SelectItem value="note">Note</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium">Date</label>
-                    <Input
-                      type="date"
-                      value={newActivity.activity_date}
-                      onChange={(e) => setNewActivity({ ...newActivity, activity_date: e.target.value })}
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium">Subject *</label>
-                    <Input
-                      value={newActivity.subject}
-                      onChange={(e) => setNewActivity({ ...newActivity, subject: e.target.value })}
-                      placeholder="e.g., Follow-up call regarding proposal"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium">Description *</label>
-                    <Textarea
-                      value={newActivity.description}
-                      onChange={(e) => setNewActivity({ ...newActivity, description: e.target.value })}
-                      placeholder="What was discussed or done..."
-                      rows={4}
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium">Outcome</label>
-                    <Input
-                      value={newActivity.outcome}
-                      onChange={(e) => setNewActivity({ ...newActivity, outcome: e.target.value })}
-                      placeholder="e.g., Positive response, scheduled follow-up"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium">Next Steps</label>
-                    <Textarea
-                      value={newActivity.next_steps}
-                      onChange={(e) => setNewActivity({ ...newActivity, next_steps: e.target.value })}
-                      placeholder="What needs to be done next..."
-                      rows={3}
-                    />
-                  </div>
-                </div>
-                <SheetFooter>
-                  <Button onClick={handleAddActivity} disabled={!newActivity.subject || !newActivity.description}>
-                    Log Activity
-                  </Button>
-                </SheetFooter>
-              </SheetContent>
-            </Sheet>
+            <Button onClick={() => setShowAddActivity(true)}>
+              <Plus className="h-4 w-4 mr-2" />
+              Log Activity
+            </Button>
           </div>
 
           {activities.length === 0 ? (
@@ -1122,7 +996,7 @@ export default function TrustProfilePage({ params }: { params: Promise<{ trustCo
                               {formatDate(activity.activity_date)}
                             </span>
                           </div>
-                          <p className="text-sm text-gray-600 mb-2">{activity.description}</p>
+                          <p className="text-sm text-gray-600 mb-2">{activity.notes}</p>
                           {activity.outcome && (
                             <div className="text-sm mb-2">
                               <span className="font-medium text-gray-700">Outcome: </span>
@@ -1291,6 +1165,84 @@ export default function TrustProfilePage({ params }: { params: Promise<{ trustCo
           </Card>
         </TabsContent>
       </Tabs>
+
+      {/* Activity Sheet - accessible from any tab */}
+      <Sheet open={showAddActivity} onOpenChange={setShowAddActivity}>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Log Activity</SheetTitle>
+            <SheetDescription>
+              Record an activity for {account.trust_name}
+            </SheetDescription>
+          </SheetHeader>
+          <div className="space-y-4 py-4">
+            <div>
+              <label className="text-sm font-medium">Activity Type</label>
+              <Select
+                value={newActivity.activity_type}
+                onValueChange={(value) => setNewActivity({ ...newActivity, activity_type: value })}
+              >
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="call">Phone Call</SelectItem>
+                  <SelectItem value="meeting">Meeting</SelectItem>
+                  <SelectItem value="email">Email</SelectItem>
+                  <SelectItem value="note">Note</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <label className="text-sm font-medium">Date</label>
+              <Input
+                type="date"
+                value={newActivity.activity_date}
+                onChange={(e) => setNewActivity({ ...newActivity, activity_date: e.target.value })}
+              />
+            </div>
+            <div>
+              <label className="text-sm font-medium">Subject *</label>
+              <Input
+                value={newActivity.subject}
+                onChange={(e) => setNewActivity({ ...newActivity, subject: e.target.value })}
+                placeholder="e.g., Follow-up call regarding proposal"
+              />
+            </div>
+            <div>
+              <label className="text-sm font-medium">Description *</label>
+              <Textarea
+                value={newActivity.description}
+                onChange={(e) => setNewActivity({ ...newActivity, description: e.target.value })}
+                placeholder="What was discussed or done..."
+                rows={4}
+              />
+            </div>
+            <div>
+              <label className="text-sm font-medium">Outcome</label>
+              <Input
+                value={newActivity.outcome}
+                onChange={(e) => setNewActivity({ ...newActivity, outcome: e.target.value })}
+                placeholder="e.g., Positive response, scheduled follow-up"
+              />
+            </div>
+            <div>
+              <label className="text-sm font-medium">Next Steps</label>
+              <Textarea
+                value={newActivity.next_steps}
+                onChange={(e) => setNewActivity({ ...newActivity, next_steps: e.target.value })}
+                placeholder="What needs to be done next..."
+                rows={3}
+              />
+            </div>
+          </div>
+          <SheetFooter>
+            <Button onClick={handleAddActivity} disabled={!newActivity.subject || !newActivity.description}>
+              Log Activity
+            </Button>
+          </SheetFooter>
+        </SheetContent>
+      </Sheet>
     </div>
   );
 }

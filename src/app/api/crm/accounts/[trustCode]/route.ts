@@ -15,6 +15,36 @@ export async function GET(
 
     if (error && error.code !== 'PGRST116') throw error;
 
+    // If no account exists, fetch trust data from trust_metrics
+    if (!data || error?.code === 'PGRST116') {
+      const { data: trustData } = await supabaseAuth
+        .from('trust_metrics')
+        .select('trust_code, trust_name, icb_code, icb_name')
+        .eq('trust_code', trustCode)
+        .limit(1)
+        .single();
+
+      if (trustData) {
+        // Return a placeholder account structure with trust data
+        return NextResponse.json({
+          data: {
+            trust_code: trustData.trust_code,
+            trust_name: trustData.trust_name,
+            icb_code: trustData.icb_code,
+            icb_name: trustData.icb_name,
+            account_owner: null,
+            account_stage: null,
+            last_contact_date: null,
+            next_follow_up_date: null,
+            days_since_contact: null,
+            created_at: null,
+            updated_at: null,
+          },
+          error: null,
+        });
+      }
+    }
+
     return NextResponse.json({ data, error: null });
   } catch (error: any) {
     return NextResponse.json({ data: null, error: error.message }, { status: 500 });

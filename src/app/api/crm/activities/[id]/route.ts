@@ -1,4 +1,4 @@
-import { supabaseAuth } from '@/lib/supabase-auth';
+import { createSupabaseServer } from '@/lib/supabase-server';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(
@@ -6,8 +6,9 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const supabase = await createSupabaseServer();
     const { id } = await params;
-    const { data, error } = await supabaseAuth
+    const { data, error } = await supabase
       .from('activities')
       .select('*')
       .eq('id', id)
@@ -26,8 +27,9 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const supabase = await createSupabaseServer();
     const { id } = await params;
-    const { data: { user } } = await supabaseAuth.auth.getUser();
+    const { data: { user } } = await supabase.auth.getUser();
 
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -36,7 +38,7 @@ export async function PUT(
     const body = await request.json();
 
     // @ts-expect-error - Supabase type inference issue
-    const { data, error } = await supabaseAuth.from('activities').update(body).eq('id', id).select().single();
+    const { data, error } = await supabase.from('activities').update(body).eq('id', id).select().single();
 
     if (error) throw error;
 
@@ -51,14 +53,15 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const supabase = await createSupabaseServer();
     const { id } = await params;
-    const { data: { user } } = await supabaseAuth.auth.getUser();
+    const { data: { user } } = await supabase.auth.getUser();
 
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { error } = await supabaseAuth
+    const { error } = await supabase
       .from('activities')
       .delete()
       .eq('id', id);
