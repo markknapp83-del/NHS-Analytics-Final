@@ -464,7 +464,7 @@ export default function TrustProfilePage({ params }: { params: Promise<{ trustCo
           <Building2 className="h-12 w-12 text-gray-400 mx-auto mb-4" />
           <h3 className="text-lg font-semibold text-gray-900">Account not found</h3>
           <p className="text-gray-600 mt-1">The requested trust account could not be found.</p>
-          <Link href="/crm/accounts">
+          <Link href="/crm/trusts">
             <Button className="mt-4" variant="outline">
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Accounts
@@ -480,7 +480,7 @@ export default function TrustProfilePage({ params }: { params: Promise<{ trustCo
   return (
     <div className="p-6 space-y-6">
       {/* Back Navigation */}
-      <Link href="/crm/accounts">
+      <Link href="/crm/trusts">
         <Button variant="ghost" size="sm">
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to Accounts
