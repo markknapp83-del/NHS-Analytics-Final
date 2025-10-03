@@ -153,12 +153,15 @@ export default function MyTasksPage() {
   const fetchTasks = async () => {
     try {
       setLoading(true);
+      console.log('[fetchTasks] User email:', user?.email);
       const params = new URLSearchParams({
         assigned_to: user?.email || '',
       });
 
+      console.log('[fetchTasks] Fetching tasks with params:', params.toString());
       const response = await fetch(`/api/crm/tasks?${params}`);
       const result = await response.json();
+      console.log('[fetchTasks] Response:', result);
 
       if (result.data) {
         // Fetch related data for each task
